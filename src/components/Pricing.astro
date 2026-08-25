@@ -12,7 +12,10 @@ const t = content[locale];
  * Tiers marked `comingSoon` render a chip and a waitlist CTA instead of a
  * checkout, and the whole section is preceded by a band saying plainly that
  * STRATA OS is not on sale yet — so nothing here reads as buyable before it
- * is. The STRATA Lab tier has no flag, because that one is.
+ * is. Every tier carries the flag, because every one of them bundles OS
+ * departments; the route that *is* live today (STRATA Lab) is named inside
+ * the top tier and in the band above, rather than being implied by a card
+ * that looks purchasable.
  */
 ---
 
@@ -35,6 +38,12 @@ const t = content[locale];
             {tier.badge && <div class="pbadge">{tier.badge}</div>}
             {tier.comingSoon && <div class="psoon">{t.pricing.comingSoonLabel}</div>}
             <div class="ptn">{tier.name}</div>
+            {tier.setup && (
+              <div class="psetup">
+                <span class="psetup-k">{t.pricing.setupLabel}</span>
+                <span class="psetup-v">{tier.setup}</span>
+              </div>
+            )}
             <div class="ppr2">{tier.price}{tier.period && <span>{tier.period}</span>}</div>
             <div class="pmeta">{tier.meta}</div>
             <ul>{tier.features.map((f) => <li>{f}</li>)}</ul>

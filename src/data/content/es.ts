@@ -84,12 +84,12 @@ export const es: Content = {
       { value: '0 €', caption: ['apuntarte no cuesta', 'ni compromete a nada'] },
     ],
     ticker: [
-      ['Agente de Ventas', 'cualifica leads y prepara presupuestos'],
-      ['Agente de Atención', 'resuelve consultas y pedidos 24/7'],
-      ['Agente de Finanzas', 'concilia cobros y proyecta tesorería'],
-      ['Agente de Operaciones', 'coordina rutas y partes de obra'],
-      ['Agente de Marketing', 'crea contenido y nutre leads'],
-      ['Agente de Administración', 'genera contratos y documentación'],
+      ['Departamento de Ventas', 'cualifica leads y prepara presupuestos'],
+      ['Departamento de Atención', 'resuelve consultas y pedidos 24/7'],
+      ['Departamento de Finanzas', 'concilia cobros y proyecta tesorería'],
+      ['Departamento de Operaciones', 'coordina rutas y partes de obra'],
+      ['Departamento de Marketing', 'crea contenido y nutre leads'],
+      ['Departamento de Administración', 'genera contratos y documentación'],
       ['Business OS', 'un solo panel para gobernarlo todo'],
       ['Supervisión humana', 'tú apruebas cada acción crítica'],
     ],
@@ -115,14 +115,14 @@ export const es: Content = {
         summary:
           'El sistema operativo autónomo de tu empresa. Contratas agentes de IA que trabajan 24/7 en cada departamento y los gobiernas desde un solo panel.',
         bullets: [
-          'Agentes listos para operar desde el día uno',
+          'Departamentos enteros operando desde el día uno',
           'Se conecta con las herramientas que ya usas',
-          'Escala solo: pagas por agente activo y consumo',
+          'Empiezas por un área y añades las demás cuando toque',
           'En desarrollo — apúntate para entrar en el primer grupo',
         ],
         ctaLabel: 'Apúntate al lanzamiento →',
         ctaHref: '#lanzamiento',
-        price: 'próximamente · desde 490 €/mes',
+        price: 'próximamente · desde 1.490 €/mes',
       },
       {
         tag: 'Servicios · a medida',
@@ -244,54 +244,54 @@ export const es: Content = {
   },
 
   agents: {
-    kicker: 'Tu plantilla de agentes',
+    kicker: 'Tus departamentos, operando solos',
     title: ['No vendemos software. Vendemos el ', 'resultado, ya hecho.'],
-    lead: 'Service-as-a-software: cada agente entrega un servicio completo, no una herramienta. El de ventas vende, el de atención atiende, el de finanzas cobra. Pagas por el trabajo terminado — ahí está el negocio.',
+    lead: 'Service-as-a-software: no contratas un agente suelto, contratas un departamento entero. Dentro de cada uno trabaja un equipo de agentes especializados que se reparten el trabajo del área y entregan el servicio completo. El de ventas vende, el de atención atiende, el de finanzas cobra. Pagas por el trabajo terminado — ahí está el negocio.',
     items: [
       {
         icon: 'chart',
-        name: 'Agente de Ventas',
-        status: 'Activo',
+        name: 'Ventas',
+        status: 'Departamento',
         description:
           'El servicio de vender: cualifica leads, prepara presupuestos y cierra. Cobras por reuniones y ventas, no por licencias.',
         tags: ['CRM', 'Email', 'WhatsApp'],
       },
       {
         icon: 'message',
-        name: 'Agente de Atención',
-        status: 'Activo',
+        name: 'Atención',
+        status: 'Departamento',
         description:
           'El servicio de soporte: responde consultas, gestiona pedidos y resuelve incidencias 24/7. Solo lo excepcional llega a una persona.',
         tags: ['Chat', 'Email', 'Tickets'],
       },
       {
         icon: 'layers',
-        name: 'Agente de Operaciones',
-        status: 'Activo',
+        name: 'Operaciones',
+        status: 'Departamento',
         description:
           'El servicio operativo: coordina pedidos, rutas y partes de obra; detecta cuellos de botella y avisa antes de que sean un problema.',
         tags: ['ERP', 'Calendario'],
       },
       {
         icon: 'euro',
-        name: 'Agente de Finanzas',
-        status: 'Activo',
+        name: 'Finanzas',
+        status: 'Departamento',
         description:
           'El servicio financiero: factura, concilia cobros y proyecta la tesorería. El margen real, siempre a la vista.',
         tags: ['Contabilidad', 'Banco', 'Excel'],
       },
       {
         icon: 'send',
-        name: 'Agente de Marketing',
-        status: 'Activo',
+        name: 'Marketing',
+        status: 'Departamento',
         description:
           'El servicio de captación: crea contenido, nutre leads y publica en tus canales con el tono de tu marca.',
         tags: ['RRSS', 'Email', 'CMS'],
       },
       {
         icon: 'doc',
-        name: 'Agente de Administración',
-        status: 'Activo',
+        name: 'Administración',
+        status: 'Departamento',
         description:
           'El servicio de back-office: documentación, contratos y tareas repetitivas resueltas sin que nadie las toque.',
         tags: ['Docs', 'Firma', 'Drive'],
@@ -300,20 +300,26 @@ export const es: Content = {
     feedTitle: 'Ejemplo de actividad de una jornada',
     feedLive: '● Demo',
     feedDone: 'Hecho',
+    /*
+     * Cada línea se etiqueta «Departamento · agente», porque dentro de un
+     * departamento no trabaja una sola pieza: el que hace presupuestos no es
+     * el que cualifica leads. Es lo que justifica que la unidad de venta sea
+     * el área y no el agente suelto.
+     */
     feedLines: [
-      { agent: 'Agente de Ventas', text: 'Presupuesto #2041 enviado al cliente' },
-      { agent: 'Agente de Atención', text: 'Ticket de pedido resuelto en 40s' },
-      { agent: 'Agente de Finanzas', text: '12 facturas conciliadas' },
-      { agent: 'Agente de Operaciones', text: 'Ruta de entrega optimizada' },
-      { agent: 'Agente de Marketing', text: '3 publicaciones lanzadas en RRSS' },
-      { agent: 'Agente de Ventas', text: 'Lead cualificado y visita agendada' },
-      { agent: 'Agente de Administración', text: 'Contrato generado y enviado a firma' },
-      { agent: 'Agente de Atención', text: 'FAQ respondida y caso cerrado' },
-      { agent: 'Agente de Finanzas', text: 'Tesorería proyectada a 60 días' },
-      { agent: 'Agente de Operaciones', text: 'Alerta de stock enviada al dueño' },
+      { agent: 'Ventas · Presupuestos', text: 'Presupuesto #2041 enviado al cliente' },
+      { agent: 'Atención · Pedidos', text: 'Ticket de pedido resuelto en 40s' },
+      { agent: 'Finanzas · Conciliación', text: '12 facturas conciliadas' },
+      { agent: 'Operaciones · Rutas', text: 'Ruta de entrega optimizada' },
+      { agent: 'Marketing · Contenido', text: '3 publicaciones lanzadas en RRSS' },
+      { agent: 'Ventas · Cualificación', text: 'Lead cualificado y visita agendada' },
+      { agent: 'Administración · Contratos', text: 'Contrato generado y enviado a firma' },
+      { agent: 'Atención · Consultas', text: 'FAQ respondida y caso cerrado' },
+      { agent: 'Finanzas · Tesorería', text: 'Tesorería proyectada a 60 días' },
+      { agent: 'Operaciones · Stock', text: 'Alerta de stock enviada al dueño' },
     ],
     ctaLabel: 'Ver planes de lanzamiento →',
-    ctaNote: 'Estos agentes forman parte de STRATA OS, que abrimos próximamente. ¿Necesitas uno a medida ya? Lo construimos en ',
+    ctaNote: 'Estos departamentos forman parte de STRATA OS, que abrimos próximamente. ¿Necesitas un agente a medida ya? Lo construimos en ',
     ctaNoteLink: 'STRATA Lab',
     ctaNoteAfter: '.',
   },
@@ -462,64 +468,70 @@ export const es: Content = {
 
   pricing: {
     kicker: 'Precios · STRATA OS',
-    title: ['Pagas por lo que ', 'usas — y crece contigo.'],
-    lead: 'Sin licencias infladas. El precio depende del número de agentes activos y del consumo. Como en cualquier equipo: pagas por quien trabaja.',
+    title: ['Contratas departamentos, ', 'no licencias.'],
+    lead: 'La unidad no es el agente suelto: es el departamento. Cada uno es un equipo de agentes que entrega el servicio completo de su área. El Business OS va incluido —es donde tu plantilla digital trabaja, no un extra que se factura aparte.',
     comingSoonLabel: 'Próximamente',
     availabilityNote:
       'STRATA OS todavía no está a la venta: estas son las tarifas de lanzamiento y aún no se pueden contratar. Apúntate a la lista y te avisamos en cuanto abramos —quienes estén dentro entran con este precio. Si necesitas algo a medida ahora mismo, STRATA Lab sí está disponible hoy.',
+    setupLabel: 'Implantación · pago único',
     tiers: [
       {
-        name: 'Starter',
-        price: '490 €',
+        name: 'Un departamento',
+        setup: 'desde 9.500 €',
+        price: '1.490 €',
         period: '/mes',
-        meta: '2 agentes · consumo incluido',
+        meta: 'El área que más te duela, operando entera',
         features: [
-          '2 agentes a elegir',
-          'Panel Business OS',
-          '1.000 acciones/mes incluidas',
-          'Integraciones estándar',
-          'Soporte por email',
+          'Un departamento a elegir: Ventas, Atención, Operaciones, Finanzas, Marketing o Administración',
+          'Todos los agentes de ese departamento, no uno suelto',
+          'Business OS incluido: panel, supervisión y trazabilidad de cada acción',
+          'Integración con las herramientas que ya usas',
+          'Soporte por email y revisión mensual de resultados',
         ],
         comingSoon: true,
         ctaLabel: 'Apúntate al lanzamiento',
         ctaHref: '#lanzamiento',
       },
       {
-        name: 'Growth',
-        price: '1.490 €',
+        name: 'Tres departamentos',
+        setup: 'desde 18.000 €',
+        price: '2.900 €',
         period: '/mes',
-        meta: 'hasta 6 agentes · más consumo',
+        meta: 'Las áreas se coordinan entre sí y el sistema empieza a componer',
         badge: 'El más elegido',
         highlight: true,
         features: [
-          'Hasta 6 agentes, todos los departamentos',
-          '5.000 acciones/mes incluidas',
-          'Integraciones a medida',
-          'Supervisión y reportes de valor',
-          'Soporte prioritario',
+          'Tres departamentos a elegir, con todos sus agentes',
+          'Trabajo encadenado entre áreas: ventas pasa a operaciones, y operaciones a finanzas, sin que nadie reescriba nada',
+          'Business OS incluido, con reporte del valor generado',
+          'Integraciones a medida sobre tu ERP y tu CRM',
+          'Soporte prioritario y ajuste continuo del sistema',
         ],
         comingSoon: true,
         ctaLabel: 'Apúntate al lanzamiento →',
         ctaHref: '#lanzamiento',
       },
       {
-        name: 'STRATA Lab',
+        name: 'Empresa completa',
+        setup: 'desde 35.000 €',
         price: 'A medida',
-        meta: 'agentes propios · proyecto a medida',
+        meta: 'Los seis departamentos, más lo que solo existe en tu empresa',
         features: [
-          'Todo lo de Growth, sin límites',
-          'Agentes propios construidos a tu caso',
-          'Integraciones custom y consumo por volumen',
-          'VPC dedicado · residencia EU · SLA',
-          'Diagnóstico → implementación → operación',
+          'Los seis departamentos operando de forma coordinada',
+          'Agentes propios construidos para tus procesos únicos, en STRATA Lab',
+          'VPC dedicado · residencia de datos en la UE · SLA',
+          'Diagnóstico → implementación → operación continua',
+          'Un responsable de STRATA asignado a tu cuenta',
+          'La parte a medida ya puedes contratarla hoy en STRATA Lab',
         ],
+        comingSoon: true,
         ctaLabel: 'Ver STRATA Lab →',
         ctaHref: '#lab',
       },
     ],
     billingKicker: 'Cómo se factura',
     billingNote:
-      'Cuando abramos: cada agente adicional y el consumo extra se facturan por uso, sin permanencia y cambiando de plan cuando quieras. Precios sin IVA y sujetos a ajuste hasta el lanzamiento.',
+      'La implantación es un pago único: conectar tus sistemas, cargar el conocimiento de tu empresa y dejar los agentes operando de verdad. La cuota mensual cubre que sigan funcionando, la supervisión y las mejoras. Añadir un departamento después tiene su propia implantación y ajusta la cuota. Sin permanencia una vez desplegado. Precios sin IVA y sujetos a ajuste hasta el lanzamiento.',
   },
 
   method: {
@@ -569,7 +581,7 @@ export const es: Content = {
       {
         n: '1',
         title: 'Diagnóstico',
-        price: 'desde 7.500 €',
+        price: 'desde 9.500 €',
         body: 'En 3 semanas mapeamos tu operación y te decimos dónde la IA crea valor, con ROI estimado por iniciativa. Pago único — y se descuenta si seguimos.',
         gives: '→ define tu punto de partida',
       },
@@ -692,7 +704,7 @@ export const es: Content = {
       },
       {
         q: '¿Cómo se facturará STRATA OS?',
-        a: 'Por número de agentes activos y consumo, con planes desde 490 €/mes cuando abramos. Sin permanencia: subirás o bajarás de plan cuando quieras y el consumo extra se facturará por uso. Son las tarifas de lanzamiento y pueden ajustarse hasta esa fecha.',
+        a: 'Por departamentos, no por agentes sueltos ni por usuarios. Cada departamento lleva una implantación de una vez —desde 9.500 €, que es conectar tus sistemas y dejar los agentes trabajando— y una cuota mensual desde 1.490 € que cubre la operación, la supervisión y las mejoras. El Business OS va incluido. Sin permanencia una vez desplegado. Son las tarifas de lanzamiento y pueden ajustarse hasta esa fecha.',
       },
       {
         q: '¿Y si necesito algo a medida ahora, sin esperar al OS?',
@@ -746,7 +758,7 @@ export const es: Content = {
         'STRATA OS está en desarrollo y abrimos por fases. Aún no hay fecha pública: apúntate a la lista de lanzamiento y serás de los primeros en entrar, con la tarifa de salida. Mientras tanto, STRATA Lab sí está disponible hoy.',
       what: 'Dos cosas. STRATA OS es el producto —agentes por departamento y un panel desde el que los gobiernas— y llega próximamente: puedes apuntarte a la lista de lanzamiento. STRATA Lab es nuestra pata a medida y sí está disponible hoy.',
       price:
-        'STRATA OS aún no está a la venta: las tarifas de lanzamiento arrancan en 490 €/mes por agentes y consumo, y quien esté en la lista entra con ese precio. Lo que sí puedes contratar hoy es STRATA Lab: empieza por un diagnóstico desde 7.500 € (se descuenta si seguimos), y la implementación y la operativa mensual dependen del nivel que elijas.',
+        'STRATA OS aún no está a la venta. Se contrata por departamentos: implantación desde 9.500 € (una vez) y cuota desde 1.490 €/mes, con el Business OS incluido. Quien esté en la lista entra con la tarifa de lanzamiento. Lo que sí puedes contratar hoy es STRATA Lab: empieza por un diagnóstico desde 9.500 € (se descuenta si seguimos), y la implementación y la operativa mensual dependen del nivel que elijas.',
       diagnosis:
         'En 3 semanas mapeamos tu operación y te decimos dónde la IA crea valor, con ROI estimado. Es la pata que ya está disponible: rellena el formulario de contacto y arrancamos.',
       trust:

@@ -84,6 +84,16 @@ export interface UseCase {
 
 export interface PriceTier {
   name: string;
+  /**
+   * One-off deployment fee, rendered above the recurring price.
+   *
+   * Every serious player in this market charges to put agents into a business
+   * — Sierra bills setup on top of the subscription, and Spanish AI projects
+   * close at €15k–60k before any monthly fee. Selling a department that runs a
+   * company for a monthly amount and no deployment cost reads as a tool, not
+   * as a system, so the figure is part of the offer rather than a surprise.
+   */
+  setup?: string;
   price: string;
   /** Rendered small next to the price, e.g. "/mes". */
   period?: string;
@@ -257,6 +267,8 @@ export interface Content {
     billingNote: string;
     /** Chip on every not-yet-purchasable tier. */
     comingSoonLabel: string;
+    /** Caption above each tier's one-off deployment fee. */
+    setupLabel: string;
     /** Band above the tiers stating plainly that the OS is not on sale yet. */
     availabilityNote: string;
   };

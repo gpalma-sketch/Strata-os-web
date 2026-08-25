@@ -73,12 +73,12 @@ export const en: Content = {
       { value: '€0', caption: ['joining costs nothing', 'and commits you to nothing'] },
     ],
     ticker: [
-      ['Sales Agent', 'qualifies leads and prepares quotes'],
-      ['Support Agent', 'resolves queries and orders 24/7'],
-      ['Finance Agent', 'reconciles payments and projects cash flow'],
-      ['Operations Agent', 'coordinates routes and job reports'],
-      ['Marketing Agent', 'creates content and nurtures leads'],
-      ['Admin Agent', 'generates contracts and documentation'],
+      ['Sales department', 'qualifies leads and prepares quotes'],
+      ['Support department', 'resolves queries and orders 24/7'],
+      ['Finance department', 'reconciles payments and projects cash flow'],
+      ['Operations department', 'coordinates routes and job reports'],
+      ['Marketing department', 'creates content and nurtures leads'],
+      ['Admin department', 'generates contracts and documentation'],
       ['Business OS', 'one panel to govern it all'],
       ['Human oversight', 'you approve every critical action'],
     ],
@@ -105,14 +105,14 @@ export const en: Content = {
         summary:
           "Your business's autonomous operating system. You hire AI agents that work 24/7 in every department and govern them from a single panel.",
         bullets: [
-          'Agents ready to operate from day one',
+          'Whole departments operating from day one',
           'Connects with the tools you already use',
-          'Scales on its own: you pay per active agent and usage',
+          'Start with one area and add the rest when it makes sense',
           'In development — join the list for the first intake',
         ],
         ctaLabel: 'Join the launch list →',
         ctaHref: '#lanzamiento',
-        price: 'coming soon · from €490/mo',
+        price: 'coming soon · from €1,490/mo',
       },
       {
         tag: 'Services · custom',
@@ -233,54 +233,54 @@ export const en: Content = {
   },
 
   agents: {
-    kicker: 'Your agent workforce',
+    kicker: 'Your departments, running themselves',
     title: ["We don't sell software. We sell the ", 'outcome, already done.'],
-    lead: 'Service-as-a-software: each agent delivers a full service, not a tool. Sales sells, support supports, finance collects. You pay for finished work — that\'s the business.',
+    lead: 'Service-as-a-software: you do not hire a lone agent, you hire a whole department. Inside each one a team of specialised agents splits the work of that area and delivers the full service. Sales sells, support supports, finance collects. You pay for finished work — that\'s the business.',
     items: [
       {
         icon: 'chart',
-        name: 'Sales Agent',
-        status: 'Active',
+        name: 'Sales',
+        status: 'Department',
         description:
           'The service of selling: qualifies leads, prepares quotes and closes. You pay for meetings and sales, not licenses.',
         tags: ['CRM', 'Email', 'WhatsApp'],
       },
       {
         icon: 'message',
-        name: 'Support Agent',
-        status: 'Active',
+        name: 'Support',
+        status: 'Department',
         description:
           'The support service: answers questions, handles orders and resolves issues 24/7. Only the exceptional reaches a person.',
         tags: ['Chat', 'Email', 'Tickets'],
       },
       {
         icon: 'layers',
-        name: 'Operations Agent',
-        status: 'Active',
+        name: 'Operations',
+        status: 'Department',
         description:
           'The operations service: coordinates orders, routes and job reports; spots bottlenecks and warns before they become a problem.',
         tags: ['ERP', 'Calendar'],
       },
       {
         icon: 'euro',
-        name: 'Finance Agent',
-        status: 'Active',
+        name: 'Finance',
+        status: 'Department',
         description:
           'The finance service: invoices, reconciles payments and projects cash flow. Real margin, always in sight.',
         tags: ['Accounting', 'Bank', 'Excel'],
       },
       {
         icon: 'send',
-        name: 'Marketing Agent',
-        status: 'Active',
+        name: 'Marketing',
+        status: 'Department',
         description:
           "The demand service: creates content, nurtures leads and posts to your channels in your brand's voice.",
         tags: ['Social', 'Email', 'CMS'],
       },
       {
         icon: 'doc',
-        name: 'Admin Agent',
-        status: 'Active',
+        name: 'Admin',
+        status: 'Department',
         description:
           'The back-office service: documentation, contracts and repetitive tasks handled without anyone touching them.',
         tags: ['Docs', 'E-sign', 'Drive'],
@@ -289,20 +289,26 @@ export const en: Content = {
     feedTitle: 'Example of a single day of activity',
     feedLive: '● Demo',
     feedDone: 'Done',
+    /*
+     * Each line is labelled "Department · agent", because a department is not
+     * one moving part: whoever builds quotes is not whoever qualifies leads.
+     * That is what makes the area, rather than the individual agent, the unit
+     * you buy.
+     */
     feedLines: [
-      { agent: 'Sales Agent', text: 'Quote #2041 sent to client' },
-      { agent: 'Support Agent', text: 'Order ticket resolved in 40s' },
-      { agent: 'Finance Agent', text: '12 invoices reconciled' },
-      { agent: 'Operations Agent', text: 'Delivery route optimized' },
-      { agent: 'Marketing Agent', text: '3 posts published to social' },
-      { agent: 'Sales Agent', text: 'Lead qualified, visit booked' },
-      { agent: 'Admin Agent', text: 'Contract generated, sent to sign' },
-      { agent: 'Support Agent', text: 'FAQ answered and case closed' },
-      { agent: 'Finance Agent', text: 'Cash flow projected 60 days out' },
-      { agent: 'Operations Agent', text: 'Stock alert sent to owner' },
+      { agent: 'Sales · Quoting', text: 'Quote #2041 sent to client' },
+      { agent: 'Support · Orders', text: 'Order ticket resolved in 40s' },
+      { agent: 'Finance · Reconciliation', text: '12 invoices reconciled' },
+      { agent: 'Operations · Routing', text: 'Delivery route optimized' },
+      { agent: 'Marketing · Content', text: '3 posts published to social' },
+      { agent: 'Sales · Qualification', text: 'Lead qualified, visit booked' },
+      { agent: 'Admin · Contracts', text: 'Contract generated, sent to sign' },
+      { agent: 'Support · Queries', text: 'FAQ answered and case closed' },
+      { agent: 'Finance · Treasury', text: 'Cash flow projected 60 days out' },
+      { agent: 'Operations · Stock', text: 'Stock alert sent to owner' },
     ],
     ctaLabel: 'See launch pricing →',
-    ctaNote: 'These agents are part of STRATA OS, which opens soon. Need a custom one today? We build it at ',
+    ctaNote: 'These departments are part of STRATA OS, which opens soon. Need a custom agent today? We build it at ',
     ctaNoteLink: 'STRATA Lab',
     ctaNoteAfter: '.',
   },
@@ -451,64 +457,70 @@ export const en: Content = {
 
   pricing: {
     kicker: 'Pricing · STRATA OS',
-    title: ['You pay for what you ', 'use — and it grows with you.'],
-    lead: 'No inflated licenses. Price depends on the number of active agents and usage. Like any team: you pay for who works.',
+    title: ['You hire departments, ', 'not licenses.'],
+    lead: 'The unit is not the individual agent — it is the department. Each one is a team of specialised agents that delivers its area end to end. The Business OS comes included: it is where your digital workforce works, not an extra to be billed on the side.',
     comingSoonLabel: 'Coming soon',
     availabilityNote:
       'STRATA OS is not on sale yet: these are the launch rates and they cannot be purchased today. Join the list and we will let you know the moment we open — everyone on it comes in at this price. If you need something custom right now, STRATA Lab is available today.',
+    setupLabel: 'Deployment · one-off',
     tiers: [
       {
-        name: 'Starter',
-        price: '€490',
+        name: 'One department',
+        setup: 'from €9,500',
+        price: '€1,490',
         period: '/mo',
-        meta: '2 agents · usage included',
+        meta: 'Your most painful area, running end to end',
         features: [
-          '2 agents of your choice',
-          'Business OS panel',
-          '1,000 actions/mo included',
-          'Standard integrations',
-          'Email support',
+          'One department of your choice: Sales, Support, Operations, Finance, Marketing or Admin',
+          'Every agent in that department, not a single one',
+          'Business OS included: panel, oversight and an audit trail of every action',
+          'Integration with the tools you already run',
+          'Email support and a monthly results review',
         ],
         comingSoon: true,
         ctaLabel: 'Join the launch list',
         ctaHref: '#lanzamiento',
       },
       {
-        name: 'Growth',
-        price: '€1,490',
+        name: 'Three departments',
+        setup: 'from €18,000',
+        price: '€2,900',
         period: '/mo',
-        meta: 'up to 6 agents · more usage',
+        meta: 'Areas coordinate with each other and the system starts compounding',
         badge: 'Most popular',
         highlight: true,
         features: [
-          'Up to 6 agents, all departments',
-          '5,000 actions/mo included',
-          'Custom integrations',
-          'Supervision and value reports',
-          'Priority support',
+          'Three departments of your choice, with all their agents',
+          'Work chains across areas: sales hands off to operations, operations to finance, with nobody retyping anything',
+          'Business OS included, with reporting on the value generated',
+          'Custom integrations on top of your ERP and CRM',
+          'Priority support and continuous tuning of the system',
         ],
         comingSoon: true,
         ctaLabel: 'Join the launch list →',
         ctaHref: '#lanzamiento',
       },
       {
-        name: 'STRATA Lab',
+        name: 'Whole company',
+        setup: 'from €35,000',
         price: 'Custom',
-        meta: 'custom agents · bespoke project',
+        meta: 'All six departments, plus what only exists in your company',
         features: [
-          'Everything in Growth, without limits',
-          'Custom agents built for your case',
-          'Custom integrations and volume usage',
-          'Dedicated VPC · EU residency · SLA',
-          'Diagnosis → implementation → operation',
+          'All six departments operating in coordination',
+          'Custom agents built for your unique processes, in STRATA Lab',
+          'Dedicated VPC · EU data residency · SLA',
+          'Diagnosis → implementation → ongoing operation',
+          'A named STRATA lead assigned to your account',
+          'The custom half of this you can already buy today, at STRATA Lab',
         ],
+        comingSoon: true,
         ctaLabel: 'See STRATA Lab →',
         ctaHref: '#lab',
       },
     ],
     billingKicker: "How it's billed",
     billingNote:
-      'Once we open: each additional agent and any extra usage is billed by consumption, with no lock-in and plan changes whenever you like. Prices exclude VAT and may be adjusted before launch.',
+      'Deployment is a one-off: connecting your systems, loading your company knowledge and getting the agents genuinely working. The monthly fee covers keeping them running, the oversight and the improvements. Adding a department later carries its own deployment and adjusts the fee. No lock-in once deployed. Prices exclude VAT and may be adjusted before launch.',
   },
 
   method: {
@@ -558,7 +570,7 @@ export const en: Content = {
       {
         n: '1',
         title: 'Diagnosis',
-        price: 'from €7,500',
+        price: 'from €9,500',
         body: 'In 3 weeks we map your operation and tell you where AI creates value, with estimated ROI per initiative. One-off — and credited if we continue.',
         gives: '→ defines your starting point',
       },
@@ -681,7 +693,7 @@ export const en: Content = {
       },
       {
         q: 'How will STRATA OS be billed?',
-        a: 'By number of active agents and usage, with plans from €490/mo once we open. No lock-in: you will move up or down a plan whenever you like and extra usage will be billed by consumption. These are launch rates and may be adjusted before that date.',
+        a: 'By department, not by individual agent and not per user. Each department carries a one-off deployment — from €9,500, which is connecting your systems and getting the agents working — plus a monthly fee from €1,490 covering operation, oversight and improvements. The Business OS is included. No lock-in once deployed. These are launch rates and may be adjusted before that date.',
       },
       {
         q: 'What if I need something custom now, without waiting for the OS?',
@@ -735,7 +747,7 @@ export const en: Content = {
         'STRATA OS is in development and we are opening in phases. There is no public date yet: join the launch list and you will be among the first in, at the founding rate. In the meantime, STRATA Lab is available today.',
       what: 'Two things. STRATA OS is the product — agents per department and a panel you govern them from — and it launches soon: you can join the list. STRATA Lab is our custom side, and that one is available today.',
       price:
-        'STRATA OS is not on sale yet: launch rates start at €490/mo for agents and usage, and everyone on the list comes in at that price. What you can buy today is STRATA Lab: it starts with a diagnosis from €7,500 (credited if we continue), and implementation plus the monthly fee depend on the level you choose.',
+        'STRATA OS is not on sale yet. It is bought by department: deployment from €9,500 (one-off) and a fee from €1,490/mo, with the Business OS included. Everyone on the list comes in at the launch rate. What you can buy today is STRATA Lab: it starts with a diagnosis from €9,500 (credited if we continue), and implementation plus the monthly fee depend on the level you choose.',
       diagnosis:
         'In 3 weeks we map your operation and tell you where AI creates value, with estimated ROI. This is the side that is already available: fill in the contact form and we get started.',
       trust:

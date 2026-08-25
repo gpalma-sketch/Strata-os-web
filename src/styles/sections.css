@@ -1184,6 +1184,41 @@
   font-size: 24px;
   color: var(--text);
 }
+/* Implantación (pago único).
+   Va en su propio bloque, no como nota al pie del precio: es la mitad de la
+   oferta, y esconderla es exactamente lo que hace que un comprador se sienta
+   engañado al recibir el presupuesto. */
+.ptier .psetup {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 6px 12px;
+  margin-top: 16px;
+  padding: 9px 12px;
+  border: 1px dashed var(--line-l);
+  border-radius: 10px;
+  background: rgba(15, 30, 46, 0.025);
+}
+.ptier .psetup-k {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-mute);
+}
+.ptier .psetup-v {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 16px;
+  color: var(--text);
+  white-space: nowrap;
+}
+.ptier.hot .psetup {
+  border-color: rgba(255, 194, 75, 0.55);
+  background: rgba(255, 194, 75, 0.08);
+}
+
 .ptier .ppr2 {
   font-family: var(--font-display);
   font-weight: 800;
@@ -1191,6 +1226,10 @@
   margin-top: 12px;
   line-height: 1;
   color: var(--text);
+}
+/* La cuota mensual tiene que seguir siendo el número dominante de la tarjeta. */
+.ptier .psetup + .ppr2 {
+  margin-top: 14px;
 }
 .ptier .ppr2 span {
   font-family: var(--font-mono);
