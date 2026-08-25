@@ -16,17 +16,34 @@ Para conectar stratalabai.com, ver `DEPLOY.md`.
       de lanzamiento) y `PUBLIC_CONTACT_ENDPOINT` (diagnóstico). Sin ellos el
       sitio degrada a `mailto:`, así que no se pierde nada, pero tampoco se
       recoge nada. Envía una prueba en cada uno tras desplegar.
-- [ ] **Política de privacidad y aviso legal.** Los dos formularios recogen
-      datos personales y el texto de consentimiento promete cómo se tratan.
-      Además, la LSSI-CE obliga a un aviso legal con los datos identificativos
-      de la sociedad. No existen todavía: créalos y enlázalos desde el pie.
-- [ ] **Banner de cookies: comprueba si hace falta.** Tal como está, el sitio
-      no pone cookies ni analítica. En cuanto añadas analítica, lo más probable
-      es que necesites consentimiento previo.
+- [ ] **Datos identificativos del titular.** Están en `src/data/legal.ts` y
+      hoy vacíos: **nombre y apellidos, NIF y domicilio**. Son obligatorios por
+      el art. 10 de la LSSI-CE. Mientras falten, las tres páginas legales se
+      publican con un aviso visible de que están incompletas y con
+      `noindex` — funcionan, pero no cumplen. Es un campo de 2 minutos.
 - [ ] **Repasar los precios de lanzamiento.** 490 € y 1.490 € salen del
       prototipo de diseño. Se muestran como tarifas de lanzamiento con el
       distintivo "Próximamente" y la nota de que pueden ajustarse — pero quien
       se apunte a la lista los va a dar por buenos.
+
+## Hecho ✓
+
+- **Aviso legal, política de privacidad y política de cookies**, en español e
+  inglés (`/aviso-legal`, `/privacidad`, `/cookies` y sus equivalentes en
+  `/en/`), enlazadas desde el pie. Redactadas para LSSI-CE, RGPD y LOPDGDD.
+- **Banner de cookies** conforme a la Guía de la AEPD: rechazar cuesta lo mismo
+  que aceptar, ninguna categoría opcional viene premarcada, no es un muro, y la
+  decisión se puede cambiar desde el pie. Guarda el consentimiento con versión,
+  de modo que añadir una categoría nueva vuelve a preguntar.
+- **Tipografías auto-alojadas.** Ya no se llama a Google Fonts, así que la IP
+  del visitante no se transfiere a un tercero antes de consentir (el motivo de
+  la condena del LG München I, 3 O 17493/20). Verificado: **cero peticiones a
+  dominios externos** al cargar la web.
+
+Cuando añadas analítica, el mecanismo ya está montado: consulta
+`window.strataConsent.analytics` (o escucha el evento `strata:consent`) antes
+de cargar el script, y añade la herramienta a la tabla de la política de
+cookies.
 
 ## Estado de lanzamiento
 

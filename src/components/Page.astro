@@ -26,6 +26,7 @@ import Contact from './Contact.astro';
 import Footer from './Footer.astro';
 import Chat from './Chat.astro';
 import Reveal from './Reveal.astro';
+import CookieBanner from './CookieBanner.astro';
 import type { Locale } from '../data/site';
 
 interface Props {
@@ -58,5 +59,6 @@ const { locale } = Astro.props;
   </main>
   <Footer locale={locale} />
   <Chat locale={locale} />
+  <CookieBanner locale={locale} />
   <Reveal />
 </Base>

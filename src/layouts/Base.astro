@@ -6,15 +6,29 @@ import { content } from '../data/content';
 
 interface Props {
   locale: Locale;
+  /** Sobrescribe el <title>. Por defecto, el de la portada. */
+  title?: string;
+  /** Sobrescribe la meta description. */
+  description?: string;
+  /** Ruta sin prefijo de idioma, p. ej. '/privacidad'. Vacío = portada. */
+  path?: string;
+  /** Excluye la página de los buscadores (documentos legales incompletos). */
+  noindex?: boolean;
 }
-const { locale } = Astro.props;
+const { locale, title, description, path = '', noindex = false } = Astro.props;
 const t = content[locale];
 
-const canonical = new URL(locale === 'es' ? '/' : '/en', Astro.site).href;
+const pageTitle = title ?? t.meta.title;
+const pageDesc = description ?? t.meta.description;
+
+// El prefijo /en aplica a todas las rutas, no solo a la portada.
+const esHref = new URL(path || '/', Astro.site).href;
+const enHref = new URL(`/en${path}`, Astro.site).href;
+const canonical = locale === 'es' ? esHref : enHref;
 const alternates: Array<[string, string]> = [
-  ['es', new URL('/', Astro.site).href],
-  ['en', new URL('/en', Astro.site).href],
-  ['x-default', new URL('/', Astro.site).href],
+  ['es', esHref],
+  ['en', enHref],
+  ['x-default', esHref],
 ];
 
 // Organisation markup so the brand, the two product lines and the contact
@@ -41,15 +55,16 @@ const jsonLd = {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{t.meta.title}</title>
-    <meta name="description" content={t.meta.description} />
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDesc} />
+    {noindex && <meta name="robots" content="noindex, follow" />}
     <link rel="canonical" href={canonical} />
     {alternates.map(([hreflang, href]) => <link rel="alternate" hreflang={hreflang} href={href} />)}
 
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content={site.name} />
-    <meta property="og:title" content={t.meta.title} />
-    <meta property="og:description" content={t.meta.description} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDesc} />
     <meta property="og:url" content={canonical} />
     <meta property="og:locale" content={locale === 'es' ? 'es_ES' : 'en_GB'} />
     <meta property="og:image" content={new URL('/og.png', Astro.site).href} />
@@ -61,14 +76,13 @@ const jsonLd = {
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap"
-    />
+    {/* Tipografías auto-alojadas — ver src/styles/fonts.css. Sin conexión a
+        Google, así que no se transfiere la IP del visitante a un tercero.
+        Solo se precargan las dos caras visibles en el primer viewport. */}
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/archivo-800-latin.woff2" crossorigin />
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/space-grotesk-400-latin.woff2" crossorigin />
 
-    <script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+    {!path && <script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
   </head>
   <body>
     <a class="skip-link" href="#top">{t.nav.skipToContent}</a>

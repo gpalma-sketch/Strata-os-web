@@ -1,0 +1,160 @@
+---
+/**
+ * Aviso de cookies.
+ *
+ * Diseñado según la Guía de la AEPD sobre el uso de cookies (2023):
+ *  · «Rechazar» tiene el mismo peso visual y el mismo número de clics que
+ *    «Aceptar» — nada de un botón llamativo y un enlace gris escondido.
+ *  · No es un muro: la web se puede leer y usar sin decidir.
+ *  · Ninguna categoría opcional viene premarcada.
+ *  · La decisión se puede cambiar después desde el pie de página.
+ *
+ * Honestamente: hoy esta web no instala ninguna cookie que requiera
+ * consentimiento — solo almacenamiento técnico propio para recordar el idioma
+ * y esta misma decisión, exento por el art. 22.2 LSSI-CE. El banner existe
+ * por transparencia y para dejar el mecanismo montado: en cuanto se añada
+ * analítica, basta con consultar `window.strataConsent.analytics` antes de
+ * cargarla.
+ */
+import type { Locale } from '../data/site';
+import { localePath } from '../data/site';
+import { legalStrings } from '../data/legalContent';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const c = legalStrings[locale].cookieBanner;
+---
+
+<div class="ckb" id="cookieBanner" role="dialog" aria-labelledby="ckb-title" aria-describedby="ckb-body" hidden>
+  <div class="ckb-inner">
+    <div class="ckb-text">
+      <p class="ckb-title" id="ckb-title">{c.title}</p>
+      <p class="ckb-body" id="ckb-body">
+        {c.body}{' '}
+        <a href={localePath(locale, '/cookies')}>{c.more}</a>
+      </p>
+    </div>
+    <div class="ckb-actions">
+      <button type="button" class="btn btn-ghost ckb-btn" data-ck="settings">{c.settings}</button>
+      <button type="button" class="btn btn-ghost ckb-btn" data-ck="reject">{c.reject}</button>
+      <button type="button" class="btn btn-primary ckb-btn" data-ck="accept">{c.accept}</button>
+    </div>
+  </div>
+
+  <div class="ckb-panel" id="ckbPanel" hidden>
+    <p class="ckb-title">{c.panelTitle}</p>
+    <p class="ckb-none">{c.noneYet}</p>
+    {
+      c.categories.map((cat) => (
+        <div class="ckb-cat">
+          <label class="ckb-cat-h">
+            <input
+              type="checkbox"
+              data-cat={cat.id}
+              checked={cat.locked}
+              disabled={cat.locked}
+            />
+            <span>{cat.name}</span>
+            {cat.locked && <em class="ckb-lock">{locale === 'es' ? 'siempre activas' : 'always on'}</em>}
+          </label>
+          <p class="ckb-cat-d">{cat.desc}</p>
+        </div>
+      ))
+    }
+    <div class="ckb-actions">
+      <button type="button" class="btn btn-ghost ckb-btn" data-ck="close">{c.close}</button>
+      <button type="button" class="btn btn-primary ckb-btn" data-ck="save">{c.save}</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  const KEY = 'strata_cookie_consent';
+  const VERSION = 1;
+
+  type Consent = { v: number; analytics: boolean; date: string };
+
+  const read = (): Consent | null => {
+    try {
+      const raw = localStorage.getItem(KEY);
+      if (!raw) return null;
+      const c = JSON.parse(raw) as Consent;
+      // Un cambio de versión invalida el consentimiento previo: si algún día
+      // añadimos una categoría nueva, hay que volver a preguntar.
+      return c && c.v === VERSION ? c : null;
+    } catch {
+      return null;
+    }
+  };
+
+  const write = (analytics: boolean) => {
+    try {
+      localStorage.setItem(KEY, JSON.stringify({ v: VERSION, analytics, date: new Date().toISOString() }));
+    } catch {
+      /* Navegación privada o almacenamiento bloqueado: se respeta y no se insiste. */
+    }
+  };
+
+  // API pública para cuando se añada analítica:
+  //   if (window.strataConsent?.analytics) { …cargar el script… }
+  const publish = (analytics: boolean) => {
+    (window as any).strataConsent = { analytics };
+    dispatchEvent(new CustomEvent('strata:consent', { detail: { analytics } }));
+  };
+
+  const banner = document.getElementById('cookieBanner');
+  const panel = document.getElementById('ckbPanel');
+  if (banner && panel) {
+    const inner = banner.querySelector<HTMLElement>('.ckb-inner');
+    const boxes = () => panel.querySelectorAll<HTMLInputElement>('input[data-cat]:not([disabled])');
+
+    const show = (withPanel = false) => {
+      banner.hidden = false;
+      panel.hidden = !withPanel;
+      if (inner) inner.hidden = withPanel;
+    };
+    const hide = () => {
+      banner.hidden = true;
+    };
+
+    const decide = (analytics: boolean) => {
+      write(analytics);
+      publish(analytics);
+      hide();
+    };
+
+    banner.addEventListener('click', (e) => {
+      const action = (e.target as HTMLElement).closest<HTMLElement>('[data-ck]')?.dataset.ck;
+      if (!action) return;
+      if (action === 'accept') decide(true);
+      else if (action === 'reject') decide(false);
+      else if (action === 'settings') show(true);
+      else if (action === 'close') show(false);
+      else if (action === 'save') {
+        const on = Array.from(boxes()).some((b) => b.dataset.cat === 'analiticas' && b.checked);
+        decide(on);
+      }
+    });
+
+    // Reabrir desde el enlace "Cookies" del pie.
+    document.querySelectorAll('[data-cookie-settings]').forEach((el) =>
+      el.addEventListener('click', (e) => {
+        e.preventDefault();
+        const stored = read();
+        boxes().forEach((b) => {
+          if (b.dataset.cat === 'analiticas') b.checked = Boolean(stored?.analytics);
+        });
+        show(true);
+      }),
+    );
+
+    const stored = read();
+    if (stored) publish(stored.analytics);
+    else {
+      publish(false); // Sin decisión, nada opcional se activa.
+      show(false);
+    }
+  }
+</script>

@@ -404,3 +404,354 @@
     justify-content: center;
   }
 }
+
+/* ============================================================================
+   Aviso de cookies
+
+   «Rechazar» comparte estilo y tamaño con «Aceptar» a propósito: la Guía de
+   cookies de la AEPD exige que rechazar sea tan sencillo como aceptar, y un
+   botón vistoso frente a un enlace gris no lo cumple.
+============================================================================ */
+.ckb {
+  position: fixed;
+  left: 16px;
+  right: 16px;
+  bottom: 16px;
+  z-index: 90;
+  max-width: 940px;
+  margin: 0 auto;
+  background: var(--ink);
+  border: 1px solid var(--line-d2);
+  border-radius: 16px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
+  padding: 22px 24px;
+  animation: ckbin 0.35s var(--ease);
+}
+@keyframes ckbin {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+}
+/* `display` gana al atributo [hidden] del navegador, así que hay que
+   neutralizarlo explícitamente o el aviso y el panel se ven a la vez. */
+.ckb-inner[hidden],
+.ckb-panel[hidden] {
+  display: none;
+}
+.ckb-inner {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+.ckb-text {
+  flex: 1;
+  min-width: 0;
+}
+.ckb-title {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--mint);
+}
+.ckb-body {
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: var(--on-dark-soft);
+  margin-top: 8px;
+}
+.ckb-body a {
+  color: var(--mint);
+  border-bottom: 1px solid;
+}
+.ckb-actions {
+  display: flex;
+  gap: 10px;
+  flex: none;
+  flex-wrap: wrap;
+}
+.ckb-btn {
+  padding: 12px 22px;
+  font-size: 13px;
+}
+/* La Guía de cookies de la AEPD pide que rechazar sea tan sencillo y tan
+   visible como aceptar. Mismo tamaño y un solo clic ya lo cumplen; el borde
+   mint iguala además el peso visual, para que «Aceptar» no sea el único
+   botón que destaque. «Configurar» queda deliberadamente en segundo plano:
+   es la opción que añade pasos, no la que se penaliza. */
+.ckb-btn[data-ck='reject'] {
+  border-color: var(--mint);
+  color: var(--mint);
+}
+.ckb-btn[data-ck='reject']:hover {
+  background: rgba(53, 208, 186, 0.12);
+}
+
+/* panel de preferencias */
+.ckb-panel {
+  display: grid;
+  gap: 18px;
+}
+.ckb-none {
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--on-dark-soft);
+  background: rgba(53, 208, 186, 0.08);
+  border: 1px solid rgba(53, 208, 186, 0.3);
+  border-radius: 10px;
+  padding: 11px 14px;
+}
+.ckb-cat {
+  border-top: 1px solid var(--line-d);
+  padding-top: 14px;
+}
+.ckb-cat-h {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--on-dark);
+  cursor: pointer;
+}
+.ckb-cat-h input {
+  width: 17px;
+  height: 17px;
+  accent-color: var(--mint);
+  flex: none;
+  cursor: pointer;
+}
+.ckb-cat-h input:disabled {
+  cursor: default;
+  opacity: 0.55;
+}
+.ckb-lock {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--on-dark-soft);
+  font-style: normal;
+  border: 1px solid var(--line-d2);
+  border-radius: 999px;
+  padding: 3px 9px;
+}
+.ckb-cat-d {
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--on-dark-soft);
+  margin-top: 7px;
+  padding-left: 27px;
+}
+.ckb-panel .ckb-actions {
+  justify-content: flex-end;
+  border-top: 1px solid var(--line-d);
+  padding-top: 18px;
+}
+
+@media (max-width: 780px) {
+  .ckb {
+    padding: 20px;
+  }
+  .ckb-inner {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 18px;
+  }
+  .ckb-actions .ckb-btn {
+    flex: 1;
+    justify-content: center;
+  }
+}
+
+/* ============================================================================
+   Páginas legales
+============================================================================ */
+.legal-head {
+  background: var(--ink-deep);
+  border-bottom: 1px solid var(--line-d);
+  padding: calc(var(--nav-h) + 70px) 0 56px;
+}
+.legal-back {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--mint);
+  display: inline-block;
+  margin-bottom: 26px;
+}
+.legal-back:hover {
+  border-bottom: 1px solid;
+}
+.legal-head .lead {
+  margin-top: 18px;
+  max-width: 720px;
+}
+.legal-date {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--on-dark-soft);
+  margin-top: 22px;
+}
+.legal-body {
+  background: var(--ink-deep);
+  padding: 60px 0 100px;
+}
+.legal-body .wrap {
+  max-width: 860px;
+}
+.legal-warn {
+  background: var(--gold-tint);
+  border: 1px solid rgba(255, 194, 75, 0.45);
+  border-radius: 14px;
+  padding: 20px 24px;
+  margin-bottom: 44px;
+  color: var(--gold);
+}
+.legal-warn strong {
+  display: block;
+  font-size: 16px;
+  margin-bottom: 6px;
+}
+.legal-warn p {
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--on-dark-soft);
+}
+.legal-warn code {
+  font-family: var(--font-mono);
+  font-size: 0.92em;
+  color: var(--mint);
+}
+.legal-sec {
+  margin-bottom: 44px;
+}
+.legal-sec h2 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 21px;
+  letter-spacing: -0.01em;
+  color: var(--on-dark);
+  margin-bottom: 16px;
+}
+.legal-sec p {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--on-dark-soft);
+  margin-bottom: 14px;
+}
+.legal-sec ul {
+  list-style: none;
+  display: grid;
+  gap: 11px;
+  margin-bottom: 14px;
+}
+.legal-sec li {
+  position: relative;
+  padding-left: 22px;
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--on-dark-soft);
+}
+.legal-sec li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--mint);
+}
+.legal-sec strong {
+  color: var(--on-dark);
+  font-weight: 600;
+}
+.legal-sec a {
+  color: var(--mint);
+  border-bottom: 1px solid rgba(53, 208, 186, 0.4);
+}
+.legal-sec a:hover {
+  border-bottom-color: var(--mint);
+}
+.legal-sec code {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 5px;
+  padding: 2px 6px;
+}
+.legal-tablewrap {
+  overflow-x: auto;
+  border: 1px solid var(--line-d);
+  border-radius: 12px;
+  margin-bottom: 14px;
+}
+.legal-sec table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 560px;
+}
+.legal-sec th {
+  text-align: left;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--mint);
+  padding: 13px 16px;
+  border-bottom: 1px solid var(--line-d);
+  background: rgba(255, 255, 255, 0.03);
+}
+.legal-sec td {
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: var(--on-dark-soft);
+  padding: 13px 16px;
+  border-bottom: 1px solid var(--line-d);
+  vertical-align: top;
+}
+.legal-sec tr:last-child td {
+  border-bottom: none;
+}
+.legal-nav {
+  display: flex;
+  gap: 22px;
+  flex-wrap: wrap;
+  border-top: 1px solid var(--line-d);
+  padding-top: 28px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+}
+.legal-nav a {
+  color: var(--on-dark-soft);
+}
+.legal-nav a:hover {
+  color: var(--mint);
+}
+
+/* pie con enlaces legales */
+.footer .wrap {
+  align-items: center;
+}
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.footer-legal {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.footer-legal a:hover {
+  color: var(--mint);
+}
+
+@media (max-width: 640px) {
+  .footer .wrap {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+}

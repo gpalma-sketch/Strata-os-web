@@ -1,18 +1,31 @@
 ---
 import type { Locale } from '../data/site';
+import { localePath } from '../data/site';
 import { content } from '../data/content';
+import { legalStrings } from '../data/legalContent';
 
 interface Props {
   locale: Locale;
 }
 const { locale } = Astro.props;
 const t = content[locale];
+const s = legalStrings[locale];
 const year = new Date().getFullYear();
 ---
 
 <footer class="footer">
   <div class="wrap">
-    <span class="brand" style="font-size:16px;">STRATA</span>
-    <span>{t.footer.tagline} · © {year}</span>
+    <div class="footer-brand">
+      <span class="brand" style="font-size:16px;">STRATA</span>
+      <span>{t.footer.tagline} · © {year}</span>
+    </div>
+    <nav class="footer-legal" aria-label={s.nav.legal}>
+      <a href={localePath(locale, '/aviso-legal')}>{s.nav.legal}</a>
+      <a href={localePath(locale, '/privacidad')}>{s.nav.privacy}</a>
+      <a href={localePath(locale, '/cookies')}>{s.nav.cookies}</a>
+      {/* Reabre el panel de preferencias: la decisión tiene que poder
+          cambiarse tan fácilmente como se tomó. */}
+      <a href={localePath(locale, '/cookies')} data-cookie-settings>{s.cookieBanner.settings}</a>
+    </nav>
   </div>
 </footer>

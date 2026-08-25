@@ -1,0 +1,118 @@
+---
+/**
+ * Plantilla compartida por el aviso legal, la privacidad y las cookies.
+ *
+ * Si faltan los datos identificativos del titular (`datosCompletos === false`)
+ * muestra un aviso en lugar del documento: publicar un aviso legal con huecos
+ * no cumpliría la LSSI igualmente, y aparentar que sí es peor que decirlo.
+ */
+import Base from './Base.astro';
+import Footer from '../components/Footer.astro';
+import CookieBanner from '../components/CookieBanner.astro';
+import type { Locale } from '../data/site';
+import { site, localePath } from '../data/site';
+import { legal, datosCompletos, titular } from '../data/legal';
+import { legalPages, legalStrings } from '../data/legalContent';
+import { content } from '../data/content';
+
+interface Props {
+  locale: Locale;
+  slug: 'aviso-legal' | 'privacidad' | 'cookies';
+}
+const { locale, slug } = Astro.props;
+const s = legalStrings[locale];
+const t = content[locale];
+const own = titular();
+
+const page = legalPages(locale, {
+  nombre: own.nombre,
+  idLabel: own.idLabel[locale],
+  id: own.id,
+  domicilio: own.domicilio,
+  registrales: own.registrales,
+  email: legal.email,
+  telefono: legal.telefono,
+  dominio: site.domain,
+  actualizado: legal.actualizado,
+  encargados: legal.encargados.map((e) => ({
+    nombre: e.nombre,
+    finalidad: e.finalidad[locale],
+    ubicacion: e.ubicacion[locale],
+    url: e.url,
+  })),
+}).find((p) => p.slug === slug)!;
+
+const fechaLarga = new Date(legal.actualizado).toLocaleDateString(locale === 'es' ? 'es-ES' : 'en-GB', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+});
+---
+
+<Base locale={locale} title={`${page.title} — STRATA`} description={page.intro} noindex={!datosCompletos} path={`/${slug}`}>
+  <header class="legal-head">
+    <div class="wrap">
+      <a href={localePath(locale)} class="legal-back">{s.backHome}</a>
+      <h1 class="h-lg">{page.title}</h1>
+      <p class="lead">{page.intro}</p>
+      <p class="legal-date">{s.updated}: {fechaLarga}</p>
+    </div>
+  </header>
+
+  <main class="legal-body">
+    <div class="wrap">
+      {
+        !datosCompletos && (
+          <div class="legal-warn">
+            <strong>{s.incomplete.h}</strong>
+            <p set:html={s.incomplete.p} />
+          </div>
+        )
+      }
+
+      {
+        page.sections.map((sec) => (
+          <section class="legal-sec">
+            <h2>{sec.h}</h2>
+            {sec.p?.map((par) => <p set:html={par} />)}
+            {sec.ul && (
+              <ul>
+                {sec.ul.map((li) => (
+                  <li set:html={li} />
+                ))}
+              </ul>
+            )}
+            {sec.table && (
+              <div class="legal-tablewrap">
+                <table>
+                  <thead>
+                    <tr>{sec.table.head.map((h) => <th>{h}</th>)}</tr>
+                  </thead>
+                  <tbody>
+                    {sec.table.rows.map((row) => (
+                      <tr>
+                        {row.map((cell) => (
+                          <td set:html={cell} />
+                        ))}
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            )}
+          </section>
+        ))
+      }
+
+      <nav class="legal-nav" aria-label={page.title}>
+        <a href={localePath(locale, '/aviso-legal')}>{s.nav.legal}</a>
+        <a href={localePath(locale, '/privacidad')}>{s.nav.privacy}</a>
+        <a href={localePath(locale, '/cookies')}>{s.nav.cookies}</a>
+        <a href={localePath(locale)}>{t.nav.skipToContent === 'Skip to content' ? 'Home' : 'Inicio'}</a>
+      </nav>
+    </div>
+  </main>
+
+  <Footer locale={locale} />
+  <CookieBanner locale={locale} />
+</Base>
