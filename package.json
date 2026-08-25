@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "description": "STRATA marketing site — production implementation of the Claude Design handoff.",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "description": "STRATA marketing site \u2014 production implementation of the Claude Design handoff.",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
