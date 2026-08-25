@@ -1865,3 +1865,29 @@
     padding: 26px;
   }
 }
+
+/* Cierre de canal bajo "para quién es": presente pero claramente secundario
+   frente a la llamada principal, que va dirigida al cliente. */
+.partner-note {
+  margin-top: 34px;
+  padding-top: 26px;
+  border-top: 1px solid var(--line-l);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 8px 18px;
+}
+.partner-note p {
+  margin: 0;
+  flex: 1 1 420px;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--text-mute);
+}
+.partner-note a {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--teal);
+  border-bottom: 1px solid currentColor;
+  white-space: nowrap;
+}

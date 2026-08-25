@@ -39,20 +39,22 @@ export const site = {
 
   /**
    * Waitlist signups (STRATA OS launch list). Email only — the point is zero
-   * friction. Posts `FormData` and expects any 2xx back, which Formspree,
-   * Basin, Web3Forms, Netlify Forms, Mailchimp and Beehiiv all satisfy, so the
-   * site stays fully static.
+   * friction.
    *
-   * Unset → the waitlist form is replaced by a mailto: link, so an
-   * unconfigured deploy never silently swallows a signup.
+   * Points at this site's own route by default. That route runs on Vercel and
+   * writes to Supabase (Frankfurt): no third-party form service, so signups
+   * never leave the EEA and the visitor's browser only ever talks to
+   * stratalabai.com. `PUBLIC_WAITLIST_ENDPOINT` still overrides it if the list
+   * ever moves to a mailing tool.
    */
-  waitlistEndpoint: import.meta.env.PUBLIC_WAITLIST_ENDPOINT ?? '',
+  waitlistEndpoint: import.meta.env.PUBLIC_WAITLIST_ENDPOINT || '/api/waitlist',
 
   /**
-   * Diagnosis enquiries (STRATA Lab). Same contract as above; a separate
-   * endpoint so launch-list emails and real sales leads don't land in one pile.
+   * Diagnosis enquiries (STRATA Lab). Same contract; a separate endpoint and a
+   * separate table so launch-list emails and real sales leads don't land in
+   * one pile.
    */
-  contactEndpoint: import.meta.env.PUBLIC_CONTACT_ENDPOINT ?? '',
+  contactEndpoint: import.meta.env.PUBLIC_CONTACT_ENDPOINT || '/api/contact',
 
   /**
    * Customer testimonials.

@@ -69,15 +69,34 @@ export const legal = {
       ubicacion: { es: 'Irlanda (UE)', en: 'Ireland (EU)' },
       url: 'https://policies.google.com/privacy',
     },
+    {
+      nombre: 'Supabase, Inc.',
+      finalidad: {
+        es: 'Base de datos de la lista de lanzamiento y de los mensajes de contacto',
+        en: 'Database for the launch list and contact messages',
+      },
+      // El proyecto está en eu-central-1 (Fráncfort), así que los datos de los
+      // formularios se almacenan dentro del EEE y no hay transferencia
+      // internacional que amparar por este concepto.
+      ubicacion: {
+        es: 'Alemania (UE) — servidores en Fráncfort, eu-central-1',
+        en: 'Germany (EU) — servers in Frankfurt, eu-central-1',
+      },
+      url: 'https://supabase.com/privacy',
+    },
   ],
 
   /**
-   * Proveedor de los formularios. Se rellena cuando se configure
-   * PUBLIC_WAITLIST_ENDPOINT / PUBLIC_CONTACT_ENDPOINT: al pasar por él los
-   * datos del formulario, hay que declararlo aquí como encargado.
+   * Proveedor externo de formularios.
+   *
+   * Vacío a propósito: los formularios no pasan por ningún tercero. El
+   * navegador envía a /api/waitlist y /api/contact, rutas de este mismo sitio
+   * que escriben directamente en Supabase (ya declarado arriba). Solo hay que
+   * rellenarlo si algún día se apunta a un servicio externo mediante
+   * PUBLIC_WAITLIST_ENDPOINT / PUBLIC_CONTACT_ENDPOINT.
    */
   proveedorFormularios: {
-    nombre: PENDIENTE, // p. ej. 'Formspree, Inc.'
+    nombre: PENDIENTE,
     ubicacion: { es: PENDIENTE, en: PENDIENTE },
     url: PENDIENTE,
   },

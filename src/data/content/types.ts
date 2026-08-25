@@ -301,6 +301,13 @@ export interface Content {
     lead: string;
     members: Member[];
   };
+  /**
+   * Sección "para quién es". Se llamaba `partners` y describía el canal de
+   * referidos; ahora describe a los clientes, que es la pregunta que se hace
+   * quien llega a la web. El canal sobrevive como una línea al final —sigue
+   * siendo una vía de entrada real— pero deja de ocupar una sección entera.
+   * La clave conserva el nombre para no romper el ancla `#partners`.
+   */
   partners: {
     kicker: string;
     title: [string, string];
@@ -308,6 +315,9 @@ export interface Content {
     types: PartnerType[];
     logosKicker: string;
     cta: string;
+    /** Cierre para quien no es cliente sino canal. */
+    partnerNote: string;
+    partnerCta: string;
   };
   faq: {
     kicker: string;

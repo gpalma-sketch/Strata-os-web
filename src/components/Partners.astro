@@ -55,7 +55,14 @@ const logos = import.meta.glob<{ default: ImageMetadata }>('../assets/*.{png,jpg
     }
 
     <div class="reveal" style="margin-top:36px;">
-      <a href={`mailto:${site.partnersEmail}`} class="btn btn-teal">{t.partners.cta}</a>
+      <a href="#contacto" class="btn btn-teal">{t.partners.cta}</a>
+    </div>
+
+    {/* El canal de referidos ya no ocupa la sección, pero sigue siendo una vía
+        de entrada real, así que cierra aquí en vez de desaparecer. */}
+    <div class="reveal partner-note">
+      <p>{t.partners.partnerNote}</p>
+      <a href={`mailto:${site.partnersEmail}`}>{t.partners.partnerCta}</a>
     </div>
   </div>
 </section>
