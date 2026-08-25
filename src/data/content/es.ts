@@ -157,7 +157,7 @@ export const es: Content = {
         agentCount: '4 agentes',
         rows: [
           { initial: 'V', name: 'Agente de Ventas', detail: '3 leads cualificados hoy · visita agendada' },
-          { initial: 'O', name: 'Agente de Operaciones', detail: 'Pedido #4811 en ruta · a tiempo' },
+          { initial: 'O', name: 'Agente de Ops', detail: 'Pedido #4811 en ruta · a tiempo' },
           { initial: 'F', name: 'Agente de Finanzas', detail: '12 facturas conciliadas · margen 18,4%' },
         ],
       },
@@ -470,7 +470,7 @@ export const es: Content = {
           'Coordina pedidos, rutas y partes de obra; detecta cuellos de botella y avisa antes de que sean un problema.',
         you: 'entra un pedido',
         ai: 'planifica · coordina · alerta',
-        caption: 'Agente de Operaciones · demo',
+        caption: 'Agente de Ops · demo',
         rows: [
           { title: 'Ruta de entrega optimizada', sub: '3 paradas · -22% km', state: 'hecho', icon: 'check' },
           { title: 'Parte de obra actualizado', sub: 'fase 4 · montaje', state: 'hecho', icon: 'check' },

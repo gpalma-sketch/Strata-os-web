@@ -21,17 +21,25 @@ const { locale } = Astro.props;
 const t = content[locale];
 const isEs = locale === 'es';
 
+/**
+ * La navegación reproduce la del Business OS real, no una inventada: quien
+ * vea esta web y luego la demo tiene que reconocer la misma barra lateral.
+ * Los nueve departamentos van completos; de Control se muestran cinco de las
+ * ocho secciones, porque en un dispositivo a escala no caben todas.
+ */
 const nav = {
   control: isEs ? 'Control' : 'Control',
   items: isEs
-    ? ['Mi día', 'Overview', 'Tareas', 'Agenda', 'Mensajería']
-    : ['My day', 'Overview', 'Tasks', 'Calendar', 'Messages'],
-  depts: isEs ? 'Departamentos' : 'Departments',
+    ? ['Mi día', 'En vivo', 'Trabajo', 'Overview', 'Bandeja']
+    : ['My day', 'Live', 'Work', 'Overview', 'Inbox'],
+  depts: isEs ? 'Departamentos del negocio' : 'Business departments',
   deptItems: isEs
-    ? ['Marketing', 'Ventas', 'Atención', 'Finanzas', 'Producto']
-    : ['Marketing', 'Sales', 'Support', 'Finance', 'Product'],
+    ? ['Marketing', 'Ventas', 'Atención', 'Legal', 'Finanzas', 'Producto & Dev', 'People', 'Ops', 'Dirección']
+    : ['Marketing', 'Sales', 'Support', 'Legal', 'Finance', 'Product & Dev', 'People', 'Ops', 'Leadership'],
   gov: isEs ? 'Gobierno' : 'Governance',
-  govItems: isEs ? ['Agentes', 'Due Diligence'] : ['Agents', 'Due Diligence'],
+  govItems: isEs
+    ? ['Agentes & Gobierno', 'Contrata tu equipo', 'Loop evolutivo']
+    : ['Agents & Governance', 'Hire your team', 'Evolution loop'],
 };
 
 const copy = {

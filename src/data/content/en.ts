@@ -147,7 +147,7 @@ export const en: Content = {
         agentCount: '4 agents',
         rows: [
           { initial: 'S', name: 'Sales Agent', detail: '3 leads qualified today · visit booked' },
-          { initial: 'O', name: 'Operations Agent', detail: 'Order #4811 en route · on time' },
+          { initial: 'O', name: 'Ops Agent', detail: 'Order #4811 en route · on time' },
           { initial: 'F', name: 'Finance Agent', detail: '12 invoices reconciled · margin 18.4%' },
         ],
       },
@@ -459,7 +459,7 @@ export const en: Content = {
           'Coordinates orders, routes and job reports; spots bottlenecks and warns before they become a problem.',
         you: 'an order comes in',
         ai: 'plans · coordinates · alerts',
-        caption: 'Operations Agent · demo',
+        caption: 'Ops Agent · demo',
         rows: [
           { title: 'Delivery route optimized', sub: '3 stops · -22% km', state: 'done', icon: 'check' },
           { title: 'Job report updated', sub: 'phase 4 · assembly', state: 'done', icon: 'check' },
