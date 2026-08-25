@@ -1,0 +1,95 @@
+---
+/**
+ * "Nuestro campo de pruebas": las empresas del grupo que operan con STRATA.
+ *
+ * La sección desaparece entera si no hay ningún caso completo (ver
+ * `src/data/cases.ts`). Nunca renderiza una tarjeta a medias.
+ *
+ * El texto dice explícitamente que son empresas del grupo, no clientes. Esa
+ * frase no es un descargo legal escondido: es el argumento. Cualquiera puede
+ * comprobar quién es el dueño, así que decirlo primero convierte lo que sería
+ * una pillada en una demostración de convicción.
+ */
+import { Image } from 'astro:assets';
+import type { Locale } from '../data/site';
+import { content } from '../data/content';
+import { casosListos, hayCasos } from '../data/cases';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const t = content[locale];
+const lista = casosListos();
+
+const logos = import.meta.glob<{ default: ImageMetadata }>('../assets/*.{png,jpg,jpeg,svg,webp}', {
+  eager: true,
+});
+---
+
+{
+  hayCasos() && (
+    <section class="light sec" id="grupo">
+      <div class="wrap">
+        <div class="reveal">
+          <p class="kick">{t.cases.kicker}</p>
+          <h2 class="h-lg" style="margin-top:18px;">
+            {t.cases.title[0]}
+            <span class="teal">{t.cases.title[1]}</span>
+          </h2>
+          <p class="lead" style="margin-top:18px; max-width:820px;">
+            {t.cases.lead}
+          </p>
+          {/* La aclaración va arriba y a la vista, no en letra pequeña al pie. */}
+          <p class="cases-disclosure">{t.cases.disclosure}</p>
+        </div>
+
+        <div class="cases reveal" data-stagger>
+          {lista.map((c) => {
+            const img = c.logo ? logos[`../assets/${c.logo}`]?.default : undefined;
+            return (
+              <article class={`case${c.destacado ? ' case-hot' : ''}`}>
+                <header class="case-h">
+                  {img ? (
+                    <Image src={img} alt={c.nombre} height={34} class="case-logo" />
+                  ) : (
+                    <span class="case-name">{c.nombre}</span>
+                  )}
+                  <span class="case-sector">{c.sector[locale]}</span>
+                </header>
+
+                <p class="case-sum">{c.resumen[locale]}</p>
+
+                <div class="case-depts">
+                  <span class="case-depts-k">{t.cases.runningLabel}</span>
+                  <ul>
+                    {c.departamentos[locale].map((d) => (
+                      <li>{d}</li>
+                    ))}
+                  </ul>
+                </div>
+
+                {c.metricas.length > 0 && (
+                  <div class="case-metrics">
+                    {c.metricas.map((m) => (
+                      <div class="case-metric">
+                        <div class="case-metric-v">
+                          {m.valor}
+                          {m.unidad && <span>{m.unidad}</span>}
+                        </div>
+                        <div class="case-metric-c">{m.caption[locale]}</div>
+                        {/* El periodo acompaña siempre a la cifra: sin él, el
+                            dato no se puede sostener si alguien pregunta. */}
+                        <div class="case-metric-p">{m.periodo[locale]}</div>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </article>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  )
+}

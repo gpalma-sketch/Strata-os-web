@@ -308,6 +308,20 @@ export interface Content {
    * siendo una vía de entrada real— pero deja de ocupar una sección entera.
    * La clave conserva el nombre para no romper el ancla `#partners`.
    */
+  /**
+   * "Nuestro campo de pruebas": las empresas del grupo que ya operan con
+   * STRATA. Los datos por empresa viven en `src/data/cases.ts`; aquí solo
+   * están los textos de la sección.
+   */
+  cases: {
+    kicker: string;
+    title: [string, string];
+    lead: string;
+    /** Aclaración de que son empresas propias, no clientes. Va visible. */
+    disclosure: string;
+    /** Encabeza la lista de departamentos operando en cada tarjeta. */
+    runningLabel: string;
+  };
   partners: {
     kicker: string;
     title: [string, string];

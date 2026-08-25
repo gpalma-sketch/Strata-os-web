@@ -686,6 +686,13 @@ export const en: Content = {
     ],
   },
 
+  cases: {
+    kicker: 'Our proving ground',
+    title: ['We did not pilot it on you. ', 'We piloted it on ourselves.'],
+    lead: 'Before selling this to anyone, we put it to work running the group\'s own businesses. Each has its own customers, its own invoices and its own emergencies — and all of them run on the same system we are proposing to you.',
+    disclosure: 'These are companies in our own group, not clients. We say so plainly on purpose: if something breaks here, we pay for it. That is exactly why you can trust that the system holds.',
+    runningLabel: 'Running with agents',
+  },
   partners: {
     kicker: 'Who it is for',
     title: ['For companies that have the problem ', 'and nobody to hand it to.'],
