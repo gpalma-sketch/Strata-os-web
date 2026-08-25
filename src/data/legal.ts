@@ -1,14 +1,14 @@
 /**
  * Datos del titular y parámetros legales de la web.
  *
- * ⚠️ TODO ANTES DE PUBLICAR: los campos marcados como PENDIENTE son
- * obligatorios por el art. 10 de la LSSI-CE (Ley 34/2002) y por los arts.
- * 13-14 del RGPD. Mientras estén sin rellenar, las páginas legales muestran
- * un aviso visible en su lugar en vez de fingir que están completas.
+ * Los datos identificativos son obligatorios por el art. 10 de la LSSI-CE
+ * (Ley 34/2002) y por los arts. 13-14 del RGPD. Si alguno se vacía, las
+ * páginas legales vuelven a mostrar un aviso visible en su lugar en vez de
+ * fingir que están completas: ver `datosCompletos` más abajo.
  *
- * Titular actual: persona física (Gonzalo Palma), no sociedad. Si en el
- * futuro se constituye una S.L., cambia `tipo` a 'sociedad' y rellena
- * `sociedad`.
+ * Titular actual: persona física (Gonzalo Palma Huarte), no sociedad. Si en
+ * el futuro se constituye una S.L., cambia `tipo` a 'sociedad' y rellena
+ * `sociedad` — el resto de la web se adapta sola.
  */
 
 export type TipoTitular = 'personaFisica' | 'sociedad';
@@ -23,12 +23,12 @@ export const legal = {
   nombreComercial: 'STRATA',
 
   personaFisica: {
-    /** PENDIENTE — nombre y apellidos completos, tal y como figuran en el DNI. */
-    nombre: PENDIENTE, // p. ej. 'Gonzalo Palma …'
-    /** PENDIENTE — NIF/DNI con letra. */
-    nif: PENDIENTE,
-    /** PENDIENTE — domicilio a efectos de notificaciones (calle, nº, CP, localidad, provincia). */
-    domicilio: PENDIENTE,
+    /** Nombre y apellidos completos, tal y como figuran en el DNI. */
+    nombre: 'Gonzalo Palma Huarte',
+    /** NIF/DNI con letra. */
+    nif: '05952384F',
+    /** Domicilio a efectos de notificaciones. */
+    domicilio: 'Avenida de Monasterio de Silos 92, 28049 Madrid, España',
   },
 
   /** Solo si `tipo` pasa a 'sociedad'. */
