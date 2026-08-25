@@ -1,0 +1,57 @@
+---
+import type { Locale } from '../data/site';
+import { content } from '../data/content';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const t = content[locale];
+
+/**
+ * Tiers marked `comingSoon` render a chip and a waitlist CTA instead of a
+ * checkout, and the whole section is preceded by a band saying plainly that
+ * STRATA OS is not on sale yet — so nothing here reads as buyable before it
+ * is. The STRATA Lab tier has no flag, because that one is.
+ */
+---
+
+<section class="light sec" id="precios">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="kick">{t.pricing.kicker}</p>
+      <h2 class="h-lg" style="margin-top:18px;">
+        {t.pricing.title[0]}<span class="teal">{t.pricing.title[1]}</span>
+      </h2>
+      <p class="lead" style="margin-top:18px; max-width:780px;">{t.pricing.lead}</p>
+    </div>
+
+    <p class="availability reveal">{t.pricing.availabilityNote}</p>
+
+    <div class="price reveal" data-stagger>
+      {
+        t.pricing.tiers.map((tier) => (
+          <div class={`ptier${tier.highlight ? ' hot' : ''}${tier.comingSoon ? ' soon' : ''}`}>
+            {tier.badge && <div class="pbadge">{tier.badge}</div>}
+            {tier.comingSoon && <div class="psoon">{t.pricing.comingSoonLabel}</div>}
+            <div class="ptn">{tier.name}</div>
+            <div class="ppr2">{tier.price}{tier.period && <span>{tier.period}</span>}</div>
+            <div class="pmeta">{tier.meta}</div>
+            <ul>{tier.features.map((f) => <li>{f}</li>)}</ul>
+            <a
+              href={tier.ctaHref}
+              class={`btn ${tier.comingSoon ? 'btn-ghost' : tier.highlight ? 'btn-teal' : 'btn-ghost'}`}
+            >
+              {tier.ctaLabel}
+            </a>
+          </div>
+        ))
+      }
+    </div>
+
+    <div class="billing reveal">
+      <span class="kick">{t.pricing.billingKicker}</span>
+      <p class="body" style="font-size:16px; max-width:820px;">{t.pricing.billingNote}</p>
+    </div>
+  </div>
+</section>

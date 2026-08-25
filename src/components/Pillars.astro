@@ -1,0 +1,38 @@
+---
+import type { Locale } from '../data/site';
+import { content } from '../data/content';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const t = content[locale];
+---
+
+<section class="light sec" id="modelo">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="kick">{t.pillars.kicker}</p>
+      <h2 class="h-lg" style="margin-top:18px; max-width:900px;">
+        {t.pillars.title[0]}<span class="teal">{t.pillars.title[1]}</span>
+      </h2>
+    </div>
+
+    <div class="pillars reveal" data-stagger>
+      {
+        t.pillars.items.map((p, i) => (
+          <div class={`pillar ${i === 0 ? 'os' : 'lab'}`}>
+            <div class="ptag2">{p.tag}</div>
+            <h3>{p.name}</h3>
+            <p class="psub">{p.summary}</p>
+            <ul>{p.bullets.map((b) => <li>{b}</li>)}</ul>
+            <div class="pfoot">
+              <a href={p.ctaHref} class={`btn ${i === 0 ? 'btn-primary' : 'btn-ghost'}`}>{p.ctaLabel}</a>
+              <span class="ppr">{p.price}</span>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

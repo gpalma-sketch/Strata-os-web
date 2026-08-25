@@ -1,0 +1,47 @@
+---
+import type { Locale } from '../data/site';
+import { content } from '../data/content';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const t = content[locale];
+---
+
+<section class="dark grid-bg sec" id="como">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="kick">{t.how.kicker}</p>
+      <h2 class="h-lg" style="margin-top:18px;">
+        {t.how.title[0]}<span class="mint">{t.how.title[1]}</span>
+      </h2>
+    </div>
+
+    <div class="flow reveal">
+      {
+        t.how.columns.map((col, i) => (
+          <>
+            {i > 0 && (
+              <div class="flink" aria-hidden="true">
+                <svg viewBox="0 0 72 26" preserveAspectRatio="none"><line x1="0" y1="13" x2="72" y2="13" /></svg>
+              </div>
+            )}
+            <div class={`fcol${col.length === 1 ? ' center' : ''}`}>
+              {col.map((n) => (
+                <div class={`fnode${n.hot ? ' hot' : ''}`}>
+                  <div class="ft">{n.title}</div>
+                  <div class="fs">{n.summary}</div>
+                </div>
+              ))}
+            </div>
+          </>
+        ))
+      }
+    </div>
+
+    <p class="body reveal" style="margin-top:44px; max-width:760px; font-size:18px;">
+      {t.how.closing}<span class="strong">{t.how.closingStrong}</span>{t.how.closingAfter}
+    </p>
+  </div>
+</section>

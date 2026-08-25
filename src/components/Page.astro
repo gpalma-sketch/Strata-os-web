@@ -1,0 +1,62 @@
+---
+/**
+ * The whole landing page in section order, shared by both locale routes.
+ * Section order matches the approved design exactly.
+ */
+import Base from '../layouts/Base.astro';
+import Nav from './Nav.astro';
+import Hero from './Hero.astro';
+import Stats from './Stats.astro';
+import Waitlist from './Waitlist.astro';
+import Pillars from './Pillars.astro';
+import Why from './Why.astro';
+import Agents from './Agents.astro';
+import Product from './Product.astro';
+import Flow from './Flow.astro';
+import UseCases from './UseCases.astro';
+import Pricing from './Pricing.astro';
+import Method from './Method.astro';
+import Lab from './Lab.astro';
+import Reviews from './Reviews.astro';
+import Gallery from './Gallery.astro';
+import Team from './Team.astro';
+import Partners from './Partners.astro';
+import Faq from './Faq.astro';
+import Contact from './Contact.astro';
+import Footer from './Footer.astro';
+import Chat from './Chat.astro';
+import Reveal from './Reveal.astro';
+import type { Locale } from '../data/site';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+---
+
+<Base locale={locale}>
+  <Nav locale={locale} />
+  <main>
+    <Hero locale={locale} />
+    <Stats locale={locale} />
+    <Waitlist locale={locale} />
+    <Pillars locale={locale} />
+    <Why locale={locale} />
+    <Agents locale={locale} />
+    <Product locale={locale} />
+    <Flow locale={locale} />
+    <UseCases locale={locale} />
+    <Pricing locale={locale} />
+    <Method locale={locale} />
+    <Lab locale={locale} />
+    <Reviews locale={locale} />
+    <Gallery locale={locale} />
+    <Team locale={locale} />
+    <Partners locale={locale} />
+    <Faq locale={locale} />
+    <Contact locale={locale} />
+  </main>
+  <Footer locale={locale} />
+  <Chat locale={locale} />
+  <Reveal />
+</Base>

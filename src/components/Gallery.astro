@@ -1,0 +1,29 @@
+---
+import { Image } from 'astro:assets';
+import type { Locale } from '../data/site';
+import { content } from '../data/content';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const t = content[locale];
+
+const images = import.meta.glob<{ default: ImageMetadata }>('../assets/gfx-*.png', { eager: true });
+---
+
+<section class="dark" style="padding:0; line-height:0;">
+  <div class="gallery">
+    {
+      t.gallery.map((tile) => {
+        const img = images[`../assets/${tile.image}`]?.default;
+        return (
+          <div class="gtile">
+            {img && <Image src={img} alt={tile.alt} widths={[480, 800, 1200]} sizes="(max-width: 640px) 100vw, (max-width: 880px) 50vw, 40vw" />}
+            <div class="glabel"><b>{tile.label}</b>{tile.caption}</div>
+          </div>
+        );
+      })
+    }
+  </div>
+</section>

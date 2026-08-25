@@ -1,0 +1,110 @@
+---
+import Icon from './Icon.astro';
+import type { Locale } from '../data/site';
+import { content } from '../data/content';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const t = content[locale];
+
+/**
+ * The prototype built each panel in JS from a dictionary, so the other four
+ * cases existed nowhere in the HTML — invisible to search engines and gone
+ * without JS. Here all five are server-rendered with proper tab semantics and
+ * only the inactive ones are hidden.
+ */
+---
+
+<section class="deep grid-bg sec" id="casos">
+  <div class="orb" style="width:480px; height:480px; top:12%; left:-180px; opacity:.2;"></div>
+  <div class="wrap">
+    <div class="reveal">
+      <p class="kick">{t.useCases.kicker}</p>
+      <h2 class="h-lg" style="margin-top:18px;">
+        {t.useCases.title[0]}<span class="mint">{t.useCases.title[1]}</span>
+      </h2>
+    </div>
+
+    <div class="uc-tabs reveal" role="tablist" aria-label={t.useCases.kicker} id="ucTabs">
+      {
+        t.useCases.items.map((uc, i) => (
+          <button
+            class="uc-tab"
+            type="button"
+            role="tab"
+            id={`uc-tab-${i}`}
+            aria-controls={`uc-panel-${i}`}
+            aria-selected={i === 0 ? 'true' : 'false'}
+            tabindex={i === 0 ? 0 : -1}
+          >
+            {uc.tab}
+          </button>
+        ))
+      }
+    </div>
+
+    {
+      t.useCases.items.map((uc, i) => (
+        <div
+          class="uc-panel reveal"
+          role="tabpanel"
+          id={`uc-panel-${i}`}
+          aria-labelledby={`uc-tab-${i}`}
+          tabindex="0"
+          hidden={i !== 0}
+        >
+          <div>
+            <div class="ut">{uc.title}</div>
+            <div class="ud">{uc.description}</div>
+            <div class="uc-io">
+              <div class="uh tu"><div class="ulab">{t.useCases.youLabel}</div><div class="uv">{uc.you}</div></div>
+              <div class="uh ia"><div class="ulab">{t.useCases.aiLabel}</div><div class="uv">{uc.ai}</div></div>
+            </div>
+          </div>
+          <div class="uc-mock" aria-hidden="true">
+            <div class="um-bar"><i /><i /><i /><span>{uc.caption}</span></div>
+            <div class="um-body">
+              {uc.rows.map((r) => (
+                <div class="um-row">
+                  <div class="um-ic"><Icon name={r.icon} /></div>
+                  <div><div class="um-t">{r.title}</div><div class="um-s">{r.sub}</div></div>
+                  <span class="um-ok">{r.state}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</section>
+
+<script>
+  const tabs = Array.from(document.querySelectorAll<HTMLButtonElement>('#ucTabs [role="tab"]'));
+  const panels = tabs.map((tab) => document.getElementById(tab.getAttribute('aria-controls')!));
+
+  const select = (i: number, focus = false) => {
+    tabs.forEach((tab, j) => {
+      const on = i === j;
+      tab.setAttribute('aria-selected', String(on));
+      tab.tabIndex = on ? 0 : -1;
+      panels[j]?.toggleAttribute('hidden', !on);
+    });
+    if (focus) tabs[i]?.focus();
+  };
+
+  tabs.forEach((tab, i) => {
+    tab.addEventListener('click', () => select(i));
+    tab.addEventListener('keydown', (e) => {
+      const last = tabs.length - 1;
+      if (e.key === 'ArrowRight') select(i === last ? 0 : i + 1, true);
+      else if (e.key === 'ArrowLeft') select(i === 0 ? last : i - 1, true);
+      else if (e.key === 'Home') select(0, true);
+      else if (e.key === 'End') select(last, true);
+      else return;
+      e.preventDefault();
+    });
+  });
+</script>

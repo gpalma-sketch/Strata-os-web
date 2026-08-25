@@ -1,0 +1,77 @@
+---
+import '../styles/global.css';
+import type { Locale } from '../data/site';
+import { site } from '../data/site';
+import { content } from '../data/content';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const t = content[locale];
+
+const canonical = new URL(locale === 'es' ? '/' : '/en', Astro.site).href;
+const alternates: Array<[string, string]> = [
+  ['es', new URL('/', Astro.site).href],
+  ['en', new URL('/en', Astro.site).href],
+  ['x-default', new URL('/', Astro.site).href],
+];
+
+// Organisation markup so the brand, the two product lines and the contact
+// route are machine-readable. Kept in sync with src/data/site.ts.
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: site.name,
+  url: new URL('/', Astro.site).href,
+  description: t.meta.description,
+  email: site.email,
+  logo: new URL('/strata-mark.svg', Astro.site).href,
+  founder: t.team.members.map((m) => ({ '@type': 'Person', name: m.name, jobTitle: m.role })),
+  makesOffer: t.pillars.items.map((p) => ({
+    '@type': 'Offer',
+    name: p.name,
+    description: p.summary,
+  })),
+};
+---
+
+<!doctype html>
+<html lang={locale}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{t.meta.title}</title>
+    <meta name="description" content={t.meta.description} />
+    <link rel="canonical" href={canonical} />
+    {alternates.map(([hreflang, href]) => <link rel="alternate" hreflang={hreflang} href={href} />)}
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:title" content={t.meta.title} />
+    <meta property="og:description" content={t.meta.description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:locale" content={locale === 'es' ? 'es_ES' : 'en_GB'} />
+    <meta property="og:image" content={new URL('/og.png', Astro.site).href} />
+    <meta property="og:image:alt" content={t.meta.ogAlt} />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <meta name="theme-color" content="#0A1620" />
+    <link rel="icon" href="/strata-mark.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap"
+    />
+
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  </head>
+  <body>
+    <a class="skip-link" href="#top">{t.nav.skipToContent}</a>
+    <slot />
+  </body>
+</html>

@@ -1,0 +1,70 @@
+---
+/**
+ * Scroll-reveal + count-up, shared by every section.
+ *
+ * Order matters: `js-reveal` (which is what actually hides `.reveal`) is only
+ * added after we know an IntersectionObserver exists to bring things back.
+ * Without JS, without IO, or in reduced-motion the class is never added and
+ * the page renders fully visible. A timeout also force-reveals everything as
+ * a backstop.
+ */
+---
+
+<script>
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const fillCounts = (root: ParentNode) => {
+    root.querySelectorAll<HTMLElement>('[data-count]').forEach((el) => {
+      el.textContent = Number(el.dataset.count).toLocaleString(document.documentElement.lang || 'es');
+    });
+  };
+
+  const countUp = (el: HTMLElement) => {
+    if (el.dataset.counted) return;
+    el.dataset.counted = '1';
+    const target = Number(el.dataset.count);
+    const locale = document.documentElement.lang || 'es';
+    const duration = 1400;
+    let t0: number | null = null;
+
+    const frame = (t: number) => {
+      if (t0 === null) t0 = t;
+      const p = Math.min((t - t0) / duration, 1);
+      const eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.round(target * eased).toLocaleString(locale);
+      if (p < 1) requestAnimationFrame(frame);
+      else el.textContent = target.toLocaleString(locale);
+    };
+    requestAnimationFrame(frame);
+  };
+
+  const targets = Array.from(document.querySelectorAll<HTMLElement>('.reveal, [data-stagger]'));
+
+  if (reduce || !('IntersectionObserver' in window)) {
+    fillCounts(document);
+  } else {
+    document.documentElement.classList.add('js-reveal');
+
+    const activate = (el: HTMLElement) => {
+      el.classList.add('in');
+      el.querySelectorAll<HTMLElement>('[data-count]').forEach(countUp);
+    };
+
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((en) => {
+          if (en.isIntersecting) {
+            activate(en.target as HTMLElement);
+            io.unobserve(en.target);
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: '0px 0px -6% 0px' },
+    );
+
+    targets.forEach((el) => io.observe(el));
+
+    // Backstop: if anything went wrong above, nothing stays hidden.
+    setTimeout(() => targets.forEach(activate), 2500);
+  }
+</script>

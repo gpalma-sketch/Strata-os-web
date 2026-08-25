@@ -1,0 +1,406 @@
+/* ============================================================================
+   Floating assistance chat + the contact form that replaces the
+   prototype's mailto-only CTA.
+============================================================================ */
+
+/* ---------- chat de asistencia ---------- */
+.chatfab {
+  position: fixed;
+  right: 26px;
+  bottom: 26px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--mint);
+  color: var(--ink);
+  border: none;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(53, 208, 186, 0.4);
+  z-index: 80;
+  transition: transform 0.25s var(--ease);
+}
+.chatfab:hover {
+  transform: translateY(-3px) scale(1.05);
+}
+.chatfab svg {
+  width: 26px;
+  height: 26px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.chatfab .cbadge {
+  position: absolute;
+  top: -3px;
+  right: -3px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--blaze);
+}
+
+.chatpanel {
+  position: fixed;
+  right: 26px;
+  bottom: 98px;
+  width: 368px;
+  max-width: calc(100vw - 40px);
+  height: 540px;
+  max-height: calc(100dvh - 140px);
+  background: var(--ink);
+  border: 1px solid var(--line-d2);
+  border-radius: 18px;
+  z-index: 80;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.55);
+  transform: translateY(16px) scale(0.98);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s var(--ease), transform 0.25s var(--ease);
+}
+.chatpanel.open {
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+}
+.chathead {
+  padding: 16px 18px;
+  border-bottom: 1px solid var(--line-d);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.chathead .cav {
+  width: 36px;
+  height: 36px;
+  border-radius: 9px;
+  background: var(--mint);
+  color: var(--ink);
+  display: grid;
+  place-items: center;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 17px;
+  flex: none;
+}
+.chathead .cn {
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--on-dark);
+}
+.chathead .cs {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--mint);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.chathead .cs::before {
+  content: '';
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--mint);
+  box-shadow: 0 0 8px var(--mint);
+}
+.chathead .cx {
+  margin-left: auto;
+  background: none;
+  border: none;
+  color: var(--on-dark-soft);
+  cursor: pointer;
+  font-size: 22px;
+  line-height: 1;
+  padding: 4px 8px;
+}
+.chatlog {
+  flex: 1;
+  overflow-y: auto;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+}
+.msg {
+  max-width: 82%;
+  padding: 11px 15px;
+  border-radius: 14px;
+  font-size: 14.5px;
+  line-height: 1.5;
+}
+.msg.bot {
+  background: var(--ink-soft);
+  color: var(--on-dark);
+  align-self: flex-start;
+  border-bottom-left-radius: 4px;
+}
+.msg.bot a {
+  color: var(--mint);
+  border-bottom: 1px solid;
+}
+.msg.user {
+  background: var(--mint);
+  color: var(--ink);
+  align-self: flex-end;
+  border-bottom-right-radius: 4px;
+}
+.quicks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 0 18px 12px;
+}
+.quick {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--mint);
+  border: 1px solid var(--line-d2);
+  border-radius: 999px;
+  padding: 7px 13px;
+  cursor: pointer;
+  background: none;
+  transition: border-color 0.2s var(--ease), background 0.2s var(--ease);
+}
+.quick:hover {
+  border-color: var(--mint);
+  background: rgba(53, 208, 186, 0.12);
+}
+.chatinput {
+  display: flex;
+  gap: 8px;
+  padding: 14px;
+  border-top: 1px solid var(--line-d);
+}
+.chatinput input {
+  flex: 1;
+  min-width: 0;
+  background: var(--ink-soft);
+  border: 1px solid var(--line-d);
+  border-radius: 10px;
+  padding: 11px 14px;
+  color: var(--on-dark);
+  font-family: var(--font-sans);
+  font-size: 14px;
+}
+.chatinput input:focus {
+  outline: none;
+  border-color: var(--mint);
+}
+.chatinput button {
+  background: var(--mint);
+  color: var(--ink);
+  border: none;
+  border-radius: 10px;
+  padding: 0 15px;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  flex: none;
+}
+.chatinput button svg {
+  width: 18px;
+  height: 18px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+@media (max-width: 640px) {
+  .chatpanel {
+    right: 12px;
+    left: 12px;
+    width: auto;
+  }
+}
+
+/* ---------- contact form ---------- */
+.cform {
+  max-width: 640px;
+  margin: 46px auto 0;
+  text-align: left;
+  display: grid;
+  gap: 18px;
+}
+.cform .frow2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+.cform label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--on-dark-soft);
+  margin-bottom: 8px;
+}
+.cform label .req {
+  color: var(--mint);
+}
+.cform input,
+.cform textarea {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--line-d2);
+  border-radius: 12px;
+  padding: 14px 16px;
+  color: var(--on-dark);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  transition: border-color 0.2s var(--ease), background 0.2s var(--ease);
+}
+.cform textarea {
+  min-height: 132px;
+  resize: vertical;
+}
+.cform input::placeholder,
+.cform textarea::placeholder {
+  color: rgba(237, 243, 244, 0.35);
+}
+.cform input:focus,
+.cform textarea:focus {
+  outline: none;
+  border-color: var(--mint);
+  background: rgba(255, 255, 255, 0.06);
+}
+.cform input:user-invalid,
+.cform textarea:user-invalid {
+  border-color: var(--blaze);
+}
+.cform .consent {
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--on-dark-soft);
+}
+.cform .cform-submit {
+  justify-self: start;
+  justify-content: center;
+}
+.cform[data-state='sending'] .cform-submit {
+  opacity: 0.6;
+  pointer-events: none;
+}
+.cform-status {
+  font-size: 15px;
+  line-height: 1.55;
+  padding: 14px 18px;
+  border-radius: 12px;
+  display: none;
+}
+.cform-status a {
+  color: inherit;
+  border-bottom: 1px solid;
+}
+.cform[data-state='sent'] .cform-status.ok,
+.cform[data-state='error'] .cform-status.err,
+.wlform[data-state='sent'] .cform-status.ok,
+.wlform[data-state='error'] .cform-status.err {
+  display: block;
+}
+.cform[data-state='sent'] .cform-fields {
+  display: none;
+}
+.cform-status.ok {
+  background: rgba(53, 208, 186, 0.12);
+  border: 1px solid rgba(53, 208, 186, 0.4);
+  color: var(--mint);
+}
+.cform-status.err {
+  background: rgba(255, 90, 31, 0.1);
+  border: 1px solid rgba(255, 90, 31, 0.4);
+  color: #ffb59a;
+}
+/* Bot trap: real people never see or fill this. Shared by both forms. */
+.hp {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+@media (max-width: 640px) {
+  .cform .frow2 {
+    grid-template-columns: 1fr;
+  }
+  .cform .cform-submit {
+    justify-self: stretch;
+  }
+}
+
+/* ---------- waitlist form (STRATA OS launch list) ---------- */
+.wlform {
+  max-width: 560px;
+  margin: 34px auto 0;
+  text-align: center;
+}
+.wlform-fields {
+  display: flex;
+  gap: 12px;
+  align-items: stretch;
+}
+.wlform input[type='email'] {
+  flex: 1;
+  min-width: 0;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--line-d2);
+  border-radius: 12px;
+  padding: 15px 18px;
+  color: var(--on-dark);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  transition: border-color 0.2s var(--ease), background 0.2s var(--ease);
+}
+.wlform input[type='email']::placeholder {
+  color: rgba(237, 243, 244, 0.35);
+}
+.wlform input[type='email']:focus {
+  outline: none;
+  border-color: var(--mint);
+  background: rgba(255, 255, 255, 0.07);
+}
+.wlform input[type='email']:user-invalid {
+  border-color: var(--blaze);
+}
+.wlform .btn {
+  flex: none;
+  white-space: nowrap;
+}
+.wlform[data-state='sending'] .btn {
+  opacity: 0.6;
+  pointer-events: none;
+}
+.wlform[data-state='sent'] .wlform-fields,
+.wlform[data-state='sent'] .wlform-consent {
+  display: none;
+}
+.wlform-consent {
+  margin-top: 14px;
+  font-size: 12.5px;
+  line-height: 1.55;
+  color: var(--on-dark-soft);
+}
+.wlform .cform-status {
+  margin-top: 16px;
+}
+
+@media (max-width: 560px) {
+  .wlform-fields {
+    flex-direction: column;
+  }
+  .wlform .btn {
+    justify-content: center;
+  }
+}

@@ -1,0 +1,28 @@
+---
+import type { Locale } from '../data/site';
+import { content } from '../data/content';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const t = content[locale];
+---
+
+<section class="dark sec" style="padding:100px 0;">
+  <div class="wrap">
+    <div class="stats reveal" data-stagger>
+      {
+        t.stats.map((s) => (
+          <div class="stat">
+            <div class={`n${s.gold ? ' gold' : ''}`}>
+              {s.countTo !== undefined ? <span data-count={s.countTo}>0</span> : s.value}
+              {s.unit && <span class="u"> {s.unit}</span>}
+            </div>
+            <div class="k">{s.caption[0]}<br />{s.caption[1]}</div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

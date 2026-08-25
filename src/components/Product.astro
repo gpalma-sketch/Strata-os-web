@@ -1,0 +1,35 @@
+---
+import type { Locale } from '../data/site';
+import { content } from '../data/content';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const t = content[locale];
+---
+
+<section class="deep grid-bg sec" id="producto">
+  <div class="orb" style="width:500px; height:500px; top:10%; left:-200px; opacity:.25;"></div>
+  <div class="wrap">
+    <div class="reveal">
+      <p class="kick">{t.product.kicker}</p>
+      <h2 class="h-lg" style="margin-top:18px; max-width:880px;">
+        {t.product.title[0]}<span class="mint">{t.product.title[1]}</span>
+      </h2>
+      <p class="lead" style="margin-top:20px; max-width:720px;">{t.product.lead}</p>
+    </div>
+
+    <div class="vistas reveal" data-stagger>
+      {
+        t.product.vistas.map((v) => (
+          <div class="vista">
+            <div class="vn">{v.n}</div>
+            <div class="vt">{v.title}</div>
+            <div class="vs">{v.summary}</div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

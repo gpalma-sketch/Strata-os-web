@@ -1,0 +1,142 @@
+---
+/**
+ * Guided assistance widget.
+ *
+ * This is a keyword matcher over a fixed set of answers, not a language
+ * model — so it says so ("Respuestas guiadas" / "Guided answers") and its
+ * fallback hands off to a human rather than bluffing. Wiring it to a real
+ * model would need a backend and an API key; see LAUNCH-CHECKLIST.md.
+ */
+import Icon from './Icon.astro';
+import type { Locale } from '../data/site';
+import { site } from '../data/site';
+import { content } from '../data/content';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const t = content[locale];
+---
+
+<button class="chatfab" id="chatFab" type="button" aria-label={t.chat.fabLabel} aria-expanded="false" aria-controls="chatPanel">
+  <span class="cbadge" id="chatBadge"></span>
+  <Icon name="message" />
+</button>
+
+<div class="chatpanel" id="chatPanel" role="dialog" aria-modal="false" aria-label={t.chat.name}>
+  <div class="chathead">
+    <div class="cav" aria-hidden="true">S</div>
+    <div>
+      <div class="cn">{t.chat.name}</div>
+      <div class="cs">{t.chat.status}</div>
+    </div>
+    <button class="cx" id="chatClose" type="button" aria-label={t.chat.close}>×</button>
+  </div>
+  <div class="chatlog" id="chatLog" role="log" aria-live="polite"></div>
+  <div class="quicks" id="chatQuicks"></div>
+  <form class="chatinput" id="chatForm">
+    <label class="visually-hidden" for="chatText">{t.chat.placeholder}</label>
+    <input id="chatText" type="text" placeholder={t.chat.placeholder} autocomplete="off" />
+    <button type="submit" aria-label={t.chat.send}><Icon name="send-plane" /></button>
+  </form>
+</div>
+
+<script
+  is:inline
+  define:vars={{
+    strings: t.chat,
+    email: site.email,
+    // Matched case-insensitively against what the visitor types, in both
+    // languages regardless of the current locale.
+    patterns: {
+      launch:
+        '(cu[áa]ndo|when|lanzamiento|launch|disponible|available|sale |salir|release|fecha|date|espera|waitlist|lista)',
+      what: '(qué hac|que hac|what do you|producto|product|servicio|service)',
+      price: '(precio|cuánto|cuanto|coste|pricing|cost|price|plan)',
+      diagnosis: '(diagn|empezar|start|book|reun|contact)',
+      trust: '(fiar|confian|trust|garant|seguro|safe)',
+    },
+  }}
+>
+  (() => {
+    const fab = document.getElementById('chatFab');
+    const panel = document.getElementById('chatPanel');
+    const log = document.getElementById('chatLog');
+    const quicks = document.getElementById('chatQuicks');
+    const form = document.getElementById('chatForm');
+    const input = document.getElementById('chatText');
+    const closeBtn = document.getElementById('chatClose');
+    const badge = document.getElementById('chatBadge');
+    if (!fab || !panel || !log || !quicks || !form || !input || !closeBtn) return;
+
+    const push = (text, who, withLink) => {
+      const el = document.createElement('div');
+      el.className = `msg ${who}`;
+      el.textContent = text;
+      if (withLink) {
+        el.append(' ');
+        const a = document.createElement('a');
+        a.href = `mailto:${email}`;
+        a.textContent = email;
+        el.append(a);
+      }
+      log.appendChild(el);
+      log.scrollTop = log.scrollHeight;
+    };
+
+    const answer = (q) => {
+      const s = q.toLowerCase();
+      for (const [key, re] of Object.entries(patterns)) {
+        if (new RegExp(re).test(s)) return { text: strings.answers[key], link: false };
+      }
+      return { text: strings.fallback, link: true };
+    };
+
+    const handle = (q) => {
+      push(q, 'user');
+      setTimeout(() => {
+        const a = answer(q);
+        push(a.text, 'bot', a.link);
+      }, 380);
+    };
+
+    let started = false;
+    const open = () => {
+      panel.classList.add('open');
+      fab.setAttribute('aria-expanded', 'true');
+      if (badge) badge.style.display = 'none';
+      if (!started) {
+        started = true;
+        push(strings.greeting, 'bot');
+        strings.quicks.forEach((q) => {
+          const b = document.createElement('button');
+          b.className = 'quick';
+          b.type = 'button';
+          b.textContent = q;
+          b.addEventListener('click', () => handle(q));
+          quicks.appendChild(b);
+        });
+      }
+      input.focus();
+    };
+    const shut = () => {
+      panel.classList.remove('open');
+      fab.setAttribute('aria-expanded', 'false');
+      fab.focus();
+    };
+
+    fab.addEventListener('click', () => (panel.classList.contains('open') ? shut() : open()));
+    closeBtn.addEventListener('click', shut);
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && panel.classList.contains('open')) shut();
+    });
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const v = input.value.trim();
+      if (!v) return;
+      handle(v);
+      input.value = '';
+    });
+  })();
+</script>

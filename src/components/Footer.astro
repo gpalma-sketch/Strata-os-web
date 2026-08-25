@@ -1,0 +1,18 @@
+---
+import type { Locale } from '../data/site';
+import { content } from '../data/content';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const t = content[locale];
+const year = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <div class="wrap">
+    <span class="brand" style="font-size:16px;">STRATA</span>
+    <span>{t.footer.tagline} · © {year}</span>
+  </div>
+</footer>

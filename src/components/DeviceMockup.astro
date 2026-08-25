@@ -1,0 +1,271 @@
+---
+/**
+ * The Business OS shown in a desktop window with a phone overlapping it.
+ *
+ * This is a *native HTML* recreation of the product UI, not a screenshot —
+ * exactly as the design landed after the prototype's screenshot-plus-overlay
+ * approach kept clipping its own text. Everything sizes in container-query
+ * units off the frame, so the whole panel scales as one piece.
+ *
+ * "NORDA" is the fictional demo tenant the design settled on. The figures are
+ * illustrative product-demo data, which is why the frame is labelled as a
+ * demo rather than presented as a customer's real dashboard.
+ */
+import type { Locale } from '../data/site';
+import { content } from '../data/content';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const t = content[locale];
+const isEs = locale === 'es';
+
+const nav = {
+  control: isEs ? 'Control' : 'Control',
+  items: isEs
+    ? ['Mi día', 'Overview', 'Tareas', 'Agenda', 'Mensajería']
+    : ['My day', 'Overview', 'Tasks', 'Calendar', 'Messages'],
+  depts: isEs ? 'Departamentos' : 'Departments',
+  deptItems: isEs
+    ? ['Marketing', 'Ventas', 'Atención', 'Finanzas', 'Producto']
+    : ['Marketing', 'Sales', 'Support', 'Finance', 'Product'],
+  gov: isEs ? 'Gobierno' : 'Governance',
+  govItems: isEs ? ['Agentes', 'Due Diligence'] : ['Agents', 'Due Diligence'],
+};
+
+const copy = {
+  back: isEs ? '← Atrás · NORDA' : '← Back · NORDA',
+  kicker: isEs
+    ? '// Negocio propio · Plataforma outdoor (streaming + tienda + comunidad)'
+    : '// Own business · Outdoor platform (streaming + store + community)',
+  kickerShort: isEs ? '// Negocio propio · outdoor' : '// Own business · outdoor',
+  greeting: isEs ? 'Buenas tardes, Gonzalo.' : 'Good afternoon, Gonzalo.',
+  greetingShort: isEs ? 'Buenas tardes.' : 'Good afternoon.',
+  ask: isEs ? '✦ Preguntar a Jarvis' : '✦ Ask Jarvis',
+  core: isEs ? '· Jarvis · Núcleo' : '· Jarvis · Core',
+  online: isEs ? 'Online' : 'Online',
+  allSystems: isEs ? 'Todos los sistemas operativos' : 'All systems operational',
+  jarvisDesc: isEs
+    ? 'NORDA en growth. 5 personas, contenido y RRSS conectados. YouTube estrella (eng 7,9%).'
+    : 'NORDA in growth. 5 people, content and social connected. YouTube leading (eng 7.9%).',
+  jarvisDescShort: isEs
+    ? 'NORDA en growth. 5 personas, contenido y RRSS conectados.'
+    : 'NORDA in growth. 5 people, content and social connected.',
+  speak: isEs ? '🎙 Hablar' : '🎙 Speak',
+  command: isEs ? '⌘ Comando' : '⌘ Command',
+  runway: isEs ? 'Runway' : 'Runway',
+  runwayVal: isEs ? '14 mo' : '14 mo',
+  agentsActive: isEs ? 'Agentes activos' : 'Active agents',
+  agents: isEs ? 'Agentes' : 'Agents',
+  decisions: isEs ? 'Decisiones hoy' : 'Decisions today',
+  awaiting: isEs ? 'esperan tu ok' : 'awaiting your ok',
+  cockpit: isEs ? '· GTM Cockpit · el negocio por departamento' : '· GTM Cockpit · the business by department',
+  cockpitShort: isEs ? '· Cockpit' : '· Cockpit',
+  ok: isEs ? 'Al día' : 'On track',
+  // Number formatting follows the locale, not the source language.
+  mrr: isEs ? '3,1k €' : '€3.1k',
+};
+
+const depts = isEs
+  ? [
+      {
+        icon: '📣',
+        name: 'Marketing & Growth',
+        sub: 'atrae y capta demanda',
+        kv: [
+          ['42', 'Piezas/sem'],
+          ['318', 'Leads MTD'],
+          ['1,8%', 'CAC ↓', true],
+          ['64k', 'Alcance'],
+        ],
+        bar: 72,
+        chips: ['CMO', 'Contenido', 'SEO', 'Paid'],
+      },
+      {
+        icon: '🤝',
+        name: 'Ventas',
+        sub: 'convierte en ingresos',
+        kv: [
+          ['€128k', 'Pipeline'],
+          ['24%', 'Tasa cierre', true],
+          ['€3,4k', 'Ticket medio'],
+          ['21 d', 'Ciclo venta'],
+        ],
+        bar: 58,
+        chips: ['CRO', 'SDR', 'Cierre', 'RevOps'],
+      },
+      {
+        icon: '🎧',
+        name: 'Atención & Retención',
+        sub: 'retén y expande',
+        kv: [
+          ['96%', 'CSAT', true],
+          ['€1,9k', 'LTV'],
+          ['92%', 'Retención'],
+          ['40s', 'T. respuesta'],
+        ],
+        bar: 88,
+        chips: ['CCO', 'Chatbot', 'Voz', 'NPS'],
+      },
+    ]
+  : [
+      {
+        icon: '📣',
+        name: 'Marketing & Growth',
+        sub: 'attracts and captures demand',
+        kv: [
+          ['42', 'Assets/wk'],
+          ['318', 'Leads MTD'],
+          ['1.8%', 'CAC ↓', true],
+          ['64k', 'Reach'],
+        ],
+        bar: 72,
+        chips: ['CMO', 'Content', 'SEO', 'Paid'],
+      },
+      {
+        icon: '🤝',
+        name: 'Sales',
+        sub: 'turns it into revenue',
+        kv: [
+          ['€128k', 'Pipeline'],
+          ['24%', 'Close rate', true],
+          ['€3.4k', 'Avg. deal'],
+          ['21 d', 'Sales cycle'],
+        ],
+        bar: 58,
+        chips: ['CRO', 'SDR', 'Closing', 'RevOps'],
+      },
+      {
+        icon: '🎧',
+        name: 'Support & Retention',
+        sub: 'retain and expand',
+        kv: [
+          ['96%', 'CSAT', true],
+          ['€1.9k', 'LTV'],
+          ['92%', 'Retention'],
+          ['40s', 'Response'],
+        ],
+        bar: 88,
+        chips: ['CCO', 'Chatbot', 'Voice', 'NPS'],
+      },
+    ];
+
+const salesDept = depts[1]!;
+---
+
+<div class="wrap reveal devices-wrap">
+  {/* Purely illustrative product UI — hidden from assistive tech, which would
+      otherwise read out a hundred meaningless numbers before the real copy. */}
+  <div class="devices" role="img" aria-label={t.hero.devicesTitle}>
+    <div class="win" id="deviceWin" aria-hidden="true">
+      <div class="win-bar"><i></i><i></i><i></i><span>{t.hero.windowTitle}</span></div>
+      <div class="win-shot">
+        <div class="osd">
+          <div class="sb">
+            <div class="lg"><b>N</b><div class="n">NORDA<small>BUSINESS OS</small></div></div>
+            <div class="ws"><b>N</b><div class="n">NORDA<small>{isEs ? 'NEGOCIO PROPIO' : 'OWN BUSINESS'}</small></div><span class="cx">⇅</span></div>
+            <div class="cap">{nav.control}</div>
+            {nav.items.map((item, i) => (
+              <div class={`it${i === 1 ? ' on' : ''}`}><span class="d"></span>{item}</div>
+            ))}
+            <div class="cap">{nav.depts}</div>
+            {nav.deptItems.map((item) => <div class="it"><span class="d"></span>{item}</div>)}
+            <div class="cap">{nav.gov}</div>
+            {nav.govItems.map((item) => <div class="it"><span class="d"></span>{item}</div>)}
+          </div>
+
+          <div class="mn">
+            <div class="crumb">{copy.back}</div>
+            <div class="kick">{copy.kicker}</div>
+            <div class="h"><div class="g">{copy.greeting}</div><div class="ask">{copy.ask}</div></div>
+
+            <div class="row">
+              <div class="c jarv">
+                <div class="kick">{copy.core} <span class="pill">{copy.online}</span></div>
+                <div class="jorb"></div>
+                <div class="st">{copy.allSystems}</div>
+                <div class="desc">{copy.jarvisDesc}</div>
+                <div class="btns"><span class="b1">{copy.speak}</span><span class="b2">{copy.command}</span></div>
+              </div>
+              <div class="c"><div class="lbl">MRR</div><div class="big">{copy.mrr}</div></div>
+              <div class="c"><div class="lbl">{copy.runway}</div><div class="big">{copy.runwayVal}</div></div>
+              <div class="c">
+                <div class="lbl">{copy.agentsActive}</div>
+                <div class="big a">18 / 107</div>
+                <div class="bar"><i style="width:17%"></i></div>
+              </div>
+              <div class="c">
+                <div class="lbl">{copy.decisions}</div>
+                <div class="big">3</div>
+                <div class="sub">{copy.awaiting}</div>
+              </div>
+            </div>
+
+            <div class="ckhd">{copy.cockpit}</div>
+            <div class="cock">
+              {depts.map((d) => (
+                <div class="dept">
+                  <div class="dh">
+                    <span class="di">{d.icon}</span>
+                    <span class="dt">{d.name}<small>{d.sub}</small></span>
+                    <span class="ok">{copy.ok}</span>
+                  </div>
+                  <div class="kv">
+                    {d.kv.map(([v, k, accent]) => (
+                      <div><div class={`v${accent ? ' a' : ''}`}>{v}</div><div class="k">{k}</div></div>
+                    ))}
+                  </div>
+                  <div class="bar"><i style={`width:${d.bar}%`}></i></div>
+                  <div class="chips">{d.chips.map((c) => <span>{c}</span>)}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="phone" aria-hidden="true">
+      <div class="phone-shot">
+        <div class="osd mob">
+          <div class="topbar"><b>N</b><span class="n">NORDA</span><span class="pill" style="margin-left:auto;">{copy.online}</span></div>
+          <div class="mn">
+            <div class="kick">{copy.kickerShort}</div>
+            <div class="h"><div class="g">{copy.greetingShort}</div></div>
+            <div class="row">
+              <div class="c"><div class="lbl">MRR</div><div class="big">{copy.mrr}</div></div>
+              <div class="c"><div class="lbl">{copy.agents}</div><div class="big a">18/107</div></div>
+            </div>
+            <div class="c jarv">
+              <div class="kick">{copy.core} <span class="pill">{copy.online}</span></div>
+              <div class="jorb"></div>
+              <div class="desc">{copy.jarvisDescShort}</div>
+              <div class="btns"><span class="b1">{copy.speak}</span><span class="b2">{copy.command}</span></div>
+            </div>
+            <div class="ckhd">{copy.cockpitShort}</div>
+            <div class="cock">
+              <div class="dept">
+                <div class="dh">
+                  <span class="di">{salesDept.icon}</span>
+                  <span class="dt">{salesDept.name}<small>{salesDept.sub}</small></span>
+                  <span class="ok">{copy.ok}</span>
+                </div>
+                <div class="kv">
+                  <div><div class="v">{salesDept.kv[0]![0]}</div><div class="k">{salesDept.kv[0]![1]}</div></div>
+                  <div><div class="v a">{salesDept.kv[1]![0]}</div><div class="k">{isEs ? 'Cierre' : 'Close'}</div></div>
+                </div>
+                <div class="bar"><i style={`width:${salesDept.bar}%`}></i></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="devices-cap">
+    <div class="k">{t.hero.devicesKicker}</div>
+    <div class="t">{t.hero.devicesTitle}</div>
+  </div>
+</div>

@@ -1,0 +1,46 @@
+---
+import type { Locale } from '../data/site';
+import { content } from '../data/content';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const t = content[locale];
+---
+
+<section class="light sec" id="metodo">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="kick">{t.method.kicker}</p>
+      <h2 class="h-lg" style="margin-top:18px;">
+        {t.method.title[0]}<span class="teal">{t.method.title[1]}</span>
+      </h2>
+      <p class="lead" style="margin-top:18px; max-width:820px;">{t.method.lead}</p>
+    </div>
+
+    <div class="ladder reveal" data-stagger>
+      {
+        t.method.rungs.map((r) => (
+          <div class="rung">
+            <div class="rl">{r.n}</div>
+            <div class="rnm">{r.name}</div>
+            <div class="rwho">{r.who}</div>
+            <div class="rd">{r.detail}</div>
+            <div class="rg" aria-hidden="true">
+              {[0, 1, 2, 3].map((i) => <i class={i < r.filled ? 'on' : ''} />)}
+            </div>
+          </div>
+        ))
+      }
+    </div>
+
+    <div class="capstone reveal">
+      <div class="cn" aria-hidden="true">→</div>
+      <div>
+        <h3 class="h-sm">{t.method.capstoneTitle}</h3>
+        <p class="body" style="margin-top:6px;">{t.method.capstoneBody}</p>
+      </div>
+    </div>
+  </div>
+</section>

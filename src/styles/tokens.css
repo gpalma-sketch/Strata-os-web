@@ -1,0 +1,46 @@
+/* ============================================================================
+   STRATA — design tokens
+   Ported verbatim from the design prototype's web.css so the palette, type
+   scale and motion curve stay identical to the approved design.
+   Palette: ink-blue / teal / mint · Archivo + Space Grotesk + Space Mono
+============================================================================ */
+
+:root {
+  --ink: #0f1e2e;
+  --ink-deep: #0a1620;
+  --ink-soft: #16293a;
+  --light: #f4f7f8;
+  --paper: #ffffff;
+
+  --text: #1b2b3a;
+  --text-soft: #566472;
+  --text-mute: #8a97a3;
+
+  --teal: #0e9b8e;
+  --teal-deep: #0b7a70;
+  --mint: #35d0ba;
+  --teal-tint: rgba(14, 155, 142, 0.1);
+
+  --gold: #ffc24b;
+  --gold-deep: #b5810f;
+  --gold-tint: rgba(255, 194, 75, 0.14);
+  --blaze: #ff5a1f;
+
+  --line-d: rgba(244, 247, 248, 0.12);
+  --line-d2: rgba(244, 247, 248, 0.22);
+  --line-l: rgba(27, 43, 58, 0.12);
+  --line-l2: rgba(27, 43, 58, 0.22);
+
+  --on-dark: #edf3f4;
+  --on-dark-soft: rgba(237, 243, 244, 0.66);
+
+  --font-display: 'Archivo', system-ui, sans-serif;
+  --font-sans: 'Space Grotesk', system-ui, sans-serif;
+  --font-mono: 'Space Mono', ui-monospace, monospace;
+
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* Height of the fixed nav — used for scroll-margin so anchor links don't
+     land underneath it. The prototype had no such offset. */
+  --nav-h: 68px;
+}

@@ -1,0 +1,126 @@
+---
+/**
+ * STRATA OS launch waitlist.
+ *
+ * Replaces the design prototype's "/live" band, which read "Empieza tu empresa
+ * esta noche · Sin tarjeta · En minutos" over a counter claiming 2,369
+ * companies had activated in the last 24 hours. Neither held: the product is
+ * not purchasable, there is no self-serve signup, and the counter had nothing
+ * behind it. The section keeps its place and its design and becomes what it
+ * should always have been — the launch list.
+ *
+ * The email form posts to `site.waitlistEndpoint`; with none configured it
+ * degrades to a mailto: link so a signup is never silently dropped.
+ */
+import type { Locale } from '../data/site';
+import { site } from '../data/site';
+import { content } from '../data/content';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const t = content[locale];
+const w = t.waitlist;
+const endpoint = site.waitlistEndpoint;
+---
+
+<section class="deep grid-bg sec" id="lanzamiento" style="padding:110px 0;">
+  <div class="orb" style="width:520px;height:520px;top:-140px;right:-160px;opacity:.22;"></div>
+  <div class="wrap">
+    <div class="reveal" style="display:flex;align-items:center;gap:12px;justify-content:center;">
+      <span class="statuschip soon"><span class="dot"></span>{w.kicker}</span>
+    </div>
+
+    <h2 class="h-lg reveal" style="text-align:center;margin:22px auto 0;max-width:900px;">
+      {w.title[0]}<span class="mint">{w.title[1]}</span>
+    </h2>
+    <p class="lead reveal" style="text-align:center;margin:18px auto 0;max-width:660px;">{w.lead}</p>
+
+    {
+      endpoint ? (
+        <form class="wlform reveal" id="waitlistForm" action={endpoint} method="POST" data-state="idle">
+          <div class="wlform-fields">
+            <label class="visually-hidden" for="wl-email">{w.form.label}</label>
+            <input id="wl-email" name="email" type="email" required autocomplete="email" placeholder={w.form.placeholder} />
+            <input type="hidden" name="_source" value="waitlist-strata-os" />
+            <div class="hp" aria-hidden="true">
+              <label for="wl-website">Website</label>
+              <input id="wl-website" name="_gotcha" type="text" tabindex="-1" autocomplete="off" />
+            </div>
+            <button type="submit" class="btn btn-primary">
+              <span data-label-idle>{w.form.submit}</span>
+              <span data-label-sending hidden>{w.form.sending}</span>
+            </button>
+          </div>
+          <p class="wlform-consent">{w.form.consent}</p>
+          <p class="cform-status ok" role="status">{w.form.success}</p>
+          <p class="cform-status err" role="alert">
+            {w.form.error} <a href={`mailto:${site.email}`}>{site.email}</a>
+          </p>
+        </form>
+      ) : (
+        <div class="reveal" style="text-align:center;margin-top:34px;">
+          <a href={`mailto:${site.email}?subject=${encodeURIComponent('STRATA OS — lista de lanzamiento')}`} class="btn btn-primary">
+            {w.form.fallbackCta}
+          </a>
+        </div>
+      )
+    }
+
+    <div class="livecount reveal" data-stagger>
+      {
+        w.reasons.map((r) => (
+          <div class="lc">
+            <div class={`n${r.gold ? ' gold' : ''}`}>
+              {r.value}
+              {r.unit && <span class="u"> {r.unit}</span>}
+            </div>
+            <div class="k">{r.caption[0]}<br />{r.caption[1]}</div>
+          </div>
+        ))
+      }
+    </div>
+
+    <div class="liveticker reveal" aria-hidden="true">
+      <div class="lt-track">
+        {[...w.ticker, ...w.ticker].map(([name, what]) => <span class="lt"><b>{name}</b> · {what}</span>)}
+      </div>
+    </div>
+  </div>
+</section>
+
+{
+  endpoint && (
+    <script>
+      const form = document.getElementById('waitlistForm') as HTMLFormElement | null;
+      if (form) {
+        const idle = form.querySelector<HTMLElement>('[data-label-idle]');
+        const sending = form.querySelector<HTMLElement>('[data-label-sending]');
+
+        form.addEventListener('submit', async (e) => {
+          e.preventDefault();
+          if (form.dataset.state === 'sending') return;
+
+          form.dataset.state = 'sending';
+          idle?.toggleAttribute('hidden', true);
+          sending?.toggleAttribute('hidden', false);
+
+          try {
+            const res = await fetch(form.action, {
+              method: 'POST',
+              body: new FormData(form),
+              headers: { Accept: 'application/json' },
+            });
+            if (!res.ok) throw new Error(String(res.status));
+            form.dataset.state = 'sent';
+          } catch {
+            form.dataset.state = 'error';
+            idle?.toggleAttribute('hidden', false);
+            sending?.toggleAttribute('hidden', true);
+          }
+        });
+      }
+    </script>
+  )
+}

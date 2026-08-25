@@ -1,0 +1,757 @@
+import type { Content } from './types';
+
+/**
+ * Spanish is the source copy — it is the language the design was written in.
+ *
+ * Where this differs from the design prototype, it is because the prototype
+ * asserted things that are not true yet:
+ *
+ *  1. `stats` / `why.outcomes` — the prototype stated single measured figures
+ *     (−30 %, ×2, 96 %, +300 h). They are now ranges framed as objectives and
+ *     carry `why.outcomesNote` as a visible disclaimer.
+ *  2. `waitlist` — replaces the prototype's "empieza tu empresa esta noche ·
+ *     sin tarjeta · en minutos" band and its "2.369 empresas activadas en 24 h"
+ *     counter. STRATA OS is not purchasable and cannot be self-served in
+ *     minutes, so the section is now the launch list it should always have
+ *     been. Its ticker lists what the agents do, not invented sign-ups.
+ *  3. `pricing` — the tiers keep their figures as launch pricing but carry a
+ *     "coming soon" chip and point at the waitlist instead of a checkout.
+ *
+ * STRATA Lab is the one thing on this page that can be bought today, so it
+ * keeps a live price and a real enquiry form.
+ */
+export const es: Content = {
+  meta: {
+    title: 'STRATA — El sistema operativo autónomo de tu empresa',
+    description:
+      'Agentes de IA que operan tu negocio 24/7 y un solo panel desde el que los gobiernas. STRATA OS llega próximamente: apúntate al lanzamiento. Soluciones a medida disponibles hoy con STRATA Lab.',
+    ogAlt: 'STRATA — compañía de IA aplicada',
+  },
+
+  nav: {
+    links: [
+      { href: '#modelo', label: 'El OS' },
+      { href: '#agentes', label: 'Agentes' },
+      { href: '#lanzamiento', label: 'Lanzamiento' },
+      { href: '#casos', label: 'Casos' },
+      { href: '#precios', label: 'Precios' },
+      { href: '#lab', label: 'STRATA Lab' },
+      { href: '#partners', label: 'Partners' },
+      { href: '#equipo', label: 'Equipo' },
+    ],
+    cta: 'Hablemos →',
+    skipToContent: 'Saltar al contenido',
+    menuLabel: 'Abrir menú',
+    closeMenuLabel: 'Cerrar menú',
+  },
+
+  hero: {
+    kicker: 'El sistema operativo autónomo de tu empresa',
+    title: ['La IA que opera', 'tu negocio.'],
+    leadTop: 'La tecnología ejecuta. Las personas deciden.',
+    leadPrefix: 'Convertimos la IA en',
+    rotor: ['eficiencia.', 'producto.', 'ventaja.'],
+    ctaPrimary: 'Apúntate al lanzamiento →',
+    ctaSecondary: 'Ver STRATA Lab',
+    statusChip: 'STRATA OS · próximo lanzamiento · lista abierta',
+    devicesKicker: 'Un sistema · todos tus dispositivos',
+    devicesTitle: 'Tu negocio, en el bolsillo y en el escritorio.',
+    windowTitle: 'STRATA Business OS — NORDA',
+    sectors: [
+      'Distribución y logística',
+      'Clínicas privadas',
+      'Construcción',
+      'Concesionarios',
+      'Hoteles independientes',
+      'Formación profesional',
+    ],
+  },
+
+  stats: [
+    { value: '3–6', unit: 'meses', caption: ['objetivo de retorno', 'de la inversión'] },
+    { value: '+200–300', unit: 'h', caption: ['horas al mes que', 'buscamos liberar'], gold: true },
+    { value: '~80', unit: '%', caption: ['del trabajo repetible', 'lo ejecuta la máquina'] },
+    { value: '24/7', caption: ['tu negocio operando', 'sin descanso'] },
+  ],
+
+  waitlist: {
+    kicker: 'Próximamente',
+    title: ['STRATA OS llega pronto. ', 'Apúntate al lanzamiento.'],
+    lead: 'Estamos terminando el producto con un grupo reducido de empresas. Déjanos tu email y serás de los primeros en entrar cuando abramos — sin compromiso y sin tarjeta.',
+    reasons: [
+      { value: 'Acceso', caption: ['anticipado: entras antes', 'que el resto del mercado'] },
+      { value: 'Precio', caption: ['de lanzamiento,', 'bloqueado para ti'], gold: true },
+      { value: '0 €', caption: ['apuntarte no cuesta', 'ni compromete a nada'] },
+    ],
+    ticker: [
+      ['Agente de Ventas', 'cualifica leads y prepara presupuestos'],
+      ['Agente de Atención', 'resuelve consultas y pedidos 24/7'],
+      ['Agente de Finanzas', 'concilia cobros y proyecta tesorería'],
+      ['Agente de Operaciones', 'coordina rutas y partes de obra'],
+      ['Agente de Marketing', 'crea contenido y nutre leads'],
+      ['Agente de Administración', 'genera contratos y documentación'],
+      ['Business OS', 'un solo panel para gobernarlo todo'],
+      ['Supervisión humana', 'tú apruebas cada acción crítica'],
+    ],
+    form: {
+      label: 'Tu email',
+      placeholder: 'nombre@tuempresa.com',
+      submit: 'Apúntame al lanzamiento →',
+      sending: 'Enviando…',
+      success: 'Estás dentro. Te avisamos en cuanto abramos el acceso.',
+      error: 'No hemos podido apuntarte. Escríbenos a',
+      consent: 'Solo te escribiremos sobre el lanzamiento de STRATA OS. Ni spam, ni cesión a terceros; te puedes borrar cuando quieras.',
+      fallbackCta: 'Apúntate al lanzamiento →',
+    },
+  },
+
+  pillars: {
+    kicker: 'Dos formas de trabajar con STRATA',
+    title: ['Un sistema operativo listo para usar — o algo ', 'hecho a tu medida.'],
+    items: [
+      {
+        tag: 'Producto · autoservicio',
+        name: 'STRATA OS',
+        summary:
+          'El sistema operativo autónomo de tu empresa. Contratas agentes de IA que trabajan 24/7 en cada departamento y los gobiernas desde un solo panel.',
+        bullets: [
+          'Agentes listos para operar desde el día uno',
+          'Se conecta con las herramientas que ya usas',
+          'Escala solo: pagas por agente activo y consumo',
+          'En desarrollo — apúntate para entrar en el primer grupo',
+        ],
+        ctaLabel: 'Apúntate al lanzamiento →',
+        ctaHref: '#lanzamiento',
+        price: 'próximamente · desde 490 €/mes',
+      },
+      {
+        tag: 'Servicios · a medida',
+        name: 'STRATA Lab',
+        summary:
+          'Cuando necesitas algo único: diseñamos, construimos y operamos soluciones de IA a medida para tu empresa, de la venta al cierre.',
+        bullets: [
+          'Diagnóstico de toda tu operación con ROI',
+          'Agentes y sistemas construidos para tu caso',
+          'Diagnóstico → implementación → mantenimiento',
+          'Disponible hoy: empezamos cuando quieras',
+        ],
+        ctaLabel: 'Ver STRATA Lab →',
+        ctaHref: '#lab',
+        price: 'disponible hoy · proyecto a medida',
+      },
+    ],
+  },
+
+  why: {
+    kicker: 'Por qué STRATA',
+    title: ['La IA que se paga sola — ', 'normalmente en 3 a 6 meses.'],
+    lead: 'No vendemos tecnología: vendemos horas recuperadas, margen que no se escapa y decisiones con el dato delante. Esto es lo que cambia en tu negocio.',
+    bento: {
+      team: {
+        title: 'Un agente, o un equipo entero.',
+        body: 'Un agente general lleva el día a día. Añades especialistas en ventas, operaciones o finanzas — cada uno con su propia experiencia y memoria.',
+        channel: '#lanzamiento-producto',
+        agentCount: '4 agentes',
+        rows: [
+          { initial: 'V', name: 'Agente de Ventas', detail: '3 leads cualificados hoy · visita agendada' },
+          { initial: 'O', name: 'Agente de Operaciones', detail: 'Pedido #4811 en ruta · a tiempo' },
+          { initial: 'F', name: 'Agente de Finanzas', detail: '12 facturas conciliadas · margen 18,4%' },
+        ],
+      },
+      integrations: {
+        title: 'Conecta una vez. Automatiza todo.',
+        body: 'CRM, email, WhatsApp, ERP, banco y +50 herramientas — conexión en un clic. Sin proyectos de integración ni desarrolladores.',
+        more: '+50',
+      },
+      data: {
+        title: 'Tus datos. Tu control.',
+        body: 'Ejecución supervisada: tú apruebas cada acción crítica. Soberanía de datos con residencia europea y aislamiento por cliente.',
+      },
+      platform: {
+        title: 'Una plataforma. Ventas, operaciones y finanzas.',
+        body: 'Todo bajo un mismo panel: elige el agente, actívalo y olvídate. El impacto de cada área, siempre a la vista.',
+        tiles: [
+          { label: 'Ventas', value: '1.284', pct: 82 },
+          { label: 'Horas ahorradas', value: '312 h', pct: 64 },
+          { label: 'Ahorro/mes', value: '€14,2k', pct: 71 },
+        ],
+      },
+    },
+    outcomesKicker: 'Lo que notas en la cuenta de resultados',
+    outcomesTitle: 'Los resultados que perseguimos en tu negocio — y que medimos contigo.',
+    outcomes: [
+      {
+        icon: 'users',
+        value: '−20–30',
+        suffix: '%',
+        title: 'Menos coste de personal',
+        detail: 'La IA absorbe el trabajo repetitivo; creces sin ampliar plantilla al mismo ritmo.',
+      },
+      {
+        icon: 'calendar-check',
+        value: '0',
+        suffix: 'bajas que paran',
+        title: 'Sin ausencias ni cuellos de botella',
+        detail: 'Los agentes no se ponen malos ni se van de vacaciones: la operación no se detiene.',
+      },
+      {
+        icon: 'message',
+        value: '+30–40',
+        suffix: '%',
+        title: 'Más reuniones cerradas',
+        detail: 'Ningún lead se enfría: seguimiento inmediato y constante hasta agendar la visita.',
+      },
+      {
+        icon: 'trend',
+        value: 'hasta ×2',
+        title: 'Más conversión en la web',
+        detail: 'Respuesta al instante 24/7: el visitante que pregunta a medianoche también se convierte.',
+      },
+      {
+        icon: 'headset',
+        value: '<1',
+        suffix: 'min',
+        title: 'Mejor atención al cliente',
+        detail: 'Respuestas en segundos y sin colas — más satisfacción, más recompra y más recomendación.',
+      },
+      {
+        icon: 'euro',
+        value: '−80–90',
+        suffix: '%',
+        title: 'Menos errores en finanzas',
+        detail: 'Conciliación y facturación automáticas: se acaban los descuadres y los cobros olvidados.',
+      },
+      {
+        icon: 'wallet',
+        value: '+10–18',
+        suffix: '%',
+        title: 'Más margen y control de coste',
+        detail: 'Ves la desviación de cada proyecto en tiempo real y la corriges antes de que se coma el beneficio.',
+      },
+      {
+        icon: 'clock',
+        value: '+200–300',
+        suffix: 'h',
+        title: 'Horas recuperadas al mes',
+        detail: 'Tu equipo deja las tareas mecánicas y dedica el tiempo a lo que de verdad hace crecer el negocio.',
+      },
+    ],
+    outcomesNote:
+      'Rangos orientativos del impacto que perseguimos en una implementación STRATA, no resultados medidos de clientes. El diagnóstico estima el rango concreto de tu negocio —y cómo lo mediremos— antes de que te comprometas a nada.',
+    ctaLabel: 'Diagnóstico en 3 semanas →',
+    ctaNote:
+      'Te decimos dónde la IA crea valor en tu negocio — con ROI estimado, antes de comprometerte a nada.',
+  },
+
+  agents: {
+    kicker: 'Tu plantilla de agentes',
+    title: ['No vendemos software. Vendemos el ', 'resultado, ya hecho.'],
+    lead: 'Service-as-a-software: cada agente entrega un servicio completo, no una herramienta. El de ventas vende, el de atención atiende, el de finanzas cobra. Pagas por el trabajo terminado — ahí está el negocio.',
+    items: [
+      {
+        icon: 'chart',
+        name: 'Agente de Ventas',
+        status: 'Activo',
+        description:
+          'El servicio de vender: cualifica leads, prepara presupuestos y cierra. Cobras por reuniones y ventas, no por licencias.',
+        tags: ['CRM', 'Email', 'WhatsApp'],
+      },
+      {
+        icon: 'message',
+        name: 'Agente de Atención',
+        status: 'Activo',
+        description:
+          'El servicio de soporte: responde consultas, gestiona pedidos y resuelve incidencias 24/7. Solo lo excepcional llega a una persona.',
+        tags: ['Chat', 'Email', 'Tickets'],
+      },
+      {
+        icon: 'layers',
+        name: 'Agente de Operaciones',
+        status: 'Activo',
+        description:
+          'El servicio operativo: coordina pedidos, rutas y partes de obra; detecta cuellos de botella y avisa antes de que sean un problema.',
+        tags: ['ERP', 'Calendario'],
+      },
+      {
+        icon: 'euro',
+        name: 'Agente de Finanzas',
+        status: 'Activo',
+        description:
+          'El servicio financiero: factura, concilia cobros y proyecta la tesorería. El margen real, siempre a la vista.',
+        tags: ['Contabilidad', 'Banco', 'Excel'],
+      },
+      {
+        icon: 'send',
+        name: 'Agente de Marketing',
+        status: 'Activo',
+        description:
+          'El servicio de captación: crea contenido, nutre leads y publica en tus canales con el tono de tu marca.',
+        tags: ['RRSS', 'Email', 'CMS'],
+      },
+      {
+        icon: 'doc',
+        name: 'Agente de Administración',
+        status: 'Activo',
+        description:
+          'El servicio de back-office: documentación, contratos y tareas repetitivas resueltas sin que nadie las toque.',
+        tags: ['Docs', 'Firma', 'Drive'],
+      },
+    ],
+    feedTitle: 'Ejemplo de actividad de una jornada',
+    feedLive: '● Demo',
+    feedDone: 'Hecho',
+    feedLines: [
+      { agent: 'Agente de Ventas', text: 'Presupuesto #2041 enviado al cliente' },
+      { agent: 'Agente de Atención', text: 'Ticket de pedido resuelto en 40s' },
+      { agent: 'Agente de Finanzas', text: '12 facturas conciliadas' },
+      { agent: 'Agente de Operaciones', text: 'Ruta de entrega optimizada' },
+      { agent: 'Agente de Marketing', text: '3 publicaciones lanzadas en RRSS' },
+      { agent: 'Agente de Ventas', text: 'Lead cualificado y visita agendada' },
+      { agent: 'Agente de Administración', text: 'Contrato generado y enviado a firma' },
+      { agent: 'Agente de Atención', text: 'FAQ respondida y caso cerrado' },
+      { agent: 'Agente de Finanzas', text: 'Tesorería proyectada a 60 días' },
+      { agent: 'Agente de Operaciones', text: 'Alerta de stock enviada al dueño' },
+    ],
+    ctaLabel: 'Ver planes de lanzamiento →',
+    ctaNote: 'Estos agentes forman parte de STRATA OS, que abrimos próximamente. ¿Necesitas uno a medida ya? Lo construimos en ',
+    ctaNoteLink: 'STRATA Lab',
+    ctaNoteAfter: '.',
+  },
+
+  product: {
+    kicker: 'El producto',
+    title: ['Un panel que el dueño abre ', 'cada mañana.'],
+    lead: 'El Business OS es el panel de control de toda la IA de la empresa. Seis vistas, cero fricción técnica — y debajo, el AI Brain haciendo el trabajo.',
+    vistas: [
+      {
+        n: '01',
+        title: 'Dashboard ejecutivo',
+        summary: 'KPIs en tiempo real: leads, tickets, horas ahorradas y ahorro en €. El impacto, en 30 segundos.',
+      },
+      {
+        n: '02',
+        title: 'Centro de agentes',
+        summary:
+          'Cada agente con su estado, volumen procesado, tasa de éxito y escalaciones. Control sin tocar tecnología.',
+      },
+      {
+        n: '03',
+        title: 'Automatizaciones',
+        summary: 'Flujos activos por departamento, con volumetría y tiempo ahorrado por cada uno.',
+      },
+      {
+        n: '04',
+        title: 'Bandeja de supervisión',
+        summary: 'El 90% rutinario no molesta. Solo las excepciones llegan a un humano — con la acción ya sugerida.',
+      },
+      {
+        n: '05',
+        title: 'Reportes de valor',
+        summary: 'Informe mensual automático: horas, coste evitado, oportunidades nuevas. La cuota se justifica sola.',
+      },
+      {
+        n: '06',
+        title: 'Configuración',
+        summary: 'Horarios, idioma, tono y reglas de escalación ajustables por el cliente. Sin código.',
+      },
+    ],
+  },
+
+  how: {
+    kicker: 'Cómo funciona',
+    title: ['Un router decide. ', 'Los agentes ejecutan.'],
+    columns: [
+      [
+        { title: 'La empresa', summary: 'emails · llamadas · leads · pedidos' },
+        { title: 'El dueño', summary: 'voz o texto · “pregúntale al sistema”' },
+      ],
+      [{ title: 'Router de agentes', summary: 'clasifica la intención · elige agente y modelo', hot: true }],
+      [
+        { title: 'Ventas · Atención', summary: 'leads · tickets · FAQs' },
+        { title: 'Operaciones · Finanzas', summary: 'pedidos · facturación · cobros' },
+        { title: 'Marketing · Legal', summary: 'contenido · documentación' },
+      ],
+      [
+        { title: 'Memoria privada', summary: 'los datos de la empresa · solo suyos' },
+        { title: 'Business OS', summary: 'el dueño lo gobierna desde el panel', hot: true },
+      ],
+    ],
+    closing: 'No es un diagrama de marketing: este sistema ya opera ',
+    closingStrong: 'nuestro propio negocio',
+    closingAfter: ', 24/7, con ocho agentes desplegados. Somos el primer cliente de nuestro producto.',
+  },
+
+  useCases: {
+    kicker: 'Casos de uso',
+    title: ['Pensado para cada ', 'reto de tu negocio.'],
+    youLabel: 'TÚ',
+    aiLabel: 'IA',
+    items: [
+      {
+        tab: 'Vender más',
+        title: 'Cierra más, persiguiendo menos',
+        description:
+          'El agente cualifica cada lead, prepara el presupuesto y hace el seguimiento hasta el cierre. Tu equipo solo entra a cerrar.',
+        you: 'entra un lead',
+        ai: 'cualifica · presupuesta · hace seguimiento',
+        caption: 'Agente de Ventas · demo',
+        rows: [
+          { title: 'Lead €120k cualificado', sub: 'fuente: web · intención alta', state: 'hecho', icon: 'check' },
+          { title: 'Presupuesto #2041 enviado', sub: 'plantilla + precios al día', state: 'hecho', icon: 'check' },
+          { title: 'Seguimiento programado', sub: 'recordatorio en 3 días', state: 'activo', icon: 'plus' },
+        ],
+      },
+      {
+        tab: 'Atender 24/7',
+        title: 'Atención que no duerme',
+        description:
+          'Responde consultas, gestiona pedidos y resuelve incidencias 24/7. Solo lo excepcional llega a una persona.',
+        you: 'llega una consulta',
+        ai: 'responde · gestiona · escala solo lo raro',
+        caption: 'Agente de Atención · demo',
+        rows: [
+          { title: 'Consulta resuelta en 40s', sub: 'pedido #4811 · estado enviado', state: 'hecho', icon: 'check' },
+          { title: 'Devolución gestionada', sub: 'política aplicada sola', state: 'hecho', icon: 'check' },
+          { title: 'Caso escalado a humano', sub: 'condición especial de pago', state: 'revisar', icon: 'plus' },
+        ],
+      },
+      {
+        tab: 'Operar sin fricción',
+        title: 'Operaciones sin cuellos de botella',
+        description:
+          'Coordina pedidos, rutas y partes de obra; detecta cuellos de botella y avisa antes de que sean un problema.',
+        you: 'entra un pedido',
+        ai: 'planifica · coordina · alerta',
+        caption: 'Agente de Operaciones · demo',
+        rows: [
+          { title: 'Ruta de entrega optimizada', sub: '3 paradas · -22% km', state: 'hecho', icon: 'check' },
+          { title: 'Parte de obra actualizado', sub: 'fase 4 · montaje', state: 'hecho', icon: 'check' },
+          { title: 'Alerta de stock enviada', sub: 'reponer antes del viernes', state: 'aviso', icon: 'plus' },
+        ],
+      },
+      {
+        tab: 'Controlar las finanzas',
+        title: 'Las finanzas, siempre al día',
+        description:
+          'Factura, concilia cobros y proyecta la tesorería. El margen real de cada proyecto, siempre a la vista.',
+        you: 'llega una factura',
+        ai: 'concilia · proyecta · avisa',
+        caption: 'Agente de Finanzas · demo',
+        rows: [
+          { title: '12 facturas conciliadas', sub: 'cuadre automático con banco', state: 'hecho', icon: 'check' },
+          { title: 'Tesorería proyectada 60d', sub: '€1,24M previstos', state: 'hecho', icon: 'check' },
+          { title: 'Cobro pendiente detectado', sub: 'fase 2 · +12 días', state: 'aviso', icon: 'plus' },
+        ],
+      },
+      {
+        tab: 'Crecer en marketing',
+        title: 'Marketing en piloto automático',
+        description:
+          'Crea contenido, nutre leads y publica en tus canales con el tono de tu marca. Publicas una vez, el agente hace el resto.',
+        you: 'publicas una vez',
+        ai: 'programa · engagement · analítica',
+        caption: 'Agente de Marketing · demo',
+        rows: [
+          { title: '3 publicaciones lanzadas', sub: 'LinkedIn · Instagram · X', state: 'hecho', icon: 'check' },
+          { title: 'Leads nutridos', sub: 'secuencia de 4 emails', state: 'hecho', icon: 'check' },
+          { title: 'Informe de resultados', sub: 'CTR de la semana', state: 'activo', icon: 'plus' },
+        ],
+      },
+    ],
+  },
+
+  pricing: {
+    kicker: 'Precios · STRATA OS',
+    title: ['Pagas por lo que ', 'usas — y crece contigo.'],
+    lead: 'Sin licencias infladas. El precio depende del número de agentes activos y del consumo. Como en cualquier equipo: pagas por quien trabaja.',
+    comingSoonLabel: 'Próximamente',
+    availabilityNote:
+      'STRATA OS todavía no está a la venta: estas son las tarifas de lanzamiento y aún no se pueden contratar. Apúntate a la lista y te avisamos en cuanto abramos —quienes estén dentro entran con este precio. Si necesitas algo a medida ahora mismo, STRATA Lab sí está disponible hoy.',
+    tiers: [
+      {
+        name: 'Starter',
+        price: '490 €',
+        period: '/mes',
+        meta: '2 agentes · consumo incluido',
+        features: [
+          '2 agentes a elegir',
+          'Panel Business OS',
+          '1.000 acciones/mes incluidas',
+          'Integraciones estándar',
+          'Soporte por email',
+        ],
+        comingSoon: true,
+        ctaLabel: 'Apúntate al lanzamiento',
+        ctaHref: '#lanzamiento',
+      },
+      {
+        name: 'Growth',
+        price: '1.490 €',
+        period: '/mes',
+        meta: 'hasta 6 agentes · más consumo',
+        badge: 'El más elegido',
+        highlight: true,
+        features: [
+          'Hasta 6 agentes, todos los departamentos',
+          '5.000 acciones/mes incluidas',
+          'Integraciones a medida',
+          'Supervisión y reportes de valor',
+          'Soporte prioritario',
+        ],
+        comingSoon: true,
+        ctaLabel: 'Apúntate al lanzamiento →',
+        ctaHref: '#lanzamiento',
+      },
+      {
+        name: 'STRATA Lab',
+        price: 'A medida',
+        meta: 'agentes propios · proyecto a medida',
+        features: [
+          'Todo lo de Growth, sin límites',
+          'Agentes propios construidos a tu caso',
+          'Integraciones custom y consumo por volumen',
+          'VPC dedicado · residencia EU · SLA',
+          'Diagnóstico → implementación → operación',
+        ],
+        ctaLabel: 'Ver STRATA Lab →',
+        ctaHref: '#lab',
+      },
+    ],
+    billingKicker: 'Cómo se factura',
+    billingNote:
+      'Cuando abramos: cada agente adicional y el consumo extra se facturan por uso, sin permanencia y cambiando de plan cuando quieras. Precios sin IVA y sujetos a ajuste hasta el lanzamiento.',
+  },
+
+  method: {
+    kicker: 'El método',
+    title: ['No instalamos una herramienta. Construimos un sistema, ', 'nivel a nivel.'],
+    lead: 'Cada empresa está en un punto distinto. Te subimos por la escalera sin saltarnos pasos — y solo construimos a medida lo que de verdad te da ventaja. Lo que el mercado ya resuelve mejor, lo integramos.',
+    rungs: [
+      {
+        n: '01',
+        name: 'Fundamentos',
+        who: 'Todo tu equipo',
+        detail: 'Tu gente usando IA con criterio en el día a día. Lo que más retorno da y casi todos se saltan.',
+        filled: 1,
+      },
+      {
+        n: '02',
+        name: 'Proyectos & Skills',
+        who: 'Referentes internos',
+        detail: 'El conocimiento de tu empresa —tono, catálogo, procesos— encapsulado una vez y reutilizable.',
+        filled: 2,
+      },
+      {
+        n: '03',
+        name: 'Integrar',
+        who: 'Tu responsable + STRATA',
+        detail: 'Conectamos las mejores herramientas que ya existen y las dejamos funcionando dentro del negocio.',
+        filled: 3,
+      },
+      {
+        n: '04',
+        name: 'Agentes propios',
+        who: 'STRATA · a medida',
+        detail: 'Construimos agentes que ejecutan procesos completos — solo donde te dan ventaja real.',
+        filled: 4,
+      },
+    ],
+    capstoneTitle: 'El destino: tu Business OS',
+    capstoneBody:
+      'Los cuatro niveles no quedan sueltos: convergen en un solo panel — el cerebro de tu negocio, desde el que ves y gobiernas toda la IA de la empresa.',
+  },
+
+  lab: {
+    kicker: 'STRATA Lab · soluciones a medida',
+    title: ['¿Necesitas algo único? ', 'Lo construimos contigo.'],
+    lead: 'Cuando el OS estándar no basta, STRATA Lab diseña, construye y opera IA a medida para tu empresa — con un modelo de tres pasos y precio por proyecto.',
+    steps: [
+      {
+        n: '1',
+        title: 'Diagnóstico',
+        price: 'desde 7.500 €',
+        body: 'En 3 semanas mapeamos tu operación y te decimos dónde la IA crea valor, con ROI estimado por iniciativa. Pago único — y se descuenta si seguimos.',
+        gives: '→ define tu punto de partida',
+      },
+      {
+        n: '2',
+        title: 'Implementación',
+        body: 'Construimos e integramos tu sistema y formamos a tu equipo. Eliges una de tres opciones según hasta qué nivel de la escalera quieras llegar.',
+        gives: '→ una de 3 opciones · pago único',
+      },
+      {
+        n: '3',
+        title: 'Mantenimiento',
+        body: 'Cuota fija mensual: mantenemos el sistema vivo, lo operamos y lo afinamos contigo. Escala con el nivel que uses — sin sorpresas.',
+        gives: '→ operativa mensual',
+      },
+    ],
+    dealKicker: 'El trato',
+    dealBody: 'El diagnóstico decide tu nivel — y el nivel marca la inversión. El objetivo que fijamos contigo es recuperar lo invertido en ',
+    dealHighlight: '3–6 meses',
+    dealAfter: '.',
+  },
+
+  reviews: {
+    kicker: 'Opiniones',
+    title: ['Lo que dicen quienes ', 'ya operan con STRATA.'],
+  },
+
+  gallery: [
+    {
+      image: 'gfx-network.png',
+      alt: 'Diagrama de la red de agentes de STRATA conectados a un router central',
+      label: 'El sistema',
+      caption: 'ocho agentes, un router',
+    },
+    {
+      image: 'gfx-panel.png',
+      alt: 'Vista del panel Business OS con métricas en tiempo real',
+      label: 'El panel',
+      caption: 'tu negocio en tiempo real',
+    },
+    {
+      image: 'gfx-growth.png',
+      alt: 'Gráfico de crecimiento del margen a lo largo del tiempo',
+      label: 'El resultado',
+      caption: 'margen que crece',
+    },
+  ],
+
+  team: {
+    kicker: 'Las personas',
+    title: ['Tres socios. Cero empleados. ', 'Por diseño.'],
+    lead: 'Los socios deciden y dan la cara. Nuestros propios agentes ejecutan la operación — somos el primer caso de éxito del producto.',
+    members: [
+      {
+        photo: 'founder-gonzalo.jpg',
+        name: 'Gonzalo',
+        role: 'Co-CEO · CPO · CEO de OFFTV',
+        bio: 'CEO de OFFTV. Producto, marketing y growth; lidera el delivery y la orquestación del Business OS.',
+      },
+      {
+        photo: 'founder-borja.jpg',
+        name: 'Borja',
+        role: 'Co-CEO · CRO',
+        bio: 'Revenue, GTM y operaciones entre España y Silicon Valley. Background legal como abogado; red de fondos y asesores.',
+      },
+      {
+        photo: 'founder-lucia.jpg',
+        name: 'Lucía',
+        role: 'CTO · Ex-Sharpei AI · Forbes 30U30',
+        bio: 'Ex-CTO de Sharpei AI. Arquitectura del AI Brain y el Business OS: agentes, infraestructura e IA.',
+      },
+    ],
+  },
+
+  partners: {
+    kicker: 'Partners',
+    title: ['Crecemos con quienes ya tienen ', 'la confianza de las empresas.'],
+    lead: 'No vendemos solos. Trabajamos con quien ya asesora y acompaña a las empresas de nuestro perfil — con un modelo de referral claro y siempre bajo la marca STRATA.',
+    types: [
+      {
+        icon: 'bank',
+        title: 'Fondos & family offices',
+        detail: 'Instalamos IA en las empresas de su portfolio y elevamos su valor. Referral por cada cliente cerrado.',
+      },
+      {
+        icon: 'shield',
+        title: 'Asesores y despachos',
+        detail: 'Fiscalistas, abogados y consultoras que quieren ofrecer IA a sus clientes sin construirla. Fee por cliente.',
+      },
+      {
+        icon: 'people',
+        title: 'Asociaciones sectoriales',
+        detail: 'Llevamos formación y diagnósticos a sus asociados — un canal de leads cualificados por sector.',
+      },
+      {
+        icon: 'node',
+        title: 'Integradores y agencias',
+        detail: '¿Ya ayudas a empresas a digitalizarse? Añade nuestro sistema a tu oferta y crece con nosotros.',
+      },
+    ],
+    logosKicker: 'Colaboran con nosotros',
+    cta: 'Quiero ser partner →',
+  },
+
+  faq: {
+    kicker: 'Preguntas frecuentes',
+    title: ['Lo que suelen ', 'preguntarnos.'],
+    items: [
+      {
+        q: '¿Puedo contratar STRATA OS ya?',
+        a: 'Todavía no. Lo estamos terminando con un grupo reducido de empresas y abriremos por fases: apúntate a la lista de lanzamiento y entrarás en el primer grupo, con la tarifa de salida. Lo que sí puedes contratar hoy es STRATA Lab, nuestra pata de proyectos a medida, empezando por el diagnóstico.',
+      },
+      {
+        q: '¿En qué se diferencia de un chat de IA normal?',
+        a: 'Un chat responde; nuestros agentes ejecutan. Se conectan a tus herramientas, hacen el trabajo de principio a fin y solo te piden aprobación en lo crítico.',
+      },
+      {
+        q: '¿Necesito un equipo técnico para usarlo?',
+        a: 'No. Nosotros lo instalamos, lo integramos con lo que ya usas y lo operamos. Tú gobiernas todo desde un único panel, sin tocar código.',
+      },
+      {
+        q: '¿Cómo se facturará STRATA OS?',
+        a: 'Por número de agentes activos y consumo, con planes desde 490 €/mes cuando abramos. Sin permanencia: subirás o bajarás de plan cuando quieras y el consumo extra se facturará por uso. Son las tarifas de lanzamiento y pueden ajustarse hasta esa fecha.',
+      },
+      {
+        q: '¿Y si necesito algo a medida ahora, sin esperar al OS?',
+        a: 'Ahí entra STRATA Lab, que sí está disponible hoy: diseñamos y construimos agentes y sistemas para tu caso, con un modelo de diagnóstico → implementación → mantenimiento y precio por proyecto. Empezamos por el diagnóstico, en 3 semanas.',
+      },
+      {
+        q: '¿Qué pasa con la seguridad de mis datos?',
+        a: 'Tus datos son tuyos. Inferencia con residencia europea, aislamiento por cliente y humano en el bucle en cada punto sensible — el agente propone, una persona aprueba y todo queda trazado.',
+      },
+    ],
+  },
+
+  contact: {
+    kicker: 'STRATA Lab · disponible hoy',
+    title: ['¿Tienes una empresa', 'que escalar con IA?'],
+    lead: 'Sin esperar al lanzamiento del OS: en 3 semanas te decimos dónde la IA crea valor en tu negocio, con ROI estimado por iniciativa.',
+    ctaPrimary: 'Pide tu diagnóstico →',
+    ctaSecondary: '¿Buscas el OS? Apúntate al lanzamiento',
+    form: {
+      name: 'Nombre',
+      email: 'Email',
+      company: 'Empresa',
+      message: 'Cuéntanos tu caso',
+      messagePlaceholder: '¿Qué parte de tu operación te está costando más tiempo o margen?',
+      submit: 'Pide tu diagnóstico →',
+      sending: 'Enviando…',
+      success: 'Recibido. Te escribimos en menos de 24 h laborables.',
+      error: 'No hemos podido enviarlo. Escríbenos directamente a',
+      consent:
+        'Al enviar aceptas que tratemos tus datos para responderte. No los compartimos con terceros ni te apuntamos a ninguna lista.',
+      required: 'obligatorio',
+    },
+  },
+
+  footer: {
+    tagline: 'Compañía de IA aplicada',
+  },
+
+  chat: {
+    fabLabel: 'Abrir chat de asistencia',
+    name: 'Asistente STRATA',
+    status: 'Respuestas guiadas',
+    greeting:
+      '¡Hola! Soy el asistente guiado de STRATA — respondo a las preguntas de abajo. Para cualquier otra cosa te pasamos con el equipo.',
+    placeholder: 'Escribe tu pregunta…',
+    send: 'Enviar',
+    close: 'Cerrar',
+    quicks: ['¿Qué hacéis?', '¿Cuándo sale el OS?', 'Precios', 'Pedir diagnóstico'],
+    answers: {
+      launch:
+        'STRATA OS está en desarrollo y abrimos por fases. Aún no hay fecha pública: apúntate a la lista de lanzamiento y serás de los primeros en entrar, con la tarifa de salida. Mientras tanto, STRATA Lab sí está disponible hoy.',
+      what: 'Dos cosas. STRATA OS es el producto —agentes por departamento y un panel desde el que los gobiernas— y llega próximamente: puedes apuntarte a la lista de lanzamiento. STRATA Lab es nuestra pata a medida y sí está disponible hoy.',
+      price:
+        'STRATA OS aún no está a la venta: las tarifas de lanzamiento arrancan en 490 €/mes por agentes y consumo, y quien esté en la lista entra con ese precio. Lo que sí puedes contratar hoy es STRATA Lab: empieza por un diagnóstico desde 7.500 € (se descuenta si seguimos), y la implementación y la operativa mensual dependen del nivel que elijas.',
+      diagnosis:
+        'En 3 semanas mapeamos tu operación y te decimos dónde la IA crea valor, con ROI estimado. Es la pata que ya está disponible: rellena el formulario de contacto y arrancamos.',
+      trust:
+        'Operamos nuestro propio negocio con este sistema 24/7 — somos nuestro primer caso de éxito. Y nos quedamos dentro hasta que tu equipo lo use y rinda.',
+    },
+    fallback: 'Esa se me escapa: soy un asistente guiado, no una IA abierta. Escríbenos y te responde una persona:',
+  },
+};

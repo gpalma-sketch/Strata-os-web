@@ -1,0 +1,129 @@
+---
+import Icon from './Icon.astro';
+import type { Locale } from '../data/site';
+import { content } from '../data/content';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const t = content[locale];
+
+/** Per-card work-bar fill, matching the design's staggered rhythm. */
+const workWidths = ['86%', '72%', '64%', '78%', '58%', '69%'];
+---
+
+<section class="deep grid-bg sec" id="agentes">
+  <div class="orb" style="width:520px; height:520px; top:8%; right:-200px; opacity:.22;"></div>
+  <div class="wrap">
+    <div class="reveal">
+      <p class="kick">{t.agents.kicker}</p>
+      <h2 class="h-lg" style="margin-top:18px;">
+        {t.agents.title[0]}<span class="mint">{t.agents.title[1]}</span>
+      </h2>
+      <p class="lead" style="margin-top:18px; max-width:820px;">{t.agents.lead}</p>
+    </div>
+
+    <div class="agents reveal" data-stagger>
+      {
+        t.agents.items.map((a, i) => (
+          <div class="agent">
+            <div class="ah">
+              <div class="aic"><Icon name={a.icon} /></div>
+              <div>
+                <div class="an2">{a.name}</div>
+                {/* Every other card idles gold, so the row reads as a working
+                    team rather than six identical badges. */}
+                <div class={`astat${i % 2 === 0 ? ' busy' : ''}`}>{a.status}</div>
+              </div>
+            </div>
+            <div class="ad">{a.description}</div>
+            <div class="atags">{a.tags.map((tag) => <span class="atag">{tag}</span>)}</div>
+            <div class="awork" aria-hidden="true"><i style={`--w:${workWidths[i % workWidths.length]}`}></i></div>
+          </div>
+        ))
+      }
+    </div>
+
+    {/* Illustrative activity, explicitly labelled as a demo — the prototype
+        called this "live", which it never was. */}
+    <div class="feed reveal" aria-hidden="true">
+      <div class="feed-h"><span class="fdot"></span>{t.agents.feedTitle}<b>{t.agents.feedLive}</b></div>
+      <div class="feed-log" id="feedLog"></div>
+    </div>
+
+    <div class="reveal" style="margin-top:40px; display:flex; align-items:center; gap:16px; flex-wrap:wrap;">
+      <a href="#precios" class="btn btn-primary">{t.agents.ctaLabel}</a>
+      <span class="body" style="font-size:15px;">
+        {t.agents.ctaNote}<a href="#lab" style="color:var(--mint); border-bottom:1px solid;">{t.agents.ctaNoteLink}</a>{t.agents.ctaNoteAfter}
+      </span>
+    </div>
+  </div>
+</section>
+
+<script is:inline define:vars={{ lines: t.agents.feedLines, doneLabel: t.agents.feedDone }}>
+  (() => {
+    const log = document.getElementById('feedLog');
+    if (!log) return;
+
+    const BOLT = '<svg viewBox="0 0 24 24"><path d="M13 2 3 14h7l-1 8 10-12h-7z"/></svg>';
+    const CHECK = '<svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>';
+
+    const clock = () => {
+      const d = new Date();
+      return `${String(d.getHours()).padStart(2, '0')}:${String(d.getMinutes()).padStart(2, '0')}`;
+    };
+
+    const row = (item, animate) => {
+      const el = document.createElement('div');
+      el.className = `frow${animate ? ' enter' : ''}`;
+      const text = document.createElement('div');
+      text.className = 'ftxt';
+      text.textContent = item.text;
+      const tag = document.createElement('div');
+      tag.className = 'ftag';
+      tag.textContent = `${item.agent} · ${clock()}`;
+
+      const body = document.createElement('div');
+      body.className = 'fbody';
+      body.append(text, tag);
+
+      const av = document.createElement('div');
+      av.className = 'fav';
+      av.innerHTML = BOLT;
+
+      const ok = document.createElement('div');
+      ok.className = 'fok';
+      ok.innerHTML = CHECK;
+      ok.append(doneLabel);
+
+      el.append(av, body, ok);
+      return el;
+    };
+
+    for (let i = 0; i < 5; i++) log.appendChild(row(lines[i], false));
+
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    let idx = 5;
+    let timer = 0;
+    const start = () => {
+      timer = setInterval(() => {
+        log.insertBefore(row(lines[idx % lines.length], true), log.firstChild);
+        idx++;
+        while (log.children.length > 6) log.removeChild(log.lastChild);
+      }, 2200);
+    };
+
+    // Only run while the feed is on screen.
+    new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting && !timer) start();
+        else if (!e.isIntersecting && timer) {
+          clearInterval(timer);
+          timer = 0;
+        }
+      });
+    }).observe(log);
+  })();
+</script>

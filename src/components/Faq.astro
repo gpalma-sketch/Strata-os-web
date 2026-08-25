@@ -1,0 +1,66 @@
+---
+import type { Locale } from '../data/site';
+import { content } from '../data/content';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const t = content[locale];
+
+// FAQPage markup: these are exactly the questions people search for.
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: t.faq.items.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+---
+
+<section class="dark sec" id="faq">
+  <div class="wrap">
+    <div class="reveal" style="text-align:center;">
+      <p class="kick" style="justify-content:center;">{t.faq.kicker}</p>
+      <h2 class="h-lg" style="margin-top:18px;">
+        {t.faq.title[0]}<span class="mint">{t.faq.title[1]}</span>
+      </h2>
+    </div>
+
+    <div class="faq reveal">
+      {
+        t.faq.items.map((f, i) => (
+          <div class="qa">
+            <h3>
+              <button
+                class="qq"
+                type="button"
+                aria-expanded={i === 0 ? 'true' : 'false'}
+                aria-controls={`faq-a-${i}`}
+                id={`faq-q-${i}`}
+              >
+                {f.q}
+                <span class="qi" aria-hidden="true">+</span>
+              </button>
+            </h3>
+            <div class="qc" id={`faq-a-${i}`} role="region" aria-labelledby={`faq-q-${i}`}>
+              <div><p>{f.a}</p></div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(faqLd)} />
+</section>
+
+<script>
+  document.querySelectorAll<HTMLButtonElement>('.qa .qq').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      btn.setAttribute('aria-expanded', String(btn.getAttribute('aria-expanded') !== 'true'));
+    });
+  });
+</script>

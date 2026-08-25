@@ -1,0 +1,713 @@
+/* ============================================================================
+   Hero: headline rotor, status chip, sector marquee, device mockup,
+   and the native light-mode Business OS dashboard inside it.
+============================================================================ */
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 150px 0 0;
+  /* `position` matters as much as `overflow` here: without it the absolutely
+     positioned orbs and the canvas resolve against the initial containing
+     block instead of the hero, so `overflow:hidden` never clips them and a
+     640px orb at `right:-120px` gives phones a sideways scroll. `.sec`
+     sections already carry both; the hero and the final CTA are the two
+     that aren't `.sec`. */
+  position: relative;
+  overflow: hidden;
+}
+.hero-net {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+.hero .kick {
+  justify-content: center;
+}
+.hero-title {
+  margin-top: 30px;
+}
+.hero-lead {
+  margin: 34px auto 0;
+  max-width: 640px;
+  font-size: 22px;
+}
+.hero .cta-row {
+  justify-content: center;
+}
+.hero-chip {
+  margin-top: 42px;
+}
+
+.rotor {
+  display: inline-grid;
+  vertical-align: bottom;
+  overflow: hidden;
+  height: 1.6em;
+  color: var(--mint);
+  text-align: left;
+}
+.rotor span {
+  grid-area: 1/1;
+  line-height: 1.6;
+  transform: translateY(115%);
+  opacity: 0;
+  transition: transform 0.6s var(--ease), opacity 0.4s;
+  white-space: nowrap;
+}
+.rotor span.on {
+  transform: none;
+  opacity: 1;
+}
+.rotor span.out {
+  transform: translateY(-110%);
+  opacity: 0;
+}
+
+.statuschip {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--on-dark-soft);
+  border: 1px solid var(--line-d2);
+  border-radius: 999px;
+  padding: 10px 18px;
+}
+.statuschip .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--mint);
+  box-shadow: 0 0 10px var(--mint);
+  animation: pulse 2.4s ease-in-out infinite;
+  flex: none;
+}
+@keyframes pulse {
+  50% {
+    opacity: 0.4;
+  }
+}
+
+/* ---------- marquee ---------- */
+.marquee {
+  border-top: 1px solid var(--line-d);
+  border-bottom: 1px solid var(--line-d);
+  padding: 20px 0;
+  overflow: hidden;
+  position: relative;
+  margin-top: 90px;
+}
+.mq-track {
+  display: flex;
+  gap: 64px;
+  width: max-content;
+  animation: mq 30s linear infinite;
+}
+.mq-track span {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--on-dark-soft);
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 64px;
+}
+.mq-track span::after {
+  content: '▸';
+  color: var(--mint);
+}
+@keyframes mq {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* ---------- device mockup (desktop + phone, light frames) ---------- */
+.devices-wrap {
+  margin-top: 80px;
+  max-width: 1120px;
+}
+.devices {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 0;
+}
+.win {
+  flex: 1;
+  max-width: 1000px;
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 50px 120px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(255, 255, 255, 0.06);
+}
+.win-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  background: #eef1ee;
+  border-bottom: 1px solid #dfe4df;
+}
+.win-bar i {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+.win-bar i:nth-child(1) {
+  background: #ff5f57;
+}
+.win-bar i:nth-child(2) {
+  background: #febc2e;
+}
+.win-bar i:nth-child(3) {
+  background: #28c840;
+}
+.win-bar span {
+  margin: 0 auto;
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  letter-spacing: 0.08em;
+  color: #5b665d;
+  transform: translateX(-14px);
+}
+.win-shot {
+  position: relative;
+  container-type: inline-size;
+  line-height: 0;
+}
+.phone {
+  position: relative;
+  width: 230px;
+  margin-left: -70px;
+  margin-bottom: -18px;
+  flex: none;
+  background: #fff;
+  border-radius: 34px;
+  padding: 9px;
+  box-shadow: 0 40px 90px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+.phone-shot {
+  position: relative;
+  container-type: inline-size;
+  border-radius: 26px;
+  overflow: hidden;
+  line-height: 0;
+}
+.phone::before {
+  content: '';
+  position: absolute;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 74px;
+  height: 7px;
+  border-radius: 99px;
+  background: rgba(0, 0, 0, 0.35);
+  z-index: 3;
+}
+.devices-cap {
+  text-align: center;
+  margin-top: 38px;
+}
+.devices-cap .k {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--mint);
+}
+.devices-cap .t {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(24px, 3vw, 38px);
+  letter-spacing: -0.01em;
+  margin-top: 12px;
+  color: var(--on-dark);
+}
+
+/* ---------- the dashboard itself ----------
+   Everything sizes in `cqw` off the device frame, so the whole UI scales as
+   one unit with the mockup instead of needing a breakpoint per element. */
+.osd {
+  --a: #0e9b8e;
+  --a2: #35d0ba;
+  --bg: #f4f7f4;
+  --card: #fff;
+  --ln: #e4eae4;
+  --tx: #0f1e2e;
+  --mu: #6a756c;
+  background: var(--bg);
+  color: var(--tx);
+  font-size: 1.35cqw;
+  line-height: 1.4;
+  display: grid;
+  grid-template-columns: 16% 1fr;
+  min-height: 0;
+}
+.osd * {
+  box-sizing: border-box;
+}
+.osd .sb {
+  background: #fff;
+  border-right: 1px solid var(--ln);
+  padding: 1.1em 0.9em;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+.osd .lg {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  padding: 0.2em 0.2em 0.7em;
+}
+.osd .lg b {
+  width: 2em;
+  height: 2em;
+  border-radius: 0.45em;
+  background: var(--a);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1em;
+}
+.osd .lg .n {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.15em;
+  letter-spacing: 0.02em;
+  line-height: 1;
+}
+.osd .lg .n small {
+  display: block;
+  font-family: var(--font-mono);
+  font-weight: 400;
+  font-size: 0.5em;
+  letter-spacing: 0.18em;
+  color: var(--mu);
+  margin-top: 0.35em;
+}
+.osd .ws {
+  border: 1px solid var(--ln);
+  border-radius: 0.6em;
+  padding: 0.55em 0.65em;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  margin-bottom: 0.4em;
+}
+.osd .ws b {
+  width: 1.7em;
+  height: 1.7em;
+  border-radius: 0.4em;
+  background: var(--bg);
+  color: var(--a);
+  display: grid;
+  place-items: center;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 0.8em;
+  border: 1px solid var(--ln);
+}
+.osd .ws .n {
+  font-weight: 700;
+  font-size: 0.85em;
+}
+.osd .ws .n small {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.62em;
+  color: var(--mu);
+  letter-spacing: 0.06em;
+}
+.osd .ws .cx {
+  margin-left: auto;
+  color: var(--mu);
+}
+.osd .cap {
+  font-family: var(--font-mono);
+  font-size: 0.6em;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--mu);
+  margin: 0.6em 0 0.2em 0.3em;
+}
+.osd .it {
+  display: flex;
+  align-items: center;
+  gap: 0.55em;
+  padding: 0.42em 0.5em;
+  border-radius: 0.45em;
+  font-size: 0.82em;
+  color: #3d4842;
+}
+.osd .it.on {
+  background: rgba(14, 155, 142, 0.1);
+  color: var(--a);
+  font-weight: 700;
+}
+.osd .it .d {
+  width: 0.85em;
+  height: 0.85em;
+  border: 1.5px solid currentColor;
+  border-radius: 0.2em;
+  opacity: 0.65;
+  flex: none;
+}
+.osd .it.on .d {
+  opacity: 1;
+}
+.osd .mn {
+  padding: 1.15em 1.3em;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9em;
+}
+.osd .crumb {
+  font-family: var(--font-mono);
+  font-size: 0.62em;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--mu);
+}
+.osd .kick {
+  font-family: var(--font-mono);
+  font-size: 0.68em;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--a);
+  display: block;
+}
+.osd .kick::before {
+  content: none;
+}
+.osd .h {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1em;
+}
+.osd .h .g {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.9em;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+.osd .ask {
+  background: var(--a);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.78em;
+  border-radius: 0.5em;
+  padding: 0.6em 1em;
+  white-space: nowrap;
+}
+.osd .row {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  gap: 0.7em;
+  grid-auto-rows: minmax(2.4em, auto);
+  align-items: stretch;
+}
+.osd .c {
+  background: var(--card);
+  border: 1px solid var(--ln);
+  border-radius: 0.7em;
+  padding: 0.8em 0.9em;
+  min-width: 0;
+}
+.osd .c .lbl {
+  font-family: var(--font-mono);
+  font-size: 0.58em;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--mu);
+}
+.osd .c .big {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.7em;
+  letter-spacing: -0.02em;
+  margin-top: 0.1em;
+}
+.osd .c .big.a {
+  color: var(--a);
+}
+.osd .c .sub {
+  font-family: var(--font-mono);
+  font-size: 0.56em;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--mu);
+  margin-top: 0.3em;
+}
+.osd .jarv {
+  grid-row: span 2;
+  display: flex;
+  flex-direction: column;
+  min-height: 10em;
+}
+.osd .jorb {
+  width: 3.4em;
+  height: 3.4em;
+  border-radius: 50%;
+  margin: 0.3em auto 0.5em;
+  background: radial-gradient(circle at 50% 42%, #7ff0dd, var(--a2) 42%, rgba(14, 155, 142, 0.15) 70%, transparent);
+  box-shadow: 0 0 2.2em rgba(53, 208, 186, 0.55);
+}
+.osd .jarv .st {
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 0.6em;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--mu);
+}
+.osd .jarv .desc {
+  text-align: center;
+  font-size: 0.74em;
+  color: #42504a;
+  margin-top: 0.35em;
+  line-height: 1.4;
+}
+.osd .jarv .btns {
+  display: flex;
+  gap: 0.5em;
+  justify-content: center;
+  margin-top: auto;
+  padding-top: 0.7em;
+}
+.osd .jarv .b1,
+.osd .jarv .b2 {
+  font-size: 0.74em;
+  border-radius: 0.45em;
+  padding: 0.5em 0.9em;
+}
+.osd .jarv .b1 {
+  background: var(--a);
+  color: #fff;
+  font-weight: 700;
+}
+.osd .jarv .b2 {
+  background: var(--bg);
+  color: var(--tx);
+  border: 1px solid var(--ln);
+}
+.osd .pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  font-family: var(--font-mono);
+  font-size: 0.58em;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--a);
+  border: 1px solid rgba(14, 155, 142, 0.4);
+  border-radius: 99px;
+  padding: 0.2em 0.6em;
+}
+.osd .pill::before {
+  content: '';
+  width: 0.5em;
+  height: 0.5em;
+  border-radius: 50%;
+  background: var(--a2);
+}
+.osd .ckhd {
+  font-family: var(--font-mono);
+  font-size: 0.66em;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--a);
+}
+.osd .cock {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.7em;
+}
+.osd .dept {
+  background: var(--card);
+  border: 1px solid var(--ln);
+  border-radius: 0.7em;
+  padding: 0.9em 0.85em;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75em;
+}
+.osd .dept .dh {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.osd .dept .di {
+  width: 1.7em;
+  height: 1.7em;
+  border-radius: 0.4em;
+  background: rgba(14, 155, 142, 0.1);
+  color: var(--a);
+  display: grid;
+  place-items: center;
+  font-size: 0.8em;
+  flex: none;
+}
+.osd .dept .dt {
+  font-weight: 700;
+  font-size: 0.82em;
+}
+.osd .dept .dt small {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.62em;
+  color: var(--mu);
+  letter-spacing: 0.04em;
+  font-weight: 400;
+}
+.osd .dept .ok {
+  margin-left: auto;
+  font-family: var(--font-mono);
+  font-size: 0.56em;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--a);
+  border: 1px solid rgba(14, 155, 142, 0.35);
+  border-radius: 99px;
+  padding: 0.15em 0.5em;
+}
+.osd .kv {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75em 0.7em;
+}
+.osd .kv > div {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+.osd .kv .v {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.05em;
+  line-height: 1.05;
+}
+.osd .kv .v.a {
+  color: var(--a);
+}
+.osd .kv .k {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.55em;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--mu);
+  line-height: 1.2;
+  margin-top: 0.2em;
+}
+.osd .bar {
+  height: 0.4em;
+  border-radius: 99px;
+  background: var(--bg);
+  overflow: hidden;
+  margin-top: 0.5em;
+}
+.osd .bar i {
+  display: block;
+  height: 100%;
+  border-radius: 99px;
+  background: linear-gradient(90deg, var(--a), var(--a2));
+}
+.osd .chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3em;
+}
+.osd .chips span {
+  font-family: var(--font-mono);
+  font-size: 0.56em;
+  color: #42504a;
+  background: var(--bg);
+  border: 1px solid var(--ln);
+  border-radius: 0.35em;
+  padding: 0.2em 0.45em;
+}
+.osd .topbar {
+  display: none;
+}
+
+/* phone variant */
+.osd.mob {
+  grid-template-columns: 1fr;
+  font-size: 3.1cqw;
+}
+.osd.mob .sb {
+  display: none;
+}
+.osd.mob .row {
+  grid-template-columns: 1fr 1fr;
+}
+.osd.mob .jarv {
+  grid-row: auto;
+  grid-column: span 2;
+}
+.osd.mob .cock {
+  grid-template-columns: 1fr;
+}
+.osd.mob .mn {
+  padding: 1em;
+  gap: 0.8em;
+}
+.osd.mob .topbar {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  padding: 0.9em 1em;
+  background: #fff;
+  border-bottom: 1px solid var(--ln);
+}
+.osd.mob .topbar b {
+  width: 1.7em;
+  height: 1.7em;
+  border-radius: 0.4em;
+  background: var(--a);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 0.9em;
+}
+.osd.mob .topbar .n {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1em;
+  letter-spacing: 0.02em;
+}
+
+/* The phone overlaps the desktop frame; below tablet it stacks under it so
+   neither is squeezed to illegibility. */
+@media (max-width: 880px) {
+  .devices {
+    flex-direction: column;
+    align-items: center;
+    gap: 28px;
+  }
+  .phone {
+    margin-left: 0;
+    margin-bottom: 0;
+    width: 260px;
+  }
+}

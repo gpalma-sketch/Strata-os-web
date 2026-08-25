@@ -1,0 +1,49 @@
+---
+import { Image } from 'astro:assets';
+import type { Locale } from '../data/site';
+import { content } from '../data/content';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const t = content[locale];
+
+const photos = import.meta.glob<{ default: ImageMetadata }>('../assets/founder-*.jpg', { eager: true });
+---
+
+<section class="light sec" id="equipo" style="padding-top:0;">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="kick">{t.team.kicker}</p>
+      <h2 class="h-lg" style="margin-top:18px;">
+        {t.team.title[0]}<span class="teal">{t.team.title[1]}</span>
+      </h2>
+      <p class="lead" style="margin-top:18px; max-width:760px;">{t.team.lead}</p>
+    </div>
+
+    <div class="team reveal" data-stagger>
+      {
+        t.team.members.map((m) => {
+          const photo = photos[`../assets/${m.photo}`]?.default;
+          return (
+            <div class="member">
+              {photo && (
+                <Image
+                  src={photo}
+                  alt={m.name}
+                  class="founder-photo"
+                  widths={[360, 720]}
+                  sizes="(max-width: 640px) 100vw, 360px"
+                />
+              )}
+              <h3 class="h-sm">{m.name}</h3>
+              <div class="role">{m.role}</div>
+              <p class="body bio">{m.bio}</p>
+            </div>
+          );
+        })
+      }
+    </div>
+  </div>
+</section>

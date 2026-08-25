@@ -1,0 +1,120 @@
+---
+/**
+ * Final CTA.
+ *
+ * When PUBLIC_CONTACT_ENDPOINT is configured this renders a real form that
+ * POSTs `FormData` to it and expects any 2xx back — the contract every hosted
+ * form service (Formspree, Basin, Web3Forms, Netlify Forms) already satisfies,
+ * so the site stays a static build with no secrets in it.
+ *
+ * When it is NOT configured the form is omitted entirely and the CTA falls
+ * back to the prototype's mailto: link. An unconfigured deploy therefore
+ * behaves exactly as the design did, instead of showing a form that silently
+ * drops every lead.
+ */
+import type { Locale } from '../data/site';
+import { site } from '../data/site';
+import { content } from '../data/content';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const t = content[locale];
+const f = t.contact.form;
+const endpoint = site.contactEndpoint;
+---
+
+<section class="deep grid-bg footcta" id="contacto">
+  <div class="orb" style="width:560px; height:560px; top:-120px; left:50%; transform:translateX(-50%); opacity:.35;"></div>
+  <div class="wrap">
+    <p class="kick reveal" style="justify-content:center;">{t.contact.kicker}</p>
+    <h2 class="display reveal" style="margin:26px auto 0; max-width:1000px;">
+      {t.contact.title[0]}<br />{t.contact.title[1]}
+    </h2>
+    <p class="lead reveal" style="margin:28px auto 0; max-width:600px;">{t.contact.lead}</p>
+
+    {
+      endpoint ? (
+        <form class="cform reveal" id="contactForm" action={endpoint} method="POST" data-state="idle">
+          <div class="cform-fields" style="display:grid; gap:18px;">
+            <div class="frow2">
+              <div>
+                <label for="cf-name">{f.name} <span class="req" aria-hidden="true">*</span></label>
+                <input id="cf-name" name="name" type="text" required autocomplete="name" />
+              </div>
+              <div>
+                <label for="cf-email">{f.email} <span class="req" aria-hidden="true">*</span></label>
+                <input id="cf-email" name="email" type="email" required autocomplete="email" />
+              </div>
+            </div>
+            <div>
+              <label for="cf-company">{f.company}</label>
+              <input id="cf-company" name="company" type="text" autocomplete="organization" />
+            </div>
+            <div>
+              <label for="cf-message">{f.message} <span class="req" aria-hidden="true">*</span></label>
+              <textarea id="cf-message" name="message" required placeholder={f.messagePlaceholder} />
+            </div>
+
+            <div class="hp" aria-hidden="true">
+              <label for="cf-website">Website</label>
+              <input id="cf-website" name="_gotcha" type="text" tabindex="-1" autocomplete="off" />
+            </div>
+
+            <p class="consent">{f.consent}</p>
+            <button type="submit" class="btn btn-primary cform-submit">
+              <span data-label-idle>{f.submit}</span>
+              <span data-label-sending hidden>{f.sending}</span>
+            </button>
+          </div>
+
+          <p class="cform-status ok" role="status">{f.success}</p>
+          <p class="cform-status err" role="alert">
+            {f.error} <a href={`mailto:${site.email}`}>{site.email}</a>
+          </p>
+        </form>
+      ) : (
+        <div class="cta-row reveal" style="justify-content:center; margin-top:42px;">
+          <a href={`mailto:${site.email}`} class="btn btn-primary">{t.contact.ctaPrimary}</a>
+          <a href="#lanzamiento" class="btn btn-ghost">{t.contact.ctaSecondary}</a>
+        </div>
+      )
+    }
+  </div>
+</section>
+
+{
+  endpoint && (
+    <script>
+      const form = document.getElementById('contactForm') as HTMLFormElement | null;
+      if (form) {
+        const idle = form.querySelector<HTMLElement>('[data-label-idle]');
+        const sending = form.querySelector<HTMLElement>('[data-label-sending]');
+
+        form.addEventListener('submit', async (e) => {
+          e.preventDefault();
+          if (form.dataset.state === 'sending') return;
+
+          form.dataset.state = 'sending';
+          idle?.toggleAttribute('hidden', true);
+          sending?.toggleAttribute('hidden', false);
+
+          try {
+            const res = await fetch(form.action, {
+              method: 'POST',
+              body: new FormData(form),
+              headers: { Accept: 'application/json' },
+            });
+            if (!res.ok) throw new Error(String(res.status));
+            form.dataset.state = 'sent';
+          } catch {
+            form.dataset.state = 'error';
+            idle?.toggleAttribute('hidden', false);
+            sending?.toggleAttribute('hidden', true);
+          }
+        });
+      }
+    </script>
+  )
+}

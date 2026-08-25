@@ -1,0 +1,44 @@
+---
+import type { Locale } from '../data/site';
+import { content } from '../data/content';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const t = content[locale];
+---
+
+<section class="deep grid-bg sec" id="lab">
+  <div class="orb" style="width:440px; height:440px; bottom:-120px; left:-140px; opacity:.2;"></div>
+  <div class="wrap">
+    <div class="reveal">
+      <p class="kick">{t.lab.kicker}</p>
+      <h2 class="h-lg" style="margin-top:18px;">
+        {t.lab.title[0]}<span class="mint">{t.lab.title[1]}</span>
+      </h2>
+      <p class="lead" style="margin-top:18px; max-width:820px;">{t.lab.lead}</p>
+    </div>
+
+    <div class="steps reveal" data-stagger>
+      {
+        t.lab.steps.map((s) => (
+          <div class="step c">
+            <div class="pn" aria-hidden="true">{s.n}</div>
+            <h3 class="h-sm">{s.title}</h3>
+            {s.price && <div class="sprice">{s.price}</div>}
+            <p class="body" style="margin-top:10px;">{s.body}</p>
+            <div class="gives">{s.gives}</div>
+          </div>
+        ))
+      }
+    </div>
+
+    <div class="reveal" style="margin-top:40px; display:flex; align-items:center; gap:16px; flex-wrap:wrap;">
+      <span class="kick" style="color:var(--mint);">{t.lab.dealKicker}</span>
+      <p class="lead" style="font-size:19px; max-width:820px;">
+        {t.lab.dealBody}<span class="mint">{t.lab.dealHighlight}</span>{t.lab.dealAfter}
+      </p>
+    </div>
+  </div>
+</section>

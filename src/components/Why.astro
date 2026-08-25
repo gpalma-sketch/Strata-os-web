@@ -1,0 +1,101 @@
+---
+import Icon from './Icon.astro';
+import type { Locale } from '../data/site';
+import { content } from '../data/content';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const t = content[locale];
+const b = t.why.bento;
+---
+
+<section class="light sec" style="padding:110px 0;">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="kick">{t.why.kicker}</p>
+      <h2 class="h-lg" style="margin-top:18px; max-width:900px;">
+        {t.why.title[0]}<span class="teal">{t.why.title[1]}</span>
+      </h2>
+      <p class="lead" style="margin-top:18px; max-width:720px;">{t.why.lead}</p>
+    </div>
+
+    <div class="bento reveal" data-stagger>
+      <div class="bx a">
+        <h3>{b.team.title}</h3>
+        <p>{b.team.body}</p>
+        <div class="tfeed">
+          <div class="th"><i></i>{b.team.channel}<b>{b.team.agentCount}</b></div>
+          {
+            b.team.rows.map((r) => (
+              <div class="tr">
+                <div class="ta">{r.initial}</div>
+                <div class="tb"><div class="tn">{r.name}</div><div class="tc">{r.detail}</div></div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+
+      <div class="bx b">
+        <h3>{b.integrations.title}</h3>
+        <p>{b.integrations.body}</p>
+        <div class="logos" aria-hidden="true">
+          <span class="lg"><Icon name="mail" /></span>
+          <span class="lg"><Icon name="message" /></span>
+          <span class="lg"><Icon name="calendar" /></span>
+          <span class="lg"><Icon name="card" /></span>
+          <span class="lg more">{b.integrations.more}</span>
+        </div>
+      </div>
+
+      <div class="bx c">
+        <h3>{b.data.title}</h3>
+        <p>{b.data.body}</p>
+        <div class="bshield"><Icon name="shield-check" /></div>
+      </div>
+
+      <div class="bx d">
+        <h3>{b.platform.title}</h3>
+        <p>{b.platform.body}</p>
+        <div class="pmocks" aria-hidden="true">
+          {
+            b.platform.tiles.map((tile) => (
+              <div class="pmock">
+                <div class="pk">{tile.label}</div>
+                <div class="pv">{tile.value}</div>
+                <div class="pbar"><i style={`width:${tile.pct}%;`}></i></div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+
+    <div class="reveal" style="margin-top:52px;">
+      <p class="kick">{t.why.outcomesKicker}</p>
+      <h3 class="h-sm" style="margin-top:14px; font-size:24px; max-width:820px;">{t.why.outcomesTitle}</h3>
+    </div>
+
+    <div class="outcomes reveal" data-stagger>
+      {
+        t.why.outcomes.map((o) => (
+          <div class="oc">
+            <div class="oi"><Icon name={o.icon} /></div>
+            <div class="ov">{o.value}{o.suffix && <span> {o.suffix}</span>}</div>
+            <div class="ot">{o.title}</div>
+            <div class="od">{o.detail}</div>
+          </div>
+        ))
+      }
+    </div>
+
+    <p class="outcomes-note reveal">{t.why.outcomesNote}</p>
+
+    <div class="reveal" style="margin-top:36px; display:flex; align-items:center; gap:18px; flex-wrap:wrap;">
+      <a href="#contacto" class="btn btn-teal">{t.why.ctaLabel}</a>
+      <span class="body" style="font-size:15px;">{t.why.ctaNote}</span>
+    </div>
+  </div>
+</section>

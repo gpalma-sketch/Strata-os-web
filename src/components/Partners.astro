@@ -1,0 +1,61 @@
+---
+import { Image } from 'astro:assets';
+import Icon from './Icon.astro';
+import type { Locale } from '../data/site';
+import { site } from '../data/site';
+import { content } from '../data/content';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const t = content[locale];
+
+const logos = import.meta.glob<{ default: ImageMetadata }>('../assets/*.{png,jpg,jpeg,svg,webp}', { eager: true });
+---
+
+<section class="light sec" id="partners">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="kick">{t.partners.kicker}</p>
+      <h2 class="h-lg" style="margin-top:18px;">
+        {t.partners.title[0]}<span class="teal">{t.partners.title[1]}</span>
+      </h2>
+      <p class="lead" style="margin-top:18px; max-width:820px;">{t.partners.lead}</p>
+    </div>
+
+    <div class="ptypes reveal" data-stagger>
+      {
+        t.partners.types.map((p) => (
+          <div class="ptype">
+            <div class="pic"><Icon name={p.icon} /></div>
+            <div class="pt">{p.title}</div>
+            <div class="pd">{p.detail}</div>
+          </div>
+        ))
+      }
+    </div>
+
+    {/* Logo strip appears only once there are real partners to show — the
+        prototype rendered five empty drop-targets, which read as broken. */}
+    {
+      site.partnerLogos.length > 0 && (
+        <div class="reveal" style="margin-top:40px;">
+          <p class="kick" style="margin-bottom:18px;">{t.partners.logosKicker}</p>
+          <div class="plogos">
+            {site.partnerLogos.map((p) => {
+              const img = logos[`../assets/${p.logo}`]?.default;
+              if (!img) return null;
+              const logo = <Image src={img} alt={p.name} height={78} />;
+              return p.href ? <a href={p.href} rel="noopener noreferrer" target="_blank">{logo}</a> : logo;
+            })}
+          </div>
+        </div>
+      )
+    }
+
+    <div class="reveal" style="margin-top:36px;">
+      <a href={`mailto:${site.partnersEmail}`} class="btn btn-teal">{t.partners.cta}</a>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,220 @@
+---
+import DeviceMockup from './DeviceMockup.astro';
+import type { Locale } from '../data/site';
+import { content } from '../data/content';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const t = content[locale];
+---
+
+<section class="deep grid-bg hero" id="top">
+  <canvas id="net" class="hero-net" aria-hidden="true"></canvas>
+  <div class="orb" id="orb1" style="width:640px; height:640px; top:-160px; right:-120px;"></div>
+  <div class="orb" id="orb2" style="width:420px; height:420px; bottom:-80px; left:-140px; opacity:.3;"></div>
+
+  <div class="wrap" style="text-align:center;">
+    <p class="kick">{t.hero.kicker}</p>
+    <h1 class="h-hero hero-title">{t.hero.title[0]}<br />{t.hero.title[1]}</h1>
+    <p class="lead hero-lead">
+      {t.hero.leadTop}<br />
+      {t.hero.leadPrefix}{' '}
+      <span class="rotor" id="rotor">
+        {t.hero.rotor.map((w, i) => <span class={i === 0 ? 'on' : ''}>{w}</span>)}
+      </span>
+    </p>
+    <div class="cta-row">
+      <a href="#lanzamiento" class="btn btn-primary">{t.hero.ctaPrimary}</a>
+      <a href="#lab" class="btn btn-ghost">{t.hero.ctaSecondary}</a>
+    </div>
+    <div class="hero-chip">
+      <span class="statuschip"><span class="dot"></span>{t.hero.statusChip}</span>
+    </div>
+  </div>
+
+  <DeviceMockup locale={locale} />
+
+  <div class="marquee" aria-hidden="true">
+    <div class="mq-track">
+      {[...t.hero.sectors, ...t.hero.sectors].map((s) => <span>{s}</span>)}
+    </div>
+  </div>
+</section>
+
+<script>
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* Entrance animates transform only, with opacity left alone — a paused or
+     failed animation can then never leave the hero blank. */
+  if (!reduce) {
+    document
+      .querySelectorAll('.hero .kick, .hero-title, .hero-lead, .hero .cta-row, .hero-chip')
+      .forEach((el, i) => {
+        el.animate([{ transform: 'translateY(26px)' }, { transform: 'none' }], {
+          duration: 800,
+          delay: 80 + i * 130,
+          easing: 'cubic-bezier(.22,1,.36,1)',
+          fill: 'none',
+        });
+      });
+  }
+
+  /* Hero particle network. */
+  const net = document.getElementById('net') as HTMLCanvasElement | null;
+  const hero = net?.parentElement;
+  if (net && hero && !reduce) {
+    const ctx = net.getContext('2d');
+    if (ctx) {
+      type Pt = { x: number; y: number; vx: number; vy: number };
+      let W = 0;
+      let H = 0;
+      let pts: Pt[] = [];
+      let mx = -9999;
+      let my = -9999;
+      let raf = 0;
+
+      const LINK_D2 = 16900; // 130px
+      const MOUSE_D2 = 32400; // 180px
+
+      const size = () => {
+        const r = hero.getBoundingClientRect();
+        const dpr = Math.min(devicePixelRatio || 1, 2);
+        W = r.width;
+        H = r.height;
+        net.width = Math.round(W * dpr);
+        net.height = Math.round(H * dpr);
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+        const count = Math.min(90, Math.round(W / 16));
+        // Re-seed only when the target count changes, so a resize doesn't
+        // teleport every existing particle.
+        if (pts.length !== count) {
+          pts = Array.from({ length: count }, () => ({
+            x: Math.random() * W,
+            y: Math.random() * H,
+            vx: (Math.random() - 0.5) * 0.4,
+            vy: (Math.random() - 0.5) * 0.4,
+          }));
+        }
+      };
+
+      size();
+      addEventListener('resize', size);
+
+      hero.addEventListener(
+        'mousemove',
+        (e) => {
+          const r = net.getBoundingClientRect();
+          mx = e.clientX - r.left;
+          my = e.clientY - r.top;
+        },
+        { passive: true },
+      );
+      hero.addEventListener('mouseleave', () => {
+        mx = -9999;
+        my = -9999;
+      });
+
+      const tick = () => {
+        raf = requestAnimationFrame(tick);
+        // Stop compositing once the hero has scrolled away.
+        if (scrollY > H) return;
+
+        ctx.clearRect(0, 0, W, H);
+        for (const p of pts) {
+          p.x += p.vx;
+          p.y += p.vy;
+          if (p.x < 0 || p.x > W) p.vx *= -1;
+          if (p.y < 0 || p.y > H) p.vy *= -1;
+        }
+        for (let i = 0; i < pts.length; i++) {
+          const a = pts[i]!;
+          for (let j = i + 1; j < pts.length; j++) {
+            const b = pts[j]!;
+            const dx = a.x - b.x;
+            const dy = a.y - b.y;
+            const d2 = dx * dx + dy * dy;
+            if (d2 < LINK_D2) {
+              ctx.strokeStyle = `rgba(53,208,186,${(0.15 * (1 - d2 / LINK_D2)).toFixed(3)})`;
+              ctx.beginPath();
+              ctx.moveTo(a.x, a.y);
+              ctx.lineTo(b.x, b.y);
+              ctx.stroke();
+            }
+          }
+          const dxm = a.x - mx;
+          const dym = a.y - my;
+          const dm2 = dxm * dxm + dym * dym;
+          if (dm2 < MOUSE_D2) {
+            ctx.strokeStyle = `rgba(53,208,186,${(0.32 * (1 - dm2 / MOUSE_D2)).toFixed(3)})`;
+            ctx.beginPath();
+            ctx.moveTo(a.x, a.y);
+            ctx.lineTo(mx, my);
+            ctx.stroke();
+          }
+          ctx.fillStyle = 'rgba(53,208,186,.5)';
+          ctx.fillRect(a.x - 1, a.y - 1, 2.5, 2.5);
+        }
+      };
+      tick();
+
+      // Background tabs shouldn't burn a rAF loop.
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden) cancelAnimationFrame(raf);
+        else tick();
+      });
+    }
+  }
+
+  /* 3D tilt on the device mockup — pointer-based so it's inert on touch. */
+  const win = document.getElementById('deviceWin');
+  if (win && !reduce) {
+    win.style.transition = 'transform .25s cubic-bezier(.22,1,.36,1)';
+    win.addEventListener('pointermove', (e) => {
+      if (e.pointerType !== 'mouse') return;
+      const r = win.getBoundingClientRect();
+      const x = (e.clientX - r.left) / r.width - 0.5;
+      const y = (e.clientY - r.top) / r.height - 0.5;
+      win.style.transform = `perspective(1600px) rotateX(${4 - y * 7}deg) rotateY(${x * 8}deg) scale(1.012)`;
+    });
+    win.addEventListener('pointerleave', () => {
+      win.style.transform = '';
+    });
+  }
+
+  /* Hero orb parallax. */
+  const orb1 = document.getElementById('orb1');
+  const orb2 = document.getElementById('orb2');
+  if (!reduce && (orb1 || orb2)) {
+    addEventListener(
+      'pointermove',
+      (e) => {
+        if (e.pointerType !== 'mouse') return;
+        const x = e.clientX / innerWidth - 0.5;
+        const y = e.clientY / innerHeight - 0.5;
+        if (orb1) orb1.style.transform = `translate(${x * -36}px,${y * -24}px)`;
+        if (orb2) orb2.style.transform = `translate(${x * 22}px,${y * 16}px)`;
+      },
+      { passive: true },
+    );
+  }
+
+  /* Word rotor. */
+  const rotor = document.getElementById('rotor');
+  if (rotor && !reduce) {
+    const words = Array.from(rotor.children);
+    let idx = 0;
+    setInterval(() => {
+      const cur = words[idx]!;
+      idx = (idx + 1) % words.length;
+      const next = words[idx]!;
+      cur.classList.remove('on');
+      cur.classList.add('out');
+      next.classList.remove('out');
+      next.classList.add('on');
+      setTimeout(() => cur.classList.remove('out'), 650);
+    }, 2600);
+  }
+</script>
