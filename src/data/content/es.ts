@@ -84,12 +84,15 @@ export const es: Content = {
       { value: '0 €', caption: ['apuntarte no cuesta', 'ni compromete a nada'] },
     ],
     ticker: [
-      ['Departamento de Ventas', 'cualifica leads y prepara presupuestos'],
-      ['Departamento de Atención', 'resuelve consultas y pedidos 24/7'],
-      ['Departamento de Finanzas', 'concilia cobros y proyecta tesorería'],
-      ['Departamento de Operaciones', 'coordina rutas y partes de obra'],
-      ['Departamento de Marketing', 'crea contenido y nutre leads'],
-      ['Departamento de Administración', 'genera contratos y documentación'],
+      ['Marketing', 'crea contenido y nutre leads'],
+      ['Ventas', 'cualifica leads y prepara presupuestos'],
+      ['Atención', 'resuelve consultas y pedidos 24/7'],
+      ['Legal', 'redacta contratos y controla vencimientos'],
+      ['Finanzas', 'concilia cobros y proyecta tesorería'],
+      ['Producto & Dev', 'prioriza el roadmap y cierra incidencias'],
+      ['People', 'ordena incorporaciones, ausencias y turnos'],
+      ['Ops', 'coordina rutas, pedidos y partes de obra'],
+      ['Dirección', 'consolida el cuadro de mando del negocio'],
       ['Business OS', 'un solo panel para gobernarlo todo'],
       ['Supervisión humana', 'tú apruebas cada acción crítica'],
     ],
@@ -249,15 +252,23 @@ export const es: Content = {
     lead: 'Service-as-a-software: no contratas un agente suelto, contratas un departamento entero. Dentro de cada uno trabaja un equipo de agentes especializados que se reparten el trabajo del área y entregan el servicio completo. El de ventas vende, el de atención atiende, el de finanzas cobra. Pagas por el trabajo terminado — ahí está el negocio.',
     items: [
       {
+        icon: 'send',
+        name: 'Marketing',
+        status: 'Departamento',
+        description:
+          'El servicio de captación: crea contenido, nutre leads y publica en tus canales con el tono de tu marca.',
+        tags: ['RRSS', 'Email', 'CMS'],
+      },
+      {
         icon: 'chart',
         name: 'Ventas',
         status: 'Departamento',
         description:
-          'El servicio de vender: cualifica leads, prepara presupuestos y cierra. Cobras por reuniones y ventas, no por licencias.',
+          'El servicio de vender: cualifica leads, prepara presupuestos y hace el seguimiento hasta el cierre.',
         tags: ['CRM', 'Email', 'WhatsApp'],
       },
       {
-        icon: 'message',
+        icon: 'headset',
         name: 'Atención',
         status: 'Departamento',
         description:
@@ -265,12 +276,12 @@ export const es: Content = {
         tags: ['Chat', 'Email', 'Tickets'],
       },
       {
-        icon: 'layers',
-        name: 'Operaciones',
+        icon: 'shield',
+        name: 'Legal',
         status: 'Departamento',
         description:
-          'El servicio operativo: coordina pedidos, rutas y partes de obra; detecta cuellos de botella y avisa antes de que sean un problema.',
-        tags: ['ERP', 'Calendario'],
+          'El servicio jurídico del día a día: redacta y revisa contratos, controla vencimientos y vigila que los procesos cumplan.',
+        tags: ['Contratos', 'Firma', 'Vencimientos'],
       },
       {
         icon: 'euro',
@@ -281,20 +292,36 @@ export const es: Content = {
         tags: ['Contabilidad', 'Banco', 'Excel'],
       },
       {
-        icon: 'send',
-        name: 'Marketing',
+        icon: 'bolt',
+        name: 'Producto & Dev',
         status: 'Departamento',
         description:
-          'El servicio de captación: crea contenido, nutre leads y publica en tus canales con el tono de tu marca.',
-        tags: ['RRSS', 'Email', 'CMS'],
+          'El servicio técnico: recoge peticiones, prioriza el roadmap y sigue las incidencias hasta que se cierran.',
+        tags: ['Roadmap', 'Repos', 'Incidencias'],
       },
       {
-        icon: 'doc',
-        name: 'Administración',
+        icon: 'people',
+        name: 'People',
         status: 'Departamento',
         description:
-          'El servicio de back-office: documentación, contratos y tareas repetitivas resueltas sin que nadie las toque.',
-        tags: ['Docs', 'Firma', 'Drive'],
+          'El servicio de personas: ordena la incorporación de cada nueva persona y lleva ausencias, turnos y documentación.',
+        tags: ['Onboarding', 'Ausencias', 'Turnos'],
+      },
+      {
+        icon: 'layers',
+        name: 'Ops',
+        status: 'Departamento',
+        description:
+          'El servicio operativo: coordina pedidos, rutas y partes de obra; detecta cuellos de botella y avisa antes de que sean un problema.',
+        tags: ['ERP', 'Calendario', 'Rutas'],
+      },
+      {
+        icon: 'node',
+        name: 'Dirección',
+        status: 'Departamento',
+        description:
+          'La capa de gobierno: consolida lo que hace cada área en un cuadro de mando y te pone delante las decisiones que esperan por ti.',
+        tags: ['KPIs', 'Informes', 'Aprobaciones'],
       },
     ],
     feedTitle: 'Ejemplo de actividad de una jornada',
@@ -310,13 +337,15 @@ export const es: Content = {
       { agent: 'Ventas · Presupuestos', text: 'Presupuesto #2041 enviado al cliente' },
       { agent: 'Atención · Pedidos', text: 'Ticket de pedido resuelto en 40s' },
       { agent: 'Finanzas · Conciliación', text: '12 facturas conciliadas' },
-      { agent: 'Operaciones · Rutas', text: 'Ruta de entrega optimizada' },
+      { agent: 'Ops · Rutas', text: 'Ruta de entrega optimizada' },
       { agent: 'Marketing · Contenido', text: '3 publicaciones lanzadas en RRSS' },
+      { agent: 'Legal · Contratos', text: 'Contrato generado y enviado a firma' },
       { agent: 'Ventas · Cualificación', text: 'Lead cualificado y visita agendada' },
-      { agent: 'Administración · Contratos', text: 'Contrato generado y enviado a firma' },
+      { agent: 'People · Onboarding', text: 'Alta de nueva incorporación completada' },
+      { agent: 'Producto & Dev · Incidencias', text: 'Incidencia #318 cerrada y desplegada' },
       { agent: 'Atención · Consultas', text: 'FAQ respondida y caso cerrado' },
-      { agent: 'Finanzas · Tesorería', text: 'Tesorería proyectada a 60 días' },
-      { agent: 'Operaciones · Stock', text: 'Alerta de stock enviada al dueño' },
+      { agent: 'Ops · Stock', text: 'Alerta de stock enviada al dueño' },
+      { agent: 'Dirección · Decisiones', text: '2 aprobaciones esperando tu decisión' },
     ],
     ctaLabel: 'Ver planes de lanzamiento →',
     ctaNote: 'Estos departamentos forman parte de STRATA OS, que abrimos próximamente. ¿Necesitas un agente a medida ya? Lo construimos en ',
@@ -327,55 +356,68 @@ export const es: Content = {
   product: {
     kicker: 'El producto',
     title: ['Un panel que el dueño abre ', 'cada mañana.'],
-    lead: 'El Business OS es el panel de control de toda la IA de la empresa. Seis vistas, cero fricción técnica — y debajo, el AI Brain haciendo el trabajo.',
+    lead: 'El Business OS es el panel desde el que se gobierna toda la IA de la empresa. En el centro está Jarvis, el núcleo al que le preguntas por voz o por texto; alrededor, las vistas desde las que ves lo que pasa y decides.',
     vistas: [
       {
         n: '01',
-        title: 'Dashboard ejecutivo',
-        summary: 'KPIs en tiempo real: leads, tickets, horas ahorradas y ahorro en €. El impacto, en 30 segundos.',
+        title: 'Puesta en marcha',
+        summary: 'El arranque: conectas tus herramientas, cargas el conocimiento de tu empresa y dejas operando los primeros departamentos.',
       },
       {
         n: '02',
-        title: 'Centro de agentes',
-        summary:
-          'Cada agente con su estado, volumen procesado, tasa de éxito y escalaciones. Control sin tocar tecnología.',
+        title: 'Mi día',
+        summary: 'Lo que te toca hoy y nada más: qué ha pasado desde ayer y qué tienes delante ahora.',
       },
       {
         n: '03',
-        title: 'Automatizaciones',
-        summary: 'Flujos activos por departamento, con volumetría y tiempo ahorrado por cada uno.',
+        title: 'Bandeja',
+        summary: 'Lo que espera tu decisión. El trabajo rutinario no aparece aquí; solo llega lo que necesita que alguien diga que sí.',
       },
       {
         n: '04',
-        title: 'Bandeja de supervisión',
-        summary: 'El 90% rutinario no molesta. Solo las excepciones llegan a un humano — con la acción ya sugerida.',
+        title: 'Overview',
+        summary: 'El cockpit del negocio: objetivos, ingresos, agentes activos y —si tienes varias empresas— todas de un vistazo.',
       },
       {
         n: '05',
-        title: 'Reportes de valor',
-        summary: 'Informe mensual automático: horas, coste evitado, oportunidades nuevas. La cuota se justifica sola.',
+        title: 'En vivo',
+        summary: 'Lo que está ocurriendo ahora mismo, según ocurre.',
       },
       {
         n: '06',
-        title: 'Configuración',
-        summary: 'Horarios, idioma, tono y reglas de escalación ajustables por el cliente. Sin código.',
+        title: 'Trabajo',
+        summary: 'El trabajo en curso, por departamento y con su estado.',
+      },
+      {
+        n: '07',
+        title: 'Chat agentes',
+        summary: 'Hablas con los agentes directamente, sin abrir una herramienta distinta para cada cosa.',
+      },
+      {
+        n: '08',
+        title: 'Contrata tu equipo',
+        summary: 'Das de alta un agente como quien contrata a alguien: eliges el puesto y entra a trabajar.',
+      },
+      {
+        n: '09',
+        title: 'Loop evolutivo',
+        summary: 'El sistema revisa cómo lo está haciendo y propone sus propias mejoras, para que apruebes o descartes.',
       },
     ],
   },
-
   how: {
     kicker: 'Cómo funciona',
-    title: ['Un router decide. ', 'Los agentes ejecutan.'],
+    title: ['Jarvis decide. ', 'Los agentes ejecutan.'],
     columns: [
       [
         { title: 'La empresa', summary: 'emails · llamadas · leads · pedidos' },
         { title: 'El dueño', summary: 'voz o texto · “pregúntale al sistema”' },
       ],
-      [{ title: 'Router de agentes', summary: 'clasifica la intención · elige agente y modelo', hot: true }],
+      [{ title: 'Jarvis · el núcleo', summary: 'clasifica la intención · elige departamento, agente y modelo', hot: true }],
       [
-        { title: 'Ventas · Atención', summary: 'leads · tickets · FAQs' },
-        { title: 'Operaciones · Finanzas', summary: 'pedidos · facturación · cobros' },
-        { title: 'Marketing · Legal', summary: 'contenido · documentación' },
+        { title: 'Marketing · Ventas · Atención', summary: 'contenido · leads · tickets' },
+        { title: 'Ops · Finanzas · Legal', summary: 'pedidos · cobros · contratos' },
+        { title: 'People · Producto & Dev · Dirección', summary: 'equipo · roadmap · decisiones' },
       ],
       [
         { title: 'Memoria privada', summary: 'los datos de la empresa · solo suyos' },
@@ -384,7 +426,7 @@ export const es: Content = {
     ],
     closing: 'No es un diagrama de marketing: este sistema ya opera ',
     closingStrong: 'nuestro propio negocio',
-    closingAfter: ', 24/7, con ocho agentes desplegados. Somos el primer cliente de nuestro producto.',
+    closingAfter: ', 24/7, con nuestros propios departamentos operando dentro. Somos el primer cliente de nuestro producto.',
   },
 
   useCases: {

@@ -73,12 +73,15 @@ export const en: Content = {
       { value: '€0', caption: ['joining costs nothing', 'and commits you to nothing'] },
     ],
     ticker: [
-      ['Sales department', 'qualifies leads and prepares quotes'],
-      ['Support department', 'resolves queries and orders 24/7'],
-      ['Finance department', 'reconciles payments and projects cash flow'],
-      ['Operations department', 'coordinates routes and job reports'],
-      ['Marketing department', 'creates content and nurtures leads'],
-      ['Admin department', 'generates contracts and documentation'],
+      ['Marketing', 'creates content and nurtures leads'],
+      ['Sales', 'qualifies leads and prepares quotes'],
+      ['Support', 'resolves queries and orders 24/7'],
+      ['Legal', 'drafts contracts and tracks renewals'],
+      ['Finance', 'reconciles payments and projects cash flow'],
+      ['Product & Dev', 'prioritises the roadmap and closes issues'],
+      ['People', 'runs onboarding, absence and shifts'],
+      ['Ops', 'coordinates routes, orders and job reports'],
+      ['Leadership', 'consolidates the cockpit for the business'],
       ['Business OS', 'one panel to govern it all'],
       ['Human oversight', 'you approve every critical action'],
     ],
@@ -238,28 +241,36 @@ export const en: Content = {
     lead: 'Service-as-a-software: you do not hire a lone agent, you hire a whole department. Inside each one a team of specialised agents splits the work of that area and delivers the full service. Sales sells, support supports, finance collects. You pay for finished work — that\'s the business.',
     items: [
       {
+        icon: 'send',
+        name: 'Marketing',
+        status: 'Department',
+        description:
+          'The demand service: creates content, nurtures leads and publishes across your channels in your brand voice.',
+        tags: ['Social', 'Email', 'CMS'],
+      },
+      {
         icon: 'chart',
         name: 'Sales',
         status: 'Department',
         description:
-          'The service of selling: qualifies leads, prepares quotes and closes. You pay for meetings and sales, not licenses.',
+          'The service of selling: qualifies leads, prepares quotes and follows up all the way to close.',
         tags: ['CRM', 'Email', 'WhatsApp'],
       },
       {
-        icon: 'message',
+        icon: 'headset',
         name: 'Support',
         status: 'Department',
         description:
-          'The support service: answers questions, handles orders and resolves issues 24/7. Only the exceptional reaches a person.',
+          'The support service: answers queries, handles orders and resolves issues 24/7. Only the exceptional reaches a person.',
         tags: ['Chat', 'Email', 'Tickets'],
       },
       {
-        icon: 'layers',
-        name: 'Operations',
+        icon: 'shield',
+        name: 'Legal',
         status: 'Department',
         description:
-          'The operations service: coordinates orders, routes and job reports; spots bottlenecks and warns before they become a problem.',
-        tags: ['ERP', 'Calendar'],
+          'Day-to-day legal: drafts and reviews contracts, tracks renewal dates and keeps processes compliant.',
+        tags: ['Contracts', 'E-sign', 'Renewals'],
       },
       {
         icon: 'euro',
@@ -270,20 +281,36 @@ export const en: Content = {
         tags: ['Accounting', 'Bank', 'Excel'],
       },
       {
-        icon: 'send',
-        name: 'Marketing',
+        icon: 'bolt',
+        name: 'Product & Dev',
         status: 'Department',
         description:
-          "The demand service: creates content, nurtures leads and posts to your channels in your brand's voice.",
-        tags: ['Social', 'Email', 'CMS'],
+          'The technical service: collects requests, prioritises the roadmap and chases issues until they are closed.',
+        tags: ['Roadmap', 'Repos', 'Issues'],
       },
       {
-        icon: 'doc',
-        name: 'Admin',
+        icon: 'people',
+        name: 'People',
         status: 'Department',
         description:
-          'The back-office service: documentation, contracts and repetitive tasks handled without anyone touching them.',
-        tags: ['Docs', 'E-sign', 'Drive'],
+          'The people service: runs each new joiner through onboarding and keeps absence, shifts and paperwork in order.',
+        tags: ['Onboarding', 'Absence', 'Shifts'],
+      },
+      {
+        icon: 'layers',
+        name: 'Ops',
+        status: 'Department',
+        description:
+          'The operations service: coordinates orders, routes and job reports; spots bottlenecks and flags them before they bite.',
+        tags: ['ERP', 'Calendar', 'Routing'],
+      },
+      {
+        icon: 'node',
+        name: 'Leadership',
+        status: 'Department',
+        description:
+          'The governance layer: consolidates what every area is doing into one cockpit and puts the decisions waiting on you front and centre.',
+        tags: ['KPIs', 'Reports', 'Approvals'],
       },
     ],
     feedTitle: 'Example of a single day of activity',
@@ -299,13 +326,15 @@ export const en: Content = {
       { agent: 'Sales · Quoting', text: 'Quote #2041 sent to client' },
       { agent: 'Support · Orders', text: 'Order ticket resolved in 40s' },
       { agent: 'Finance · Reconciliation', text: '12 invoices reconciled' },
-      { agent: 'Operations · Routing', text: 'Delivery route optimized' },
+      { agent: 'Ops · Routing', text: 'Delivery route optimized' },
       { agent: 'Marketing · Content', text: '3 posts published to social' },
+      { agent: 'Legal · Contracts', text: 'Contract generated, sent to sign' },
       { agent: 'Sales · Qualification', text: 'Lead qualified, visit booked' },
-      { agent: 'Admin · Contracts', text: 'Contract generated, sent to sign' },
+      { agent: 'People · Onboarding', text: 'New joiner fully onboarded' },
+      { agent: 'Product & Dev · Issues', text: 'Issue #318 closed and shipped' },
       { agent: 'Support · Queries', text: 'FAQ answered and case closed' },
-      { agent: 'Finance · Treasury', text: 'Cash flow projected 60 days out' },
-      { agent: 'Operations · Stock', text: 'Stock alert sent to owner' },
+      { agent: 'Ops · Stock', text: 'Stock alert sent to owner' },
+      { agent: 'Leadership · Decisions', text: '2 approvals waiting on you' },
     ],
     ctaLabel: 'See launch pricing →',
     ctaNote: 'These departments are part of STRATA OS, which opens soon. Need a custom agent today? We build it at ',
@@ -316,55 +345,68 @@ export const en: Content = {
   product: {
     kicker: 'The product',
     title: ['A dashboard the owner opens ', 'every morning.'],
-    lead: "The Business OS is the control panel for all the company's AI. Six views, zero technical friction — and underneath, the AI Brain doing the work.",
+    lead: 'The Business OS is the panel every bit of company AI is governed from. At its centre sits Jarvis, the core you ask by voice or by text; around it, the views where you see what is happening and decide.',
     vistas: [
       {
         n: '01',
-        title: 'Executive dashboard',
-        summary: 'Real-time KPIs: leads, tickets, hours saved and € saved. The impact, in 30 seconds.',
+        title: 'Getting started',
+        summary: 'The ramp-up: you connect your tools, load your company knowledge and get the first departments operating.',
       },
       {
         n: '02',
-        title: 'Agent center',
-        summary:
-          'Each agent with its status, volume processed, success rate and escalations. Control without touching tech.',
+        title: 'My day',
+        summary: 'What is on you today and nothing else: what happened since yesterday and what is in front of you now.',
       },
       {
         n: '03',
-        title: 'Automations',
-        summary: 'Active flows per department, with volume and time saved for each.',
+        title: 'Inbox',
+        summary: 'What is waiting on your decision. Routine work never shows up here; only what needs someone to say yes.',
       },
       {
         n: '04',
-        title: 'Supervision inbox',
-        summary: "The routine 90% doesn't bother you. Only exceptions reach a human — with the action already suggested.",
+        title: 'Overview',
+        summary: 'The business cockpit: targets, revenue, active agents and — if you run several companies — all of them at a glance.',
       },
       {
         n: '05',
-        title: 'Value reports',
-        summary: 'Automatic monthly report: hours, cost avoided, new opportunities. The fee justifies itself.',
+        title: 'Live',
+        summary: 'What is happening right now, as it happens.',
       },
       {
         n: '06',
-        title: 'Settings',
-        summary: 'Hours, language, tone and escalation rules adjustable by the client. No code.',
+        title: 'Work',
+        summary: 'Work in progress, by department and with its status.',
+      },
+      {
+        n: '07',
+        title: 'Agent chat',
+        summary: 'You talk to the agents directly, without opening a different tool for every task.',
+      },
+      {
+        n: '08',
+        title: 'Hire your team',
+        summary: 'You bring an agent on as you would hire someone: pick the role and it starts working.',
+      },
+      {
+        n: '09',
+        title: 'Evolution loop',
+        summary: 'The system reviews how it is doing and proposes its own improvements, for you to approve or drop.',
       },
     ],
   },
-
   how: {
     kicker: 'How it works',
-    title: ['A router decides. ', 'The agents execute.'],
+    title: ['Jarvis decides. ', 'The agents execute.'],
     columns: [
       [
         { title: 'The company', summary: 'emails · calls · leads · orders' },
         { title: 'The owner', summary: 'voice or text · “ask the system”' },
       ],
-      [{ title: 'Agent router', summary: 'classifies intent · picks agent and model', hot: true }],
+      [{ title: 'Jarvis · the core', summary: 'classifies intent · picks department, agent and model', hot: true }],
       [
-        { title: 'Sales · Support', summary: 'leads · tickets · FAQs' },
-        { title: 'Operations · Finance', summary: 'orders · invoicing · collections' },
-        { title: 'Marketing · Legal', summary: 'content · documentation' },
+        { title: 'Marketing · Sales · Support', summary: 'content · leads · tickets' },
+        { title: 'Ops · Finance · Legal', summary: 'orders · collections · contracts' },
+        { title: 'People · Product & Dev · Leadership', summary: 'team · roadmap · decisions' },
       ],
       [
         { title: 'Private memory', summary: "the company's data · theirs only" },
@@ -373,7 +415,7 @@ export const en: Content = {
     ],
     closing: "This isn't a marketing diagram: this system already runs ",
     closingStrong: 'our own business',
-    closingAfter: ", 24/7, with eight agents deployed. We're the first customer of our product.",
+    closingAfter: ", 24/7, with our own departments running inside it. We're the first customer of our product.",
   },
 
   useCases: {

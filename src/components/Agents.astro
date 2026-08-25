@@ -9,8 +9,9 @@ interface Props {
 const { locale } = Astro.props;
 const t = content[locale];
 
-/** Per-card work-bar fill, matching the design's staggered rhythm. */
-const workWidths = ['86%', '72%', '64%', '78%', '58%', '69%'];
+/** Per-card work-bar fill, matching the design's staggered rhythm. One value
+ *  per department, so the pattern doesn't visibly repeat across the grid. */
+const workWidths = ['86%', '72%', '64%', '78%', '58%', '69%', '81%', '61%', '74%'];
 ---
 
 <section class="deep grid-bg sec" id="agentes">
