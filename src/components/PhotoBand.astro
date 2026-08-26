@@ -1,0 +1,38 @@
+---
+/**
+ * Banda fotográfica a sangre, para intercalar entre secciones.
+ *
+ * Cumple dos funciones a la vez. La evidente: meter caras y sitios reales en
+ * una página cuya imaginería era, por lo demás, íntegramente generada. La menos
+ * evidente: dar respiro. Antes había ocho secciones seguidas de tarjetas y
+ * tipografía grande, y el ojo no tenía dónde descansar.
+ *
+ * Va antes del pie de foto y no al revés porque la imagen es el contenido; el
+ * texto solo la sitúa.
+ */
+import { Image } from 'astro:assets';
+
+interface Props {
+  /** Fichero en src/assets/, p. ej. 'foto-panel.jpg'. */
+  image: string;
+  alt: string;
+  caption: string;
+  /** Alto de la banda. 'corta' para separar, 'alta' para un momento visual. */
+  size?: 'corta' | 'alta';
+}
+const { image, alt, caption, size = 'corta' } = Astro.props;
+
+const fotos = import.meta.glob<{ default: ImageMetadata }>('../assets/foto-*.{jpg,jpeg,png,webp}', {
+  eager: true,
+});
+const img = fotos[`../assets/${image}`]?.default;
+---
+
+{
+  img && (
+    <section class={`photoband photoband-${size}`} aria-label={caption}>
+      <Image src={img} alt={alt} widths={[760, 1200, 1800]} sizes="100vw" />
+      <p class="photoband-cap">{caption}</p>
+    </section>
+  )
+}

@@ -21,6 +21,8 @@ import Lab from './Lab.astro';
 import Reviews from './Reviews.astro';
 import Gallery from './Gallery.astro';
 import Team from './Team.astro';
+import Photos from './Photos.astro';
+import PhotoBand from './PhotoBand.astro';
 import Partners from './Partners.astro';
 import Faq from './Faq.astro';
 import Contact from './Contact.astro';
@@ -45,16 +47,33 @@ const { locale } = Astro.props;
     <Pillars locale={locale} />
     <Why locale={locale} />
     <Agents locale={locale} />
+    <PhotoBand
+      image="foto-stand.jpg"
+      alt="Equipo de STRATA atendiendo su stand en una feria del sector, rodeado de visitantes"
+      caption={locale === 'es' ? 'Vendiendo en persona. Los agentes hacen el resto.' : 'Selling in person. The agents do the rest.'}
+    />
     <Product locale={locale} />
     <Flow locale={locale} />
     <UseCases locale={locale} />
     <Cases locale={locale} />
+    <PhotoBand
+      image="foto-panel.jpg"
+      alt="Mesa redonda en un congreso del sector, con el público sentado frente a los ponentes"
+      caption={locale === 'es' ? 'Escuchando a quien ya lo ha hecho antes que nosotros.' : 'Listening to the people who did it before us.'}
+      size="alta"
+    />
     <Pricing locale={locale} />
+    <PhotoBand
+      image="foto-charla.jpg"
+      alt="Asistentes escuchando una charla en una sala pequeña, sentados en círculo"
+      caption={locale === 'es' ? 'El método no salió de un despacho.' : 'The method did not come out of an office.'}
+    />
     <Method locale={locale} />
     <Lab locale={locale} />
     <Reviews locale={locale} />
     <Gallery locale={locale} />
     <Team locale={locale} />
+    <Photos locale={locale} />
     <Partners locale={locale} />
     <Faq locale={locale} />
     <Contact locale={locale} />

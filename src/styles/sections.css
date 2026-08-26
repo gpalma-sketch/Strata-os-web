@@ -2180,3 +2180,76 @@
     display: inline;
   }
 }
+
+/* ---------- fotos reales del equipo ---------- */
+.photos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 46px;
+  align-items: start;
+}
+.photo {
+  margin: 0;
+}
+.photo img {
+  width: 100%;
+  height: 340px;
+  object-fit: cover;
+  border-radius: 16px;
+  display: block;
+}
+.photo figcaption {
+  margin-top: 12px;
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: var(--text-mute);
+}
+@media (max-width: 720px) {
+  .photos {
+    grid-template-columns: 1fr;
+  }
+  .photo img {
+    height: 260px;
+  }
+}
+
+/* ---------- banda fotográfica a sangre ---------- */
+.photoband {
+  position: relative;
+  line-height: 0;
+  background: var(--ink);
+}
+.photoband img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  display: block;
+}
+.photoband-alta img {
+  height: 420px;
+}
+/* El degradado existe para que el pie sea legible sobre cualquier foto, no
+   como efecto: sin él, un texto claro sobre un cielo claro desaparece. */
+.photoband-cap {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: 0;
+  padding: 60px 6vw 22px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  line-height: 1.5;
+  color: var(--on-dark);
+  background: linear-gradient(to top, rgba(10, 22, 32, 0.82), transparent);
+}
+@media (max-width: 720px) {
+  .photoband img {
+    height: 200px;
+  }
+  .photoband-alta img {
+    height: 280px;
+  }
+}

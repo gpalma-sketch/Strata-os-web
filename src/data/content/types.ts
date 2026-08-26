@@ -295,6 +295,15 @@ export interface Content {
     title: [string, string];
   };
   gallery: Array<{ image: string; alt: string; label: string; caption: string }>;
+  /**
+   * Fotografías reales del equipo. Contrapeso a una página cuya imaginería
+   * era, por lo demás, íntegramente generada.
+   */
+  photos: {
+    kicker: string;
+    title: [string, string];
+    items: Array<{ image: string; alt: string; caption: string }>;
+  };
   team: {
     kicker: string;
     title: [string, string];

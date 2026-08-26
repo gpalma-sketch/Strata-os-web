@@ -9,7 +9,7 @@ interface Props {
 const { locale } = Astro.props;
 const t = content[locale];
 
-const images = import.meta.glob<{ default: ImageMetadata }>('../assets/gfx-*.png', { eager: true });
+const images = import.meta.glob<{ default: ImageMetadata }>('../assets/*.{png,jpg,jpeg,webp}', { eager: true });
 ---
 
 <section class="dark" style="padding:0; line-height:0;">

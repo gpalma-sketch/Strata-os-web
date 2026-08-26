@@ -652,25 +652,45 @@ export const es: Content = {
 
   gallery: [
     {
-      image: 'gfx-network.png',
-      alt: 'Diagrama de la red de agentes de STRATA conectados a un router central',
-      label: 'El sistema',
-      caption: 'ocho agentes, un router',
+      image: 'os-equipo.png',
+      alt: 'Pantalla «Contrata tu equipo» del Business OS, con las fichas de los agentes de Marketing y el contador de 132 en plantilla',
+      label: 'Tu equipo',
+      caption: '132 agentes, contratados como fichajes',
     },
     {
-      image: 'gfx-panel.png',
-      alt: 'Vista del panel Business OS con métricas en tiempo real',
-      label: 'El panel',
-      caption: 'tu negocio en tiempo real',
+      image: 'os-cuentas.png',
+      alt: 'Pantalla «Conecta tus cuentas» del Business OS, con las integraciones de ventas y marketing conectadas',
+      label: 'Tus cuentas',
+      caption: 'enchufadas al negocio real',
     },
     {
-      image: 'gfx-growth.png',
-      alt: 'Gráfico de crecimiento del margen a lo largo del tiempo',
-      label: 'El resultado',
-      caption: 'margen que crece',
+      image: 'os-inicio.png',
+      alt: 'Pantalla de puesta en marcha del Business OS, con los cuatro pasos de arranque al 75 %',
+      label: 'El arranque',
+      caption: 'cuatro pasos y a operar',
     },
   ],
-
+  photos: {
+    kicker: 'Detrás del panel',
+    title: ['Somos tres personas ', 'y esto es lo que hacemos.'],
+    items: [
+      {
+        image: 'foto-rodaje.jpg',
+        alt: 'Dos miembros del equipo sentados frente a una cámara durante una grabación',
+        caption: 'Grabando. El contenido lo seguimos haciendo nosotros.',
+      },
+      {
+        image: 'foto-estudio.jpg',
+        alt: 'Set de grabación de Young Wild Hunters con dos personas conversando bajo el rótulo de la marca',
+        caption: 'El set de Young Wild Hunters, una de las empresas del grupo.',
+      },
+      {
+        image: 'foto-evento.jpg',
+        alt: 'Entrada del congreso Money20/20 con una integrante del equipo a la llegada',
+        caption: 'Money20/20. Buscando de dónde viene lo próximo.',
+      },
+    ],
+  },
   team: {
     kicker: 'Las personas',
     title: ['Tres socios. Cero empleados. ', 'Por diseño.'],

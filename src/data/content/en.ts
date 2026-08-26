@@ -641,25 +641,45 @@ export const en: Content = {
 
   gallery: [
     {
-      image: 'gfx-network.png',
-      alt: "Diagram of STRATA's agent network connected to a central router",
-      label: 'The system',
-      caption: 'eight agents, one router',
+      image: 'os-equipo.png',
+      alt: 'The Business OS "hire your team" screen, showing the Marketing agent cards and a headcount of 132',
+      label: 'Your team',
+      caption: '132 agents, hired like staff',
     },
     {
-      image: 'gfx-panel.png',
-      alt: 'View of the Business OS panel with real-time metrics',
-      label: 'The panel',
-      caption: 'your business in real time',
+      image: 'os-cuentas.png',
+      alt: 'The Business OS "connect your accounts" screen, with sales and marketing integrations connected',
+      label: 'Your accounts',
+      caption: 'plugged into the real business',
     },
     {
-      image: 'gfx-growth.png',
-      alt: 'Chart showing margin growth over time',
-      label: 'The result',
-      caption: 'margin that grows',
+      image: 'os-inicio.png',
+      alt: 'The Business OS setup screen, showing the four onboarding steps at 75 per cent',
+      label: 'The setup',
+      caption: 'four steps and it runs',
     },
   ],
-
+  photos: {
+    kicker: 'Behind the panel',
+    title: ['There are three of us ', 'and this is what we do.'],
+    items: [
+      {
+        image: 'foto-rodaje.jpg',
+        alt: 'Two team members sitting in front of a camera during a shoot',
+        caption: 'On a shoot. We still make the content ourselves.',
+      },
+      {
+        image: 'foto-estudio.jpg',
+        alt: 'The Young Wild Hunters set, with two people talking under the brand sign',
+        caption: 'The Young Wild Hunters set, one of the group companies.',
+      },
+      {
+        image: 'foto-evento.jpg',
+        alt: 'The entrance to the Money20/20 conference with a team member on arrival',
+        caption: 'Money20/20. Looking for where the next thing comes from.',
+      },
+    ],
+  },
   team: {
     kicker: 'The people',
     title: ['Three partners. Zero employees. ', 'By design.'],
