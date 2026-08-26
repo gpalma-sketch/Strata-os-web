@@ -30,14 +30,14 @@ export const es: Content = {
 
   nav: {
     links: [
-      { href: '#modelo', label: 'El OS' },
+      { href: '#producto', label: 'El OS' },
       { href: '#agentes', label: 'Agentes' },
-      { href: '#lanzamiento', label: 'Lanzamiento' },
-      { href: '#casos', label: 'Casos' },
+      { href: '#motor', label: 'El motor' },
+      { href: '#despliegue', label: 'Control' },
+      { href: '#grupo', label: 'Casos reales' },
       { href: '#precios', label: 'Precios' },
       { href: '#lab', label: 'STRATA Lab' },
       { href: '#partners', label: 'Para quién' },
-      { href: '#equipo', label: 'Equipo' },
     ],
     cta: 'Hablemos →',
     skipToContent: 'Saltar al contenido',
@@ -147,7 +147,7 @@ export const es: Content = {
 
   why: {
     kicker: 'Por qué STRATA',
-    title: ['La IA que se paga sola — ', 'normalmente en 3 a 6 meses.'],
+    title: ['La IA que se paga sola. ', 'Y se nota en la caja.'],
     lead: 'No vendemos tecnología: vendemos horas recuperadas, margen que no se escapa y decisiones con el dato delante. Esto es lo que cambia en tu negocio.',
     bento: {
       team: {
@@ -481,7 +481,7 @@ export const es: Content = {
       },
     ],
     swapKicker: 'Y lo importante',
-    swapNote: 'Lo relevante no es qué modelo usamos hoy, sino que se pueda cambiar mañana. Sale uno mejor cada pocos meses: cuando pase, se cambia en el enrutado y tus agentes, tus procesos y tu conocimiento siguen intactos. Los modelos se usan vía API, así que tus datos no entrenan a nadie.',
+    swapNote: 'Lo relevante no es qué modelo usamos hoy, sino que se pueda cambiar mañana. Sale uno mejor cada pocos meses: cuando pase, se cambia en el enrutado y tus agentes, tus procesos y tu conocimiento siguen intactos.',
   },
 
   rollout: {

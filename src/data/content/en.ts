@@ -19,14 +19,14 @@ export const en: Content = {
 
   nav: {
     links: [
-      { href: '#modelo', label: 'The OS' },
+      { href: '#producto', label: 'The OS' },
       { href: '#agentes', label: 'Agents' },
-      { href: '#lanzamiento', label: 'Launch' },
-      { href: '#casos', label: 'Use cases' },
+      { href: '#motor', label: 'The engine' },
+      { href: '#despliegue', label: 'Control' },
+      { href: '#grupo', label: 'Real cases' },
       { href: '#precios', label: 'Pricing' },
       { href: '#lab', label: 'STRATA Lab' },
-      { href: '#partners', label: 'Who it is for' },
-      { href: '#equipo', label: 'Team' },
+      { href: '#partners', label: "Who it's for" },
     ],
     cta: "Let's talk →",
     skipToContent: 'Skip to content',
@@ -137,7 +137,7 @@ export const en: Content = {
 
   why: {
     kicker: 'Why STRATA',
-    title: ['AI that pays for itself — ', 'usually in 3 to 6 months.'],
+    title: ['AI that pays for itself. ', 'And you see it in the bank.'],
     lead: "We don't sell technology: we sell hours recovered, margin that doesn't slip away and decisions with the data in front of you. This is what changes in your business.",
     bento: {
       team: {
@@ -470,7 +470,7 @@ export const en: Content = {
       },
     ],
     swapKicker: 'And the point',
-    swapNote: 'What matters is not which model we use today, but that it can be swapped tomorrow. A better one ships every few months: when it does, the routing changes and your agents, your processes and your knowledge stay exactly as they were. Models are used over the API, so your data trains nobody.',
+    swapNote: 'What matters is not which model we use today, but that it can be swapped tomorrow. A better one ships every few months: when it does, the routing changes and your agents, your processes and your knowledge stay exactly as they were.',
   },
 
   rollout: {

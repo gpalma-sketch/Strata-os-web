@@ -20,7 +20,6 @@ import Cases from './Cases.astro';
 import Pricing from './Pricing.astro';
 import Method from './Method.astro';
 import Lab from './Lab.astro';
-import Reviews from './Reviews.astro';
 import Gallery from './Gallery.astro';
 import Team from './Team.astro';
 import Partners from './Partners.astro';
@@ -43,7 +42,7 @@ const { locale } = Astro.props;
   <main>
     <Hero locale={locale} />
     <Stats locale={locale} />
-    <Waitlist locale={locale} />
+    <Partners locale={locale} />
     <Pillars locale={locale} />
     <Why locale={locale} />
     <Agents locale={locale} />
@@ -53,13 +52,12 @@ const { locale } = Astro.props;
     <Rollout locale={locale} />
     <UseCases locale={locale} />
     <Cases locale={locale} />
+    <Waitlist locale={locale} />
     <Pricing locale={locale} />
     <Method locale={locale} />
     <Lab locale={locale} />
-    <Reviews locale={locale} />
     <Gallery locale={locale} />
     <Team locale={locale} />
-    <Partners locale={locale} />
     <Faq locale={locale} />
     <Contact locale={locale} />
   </main>
