@@ -85,6 +85,16 @@ export interface UseCase {
 export interface PriceTier {
   name: string;
   /**
+   * `plans.plan_key` en Supabase (STR-224). Si está, `setup`, `price` y `period` se SOBRESCRIBEN en
+   * el build con lo que diga la tabla, que es la fuente única de la tarifa — la que también leen el
+   * panel del cliente y los agentes. Lo que se escriba aquí abajo es sólo el valor de última
+   * conocida para que el fichero se lea entero; nunca es lo que se publica.
+   *
+   * Un tramo sin `planKey` conserva lo que ponga aquí: sirve para un tramo que no sea un plan de la
+   * tabla. Un `planKey` que no exista en `plans` PARA el build (ver `src/lib/precios.ts`).
+   */
+  planKey?: string;
+  /**
    * One-off deployment fee, rendered above the recurring price.
    *
    * Every serious player in this market charges to put agents into a business

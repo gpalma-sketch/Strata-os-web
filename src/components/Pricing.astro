@@ -1,6 +1,7 @@
 ---
 import type { Locale } from '../data/site';
 import { content } from '../data/content';
+import { aplicarTarifa, tarifaPublica } from '../lib/precios';
 
 interface Props {
   locale: Locale;
@@ -15,7 +16,19 @@ const t = content[locale];
  * is. The top tier carries no flag: a whole-company build is sold today
  * through STRATA Lab, quoted after the diagnosis rather than off a price
  * list, which is why it shows no figure instead of showing a fake one.
+ *
+ * LAS CIFRAS NO ESTÁN EN ESTE REPOSITORIO (STR-224). Salen de la tabla `plans` de Supabase, que es
+ * la misma que leen el panel del cliente y los agentes, y se resuelven en el BUILD. Lo que sigue
+ * viviendo en `content` es el texto de venta: el nombre del tramo, el gancho y lo que incluye. La
+ * regla es la de siempre en esta casa — un dato de negocio que se repite en dos sitios acaba
+ * diciendo dos cosas distintas, y aquí las dos las lee un cliente.
+ *
+ * Si la tarifa no se puede leer, esto LANZA y el build se cae. Es deliberado: una web que no se
+ * despliega se nota en un minuto; una web con el precio de hace tres meses no se nota hasta que la
+ * ve un cliente.
  */
+const tarifa = await tarifaPublica();
+const tramos = aplicarTarifa(t.pricing.tiers, tarifa, locale);
 ---
 
 <section class="light sec" id="precios">
@@ -32,7 +45,7 @@ const t = content[locale];
 
     <div class="price reveal" data-stagger>
       {
-        t.pricing.tiers.map((tier) => (
+        tramos.map((tier) => (
           <div class={`ptier${tier.highlight ? ' hot' : ''}${tier.comingSoon ? ' soon' : ''}`}>
             {tier.badge && <div class="pbadge">{tier.badge}</div>}
             {tier.comingSoon && <div class="psoon">{t.pricing.comingSoonLabel}</div>}

@@ -125,7 +125,7 @@ export const es: Content = {
         ],
         ctaLabel: 'Apúntate al lanzamiento →',
         ctaHref: '#lanzamiento',
-        price: 'próximamente · desde 1.490 €/mes',
+        price: 'próximamente · desde {{cuota_desde}}',
       },
       {
         tag: 'Servicios · a medida',
@@ -664,6 +664,7 @@ export const es: Content = {
     tiers: [
       {
         name: 'Un departamento',
+        planKey: 'un_departamento',
         setup: 'desde 9.500 €',
         price: '1.490 €',
         period: '/mes',
@@ -681,6 +682,7 @@ export const es: Content = {
       },
       {
         name: 'Tres departamentos',
+        planKey: 'tres_departamentos',
         setup: 'desde 18.000 €',
         price: '2.900 €',
         period: '/mes',
@@ -700,6 +702,7 @@ export const es: Content = {
       },
       {
         name: 'Empresa completa',
+        planKey: 'empresa_completa',
         setup: 'según alcance',
         price: 'A medida',
         meta: 'Los nueve departamentos, más lo que solo existe en tu empresa',
@@ -767,7 +770,7 @@ export const es: Content = {
       {
         n: '1',
         title: 'Diagnóstico',
-        price: 'desde 9.500 €',
+        price: 'desde {{implantacion_desde}}',
         body: 'En 3 semanas mapeamos tu operación y te decimos dónde la IA crea valor, con ROI estimado por iniciativa. Pago único — y se descuenta si seguimos.',
         gives: '→ define tu punto de partida',
       },
@@ -905,7 +908,7 @@ export const es: Content = {
       },
       {
         q: '¿Cómo se facturará STRATA OS?',
-        a: 'Por departamentos, no por agentes sueltos ni por usuarios. Cada departamento lleva una implantación de una vez —desde 9.500 €, que es conectar tus sistemas y dejar los agentes trabajando— y una cuota mensual desde 1.490 € que cubre la operación, la supervisión y las mejoras. El Business OS va incluido. Sin permanencia una vez desplegado. Son las tarifas de lanzamiento y pueden ajustarse hasta esa fecha.',
+        a: 'Por departamentos, no por agentes sueltos ni por usuarios. Cada departamento lleva una implantación de una vez —desde {{implantacion_desde}}, que es conectar tus sistemas y dejar los agentes trabajando— y una cuota mensual desde {{cuota_desde_importe}} que cubre la operación, la supervisión y las mejoras. El Business OS va incluido. Sin permanencia una vez desplegado. Son las tarifas de lanzamiento y pueden ajustarse hasta esa fecha.',
       },
       {
         q: '¿Y si necesito algo a medida ahora, sin esperar al OS?',
@@ -959,7 +962,7 @@ export const es: Content = {
         'STRATA OS está en desarrollo y abrimos por fases. Aún no hay fecha pública: apúntate a la lista de lanzamiento y serás de los primeros en entrar, con la tarifa de salida. Mientras tanto, STRATA Lab sí está disponible hoy.',
       what: 'Dos cosas. STRATA OS es el producto —agentes por departamento y un panel desde el que los gobiernas— y llega próximamente: puedes apuntarte a la lista de lanzamiento. STRATA Lab es nuestra pata a medida y sí está disponible hoy.',
       price:
-        'STRATA OS aún no está a la venta. Se contrata por departamentos: implantación desde 9.500 € (una vez) y cuota desde 1.490 €/mes, con el Business OS incluido. Quien esté en la lista entra con la tarifa de lanzamiento. Lo que sí puedes contratar hoy es STRATA Lab: empieza por un diagnóstico desde 9.500 € (se descuenta si seguimos), y la implementación y la operativa mensual dependen del nivel que elijas.',
+        'STRATA OS aún no está a la venta. Se contrata por departamentos: implantación desde {{implantacion_desde}} (una vez) y cuota desde {{cuota_desde}}, con el Business OS incluido. Quien esté en la lista entra con la tarifa de lanzamiento. Lo que sí puedes contratar hoy es STRATA Lab: empieza por un diagnóstico desde {{implantacion_desde}} (se descuenta si seguimos), y la implementación y la operativa mensual dependen del nivel que elijas.',
       diagnosis:
         'En 3 semanas mapeamos tu operación y te decimos dónde la IA crea valor, con ROI estimado. Es la pata que ya está disponible: rellena el formulario de contacto y arrancamos.',
       trust:

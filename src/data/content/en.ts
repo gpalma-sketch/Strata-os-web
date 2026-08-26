@@ -115,7 +115,7 @@ export const en: Content = {
         ],
         ctaLabel: 'Join the launch list →',
         ctaHref: '#lanzamiento',
-        price: 'coming soon · from €1,490/mo',
+        price: 'coming soon · from {{cuota_desde}}',
       },
       {
         tag: 'Services · custom',
@@ -653,6 +653,7 @@ export const en: Content = {
     tiers: [
       {
         name: 'One department',
+        planKey: 'un_departamento',
         setup: 'from €9,500',
         price: '€1,490',
         period: '/mo',
@@ -670,6 +671,7 @@ export const en: Content = {
       },
       {
         name: 'Three departments',
+        planKey: 'tres_departamentos',
         setup: 'from €18,000',
         price: '€2,900',
         period: '/mo',
@@ -689,6 +691,7 @@ export const en: Content = {
       },
       {
         name: 'Whole company',
+        planKey: 'empresa_completa',
         setup: 'scoped per project',
         price: 'Custom',
         meta: 'All nine departments, plus what only exists in your company',
@@ -756,7 +759,7 @@ export const en: Content = {
       {
         n: '1',
         title: 'Diagnosis',
-        price: 'from €9,500',
+        price: 'from {{implantacion_desde}}',
         body: 'In 3 weeks we map your operation and tell you where AI creates value, with estimated ROI per initiative. One-off — and credited if we continue.',
         gives: '→ defines your starting point',
       },
@@ -894,7 +897,7 @@ export const en: Content = {
       },
       {
         q: 'How will STRATA OS be billed?',
-        a: 'By department, not by individual agent and not per user. Each department carries a one-off deployment — from €9,500, which is connecting your systems and getting the agents working — plus a monthly fee from €1,490 covering operation, oversight and improvements. The Business OS is included. No lock-in once deployed. These are launch rates and may be adjusted before that date.',
+        a: 'By department, not by individual agent and not per user. Each department carries a one-off deployment — from {{implantacion_desde}}, which is connecting your systems and getting the agents working — plus a monthly fee from {{cuota_desde_importe}} covering operation, oversight and improvements. The Business OS is included. No lock-in once deployed. These are launch rates and may be adjusted before that date.',
       },
       {
         q: 'What if I need something custom now, without waiting for the OS?',
@@ -948,7 +951,7 @@ export const en: Content = {
         'STRATA OS is in development and we are opening in phases. There is no public date yet: join the launch list and you will be among the first in, at the founding rate. In the meantime, STRATA Lab is available today.',
       what: 'Two things. STRATA OS is the product — agents per department and a panel you govern them from — and it launches soon: you can join the list. STRATA Lab is our custom side, and that one is available today.',
       price:
-        'STRATA OS is not on sale yet. It is bought by department: deployment from €9,500 (one-off) and a fee from €1,490/mo, with the Business OS included. Everyone on the list comes in at the launch rate. What you can buy today is STRATA Lab: it starts with a diagnosis from €9,500 (credited if we continue), and implementation plus the monthly fee depend on the level you choose.',
+        'STRATA OS is not on sale yet. It is bought by department: deployment from {{implantacion_desde}} (one-off) and a fee from {{cuota_desde}}, with the Business OS included. Everyone on the list comes in at the launch rate. What you can buy today is STRATA Lab: it starts with a diagnosis from {{implantacion_desde}} (credited if we continue), and implementation plus the monthly fee depend on the level you choose.',
       diagnosis:
         'In 3 weeks we map your operation and tell you where AI creates value, with estimated ROI. This is the side that is already available: fill in the contact form and we get started.',
       trust:
