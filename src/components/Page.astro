@@ -9,6 +9,7 @@ import Hero from './Hero.astro';
 import Stats from './Stats.astro';
 import Waitlist from './Waitlist.astro';
 import Pillars from './Pillars.astro';
+import PhotoBand from './PhotoBand.astro';
 import Why from './Why.astro';
 import Agents from './Agents.astro';
 import Product from './Product.astro';
@@ -43,6 +44,13 @@ const { locale } = Astro.props;
     <Hero locale={locale} />
     <Stats locale={locale} />
     <Partners locale={locale} />
+    <PhotoBand
+      image="ban-stand.jpg"
+      alt="Tres personas conversando en el stand de una feria del sector"
+      caption={locale === 'es'
+        ? 'Empresas como la tuya. Con las que hablamos todas las semanas.'
+        : 'Companies like yours. The ones we talk to every week.'}
+    />
     <Pillars locale={locale} />
     <Why locale={locale} />
     <Agents locale={locale} />
@@ -52,6 +60,13 @@ const { locale } = Astro.props;
     <Rollout locale={locale} />
     <UseCases locale={locale} />
     <Cases locale={locale} />
+    <PhotoBand
+      image="ban-sala.jpg"
+      alt="Sala llena de asistentes durante un evento del sector"
+      caption={locale === 'es'
+        ? 'Lo contamos donde nos dejan. Ahora te toca a ti decidir.'
+        : 'We tell this story wherever they let us. Now it is your call.'}
+    />
     <Waitlist locale={locale} />
     <Pricing locale={locale} />
     <Method locale={locale} />

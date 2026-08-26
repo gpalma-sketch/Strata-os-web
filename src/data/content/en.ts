@@ -495,6 +495,7 @@ export const en: Content = {
         detail: 'You review and approve what your team prepared. From there it runs on its own, and you decide how much rope it gets.',
       },
     ],
+    stackLabel: 'Some of the accounts that plug in',
     controlKicker: 'Where the brakes are',
     controls: [
       {

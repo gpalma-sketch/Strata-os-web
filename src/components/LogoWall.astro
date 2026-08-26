@@ -1,0 +1,37 @@
+---
+/**
+ * Muro de marcas.
+ *
+ * Monocromo a propósito. Veintiuna marcas cada una con su color corporativo
+ * es una ensalada que compite con el propio diseño y hace que la sección
+ * parezca un directorio; en gris, el conjunto se lee como una capacidad
+ * nuestra y no como publicidad de otros.
+ *
+ * Las marcas sin símbolo disponible se escriben con el nombre, con el mismo
+ * peso visual, para que no parezcan de segunda.
+ */
+import type { Marca } from '../data/brands';
+
+interface Props {
+  items: Marca[];
+  /** Se anuncia como etiqueta del grupo a los lectores de pantalla. */
+  label: string;
+}
+const { items, label } = Astro.props;
+---
+
+<ul class="logowall" aria-label={label}>
+  {
+    items.map((m) => (
+      <li class="lw-item" title={m.name}>
+        {m.path ? (
+          <svg viewBox="0 0 24 24" role="img" aria-label={m.name} focusable="false">
+            <path d={m.path} />
+          </svg>
+        ) : (
+          <span class="lw-text">{m.name}</span>
+        )}
+      </li>
+    ))
+  }
+</ul>

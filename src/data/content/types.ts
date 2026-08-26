@@ -273,6 +273,8 @@ export interface Content {
     title: [string, string];
     lead: string;
     steps: Array<{ title: string; detail: string }>;
+    /** Encabeza el muro de logotipos de integraciones. */
+    stackLabel: string;
     controlKicker: string;
     controls: Array<{ icon: string; title: string; detail: string }>;
   };

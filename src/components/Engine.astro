@@ -8,6 +8,8 @@
  * es un wrapper de ChatGPT?» merece una respuesta concreta.
  */
 import Icon from './Icon.astro';
+import LogoWall from './LogoWall.astro';
+import { modelos, soloTexto } from '../data/brands';
 import type { Locale } from '../data/site';
 import { content } from '../data/content';
 
@@ -43,6 +45,12 @@ const t = content[locale];
 
     {/* El argumento real no es qué modelo usamos hoy, sino que se pueda
         cambiar mañana. Va aparte para que no se pierda entre las tarjetas. */}
+    {/* Los proveedores, en logo. Un nombre escrito se lee; un símbolo
+        conocido se reconoce sin leer, que es de lo que se trata. */}
+    <div class="lw-block reveal">
+      <LogoWall items={[...modelos, soloTexto[0]]} label={t.engine.kicker} />
+    </div>
+
     <div class="enote reveal">
       <span class="kick">{t.engine.swapKicker}</span>
       <p>{t.engine.swapNote}</p>

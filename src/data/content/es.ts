@@ -506,6 +506,7 @@ export const es: Content = {
         detail: 'Revisas y apruebas lo que tu equipo ha preparado. A partir de ahí opera solo, y tú decides cuánto le sueltas.',
       },
     ],
+    stackLabel: 'Algunas de las cuentas que se conectan',
     controlKicker: 'Dónde está el freno',
     controls: [
       {

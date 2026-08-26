@@ -10,6 +10,8 @@
  * sin decir dónde está el freno es lo que hace que un dueño diga que no.
  */
 import Icon from './Icon.astro';
+import LogoWall from './LogoWall.astro';
+import { herramientas, soloTexto } from '../data/brands';
 import type { Locale } from '../data/site';
 import { content } from '../data/content';
 
@@ -42,6 +44,13 @@ const t = content[locale];
         ))
       }
     </ol>
+
+    {/* Va pegado al primer paso, «conecta tu stack», porque es exactamente
+        lo que ese paso significa: estas son las cuentas que se enchufan. */}
+    <div class="lw-block reveal">
+      <p class="lw-k">{t.rollout.stackLabel}</p>
+      <LogoWall items={[...herramientas, ...soloTexto.slice(1)]} label={t.rollout.stackLabel} />
+    </div>
 
     <div class="ctrl reveal">
       <p class="kick" style="margin-bottom:22px;">{t.rollout.controlKicker}</p>
