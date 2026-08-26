@@ -713,7 +713,7 @@
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════════════════════════
-   MÓVIL · EL CUADRO DE MANDO DEL HERO (27 ago 2026)
+   MÓVIL · EL CUADRO DE MANDO DEL HERO (26 ago 2026)
    ═══════════════════════════════════════════════════════════════════════════════════════════════
    `.win-shot` dimensiona TODO su interior en `cqw` (unidades del contenedor) para escalar como una
    sola pieza sin un breakpoint por elemento. Es una buena idea que se rompe abajo del todo: en un
