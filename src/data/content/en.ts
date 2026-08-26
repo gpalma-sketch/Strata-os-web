@@ -712,6 +712,112 @@ export const en: Content = {
       'Deployment is a one-off: connecting your systems, loading your company knowledge and getting the agents genuinely working. The monthly fee covers keeping them running, the oversight and the improvements. Adding a department later carries its own deployment and adjusts the fee. No lock-in once deployed. Prices exclude VAT and may be adjusted before launch.',
   },
 
+  permisos: {
+    kicker: 'Permissions and control',
+    title: ['It starts closed. ', 'You open it, one gesture at a time.'],
+    lead: 'The first screen decides whether an owner carries on or uninstalls. That is why the system asks for no permission at all when it installs: it asks for each thing when it is needed, and explains what for.',
+
+    principleKicker: 'The principle',
+    principleTitle: 'Nobody decides permissions on day one',
+    principleBody:
+      'Asking for everything up front is the biggest cause of abandonment in this kind of software. The owner does not yet know what each agent needs, so they either grant too much out of inertia or too little out of fear, and both end badly. Asking in context — when one specific agent needs one specific thing for a task you just asked for — turns every permission into an easy decision.',
+
+    doorsKicker: 'Three doors that must all be open',
+    doorsNote:
+      'It is not a scale, it is a conjunction: an agent can only act if all three allow it, and the most restrictive one always wins.',
+    doors: [
+      {
+        icon: 'layers',
+        n: '01',
+        name: 'The machine',
+        question: '"What am I letting it see of my computer?"',
+        detail:
+          'It is the question that scares people, and the one you face the moment you download it. The smaller the initial permission, the easier the yes.',
+        levels: [
+          {
+            label: 'Sandboxed',
+            body: 'Only its own working folder. Nothing else on the disk, no other application, not the screen. That is how it installs.',
+          },
+          {
+            label: 'Named folders',
+            body: 'The ones you drag in, and only those. They show up in a list with a date and a revoke button.',
+          },
+          {
+            label: 'Its own browser',
+            body: 'A profile separate from yours: the agent inherits neither your bank session, nor your personal mail, nor your password manager.',
+            open: true,
+          },
+        ],
+      },
+      {
+        icon: 'node',
+        n: '02',
+        name: 'The accounts',
+        question: '"Can it read all my email, or only draft replies?"',
+        detail:
+          'Each account connects with the least permission the job needs, and only when it is needed. Revoking one is a click and takes effect immediately.',
+        levels: [
+          {
+            label: 'Read only',
+            body: 'It consults and uses the information as context, but changes nothing: it reads your mail and drafts replies. It does not send.',
+          },
+          {
+            label: 'Read and write',
+            body: 'It creates and edits. Anything leaving for the outside world still waits for your approval, however much rope that agent has.',
+            open: true,
+          },
+        ],
+      },
+      {
+        icon: 'bolt',
+        n: '03',
+        name: 'The agent',
+        question: '"Is this going to do things without me knowing?"',
+        detail:
+          'Three levels per agent, not per system. With a workforce of more than a hundred, a single "autonomous mode" switch is not control: it is a bet.',
+        levels: [
+          {
+            label: 'Proposes',
+            body: 'Prepares the work and leaves it in its department queue. Every agent starts here.',
+          },
+          {
+            label: 'Acts with approval',
+            body: 'Does the real work and waits for your sign-off before anything leaves.',
+          },
+          {
+            label: 'Acts alone',
+            body: 'Executes and tells you in the daily report. For the repetitive and reversible: classifying, tagging, reconciling, summarising.',
+            open: true,
+          },
+        ],
+      },
+    ],
+
+    vetoKicker: 'And above all three',
+    vetoTitle: 'The red list',
+    vetoBody:
+      'Some actions never run unattended, whatever level the agent holds and however open the three doors are. The veto cuts across all three planes and cannot be switched off.',
+    vetoItems: [
+      'Moving money or starting a payment',
+      'Writing to more than a handful of external recipients',
+      'Publishing in the open: site, social, store',
+      'Signing or accepting a contract',
+      'Deleting data',
+      'Changing prices or commercial terms',
+      'Granting permissions to another agent',
+    ],
+
+    dayOneKicker: 'Day one',
+    dayOneTitle: 'What matters is what is not there',
+    dayOneBody:
+      'Install it, pick a working folder, connect the first account in read-only, add your model keys and start. At no step is there a permissions interrogation: not a single operating-system dialog appears until a specific feature needs one, and then we explain what for before your computer asks.',
+
+    upKicker: 'How the rope gets longer',
+    upQuote: '"Your Marketing agent has had 12 deliveries approved without you changing a word. Let it act with approval?"',
+    upBody:
+      'The system proposes; it never promotes on its own, and always with the number in front of you. Demoting is immediate and asks nothing: one badly done job is enough to send it back to proposing.',
+  },
+
   method: {
     kicker: 'The method',
     title: ["We don't install a tool. We build a system, ", 'level by level.'],

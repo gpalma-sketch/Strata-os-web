@@ -723,6 +723,112 @@ export const es: Content = {
       'La implantación es un pago único: conectar tus sistemas, cargar el conocimiento de tu empresa y dejar los agentes operando de verdad. La cuota mensual cubre que sigan funcionando, la supervisión y las mejoras. Añadir un departamento después tiene su propia implantación y ajusta la cuota. Sin permanencia una vez desplegado. Precios sin IVA y sujetos a ajuste hasta el lanzamiento.',
   },
 
+  permisos: {
+    kicker: 'Permisos y control',
+    title: ['Arranca cerrado. ', 'Lo abres tú, gesto a gesto.'],
+    lead: 'La primera pantalla decide si un dueño sigue o desinstala. Por eso el sistema no pide un solo permiso al instalarse: pide cada cosa cuando hace falta y explicando para qué.',
+
+    principleKicker: 'El principio',
+    principleTitle: 'Nadie decide permisos el día uno',
+    principleBody:
+      'Pedirlo todo el primer día es el mayor motivo de abandono en este tipo de software. El dueño todavía no sabe qué necesita cada agente, así que concede de más por inercia o de menos por miedo, y en los dos casos acaba mal. Preguntar en contexto —cuando un agente concreto necesita algo concreto para una tarea que acabas de pedir— convierte cada permiso en una decisión fácil.',
+
+    doorsKicker: 'Tres puertas que se abren a la vez',
+    doorsNote:
+      'No es una escala, es una conjunción: un agente sólo puede hacer algo si las tres lo permiten, y manda siempre la más restrictiva.',
+    doors: [
+      {
+        icon: 'layers',
+        n: '01',
+        name: 'La máquina',
+        question: '«¿Qué le dejo ver de mi ordenador?»',
+        detail:
+          'Es la pregunta que da miedo, y la que se activa justo al descargarlo. Cuanto más pequeño es el permiso inicial, más fácil es el sí.',
+        levels: [
+          {
+            label: 'Aislado',
+            body: 'Sólo su propia carpeta de trabajo. Nada más del disco, ninguna otra aplicación, ni la pantalla. Así es como se instala.',
+          },
+          {
+            label: 'Carpetas señaladas',
+            body: 'Las que arrastras tú, y sólo ésas. Aparecen en una lista con su fecha y un botón de retirar.',
+          },
+          {
+            label: 'Navegador propio',
+            body: 'Un perfil separado del tuyo: el agente no hereda la sesión de tu banco, ni tu correo personal, ni tu gestor de contraseñas.',
+            open: true,
+          },
+        ],
+      },
+      {
+        icon: 'node',
+        n: '02',
+        name: 'Las cuentas',
+        question: '«¿Puede leer todo mi correo, o sólo escribir borradores?»',
+        detail:
+          'Cada cuenta se conecta con el permiso mínimo que necesita el trabajo, y cuando hace falta. Retirarla es un clic y surte efecto en el momento.',
+        levels: [
+          {
+            label: 'Sólo lectura',
+            body: 'Consulta y usa la información como contexto, pero no modifica nada: lee tus correos y redacta borradores. No envía.',
+          },
+          {
+            label: 'Lectura y escritura',
+            body: 'Crea y modifica. Lo que sale al mundo sigue esperando tu visto bueno aunque ese agente tenga cuerda larga.',
+            open: true,
+          },
+        ],
+      },
+      {
+        icon: 'bolt',
+        n: '03',
+        name: 'El agente',
+        question: '«¿Esto va a hacer cosas sin que yo me entere?»',
+        detail:
+          'Tres niveles por agente, no por sistema. Con una plantilla de más de cien, un único interruptor de «modo autónomo» no es control: es una apuesta.',
+        levels: [
+          {
+            label: 'Propone',
+            body: 'Prepara el trabajo y lo deja en la cola de su departamento. Todos los agentes nacen aquí.',
+          },
+          {
+            label: 'Ejecuta con permiso',
+            body: 'Hace el trabajo de verdad y espera tu visto bueno antes de que salga.',
+          },
+          {
+            label: 'Actúa solo',
+            body: 'Ejecuta y te lo cuenta en el parte del día. Para lo repetitivo y reversible: clasificar, etiquetar, conciliar, resumir.',
+            open: true,
+          },
+        ],
+      },
+    ],
+
+    vetoKicker: 'Y por encima de las tres',
+    vetoTitle: 'La lista roja',
+    vetoBody:
+      'Hay acciones que no se ejecutan solas nunca, tenga el agente el nivel que tenga y estén abiertas las tres puertas. El veto atraviesa los tres planos y no se desactiva.',
+    vetoItems: [
+      'Mover dinero o iniciar un pago',
+      'Escribir a más de un puñado de destinatarios externos',
+      'Publicar en abierto: web, redes, tienda',
+      'Firmar o aceptar un contrato',
+      'Borrar datos',
+      'Cambiar precios o condiciones comerciales',
+      'Dar permisos a otro agente',
+    ],
+
+    dayOneKicker: 'El día uno',
+    dayOneTitle: 'Lo importante es lo que no aparece',
+    dayOneBody:
+      'Instalar, elegir una carpeta de trabajo, conectar la primera cuenta en modo lectura, poner tus claves de modelo y empezar. En ningún paso hay un interrogatorio de permisos: no salta un solo diálogo del sistema operativo hasta que una función concreta lo necesita, y entonces te explicamos para qué antes de que lo pida tu ordenador.',
+
+    upKicker: 'Cómo se suelta cuerda',
+    upQuote: '«Tu agente de Marketing lleva 12 entregas aprobadas sin que cambiaras nada. ¿Le dejas ejecutar con permiso?»',
+    upBody:
+      'El sistema propone; nunca sube solo, y siempre con el dato delante. Bajar de nivel es inmediato y sin preguntas: un solo trabajo mal hecho basta para devolverlo a proponer.',
+  },
+
   method: {
     kicker: 'El método',
     title: ['No instalamos una herramienta. Construimos un sistema, ', 'nivel a nivel.'],

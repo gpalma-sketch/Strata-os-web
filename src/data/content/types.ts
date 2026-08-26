@@ -120,6 +120,21 @@ export interface PriceTier {
   comingSoon?: boolean;
 }
 
+/**
+ * Una de las tres puertas del modelo de permisos. La `pregunta` es literalmente la que se hace el
+ * dueño, en primera persona: es lo que convierte una tabla de permisos en algo que se entiende sin
+ * ser técnico.
+ */
+export interface Puerta {
+  icon: string;
+  n: string;
+  name: string;
+  question: string;
+  detail: string;
+  /** Los estados de esa puerta, del más cerrado al más abierto. */
+  levels: Array<{ label: string; body: string; open?: boolean }>;
+}
+
 export interface Rung {
   n: string;
   name: string;
@@ -323,6 +338,32 @@ export interface Content {
     setupLabel: string;
     /** Band above the tiers stating plainly that the OS is not on sale yet. */
     availabilityNote: string;
+  };
+  /**
+   * Modelo de permisos. Contesta la pregunta que decide una compra en este mercado y que casi nadie
+   * contesta por escrito: qué le pide el sistema al dueño cuando lo instala, y qué le deja hacer
+   * después. Va después de `rollout` porque profundiza en su segundo paso.
+   */
+  permisos: {
+    kicker: string;
+    title: [string, string];
+    lead: string;
+    principleKicker: string;
+    principleTitle: string;
+    principleBody: string;
+    doorsKicker: string;
+    doorsNote: string;
+    doors: Puerta[];
+    vetoKicker: string;
+    vetoTitle: string;
+    vetoBody: string;
+    vetoItems: string[];
+    dayOneKicker: string;
+    dayOneTitle: string;
+    dayOneBody: string;
+    upKicker: string;
+    upQuote: string;
+    upBody: string;
   };
   method: {
     kicker: string;

@@ -1,0 +1,102 @@
+---
+/**
+ * Modelo de permisos.
+ *
+ * Va justo detrás de `Rollout` porque profundiza en su segundo paso: allí se dice que hay tres
+ * niveles por agente, y aquí se explica el modelo entero. Contesta la pregunta que decide una compra
+ * en este mercado y que casi ningún competidor pone por escrito — qué le pide el sistema al dueño
+ * cuando lo instala y qué le deja hacer después.
+ *
+ * LA FORMA DICE ALGO QUE EL TEXTO SOLO NO DIRÍA. Las tres puertas se pintan en paralelo y no en
+ * escalera, porque no son niveles de una escala: son una conjunción. Un agente sólo actúa si las
+ * tres lo permiten y manda la más restrictiva. Pintarlas como una progresión 01→02→03 diría lo
+ * contrario de lo que hace el sistema, que es exactamente el tipo de numeración decorativa que aquí
+ * no se usa: el número está para nombrar la puerta, y las tres columnas son hermanas.
+ *
+ * La lista roja va aparte y a lo ancho, cruzando las tres columnas, porque eso es literalmente lo
+ * que hace: atraviesa los tres planos y no se puede desactivar.
+ */
+import Icon from './Icon.astro';
+import type { Locale } from '../data/site';
+import { content } from '../data/content';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const t = content[locale].permisos;
+---
+
+<section class="light sec" id="permisos">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="kick">{t.kicker}</p>
+      <h2 class="h-lg" style="margin-top:18px; max-width:900px;">
+        {t.title[0]}<span class="teal">{t.title[1]}</span>
+      </h2>
+      <p class="lead" style="margin-top:18px; max-width:800px;">{t.lead}</p>
+    </div>
+
+    <div class="perm-principle reveal">
+      <p class="kick">{t.principleKicker}</p>
+      <p class="perm-pt">{t.principleTitle}</p>
+      <p class="perm-pb">{t.principleBody}</p>
+    </div>
+
+    <div class="perm-head reveal">
+      <p class="kick">{t.doorsKicker}</p>
+      <p class="perm-note">{t.doorsNote}</p>
+    </div>
+
+    <div class="perm-doors reveal" data-stagger>
+      {
+        t.doors.map((d) => (
+          <article class="perm-door">
+            <div class="perm-door-h">
+              <span class="perm-ic"><Icon name={d.icon} /></span>
+              <span class="perm-n">{d.n}</span>
+            </div>
+            <h3 class="perm-name">{d.name}</h3>
+            <p class="perm-q">{d.question}</p>
+            <p class="perm-d">{d.detail}</p>
+            <ul class="perm-levels">
+              {
+                d.levels.map((l) => (
+                  <li class={l.open ? 'perm-level perm-level-open' : 'perm-level'}>
+                    <span class="perm-l-label">{l.label}</span>
+                    <span class="perm-l-body">{l.body}</span>
+                  </li>
+                ))
+              }
+            </ul>
+          </article>
+        ))
+      }
+    </div>
+
+    <div class="perm-veto reveal">
+      <div class="perm-veto-side">
+        <span class="perm-veto-ic"><Icon name="close" /></span>
+        <p class="kick">{t.vetoKicker}</p>
+        <p class="perm-veto-t">{t.vetoTitle}</p>
+        <p class="perm-veto-b">{t.vetoBody}</p>
+      </div>
+      <ul class="perm-veto-list">
+        {t.vetoItems.map((v) => <li>{v}</li>)}
+      </ul>
+    </div>
+
+    <div class="perm-tail reveal">
+      <div class="perm-tail-col">
+        <p class="kick">{t.dayOneKicker}</p>
+        <p class="perm-tail-t">{t.dayOneTitle}</p>
+        <p class="perm-tail-b">{t.dayOneBody}</p>
+      </div>
+      <div class="perm-tail-col">
+        <p class="kick">{t.upKicker}</p>
+        <blockquote class="perm-quote">{t.upQuote}</blockquote>
+        <p class="perm-tail-b">{t.upBody}</p>
+      </div>
+    </div>
+  </div>
+</section>
