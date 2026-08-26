@@ -1,0 +1,51 @@
+---
+/**
+ * El motor: qué modelos hay debajo y por qué son varios.
+ *
+ * La sección «Cómo funciona» dice que Jarvis «elige departamento, agente y
+ * modelo», y hasta ahora esa última palabra no se explicaba en ningún sitio.
+ * Aquí se explica, y de paso se convierte en argumento: quien pregunta «¿esto
+ * es un wrapper de ChatGPT?» merece una respuesta concreta.
+ */
+import Icon from './Icon.astro';
+import type { Locale } from '../data/site';
+import { content } from '../data/content';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const t = content[locale];
+---
+
+<section class="light sec" id="motor">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="kick">{t.engine.kicker}</p>
+      <h2 class="h-lg" style="margin-top:18px; max-width:900px;">
+        {t.engine.title[0]}<span class="teal">{t.engine.title[1]}</span>
+      </h2>
+      <p class="lead" style="margin-top:18px; max-width:820px;">{t.engine.lead}</p>
+    </div>
+
+    <div class="engine reveal" data-stagger>
+      {
+        t.engine.layers.map((l) => (
+          <div class="elayer">
+            <div class="eic"><Icon name={l.icon} /></div>
+            <div class="ejob">{l.job}</div>
+            <div class="ewho">{l.who}</div>
+            <p class="edetail">{l.detail}</p>
+          </div>
+        ))
+      }
+    </div>
+
+    {/* El argumento real no es qué modelo usamos hoy, sino que se pueda
+        cambiar mañana. Va aparte para que no se pierda entre las tarjetas. */}
+    <div class="enote reveal">
+      <span class="kick">{t.engine.swapKicker}</span>
+      <p>{t.engine.swapNote}</p>
+    </div>
+  </div>
+</section>

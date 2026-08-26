@@ -439,6 +439,87 @@ export const en: Content = {
     closingAfter: ", 24/7, with our own departments running inside it. We're the first customer of our product.",
   },
 
+  engine: {
+    kicker: 'The engine',
+    title: ['We do not depend on one model. ', 'We use whichever wins the task.'],
+    lead: 'The model that reasons best is not the one that searches your documentation best, nor the one that speaks best. Tying yourself to a single provider is comfortable right up until a better one ships and you cannot switch. Jarvis routes each task to the layer it belongs to.',
+    layers: [
+      {
+        icon: 'bolt',
+        job: 'Reasoning and writing',
+        who: 'Claude · Anthropic',
+        detail: 'The engine behind Jarvis and the agents: it understands what you asked, decides which department handles it and writes the result.',
+      },
+      {
+        icon: 'layers',
+        job: 'Semantic memory',
+        who: 'Embeddings · OpenAI',
+        detail: 'The brain that searches inside your company knowledge. It finds the contract, the price or the conversation even when you cannot remember what it was called.',
+      },
+      {
+        icon: 'headset',
+        job: 'Voice',
+        who: 'ElevenLabs',
+        detail: 'Jarvis listens and answers out loud. Ask it things while driving and get the day summarised without looking at a screen.',
+      },
+      {
+        icon: 'doc',
+        job: 'Image and document',
+        who: 'Multimodal',
+        detail: 'Attach a photo of a delivery note, a screenshot or a PDF and the agent works from that. Not all of a company\'s work is text.',
+      },
+    ],
+    swapKicker: 'And the point',
+    swapNote: 'What matters is not which model we use today, but that it can be swapped tomorrow. A better one ships every few months: when it does, the routing changes and your agents, your processes and your knowledge stay exactly as they were. Models are used over the API, so your data trains nobody.',
+  },
+
+  rollout: {
+    kicker: 'Rollout and control',
+    title: ['It installs in four steps. ', 'And it does nothing without your say-so.'],
+    lead: 'The question that matters is not how the system gets into your company, but who is in charge once it is there. You are — and these are the brakes.',
+    steps: [
+      {
+        title: 'Connect your stack',
+        detail: 'CRM, ERP, bank, email, social, store. Every account you plug in gives your agents the real context of the business instead of guesswork.',
+      },
+      {
+        title: 'Tell us about your business',
+        detail: 'A handful of quick questions. From those the system knows who you are, what you sell, to whom and in what tone.',
+      },
+      {
+        title: 'Generate your Business OS',
+        detail: 'From your context and your connections, the brain produces your diagnosis, your improvement plan and populates your panel with the departments you need.',
+      },
+      {
+        title: 'Your first result',
+        detail: 'You review and approve what your team prepared. From there it runs on its own, and you decide how much rope it gets.',
+      },
+    ],
+    controlKicker: 'Where the brakes are',
+    controls: [
+      {
+        icon: 'check',
+        title: 'Approvals',
+        detail: 'Nothing critical ships without your sign-off. Each department has its own queue: review, approve or discard.',
+      },
+      {
+        icon: 'wallet',
+        title: 'Spend cap',
+        detail: 'A daily consumption limit you set. The system stops before it overruns, not after the invoice.',
+      },
+      {
+        icon: 'shield',
+        title: 'Audit trail',
+        detail: 'Every action is logged: which agent, when, on what data and what it produced. Nothing happens without a trace.',
+      },
+      {
+        icon: 'trend',
+        title: 'Evolution loop',
+        detail: 'The system audits its own performance and proposes what to tune. Proposes — whether it applies is your call.',
+      },
+    ],
+  },
+
   useCases: {
     kicker: 'Use cases',
     title: ['Built for every ', 'challenge in your business.'],

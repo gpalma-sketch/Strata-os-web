@@ -450,6 +450,87 @@ export const es: Content = {
     closingAfter: ', 24/7, con nuestros propios departamentos operando dentro. Somos el primer cliente de nuestro producto.',
   },
 
+  engine: {
+    kicker: 'El motor',
+    title: ['No dependemos de un solo modelo. ', 'Usamos el que gana en cada tarea.'],
+    lead: 'El modelo que mejor razona no es el que mejor busca en tu documentación, ni el que mejor habla. Atarse a un único proveedor es cómodo hasta que sale uno mejor y no puedes cambiarlo. Jarvis enruta cada tarea a la capa que le toca.',
+    layers: [
+      {
+        icon: 'bolt',
+        job: 'Razonar y escribir',
+        who: 'Claude · Anthropic',
+        detail: 'El motor de Jarvis y de los agentes: entiende lo que pides, decide qué departamento lo resuelve y redacta el resultado.',
+      },
+      {
+        icon: 'layers',
+        job: 'Memoria semántica',
+        who: 'Embeddings · OpenAI',
+        detail: 'El cerebro que busca dentro del conocimiento de tu empresa. Encuentra el contrato, el precio o la conversación aunque no recuerdes cómo se llamaba.',
+      },
+      {
+        icon: 'headset',
+        job: 'Voz',
+        who: 'ElevenLabs',
+        detail: 'Jarvis escucha y contesta hablando. Puedes pedirle cosas conduciendo y recibir el resumen del día sin mirar la pantalla.',
+      },
+      {
+        icon: 'doc',
+        job: 'Imagen y documento',
+        who: 'Multimodal',
+        detail: 'Adjuntas la foto de un albarán, una captura o un PDF y el agente trabaja sobre eso. No todo el trabajo de una empresa es texto.',
+      },
+    ],
+    swapKicker: 'Y lo importante',
+    swapNote: 'Lo relevante no es qué modelo usamos hoy, sino que se pueda cambiar mañana. Sale uno mejor cada pocos meses: cuando pase, se cambia en el enrutado y tus agentes, tus procesos y tu conocimiento siguen intactos. Los modelos se usan vía API, así que tus datos no entrenan a nadie.',
+  },
+
+  rollout: {
+    kicker: 'Puesta en marcha y control',
+    title: ['Se instala en cuatro pasos. ', 'Y no hace nada sin tu permiso.'],
+    lead: 'La pregunta que importa no es cómo entra el sistema en tu empresa, sino quién manda una vez está dentro. Mandas tú, y estos son los frenos.',
+    steps: [
+      {
+        title: 'Conecta tu stack',
+        detail: 'CRM, ERP, banco, correo, redes, tienda. Cada cuenta que enchufas le da a tus agentes el contexto real del negocio en vez de suposiciones.',
+      },
+      {
+        title: 'Cuéntanos tu negocio',
+        detail: 'Unas cuantas preguntas rápidas. Con eso el sistema sabe quién eres, qué vendes, a quién y con qué tono.',
+      },
+      {
+        title: 'Genera tu Business OS',
+        detail: 'Con tu contexto y tus conexiones, el cerebro produce tu diagnóstico, tu plan de mejora y puebla tu panel con los departamentos que te tocan.',
+      },
+      {
+        title: 'Tu primer resultado',
+        detail: 'Revisas y apruebas lo que tu equipo ha preparado. A partir de ahí opera solo, y tú decides cuánto le sueltas.',
+      },
+    ],
+    controlKicker: 'Dónde está el freno',
+    controls: [
+      {
+        icon: 'check',
+        title: 'Aprobaciones',
+        detail: 'Nada crítico sale sin tu visto bueno. Cada departamento tiene su propia cola: revisas, apruebas o descartas.',
+      },
+      {
+        icon: 'wallet',
+        title: 'Tope de gasto',
+        detail: 'Un límite de consumo diario que fijas tú. El sistema se para antes de pasarse, no después de la factura.',
+      },
+      {
+        icon: 'shield',
+        title: 'Trazabilidad',
+        detail: 'Cada acción queda registrada: qué agente, cuándo, con qué datos y qué produjo. Nada ocurre sin dejar rastro.',
+      },
+      {
+        icon: 'trend',
+        title: 'Loop evolutivo',
+        detail: 'El sistema audita su propio rendimiento y te propone qué afinar. Propone: aplicar o no lo decides tú.',
+      },
+    ],
+  },
+
   useCases: {
     kicker: 'Casos de uso',
     title: ['Pensado para cada ', 'reto de tu negocio.'],

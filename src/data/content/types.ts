@@ -255,6 +255,27 @@ export interface Content {
     closingStrong: string;
     closingAfter: string;
   };
+  /**
+   * El motor: qué modelos hay debajo y por qué son varios. La sección `how`
+   * dice que Jarvis «elige modelo»; aquí se explica qué significa eso.
+   */
+  engine: {
+    kicker: string;
+    title: [string, string];
+    lead: string;
+    layers: Array<{ icon: string; job: string; who: string; detail: string }>;
+    swapKicker: string;
+    swapNote: string;
+  };
+  /** Puesta en marcha y control: cómo entra en la empresa y dónde está el freno. */
+  rollout: {
+    kicker: string;
+    title: [string, string];
+    lead: string;
+    steps: Array<{ title: string; detail: string }>;
+    controlKicker: string;
+    controls: Array<{ icon: string; title: string; detail: string }>;
+  };
   useCases: {
     kicker: string;
     title: [string, string];

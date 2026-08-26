@@ -1,0 +1,61 @@
+---
+/**
+ * Puesta en marcha y control.
+ *
+ * Responde a las dos preguntas que hace todo comprador y que la página no
+ * contestaba en ninguna parte: «¿cómo se instala esto en mi empresa?» y
+ * «¿quién lo controla cuando esté dentro?».
+ *
+ * La segunda importa más que la primera. Vender agentes que operan un negocio
+ * sin decir dónde está el freno es lo que hace que un dueño diga que no.
+ */
+import Icon from './Icon.astro';
+import type { Locale } from '../data/site';
+import { content } from '../data/content';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const t = content[locale];
+---
+
+<section class="deep grid-bg sec" id="despliegue">
+  <div class="orb" style="width:520px; height:520px; top:-120px; right:-180px; opacity:.22;"></div>
+  <div class="wrap">
+    <div class="reveal">
+      <p class="kick">{t.rollout.kicker}</p>
+      <h2 class="h-lg" style="margin-top:18px; max-width:900px;">
+        {t.rollout.title[0]}<span class="mint">{t.rollout.title[1]}</span>
+      </h2>
+      <p class="lead" style="margin-top:18px; max-width:780px;">{t.rollout.lead}</p>
+    </div>
+
+    <ol class="steps4 reveal" data-stagger>
+      {
+        t.rollout.steps.map((s, i) => (
+          <li class="step4">
+            <span class="s4n">{String(i + 1).padStart(2, '0')}</span>
+            <span class="s4t">{s.title}</span>
+            <span class="s4d">{s.detail}</span>
+          </li>
+        ))
+      }
+    </ol>
+
+    <div class="ctrl reveal">
+      <p class="kick" style="margin-bottom:22px;">{t.rollout.controlKicker}</p>
+      <div class="ctrl-grid" data-stagger>
+        {
+          t.rollout.controls.map((c) => (
+            <div class="ctrl-item">
+              <div class="cic"><Icon name={c.icon} /></div>
+              <div class="ct">{c.title}</div>
+              <p class="cd">{c.detail}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>
