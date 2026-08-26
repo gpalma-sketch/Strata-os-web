@@ -300,21 +300,6 @@ export interface Content {
     steps: Array<{ title: string; detail: string }>;
     /** Encabeza el muro de logotipos de integraciones. */
     stackLabel: string;
-    /**
-     * El modelo de permisos, en tres planos.
-     *
-     * No es una escala de autonomía: es una conjunción. Los tres tienen que
-     * permitir para que una acción ocurra, y manda el más restrictivo. Es la
-     * respuesta a la pregunta que se hace todo el que instala algo que va a
-     * operar su empresa.
-     */
-    gatesKicker: string;
-    gatesTitle: string;
-    gatesLead: string;
-    gates: Array<{ n: string; title: string; q: string; detail: string }>;
-    /** El veto que atraviesa los tres planos. */
-    redKicker: string;
-    redNote: string;
     controlKicker: string;
     controls: Array<{ icon: string; title: string; detail: string }>;
   };

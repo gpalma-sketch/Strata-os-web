@@ -524,31 +524,6 @@ export const es: Content = {
       },
     ],
     stackLabel: 'Algunas de las cuentas que se conectan',
-    gatesKicker: 'Qué permisos das, exactamente',
-    gatesTitle: 'Tres puertas, y las tres tienen que abrirse',
-    gatesLead: 'No es una escala de más o menos autonomía: es una conjunción. Un agente solo puede hacer algo si las tres puertas lo permiten, y manda siempre la más restrictiva.',
-    gates: [
-      {
-        n: '01',
-        title: 'La máquina',
-        q: '¿Qué ve de tu ordenador?',
-        detail: 'Arranca aislado en su propia carpeta y no pide un solo permiso del sistema al instalarse. Le señalas carpetas concretas cuando hacen falta, y el navegador es un permiso aparte: con perfil propio, para que no herede tus sesiones ni tus contraseñas.',
-      },
-      {
-        n: '02',
-        title: 'Las cuentas',
-        q: '¿Qué puede hacer en cada servicio?',
-        detail: 'Cada cuenta se conecta con el permiso mínimo, y en el momento en que hace falta. Leer tu correo no es lo mismo que enviar desde él, y se decide por separado. Retirar una cuenta es un clic y surte efecto al instante.',
-      },
-      {
-        n: '03',
-        title: 'El agente',
-        q: '¿Cuánta cuerda tiene?',
-        detail: 'Tres niveles, por agente y no por sistema: propone, ejecuta pidiéndote permiso, o actúa solo. Todos nacen en el primero y suben cuando tú lo decides, no cuando les apetece.',
-      },
-    ],
-    redKicker: 'La lista roja',
-    redNote: 'Y por encima de las tres puertas, un veto que no se puede desactivar: mover dinero, firmar un contrato, publicar en abierto, borrar datos o cambiar precios no se ejecuta solo jamás — tenga el agente el nivel que tenga y estén abiertas las tres puertas.',
     controlKicker: 'Dónde está el freno',
     controls: [
       {

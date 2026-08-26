@@ -513,31 +513,6 @@ export const en: Content = {
       },
     ],
     stackLabel: 'Some of the accounts that plug in',
-    gatesKicker: 'What exactly you are granting',
-    gatesTitle: 'Three gates, and all three must open',
-    gatesLead: 'It is not a scale of more or less autonomy: it is a conjunction. An agent can only act if all three gates allow it, and the most restrictive one always wins.',
-    gates: [
-      {
-        n: '01',
-        title: 'The machine',
-        q: 'What can it see of your computer?',
-        detail: 'It starts sealed in its own folder and asks for no system permission at install. You point it at specific folders when they are needed, and the browser is a separate permission: on its own profile, so it never inherits your sessions or your passwords.',
-      },
-      {
-        n: '02',
-        title: 'The accounts',
-        q: 'What can it do in each service?',
-        detail: 'Every account connects with the minimum permission, at the moment it is needed. Reading your email is not the same as sending from it, and each is decided separately. Revoking an account is one click and takes effect immediately.',
-      },
-      {
-        n: '03',
-        title: 'The agent',
-        q: 'How much rope does it get?',
-        detail: 'Three levels, per agent rather than per system: propose, execute with your permission, or act alone. Every agent starts at the first and moves up when you decide, not when it feels ready.',
-      },
-    ],
-    redKicker: 'The red list',
-    redNote: 'And above all three gates, a veto that cannot be switched off: moving money, signing a contract, publishing in the open, deleting data or changing prices never executes on its own — whatever level the agent has and however wide the three gates are open.',
     controlKicker: 'Where the brakes are',
     controls: [
       {
