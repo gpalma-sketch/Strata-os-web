@@ -696,6 +696,7 @@ export const en: Content = {
     badgeGroup: 'Group company',
     badgeClient: 'Client',
     flipHint: 'Hover to see more →',
+    flipHintTouch: 'Tap to see more →',
     carouselLabel: 'carousel',
     prev: 'Previous case',
     next: 'Next case',

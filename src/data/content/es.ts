@@ -707,6 +707,7 @@ export const es: Content = {
     badgeGroup: 'Empresa del grupo',
     badgeClient: 'Cliente',
     flipHint: 'Pasa por encima para ver más →',
+    flipHintTouch: 'Toca para ver más →',
     carouselLabel: 'carrusel',
     prev: 'Caso anterior',
     next: 'Caso siguiente',

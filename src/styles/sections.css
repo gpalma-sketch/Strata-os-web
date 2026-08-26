@@ -2167,3 +2167,16 @@
     scroll-behavior: auto;
   }
 }
+/* La pista se elige por capacidad del puntero, no por ancho de pantalla:
+   hay tabletas anchas sin ratón y portátiles táctiles estrechos. */
+.fc-hint-touch {
+  display: none;
+}
+@media (hover: none) {
+  .fc-hint-hover {
+    display: none;
+  }
+  .fc-hint-touch {
+    display: inline;
+  }
+}

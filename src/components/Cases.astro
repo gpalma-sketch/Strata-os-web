@@ -75,8 +75,12 @@ const logos = import.meta.glob<{ default: ImageMetadata }>('../assets/*.{png,jpg
                         <span class="fc-name">{c.nombre}</span>
                       )}
                       <span class="fc-sector">{c.sector[locale]}</span>
+                      {/* Dos pistas, una por tipo de puntero: decirle "pasa
+                          por encima" a alguien sin ratón es una instrucción
+                          imposible de seguir. */}
                       <span class="fc-hint" aria-hidden="true">
-                        {t.cases.flipHint}
+                        <span class="fc-hint-hover">{t.cases.flipHint}</span>
+                        <span class="fc-hint-touch">{t.cases.flipHintTouch}</span>
                       </span>
                     </div>
 

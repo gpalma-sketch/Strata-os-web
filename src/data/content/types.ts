@@ -326,8 +326,9 @@ export interface Content {
     /** Distintivos de la cara frontal. */
     badgeGroup: string;
     badgeClient: string;
-    /** Pista de que la tarjeta se gira. */
+    /** Pista de que la tarjeta se gira. Una por tipo de puntero. */
     flipHint: string;
+    flipHintTouch: string;
     /** Accesibilidad del carrusel. */
     carouselLabel: string;
     prev: string;
