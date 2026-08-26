@@ -1,14 +1,20 @@
 ---
 /**
- * "Nuestro campo de pruebas": las empresas del grupo que operan con STRATA.
+ * Carrusel de casos: las empresas del grupo y los clientes que ya operan
+ * con STRATA.
+ *
+ * La tarjeta enseña el nombre y se gira para contar el resto. Es lo que evita
+ * la pared de texto de la versión anterior: seis fichas densas en rejilla no
+ * se leen, se saltan.
+ *
+ * El giro es una mejora, no un requisito. Sucede con el ratón encima, con el
+ * foco del teclado y con un toque en el móvil, y ninguna de las tres es la
+ * única vía: el texto de la cara trasera está en el DOM desde el principio,
+ * así que un lector de pantalla lo anuncia gire la tarjeta o no. Con
+ * `prefers-reduced-motion` no hay giro, se cambia una cara por otra.
  *
  * La sección desaparece entera si no hay ningún caso completo (ver
  * `src/data/cases.ts`). Nunca renderiza una tarjeta a medias.
- *
- * El texto dice explícitamente que son empresas del grupo, no clientes. Esa
- * frase no es un descargo legal escondido: es el argumento. Cualquiera puede
- * comprobar quién es el dueño, así que decirlo primero convierte lo que sería
- * una pillada en una demostración de convicción.
  */
 import { Image } from 'astro:assets';
 import type { Locale } from '../data/site';
@@ -44,57 +50,137 @@ const logos = import.meta.glob<{ default: ImageMetadata }>('../assets/*.{png,jpg
           <p class="cases-disclosure">{t.cases.disclosure}</p>
         </div>
 
-        <div class="cases reveal" data-stagger>
-          {lista.map((c) => {
-            const img = c.logo ? logos[`../assets/${c.logo}`]?.default : undefined;
-            return (
-              <article class={`case${c.destacado ? ' case-hot' : ''}`}>
-                <header class="case-h">
-                  {img ? (
-                    <Image src={img} alt={c.nombre} height={34} class="case-logo" />
-                  ) : (
-                    <span class="case-name">{c.nombre}</span>
-                  )}
-                  <span class="case-sector">{c.sector[locale]}</span>
-                </header>
+        <div class="rail-wrap reveal">
+          <div
+            class="rail"
+            id="casesRail"
+            role="group"
+            aria-roledescription={t.cases.carouselLabel}
+            aria-label={t.cases.kicker}
+            tabindex="0"
+          >
+            {lista.map((c) => {
+              const img = c.logo ? logos[`../assets/${c.logo}`]?.default : undefined;
+              const esCliente = c.tipo === 'cliente';
+              return (
+                <article class={`fc${c.destacado ? ' fc-hot' : ''}`} tabindex="0">
+                  <div class="fc-inner">
+                    <div class="fc-face fc-front">
+                      <span class={`fc-tag${esCliente ? ' is-client' : ''}`}>
+                        {esCliente ? t.cases.badgeClient : t.cases.badgeGroup}
+                      </span>
+                      {img ? (
+                        <Image src={img} alt={c.nombre} height={44} class="fc-logo" />
+                      ) : (
+                        <span class="fc-name">{c.nombre}</span>
+                      )}
+                      <span class="fc-sector">{c.sector[locale]}</span>
+                      <span class="fc-hint" aria-hidden="true">
+                        {t.cases.flipHint}
+                      </span>
+                    </div>
 
-                <p class="case-sum">{c.resumen[locale]}</p>
-
-                <div class="case-depts">
-                  <span class="case-depts-k">{t.cases.runningLabel}</span>
-                  <ul>
-                    {operaTodo(c, locale) ? (
-                      /* Una etiqueta en vez de nueve: seis tarjetas repitiendo
-                         la misma lista ahogarían lo que distingue a cada
-                         negocio, que es lo único que aquí interesa leer. */
-                      <li class="case-dept-all">{t.cases.allDepartments}</li>
-                    ) : (
-                      c.departamentos[locale].map((d) => <li>{d}</li>)
-                    )}
-                  </ul>
-                </div>
-
-                {c.metricas.length > 0 && (
-                  <div class="case-metrics">
-                    {c.metricas.map((m) => (
-                      <div class="case-metric">
-                        <div class="case-metric-v">
-                          {m.valor}
-                          {m.unidad && <span>{m.unidad}</span>}
-                        </div>
-                        <div class="case-metric-c">{m.caption[locale]}</div>
-                        {/* El periodo acompaña siempre a la cifra: sin él, el
-                            dato no se puede sostener si alguien pregunta. */}
-                        <div class="case-metric-p">{m.periodo[locale]}</div>
+                    <div class="fc-face fc-back">
+                      <p class="fc-sum">{c.resumen[locale]}</p>
+                      <div class="fc-depts">
+                        <span class="fc-depts-k">{t.cases.runningLabel}</span>
+                        <ul>
+                          {operaTodo(c, locale) ? (
+                            /* Una etiqueta en vez de nueve: seis tarjetas
+                               repitiendo la misma lista ahogarían lo que
+                               distingue a cada negocio. */
+                            <li class="fc-dept-all">{t.cases.allDepartments}</li>
+                          ) : (
+                            c.departamentos[locale].map((d) => <li>{d}</li>)
+                          )}
+                        </ul>
                       </div>
-                    ))}
+                      {c.metricas.length > 0 && (
+                        <div class="fc-metrics">
+                          {c.metricas.map((m) => (
+                            <div class="fc-metric">
+                              <span class="fc-metric-v">
+                                {m.valor}
+                                {m.unidad && <em>{m.unidad}</em>}
+                              </span>
+                              <span class="fc-metric-c">{m.caption[locale]}</span>
+                              {/* El periodo acompaña siempre a la cifra: sin él,
+                                  el dato no se sostiene si alguien pregunta. */}
+                              <span class="fc-metric-p">{m.periodo[locale]}</span>
+                            </div>
+                          ))}
+                        </div>
+                      )}
+                    </div>
                   </div>
-                )}
-              </article>
-            );
-          })}
+                </article>
+              );
+            })}
+          </div>
+
+          <div class="rail-nav">
+            <button type="button" class="rail-btn" data-rail="prev" aria-controls="casesRail" aria-label={t.cases.prev}>
+              ←
+            </button>
+            <button type="button" class="rail-btn" data-rail="next" aria-controls="casesRail" aria-label={t.cases.next}>
+              →
+            </button>
+          </div>
         </div>
       </div>
     </section>
   )
 }
+
+<script>
+  const rail = document.getElementById('casesRail');
+  if (rail) {
+    /* Un paso = una tarjeta más el hueco, leído del DOM en vez de codificado:
+       el ancho cambia entre móvil y escritorio. */
+    const step = () => {
+      const card = rail.querySelector<HTMLElement>('.fc');
+      if (!card) return rail.clientWidth;
+      const gap = parseFloat(getComputedStyle(rail).columnGap || '0') || 0;
+      return card.offsetWidth + gap;
+    };
+
+    document.querySelectorAll<HTMLButtonElement>('[data-rail]').forEach((btn) =>
+      btn.addEventListener('click', () => {
+        rail.scrollBy({ left: btn.dataset.rail === 'next' ? step() : -step(), behavior: 'smooth' });
+      }),
+    );
+
+    /* Las flechas se apagan en los extremos en vez de quedarse pulsables sin
+       hacer nada. El margen de 2px absorbe el redondeo del scroll. */
+    const sync = () => {
+      const max = rail.scrollWidth - rail.clientWidth;
+      document.querySelectorAll<HTMLButtonElement>('[data-rail]').forEach((btn) => {
+        const atEnd = btn.dataset.rail === 'next' ? rail.scrollLeft >= max - 2 : rail.scrollLeft <= 2;
+        btn.disabled = atEnd || max <= 0;
+      });
+    };
+    rail.addEventListener('scroll', sync, { passive: true });
+    addEventListener('resize', sync);
+    sync();
+
+    /* Táctil: sin ratón que poner encima, el giro se hace con un toque. Se
+       ignora si el dedo venía arrastrando el carrusel, que si no la tarjeta
+       gira sola cada vez que alguien pasa a la siguiente. */
+    let movedFrom = 0;
+    rail.addEventListener('pointerdown', () => {
+      movedFrom = rail.scrollLeft;
+    });
+    rail.querySelectorAll<HTMLElement>('.fc').forEach((card) => {
+      card.addEventListener('click', () => {
+        if (Math.abs(rail.scrollLeft - movedFrom) > 6) return;
+        card.classList.toggle('is-flipped');
+      });
+      /* Teclado: Enter y Espacio hacen lo mismo que el toque. */
+      card.addEventListener('keydown', (e) => {
+        if (e.key !== 'Enter' && e.key !== ' ') return;
+        e.preventDefault();
+        card.classList.toggle('is-flipped');
+      });
+    });
+  }
+</script>

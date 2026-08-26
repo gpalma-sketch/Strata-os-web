@@ -689,10 +689,16 @@ export const en: Content = {
   cases: {
     kicker: 'Our proving ground',
     title: ['We did not pilot it on you. ', 'We piloted it on ourselves.'],
-    lead: 'Before selling this to anyone, we put it to work running the group\'s own businesses. Each has its own customers, its own invoices and its own emergencies — and all of them run on the same system we are proposing to you.',
-    disclosure: 'These are companies in our own group, not clients. We say so plainly on purpose: if something breaks here, we pay for it. That is exactly why you can trust that the system holds.',
+    lead: 'Before selling this to anyone, we put it to work running our own businesses. Each has its own customers, its own invoices and its own emergencies — and all of them run on the same system we are proposing to you. Hover over any of them to see what it runs.',
+    disclosure: 'Five of these are companies in our own group and one is a client. Each card says which, because they are not the same thing and we would rather not let it look that way. That most of them are ours is the point: if something breaks, we pay for it before anyone else does.',
     runningLabel: 'Running with agents',
     allDepartments: 'All nine departments',
+    badgeGroup: 'Group company',
+    badgeClient: 'Client',
+    flipHint: 'Hover to see more →',
+    carouselLabel: 'carousel',
+    prev: 'Previous case',
+    next: 'Next case',
   },
   partners: {
     kicker: 'Who it is for',

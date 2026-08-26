@@ -33,9 +33,19 @@ export interface Metrica {
   periodo: { es: string; en: string };
 }
 
+/**
+ * Empresa del grupo o cliente externo.
+ *
+ * La distinción se pinta en la tarjeta. Mezclar las dos cosas bajo la palabra
+ * "clientes" sería publicidad engañosa; esconder que hay un cliente real sería
+ * desaprovecharlo. Cada una lleva su etiqueta y se acabó el problema.
+ */
+export type TipoCaso = 'grupo' | 'cliente';
+
 export interface Caso {
   slug: string;
   nombre: string;
+  tipo: TipoCaso;
   /** Sector en una línea corta. */
   sector: { es: string; en: string };
   /** Qué es el negocio. Una o dos frases, en presente. */
@@ -70,6 +80,7 @@ export const casos: Caso[] = [
   {
     slug: 'strata',
     nombre: 'STRATA',
+    tipo: 'grupo',
     sector: { es: 'IA aplicada · el sistema sobre sí mismo', en: 'Applied AI · the system on itself' },
     resumen: {
       es: 'La empresa que construye STRATA se opera con STRATA. Los mismos agentes que te proponemos llevan nuestras ventas, nuestro soporte y nuestras cuentas, sobre el mismo Business OS. Cualquier fallo lo sufrimos nosotros antes que ningún cliente, y por eso se arregla antes de llegar a nadie.',
@@ -81,6 +92,7 @@ export const casos: Caso[] = [
   },
   {
     slug: 'ywh',
+    tipo: 'grupo',
     nombre: 'Young Wild Hunters',
     sector: { es: 'Producción audiovisual · outdoor', en: 'Film production · outdoor' },
     resumen: {
@@ -92,6 +104,7 @@ export const casos: Caso[] = [
   },
   {
     slug: 'off-tv',
+    tipo: 'grupo',
     nombre: 'OFF TV',
     sector: { es: 'Ecommerce y OTT · outdoor', en: 'Ecommerce and OTT · outdoor' },
     resumen: {
@@ -103,17 +116,19 @@ export const casos: Caso[] = [
   },
   {
     slug: 'feronia',
+    tipo: 'cliente',
     nombre: 'Feronia',
     sector: { es: 'Paisajismo y decoración', en: 'Landscaping and interiors' },
     resumen: {
-      es: 'Estudio de paisajismo y decoración. Proyectos a medida, con presupuestos, proveedores y plazos que dependen de la obra y de la temporada — el tipo de negocio donde la coordinación se come el día.',
-      en: 'A landscaping and interior design studio. Bespoke projects, with quotes, suppliers and timelines that depend on the site and the season — the kind of business where coordination eats the day.',
+      es: 'Estudio de paisajismo y decoración, y nuestro primer cliente externo. Proyectos a medida, con presupuestos, proveedores y plazos que dependen de la obra y de la temporada — el tipo de negocio donde la coordinación se come el día.',
+      en: 'A landscaping and interior design studio, and our first external client. Bespoke projects, with quotes, suppliers and timelines that depend on the site and the season — the kind of business where coordination eats the day.',
     },
     departamentos: TODOS,
     metricas: [],
   },
   {
     slug: 'nestor-ai',
+    tipo: 'grupo',
     nombre: 'Nestor AI',
     sector: { es: 'Proptech · gestión de propiedades', en: 'Proptech · property management' },
     resumen: {
@@ -125,6 +140,7 @@ export const casos: Caso[] = [
   },
   {
     slug: 'rusty-twins',
+    tipo: 'grupo',
     nombre: 'Rusty Twins Garage',
     sector: { es: 'Comunidad · coches clásicos', en: 'Community · classic cars' },
     resumen: {

@@ -700,10 +700,16 @@ export const es: Content = {
   cases: {
     kicker: 'Nuestro campo de pruebas',
     title: ['No lo estrenamos contigo. ', 'Lo estrenamos en lo nuestro.'],
-    lead: 'Antes de venderle esto a nadie, lo pusimos a operar los negocios del grupo. Cada uno tiene sus propios clientes, sus propios cobros y sus propias urgencias — y todos funcionan con el mismo sistema que te proponemos.',
-    disclosure: 'Estas son empresas del grupo, no clientes. Lo decimos claro a propósito: si algo falla aquí, lo pagamos nosotros. Ese es exactamente el motivo por el que puedes fiarte de que el sistema aguanta.',
+    lead: 'Antes de venderle esto a nadie, lo pusimos a operar nuestros propios negocios. Cada uno tiene sus clientes, sus cobros y sus urgencias — y todos funcionan con el mismo sistema que te proponemos. Pasa por encima de cada uno para ver qué opera.',
+    disclosure: 'Cinco de estas empresas son del grupo y una es cliente. Va marcado en cada tarjeta, porque no es lo mismo y no queremos que lo parezca. Que la mayoría sean nuestras es el argumento: si algo falla, lo pagamos nosotros antes que nadie.',
     runningLabel: 'Operando con agentes',
     allDepartments: 'Los nueve departamentos',
+    badgeGroup: 'Empresa del grupo',
+    badgeClient: 'Cliente',
+    flipHint: 'Pasa por encima para ver más →',
+    carouselLabel: 'carrusel',
+    prev: 'Caso anterior',
+    next: 'Caso siguiente',
   },
   partners: {
     kicker: 'Para quién es',

@@ -323,6 +323,15 @@ export interface Content {
     runningLabel: string;
     /** Sustituye a las nueve fichas cuando la empresa opera el catálogo entero. */
     allDepartments: string;
+    /** Distintivos de la cara frontal. */
+    badgeGroup: string;
+    badgeClient: string;
+    /** Pista de que la tarjeta se gira. */
+    flipHint: string;
+    /** Accesibilidad del carrusel. */
+    carouselLabel: string;
+    prev: string;
+    next: string;
   };
   partners: {
     kicker: string;
