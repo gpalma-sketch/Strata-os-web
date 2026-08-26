@@ -495,7 +495,7 @@ export const es: Content = {
 
   rollout: {
     kicker: 'Puesta en marcha y control',
-    title: ['Se instala en cuatro pasos. ', 'Y no hace nada sin tu permiso.'],
+    title: ['Se instala en seis pasos. ', 'Y no hace nada sin tu permiso.'],
     lead: 'La pregunta que importa no es cómo entra el sistema en tu empresa, sino quién manda una vez está dentro. Mandas tú, y estos son los frenos.',
     steps: [
       {
@@ -524,6 +524,31 @@ export const es: Content = {
       },
     ],
     stackLabel: 'Algunas de las cuentas que se conectan',
+    gatesKicker: 'Qué permisos das, exactamente',
+    gatesTitle: 'Tres puertas, y las tres tienen que abrirse',
+    gatesLead: 'No es una escala de más o menos autonomía: es una conjunción. Un agente solo puede hacer algo si las tres puertas lo permiten, y manda siempre la más restrictiva.',
+    gates: [
+      {
+        n: '01',
+        title: 'La máquina',
+        q: '¿Qué ve de tu ordenador?',
+        detail: 'Arranca aislado en su propia carpeta y no pide un solo permiso del sistema al instalarse. Le señalas carpetas concretas cuando hacen falta, y el navegador es un permiso aparte: con perfil propio, para que no herede tus sesiones ni tus contraseñas.',
+      },
+      {
+        n: '02',
+        title: 'Las cuentas',
+        q: '¿Qué puede hacer en cada servicio?',
+        detail: 'Cada cuenta se conecta con el permiso mínimo, y en el momento en que hace falta. Leer tu correo no es lo mismo que enviar desde él, y se decide por separado. Retirar una cuenta es un clic y surte efecto al instante.',
+      },
+      {
+        n: '03',
+        title: 'El agente',
+        q: '¿Cuánta cuerda tiene?',
+        detail: 'Tres niveles, por agente y no por sistema: propone, ejecuta pidiéndote permiso, o actúa solo. Todos nacen en el primero y suben cuando tú lo decides, no cuando les apetece.',
+      },
+    ],
+    redKicker: 'La lista roja',
+    redNote: 'Y por encima de las tres puertas, un veto que no se puede desactivar: mover dinero, firmar un contrato, publicar en abierto, borrar datos o cambiar precios no se ejecuta solo jamás — tenga el agente el nivel que tenga y estén abiertas las tres puertas.',
     controlKicker: 'Dónde está el freno',
     controls: [
       {
@@ -770,26 +795,6 @@ export const es: Content = {
     title: ['Lo que dicen quienes ', 'ya operan con STRATA.'],
   },
 
-  gallery: [
-    {
-      image: 'gal-estudio.jpg',
-      alt: 'Set de grabación de Young Wild Hunters, con dos personas conversando bajo el rótulo de la marca',
-      label: 'El origen',
-      caption: 'nuestra productora, donde empezó todo',
-    },
-    {
-      image: 'gal-feria.jpg',
-      alt: 'Dos personas conversando en el stand de una feria del sector',
-      label: 'La calle',
-      caption: 'vendiendo en persona, como todo el mundo',
-    },
-    {
-      image: 'gal-panel.jpg',
-      alt: 'Mesa redonda en un congreso del sector, con el público sentado frente a los ponentes',
-      label: 'El oficio',
-      caption: 'aprendiendo de quien ya lo hizo antes',
-    },
-  ],
   team: {
     kicker: 'Las personas',
     title: ['Tres socios. Cero empleados. ', 'Por diseño.'],

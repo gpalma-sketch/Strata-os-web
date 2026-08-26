@@ -1,5 +1,4 @@
 ---
-import { Image } from 'astro:assets';
 /**
  * STRATA OS launch waitlist.
  *
@@ -13,6 +12,7 @@ import { Image } from 'astro:assets';
  * The email form posts to `site.waitlistEndpoint`; with none configured it
  * degrades to a mailto: link so a signup is never silently dropped.
  */
+import SectionPhoto from './SectionPhoto.astro';
 import type { Locale } from '../data/site';
 import { site } from '../data/site';
 import { content } from '../data/content';
@@ -25,19 +25,10 @@ const t = content[locale];
 const w = t.waitlist;
 const endpoint = site.waitlistEndpoint;
 
-const bgFotos = import.meta.glob<{ default: ImageMetadata }>('../assets/bg-*.jpg', { eager: true });
-const bg = bgFotos['../assets/bg-stand.jpg']?.default;
 ---
 
 <section class="deep has-bg grid-bg sec" id="lanzamiento" style="padding:110px 0;">
-{/* Fondo fotográfico. A 2048 px la foto no da para una banda nítida a todo
-    lo ancho, pero como fondo bajo una capa oscura sobra: aporta textura y
-    profundidad reales sin competir con el texto. El degradado no es adorno,
-    es lo que garantiza el contraste del titular sobre cualquier zona clara
-    de la imagen. */}
-<div class="secbg" aria-hidden="true">
-  {bg && <Image src={bg} alt="" widths={[900, 1400, 2048]} sizes="100vw" loading="lazy" />}
-</div>
+<SectionPhoto image="bg-stand.jpg" />
 
   <div class="orb" style="width:520px;height:520px;top:-140px;right:-160px;opacity:.22;"></div>
   <div class="wrap">

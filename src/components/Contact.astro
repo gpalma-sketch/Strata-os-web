@@ -1,5 +1,4 @@
 ---
-import { Image } from 'astro:assets';
 /**
  * Final CTA.
  *
@@ -13,6 +12,7 @@ import { Image } from 'astro:assets';
  * behaves exactly as the design did, instead of showing a form that silently
  * drops every lead.
  */
+import SectionPhoto from './SectionPhoto.astro';
 import type { Locale } from '../data/site';
 import { site } from '../data/site';
 import { content } from '../data/content';
@@ -25,19 +25,10 @@ const t = content[locale];
 const f = t.contact.form;
 const endpoint = site.contactEndpoint;
 
-const bgFotos = import.meta.glob<{ default: ImageMetadata }>('../assets/bg-*.jpg', { eager: true });
-const bg = bgFotos['../assets/bg-evento.jpg']?.default;
 ---
 
 <section class="deep has-bg grid-bg footcta" id="contacto">
-{/* Fondo fotográfico. A 2048 px la foto no da para una banda nítida a todo
-    lo ancho, pero como fondo bajo una capa oscura sobra: aporta textura y
-    profundidad reales sin competir con el texto. El degradado no es adorno,
-    es lo que garantiza el contraste del titular sobre cualquier zona clara
-    de la imagen. */}
-<div class="secbg" aria-hidden="true">
-  {bg && <Image src={bg} alt="" widths={[900, 1400, 2048]} sizes="100vw" loading="lazy" />}
-</div>
+<SectionPhoto image="bg-evento.jpg" />
 
   <div class="orb" style="width:560px; height:560px; top:-120px; left:50%; transform:translateX(-50%); opacity:.35;"></div>
   <div class="wrap">

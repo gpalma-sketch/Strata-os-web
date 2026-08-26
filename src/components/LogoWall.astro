@@ -1,11 +1,13 @@
 ---
 /**
- * Muro de marcas.
+ * Muro de marcas, a color.
  *
- * Monocromo a propósito. Veintiuna marcas cada una con su color corporativo
- * es una ensalada que compite con el propio diseño y hace que la sección
- * parezca un directorio; en gris, el conjunto se lee como una capacidad
- * nuestra y no como publicidad de otros.
+ * Cada logotipo lleva su color oficial en tres variables: el color real, una
+ * versión aclarada para fondo oscuro y una oscurecida para fondo claro. Notion,
+ * TikTok o Meta AI son casi negras y sobre el ink desaparecen; Hugging Face o
+ * Supabase, a su amarillo y verde reales, se borran sobre el fondo claro. En
+ * los dos casos se mueve la luminosidad lo justo para pasar de 3:1 — no el
+ * tono, que dejaría de ser su color.
  *
  * Las marcas sin símbolo disponible se escriben con el nombre, con el mismo
  * peso visual, para que no parezcan de segunda.
@@ -23,7 +25,13 @@ const { items, label } = Astro.props;
 <ul class="logowall" aria-label={label}>
   {
     items.map((m) => (
-      <li class="lw-item" title={m.name}>
+      <li
+        class="lw-item"
+        title={m.name}
+        style={m.hex
+          ? `--brand:${m.hex}; --brand-dark:${m.hexDark ?? m.hex}; --brand-light:${m.hexLight ?? m.hex};`
+          : undefined}
+      >
         {m.path ? (
           <svg viewBox="0 0 24 24" role="img" aria-label={m.name} focusable="false">
             <path d={m.path} />

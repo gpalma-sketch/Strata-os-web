@@ -1,0 +1,34 @@
+---
+/**
+ * Fondo fotográfico de sección.
+ *
+ * A 2048 px la foto no da para una banda nítida a todo lo ancho, pero como
+ * fondo bajo una capa oscura sobra: aporta textura y profundidad reales sin
+ * competir con el texto. El degradado de `.secbg::after` no es adorno, es lo
+ * que garantiza el contraste del titular sobre cualquier zona clara de la
+ * imagen y lo que funde la foto con las secciones vecinas.
+ *
+ * Va dentro de una sección `dark` o `deep` con `position: relative`. Sobre
+ * fondo claro no funciona: el texto es oscuro y la capa también.
+ */
+import { Image } from 'astro:assets';
+
+interface Props {
+  /** Nombre del archivo bajo src/assets, sin ruta. */
+  image: string;
+  /**
+   * En secciones muy altas la foto se estira hasta perder el sentido y acaba
+   * asomando detrás de las tarjetas. Con `top` se queda en la banda superior,
+   * bajo el titular, y se funde con el fondo antes de llegar al contenido.
+   */
+  anchor?: 'full' | 'top';
+}
+const { image, anchor = 'full' } = Astro.props;
+
+const fotos = import.meta.glob<{ default: ImageMetadata }>('../assets/bg-*.jpg', { eager: true });
+const bg = fotos[`../assets/${image}`]?.default;
+---
+
+<div class:list={['secbg', anchor === 'top' && 'top']} aria-hidden="true">
+  {bg && <Image src={bg} alt="" widths={[900, 1400, 2048]} sizes="100vw" loading="lazy" />}
+</div>

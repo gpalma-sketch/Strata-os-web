@@ -52,6 +52,35 @@ const t = content[locale];
       <LogoWall items={[...herramientas, ...soloTexto.slice(1)]} label={t.rollout.stackLabel} />
     </div>
 
+    {/* El modelo de permisos. Va después de los pasos y antes de los frenos
+        porque responde a la pregunta que el paso 2 abre y no cierra: «vale,
+        ¿pero qué le estoy dando exactamente?». */}
+    <div class="gates reveal">
+      <p class="kick">{t.rollout.gatesKicker}</p>
+      <h3 class="gates-t">{t.rollout.gatesTitle}</h3>
+      <p class="gates-lead">{t.rollout.gatesLead}</p>
+
+      <div class="gates-grid" data-stagger>
+        {
+          t.rollout.gates.map((g) => (
+            <div class="gate2">
+              <span class="g2n">{g.n}</span>
+              <span class="g2t">{g.title}</span>
+              <span class="g2q">{g.q}</span>
+              <p class="g2d">{g.detail}</p>
+            </div>
+          ))
+        }
+      </div>
+
+      {/* El veto se pinta distinto a propósito: no es una cuarta puerta, es
+          una regla que atraviesa las tres. */}
+      <div class="redlist">
+        <span class="rl-k">{t.rollout.redKicker}</span>
+        <p>{t.rollout.redNote}</p>
+      </div>
+    </div>
+
     <div class="ctrl reveal">
       <p class="kick" style="margin-bottom:22px;">{t.rollout.controlKicker}</p>
       <div class="ctrl-grid" data-stagger>
