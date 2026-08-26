@@ -711,3 +711,34 @@
     width: 260px;
   }
 }
+
+/* ═══════════════════════════════════════════════════════════════════════════════════════════════
+   MÓVIL · EL CUADRO DE MANDO DEL HERO (27 ago 2026)
+   ═══════════════════════════════════════════════════════════════════════════════════════════════
+   `.win-shot` dimensiona TODO su interior en `cqw` (unidades del contenedor) para escalar como una
+   sola pieza sin un breakpoint por elemento. Es una buena idea que se rompe abajo del todo: en un
+   móvil el contenedor mide 299 px, así que `font-size: 1.35cqw` da 4 px de base y el texto más
+   pequeño del mockup se renderiza a **1,59 px** (medido, no estimado).
+
+   ESTO NO SE ARREGLA CON UN MÍNIMO. Un cuadro de mando con barra lateral y tarjetas necesita unos
+   750 px para que su tipografía llegue a los 10 px que se pueden leer. En 390 px no cabe a NINGÚN
+   tamaño: agrandar la fuente sin agrandar el marco sólo desborda las cajas.
+
+   Así que en móvil se retira el marco de escritorio y se queda el del teléfono —que a 260 px sobre
+   una pantalla de 390 se lee como lo que es, un teléfono— y la prueba visual del producto sigue
+   estando en `#producto`, con sus nueve capturas, ya legibles a una columna.
+
+   ⚠️ QUEDA UN MATIZ DE COPY, Y ES DECISIÓN DE GONZALO, NO MÍA: el pie dice «Tu negocio, en el
+   bolsillo y en el escritorio» mientras en móvil sólo se ve el bolsillo. Se deja tal cual en vez de
+   reescribir su texto por mi cuenta.
+   ═══════════════════════════════════════════════════════════════════════════════════════════════ */
+@media (max-width: 700px) {
+  /* Se esconde `.win` entero, no `.win-shot`: `.win` es `flex: 1` y dejarlo vacío reservaría el
+     hueco igual, con su sombra, y quedaría una caja blanca flotando sin contenido. */
+  .win {
+    display: none;
+  }
+  .phone {
+    width: min(300px, 78vw);
+  }
+}

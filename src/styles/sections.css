@@ -2835,3 +2835,78 @@
     padding: 26px 22px 24px;
   }
 }
+
+/* ═══════════════════════════════════════════════════════════════════════════════════════════════
+   MÓVIL · LAS REJILLAS DEL CUERPO (27 ago 2026)
+   ═══════════════════════════════════════════════════════════════════════════════════════════════
+   Medido en vivo a 360, 390 y 430 px: catorce tarjetas quedaban FUERA DE LA PANTALLA y eran
+   inalcanzables — sin scroll lateral, sin flechas, sin swipe, porque la sección recorta con
+   `overflow:hidden`. No se veían el tercer plan de precios, Lucía en el equipo, cuatro de los ocho
+   perfiles de partner, tres de los siete pasos ni los niveles 03 y 04 del método.
+
+   Y no era un despliegue viejo: el CSS servido y el del repo coincidían. Este bloque no existía.
+
+   POR QUÉ PASÓ DESAPERCIBIDO, que es lo que conviene recordar: la página NO se desborda de lado en
+   ningún ancho (`scrollWidth === innerWidth`) y el hero se ve perfecto. Al abrirla en el móvil
+   parece que funciona. Lo que falla está a partir del segundo scroll, y recortado en silencio.
+
+   El patrón correcto ya vivía veinte líneas más arriba, aplicado a `.engine`, `.steps4` y
+   `.ctrl-grid`. La pista de que fue un olvido y no una decisión: **`.steps4` estaba cubierto y
+   `.steps` no.** Alguien arregló lo que tenía delante y nadie extendió la lista.
+   ═══════════════════════════════════════════════════════════════════════════════════════════════ */
+@media (max-width: 600px) {
+  /* Una sola columna: tarjetas con titular y párrafo. A dos columnas el h3 caía en cajas de 20-25 px
+     y las palabras se partían por la mitad («Un agen / o un / equip / enter»). */
+  .pillars,
+  .bento,
+  .agents,
+  .vistas,
+  .price,
+  .ladder,
+  .steps,
+  .team {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  /* Dos columnas: piezas CORTAS (una cifra, una etiqueta). A una sola columna serían ocho pantallas
+     de scroll para leer ocho palabras, que es cambiar un problema por otro.
+
+     ⚠️ `minmax(0, 1fr)` Y NO `1fr`, y esto no es manía: `1fr` es en realidad `minmax(auto, 1fr)`, o
+     sea que la columna NUNCA baja del ancho mínimo de su contenido. Con `1fr` a secas, a 360 px
+     («Ecommerce y marcas D2C», «Family offices y grupos de inversión») las columnas de `.ptypes`
+     salían a 174 + 162 px dentro de un contenedor de 312 y cuatro tarjetas se salían por la derecha;
+     `.stats` quedaba en 96 y 151, descuadrada. Medido a 360, que es un iPhone SE — a 390 no se veía.
+     El `0` es lo que autoriza a la columna a ser más estrecha que su palabra más larga. */
+  .stats,
+  .outcomes,
+  .ptypes {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+
+  /* `.bento` necesita ADEMÁS soltar la colocación. Sus cuatro tarjetas llevan `grid-column` y
+     `grid-row` fijos, así que pedir una sola columna no basta: la rejilla crea columnas IMPLÍCITAS
+     para las que piden la 2 y la 3, y el resultado eran cajas de 66 px con el titular partido letra
+     a letra. Medido, no supuesto: al aplicar sólo `grid-template-columns: 1fr`, seguían en 66/108/
+     108/234 px. Hay un `@media (max-width: 980px)` que ya las recoloca a dos columnas; esto es el
+     escalón que faltaba debajo. */
+  .bento .bx.a,
+  .bento .bx.b,
+  .bento .bx.c,
+  .bento .bx.d {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  /* `.flow` es flex, no grid: sus columnas se apilan cambiando la dirección, no las columnas. */
+  .flow {
+    flex-direction: column;
+  }
+
+  /* La escalera pierde el escalonado. Esos márgenes crecientes dibujan una escalera cuando los
+     peldaños van EN FILA; en columna son huecos sueltos entre tarjetas, sin nada que expliquen. */
+  .ladder .rung:nth-child(2),
+  .ladder .rung:nth-child(3),
+  .ladder .rung:nth-child(4) {
+    margin-bottom: 0;
+  }
+}
