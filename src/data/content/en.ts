@@ -396,53 +396,62 @@ export const en: Content = {
     shotsLabel: 'Real screenshots of the system, not mockups',
     shots: [
       {
+        image: 'os-dia.png',
+        alt: 'The Business OS "start here" panel, with six proposed actions: close the books, chase payments, find leads, publish to social, compare quotes and watch competitors',
+        title: 'What it offers the moment you open it',
+        caption: 'Close the month, chase the outstanding invoices, find 50 leads that match your ideal customer. One click and your team gets on it.',
+      },
+      {
+        image: 'os-aprobar.png',
+        alt: 'The approval queue by department in the Business OS, with Marketing, Sales and Finance awaiting review',
+        title: 'Nothing ships without your approval',
+        caption: 'The agents work and leave what is finished in their department queue. You review, approve or discard — and only then does it go out.',
+      },
+      {
         image: 'os-equipo.png',
         alt: 'The Business OS "hire your team" screen, showing the Marketing agent cards and a headcount of 132',
-        title: 'Hire your team',
-        caption: 'Every agent is a hire: what it delivers, which accounts it needs, and what not to ask it for.',
+        title: 'You hire agents the way you hire people',
+        caption: 'Each with a role, what it delivers, the accounts it needs and what not to ask it for. Hire the ones you need, let the rest go.',
       },
       {
         image: 'os-cuentas.png',
         alt: 'The Business OS "connect your accounts" screen, with sales and marketing integrations connected',
-        title: 'Connect your accounts',
-        caption: 'Every account you plug in gives your agents the real context of the business.',
-      },
-      {
-        image: 'os-inicio.png',
-        alt: 'The Business OS setup screen, showing the four onboarding steps at 75 per cent',
-        title: 'Getting started',
-        caption: 'Four steps. Within minutes the system knows who you are, what you sell and to whom.',
+        title: 'And it works on your real accounts',
+        caption: 'Every account you plug in gives your agents the real context of the business: your CRM, your books, your campaigns, your store.',
       },
     ],
   },
   how: {
     kicker: 'How it works',
-    title: ['Jarvis decides. ', 'The agents execute.'],
+    title: ['Jarvis decides. ', 'The agents execute. You approve.'],
     columns: [
       [
-        { title: 'The company', summary: 'emails · calls · leads · orders' },
+        { title: 'The business', summary: 'emails · calls · leads · orders' },
         { title: 'The owner', summary: 'voice or text · “ask the system”' },
       ],
       [{ title: 'Jarvis · the core', summary: 'classifies intent · picks department, agent and model', hot: true }],
       [
+        { title: 'Department heads', summary: 'a C-level per area: prioritises and reviews its own', hot: true },
         { title: 'Marketing · Sales · Support', summary: 'content · leads · tickets' },
-        { title: 'Ops · Finance · Legal', summary: 'orders · collections · contracts' },
+        { title: 'Ops · Finance · Legal', summary: 'orders · payments · contracts' },
         { title: 'People · Product & Dev · Leadership', summary: 'team · roadmap · decisions' },
       ],
       [
-        { title: 'Private memory', summary: "the company's data · theirs only" },
-        { title: 'Business OS', summary: 'the owner governs it from the panel', hot: true },
+        { title: 'Auditor agent', summary: 'checks the work before it reaches you' },
+        { title: 'Your approval', summary: 'anything critical waits for your sign-off', hot: true },
+        { title: 'Evolution loop', summary: 'measures what went wrong and proposes the fix' },
+        { title: 'Private memory', summary: "the company's data · theirs alone" },
       ],
     ],
-    closing: "This isn't a marketing diagram: this system already runs ",
+    closing: 'This is not a marketing diagram: the system already runs ',
     closingStrong: 'our own business',
-    closingAfter: ", 24/7, with our own departments running inside it. We're the first customer of our product.",
+    closingAfter: ", 24/7, with our own departments operating inside it. We are our product's first client.",
   },
 
   engine: {
     kicker: 'The engine',
     title: ['We do not depend on one model. ', 'We use whichever wins the task.'],
-    lead: 'The model that reasons best is not the one that searches your documentation best, nor the one that speaks best. Tying yourself to a single provider is comfortable right up until a better one ships and you cannot switch. Jarvis routes each task to the layer it belongs to.',
+    lead: 'No single model is good at everything. The one that reasons best is not the one that searches your documentation best, nor the cheapest for sorting a thousand emails. For each task we pick whichever available model gives the best result at the right cost — and that choice changes without touching your agents.',
     layers: [
       {
         icon: 'bolt',
@@ -470,7 +479,7 @@ export const en: Content = {
       },
     ],
     swapKicker: 'And the point',
-    swapNote: 'What matters is not which model we use today, but that it can be swapped tomorrow. A better one ships every few months: when it does, the routing changes and your agents, your processes and your knowledge stay exactly as they were.',
+    swapNote: 'What matters is not which model we use today, but that we depend on none of them. A better one ships every few months; when it does, the routing changes and your agents, your processes and your knowledge stay exactly as they were. A competitor locked to one provider has to wait for that provider to improve.',
   },
 
   rollout: {
@@ -478,6 +487,18 @@ export const en: Content = {
     title: ['It installs in four steps. ', 'And it does nothing without your say-so.'],
     lead: 'The question that matters is not how the system gets into your company, but who is in charge once it is there. You are — and these are the brakes.',
     steps: [
+      {
+        title: 'Install it on your machine',
+        detail: 'The Business OS downloads and runs on your computer or your server. Your data does not have to leave the building for the system to work.',
+      },
+      {
+        title: 'Decide what it may do',
+        detail: 'Three levels per agent: propose only, execute with your permission, or act on its own. You start at the first and give rope as you come to trust it.',
+      },
+      {
+        title: 'Connect your models',
+        detail: 'You bring your own API keys. You pay usage straight to the provider, you see what you spend, and you switch models whenever you like.',
+      },
       {
         title: 'Connect your stack',
         detail: 'CRM, ERP, bank, email, social, store. Every account you plug in gives your agents the real context of the business instead of guesswork.',
@@ -489,10 +510,6 @@ export const en: Content = {
       {
         title: 'Generate your Business OS',
         detail: 'From your context and your connections, the brain produces your diagnosis, your improvement plan and populates your panel with the departments you need.',
-      },
-      {
-        title: 'Your first result',
-        detail: 'You review and approve what your team prepared. From there it runs on its own, and you decide how much rope it gets.',
       },
     ],
     stackLabel: 'Some of the accounts that plug in',

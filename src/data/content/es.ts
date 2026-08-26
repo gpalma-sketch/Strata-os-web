@@ -407,28 +407,34 @@ export const es: Content = {
     shotsLabel: 'Capturas reales del sistema, no maquetas',
     shots: [
       {
+        image: 'os-dia.png',
+        alt: 'Sección «Empieza aquí» del Business OS, con seis acciones propuestas: cerrar el mes contable, reclamar cobros, encontrar leads, publicar en redes, comparar presupuestos y vigilar a la competencia',
+        title: 'Lo que te propone al abrirlo',
+        caption: 'Cierra el mes contable, reclama los cobros pendientes, busca 50 leads que encajen con tu cliente ideal. Un clic y tu equipo se pone a ello.',
+      },
+      {
+        image: 'os-aprobar.png',
+        alt: 'Cola de aprobaciones por departamento en el Business OS, con Marketing, Ventas y Finanzas esperando revisión',
+        title: 'Nada sale sin que tú lo apruebes',
+        caption: 'Los agentes trabajan y dejan lo terminado en la cola de su departamento. Tú revisas, apruebas o descartas — y solo entonces sale.',
+      },
+      {
         image: 'os-equipo.png',
         alt: 'Pantalla «Contrata tu equipo» del Business OS, con las fichas de los agentes de Marketing y el contador de 132 en plantilla',
-        title: 'Contrata tu equipo',
-        caption: 'Cada agente es un fichaje: qué entrega, qué cuentas necesita y para qué no debes pedirle ayuda.',
+        title: 'Contratas agentes como se contrata gente',
+        caption: 'Cada uno con su puesto, lo que entrega, las cuentas que necesita y para qué no debes pedirle ayuda. Contratas los que hagan falta y despides al resto.',
       },
       {
         image: 'os-cuentas.png',
         alt: 'Pantalla «Conecta tus cuentas» del Business OS, con las integraciones de ventas y marketing conectadas',
-        title: 'Conecta tus cuentas',
-        caption: 'Cada cuenta que enchufas le da a tus agentes el contexto real del negocio.',
-      },
-      {
-        image: 'os-inicio.png',
-        alt: 'Pantalla de puesta en marcha del Business OS, con los cuatro pasos de arranque al 75 %',
-        title: 'Puesta en marcha',
-        caption: 'Cuatro pasos. En unos minutos el sistema sabe quién eres, qué vendes y a quién.',
+        title: 'Y trabaja con tus cuentas de verdad',
+        caption: 'Cada cuenta que enchufas le da a tus agentes el contexto real del negocio: tu CRM, tu contabilidad, tus campañas, tu tienda.',
       },
     ],
   },
   how: {
     kicker: 'Cómo funciona',
-    title: ['Jarvis decide. ', 'Los agentes ejecutan.'],
+    title: ['Jarvis decide. ', 'Los agentes ejecutan. Tú apruebas.'],
     columns: [
       [
         { title: 'La empresa', summary: 'emails · llamadas · leads · pedidos' },
@@ -436,13 +442,16 @@ export const es: Content = {
       ],
       [{ title: 'Jarvis · el núcleo', summary: 'clasifica la intención · elige departamento, agente y modelo', hot: true }],
       [
+        { title: 'Jefes de departamento', summary: 'un C-level por área: prioriza y revisa a los suyos', hot: true },
         { title: 'Marketing · Ventas · Atención', summary: 'contenido · leads · tickets' },
         { title: 'Ops · Finanzas · Legal', summary: 'pedidos · cobros · contratos' },
         { title: 'People · Producto & Dev · Dirección', summary: 'equipo · roadmap · decisiones' },
       ],
       [
+        { title: 'Agente auditor', summary: 'revisa el trabajo antes de que llegue a ti' },
+        { title: 'Tu aprobación', summary: 'lo crítico espera tu visto bueno', hot: true },
+        { title: 'Loop evolutivo', summary: 'mide lo que salió mal y propone el ajuste' },
         { title: 'Memoria privada', summary: 'los datos de la empresa · solo suyos' },
-        { title: 'Business OS', summary: 'el dueño lo gobierna desde el panel', hot: true },
       ],
     ],
     closing: 'No es un diagrama de marketing: este sistema ya opera ',
@@ -453,7 +462,7 @@ export const es: Content = {
   engine: {
     kicker: 'El motor',
     title: ['No dependemos de un solo modelo. ', 'Usamos el que gana en cada tarea.'],
-    lead: 'El modelo que mejor razona no es el que mejor busca en tu documentación, ni el que mejor habla. Atarse a un único proveedor es cómodo hasta que sale uno mejor y no puedes cambiarlo. Jarvis enruta cada tarea a la capa que le toca.',
+    lead: 'No hay un modelo bueno para todo. El que mejor razona no es el que mejor busca en tu documentación, ni el más barato para clasificar mil correos. Para cada tarea elegimos entre los modelos disponibles el que da mejor resultado al coste que toca — y esa elección se cambia sin tocar tus agentes.',
     layers: [
       {
         icon: 'bolt',
@@ -481,7 +490,7 @@ export const es: Content = {
       },
     ],
     swapKicker: 'Y lo importante',
-    swapNote: 'Lo relevante no es qué modelo usamos hoy, sino que se pueda cambiar mañana. Sale uno mejor cada pocos meses: cuando pase, se cambia en el enrutado y tus agentes, tus procesos y tu conocimiento siguen intactos.',
+    swapNote: 'Lo relevante no es qué modelo usamos hoy, sino que no dependamos de ninguno. Sale uno mejor cada pocos meses; cuando pasa, se cambia en el enrutado y tus agentes, tus procesos y tu conocimiento siguen intactos. Un competidor atado a un solo proveedor tiene que esperar a que su proveedor mejore.',
   },
 
   rollout: {
@@ -489,6 +498,18 @@ export const es: Content = {
     title: ['Se instala en cuatro pasos. ', 'Y no hace nada sin tu permiso.'],
     lead: 'La pregunta que importa no es cómo entra el sistema en tu empresa, sino quién manda una vez está dentro. Mandas tú, y estos son los frenos.',
     steps: [
+      {
+        title: 'Instálalo en tu equipo',
+        detail: 'El Business OS se descarga y corre en tu ordenador o en tu servidor. Tus datos no tienen que salir de casa para que el sistema funcione.',
+      },
+      {
+        title: 'Decide qué permisos das',
+        detail: 'Tres niveles por agente: que solo proponga, que ejecute pidiéndote permiso, o que actúe solo. Empiezas por el primero y sueltas cuerda cuando te fías.',
+      },
+      {
+        title: 'Conecta tus modelos',
+        detail: 'Pones tus propias claves de API. Pagas el consumo directamente al proveedor, ves lo que gastas y cambias de modelo cuando quieras.',
+      },
       {
         title: 'Conecta tu stack',
         detail: 'CRM, ERP, banco, correo, redes, tienda. Cada cuenta que enchufas le da a tus agentes el contexto real del negocio en vez de suposiciones.',
@@ -500,10 +521,6 @@ export const es: Content = {
       {
         title: 'Genera tu Business OS',
         detail: 'Con tu contexto y tus conexiones, el cerebro produce tu diagnóstico, tu plan de mejora y puebla tu panel con los departamentos que te tocan.',
-      },
-      {
-        title: 'Tu primer resultado',
-        detail: 'Revisas y apruebas lo que tu equipo ha preparado. A partir de ahí opera solo, y tú decides cuánto le sueltas.',
       },
     ],
     stackLabel: 'Algunas de las cuentas que se conectan',
