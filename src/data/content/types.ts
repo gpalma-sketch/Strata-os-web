@@ -321,6 +321,8 @@ export interface Content {
     disclosure: string;
     /** Encabeza la lista de departamentos operando en cada tarjeta. */
     runningLabel: string;
+    /** Sustituye a las nueve fichas cuando la empresa opera el catálogo entero. */
+    allDepartments: string;
   };
   partners: {
     kicker: string;

@@ -1925,10 +1925,10 @@
   border-color: var(--teal);
   box-shadow: 0 22px 48px rgba(15, 30, 46, 0.1);
 }
-/* El caso destacado ocupa dos columnas: es la empresa donde el sistema lleva
-   más tiempo, así que se lee primero. */
+/* El caso destacado se marca con el borde, no con el ancho: seis tarjetas
+   donde una ocupa dos columnas dejan la última huérfana en una tercera fila.
+   Dos filas de tres cierran la rejilla. */
 .case-hot {
-  grid-column: span 2;
   border-color: var(--gold);
   box-shadow: 0 0 0 1px rgba(255, 194, 75, 0.35);
 }
@@ -2029,7 +2029,11 @@
   .cases {
     grid-template-columns: 1fr;
   }
-  .case-hot {
-    grid-column: span 1;
-  }
+}
+/* La etiqueta única de "los nueve": es una afirmación fuerte, así que se
+   destaca en vez de disfrazarse de una ficha más. */
+.case-dept-all {
+  border-color: var(--teal) !important;
+  color: var(--teal-deep) !important;
+  font-weight: 700;
 }

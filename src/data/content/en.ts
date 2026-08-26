@@ -692,6 +692,7 @@ export const en: Content = {
     lead: 'Before selling this to anyone, we put it to work running the group\'s own businesses. Each has its own customers, its own invoices and its own emergencies — and all of them run on the same system we are proposing to you.',
     disclosure: 'These are companies in our own group, not clients. We say so plainly on purpose: if something breaks here, we pay for it. That is exactly why you can trust that the system holds.',
     runningLabel: 'Running with agents',
+    allDepartments: 'All nine departments',
   },
   partners: {
     kicker: 'Who it is for',

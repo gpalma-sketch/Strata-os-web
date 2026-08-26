@@ -703,6 +703,7 @@ export const es: Content = {
     lead: 'Antes de venderle esto a nadie, lo pusimos a operar los negocios del grupo. Cada uno tiene sus propios clientes, sus propios cobros y sus propias urgencias — y todos funcionan con el mismo sistema que te proponemos.',
     disclosure: 'Estas son empresas del grupo, no clientes. Lo decimos claro a propósito: si algo falla aquí, lo pagamos nosotros. Ese es exactamente el motivo por el que puedes fiarte de que el sistema aguanta.',
     runningLabel: 'Operando con agentes',
+    allDepartments: 'Los nueve departamentos',
   },
   partners: {
     kicker: 'Para quién es',

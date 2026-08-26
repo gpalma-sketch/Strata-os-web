@@ -13,7 +13,7 @@
 import { Image } from 'astro:assets';
 import type { Locale } from '../data/site';
 import { content } from '../data/content';
-import { casosListos, hayCasos } from '../data/cases';
+import { casosListos, hayCasos, operaTodo } from '../data/cases';
 
 interface Props {
   locale: Locale;
@@ -63,9 +63,14 @@ const logos = import.meta.glob<{ default: ImageMetadata }>('../assets/*.{png,jpg
                 <div class="case-depts">
                   <span class="case-depts-k">{t.cases.runningLabel}</span>
                   <ul>
-                    {c.departamentos[locale].map((d) => (
-                      <li>{d}</li>
-                    ))}
+                    {operaTodo(c, locale) ? (
+                      /* Una etiqueta en vez de nueve: seis tarjetas repitiendo
+                         la misma lista ahogarían lo que distingue a cada
+                         negocio, que es lo único que aquí interesa leer. */
+                      <li class="case-dept-all">{t.cases.allDepartments}</li>
+                    ) : (
+                      c.departamentos[locale].map((d) => <li>{d}</li>)
+                    )}
                   </ul>
                 </div>
 
