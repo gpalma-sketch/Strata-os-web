@@ -488,8 +488,8 @@ export const en: Content = {
     lead: 'The question that matters is not how the system gets into your company, but who is in charge once it is there. You are — and these are the brakes.',
     steps: [
       {
-        title: 'Install it on your machine',
-        detail: 'The Business OS downloads and runs on your computer or your server. Your data does not have to leave the building for the system to work.',
+        title: 'Choose where it lives',
+        detail: 'The Business OS runs on your server or on ours, and you choose which. Keep it in-house and your data never leaves the building for the system to work.',
       },
       {
         title: 'Decide what it may do',
@@ -704,22 +704,18 @@ export const en: Content = {
       {
         icon: 'layers',
         n: '01',
-        name: 'The machine',
-        question: '"What am I letting it see of my computer?"',
+        name: 'The house',
+        question: '"Where does my data end up, and who can get in?"',
         detail:
-          'It is the question that scares people, and the one you face the moment you download it. The smaller the initial permission, the easier the yes.',
+          'It is the first question in any data-protection review, and the one that decides whether anything gets signed. We do not have a single answer because there should not be one: you choose.',
         levels: [
           {
-            label: 'Sandboxed',
-            body: 'Only its own working folder. Nothing else on the disk, no other application, not the screen. That is how it installs.',
+            label: 'On our server',
+            body: 'Infrastructure in the European Union, isolated per client. You sign in with your corporate email, and anyone not on the list cannot even see that it exists.',
           },
           {
-            label: 'Named folders',
-            body: 'The ones you drag in, and only those. They show up in a list with a date and a revoke button.',
-          },
-          {
-            label: 'Its own browser',
-            body: 'A profile separate from yours: the agent inherits neither your bank session, nor your personal mail, nor your password manager.',
+            label: 'On yours',
+            body: 'The same system deployed at your place. Your data never leaves, and the only third party that sees anything is the model provider — using your keys.',
             open: true,
           },
         ],
@@ -785,12 +781,16 @@ export const en: Content = {
     dayOneKicker: 'Day one',
     dayOneTitle: 'What matters is what is not there',
     dayOneBody:
-      'Install it, pick a working folder, connect the first account in read-only, add your model keys and start. At no step is there a permissions interrogation: not a single operating-system dialog appears until a specific feature needs one, and then we explain what for before your computer asks.',
+      'We connect your systems, load your company knowledge and leave the agents working. At no step are you asked to decide up front what each one may do: they all start by proposing, and each account connects in read-only the day the first task needs it. The conversation about permissions arrives once you know what for, not before.',
 
     upKicker: 'How the rope gets longer',
     upQuote: '"Your Marketing agent has had 12 deliveries approved without you changing a word. Let it act with approval?"',
     upBody:
       'The system proposes; it never promotes on its own, and always with the number in front of you. Demoting is immediate and asks nothing: one badly done job is enough to send it back to proposing.',
+    futureKicker: 'And what comes next',
+    futureTitle: 'The desktop',
+    futureBody:
+      "A STRATA that installs on the owner's own computer: sandboxed in its own folder, with its own browser profile — so it inherits neither your bank session nor your passwords — and asking for not one system permission at startup. It is designed and it is not built. Today STRATA OS ships as a service, on your server or on ours; the day the desktop exists, this same page will say so.",
   },
 
   method: {

@@ -2835,3 +2835,28 @@
     padding: 26px 22px 24px;
   }
 }
+
+/* La fase que aún no está. Se pinta A PROPÓSITO distinta del resto de la
+   sección: sin tarjeta, sin acento, con una línea de puntos. Lo que se está
+   vendiendo tiene fondo y borde; lo que todavía no existe, no. Un lector que
+   sólo mire la forma ya sabe cuál es cuál antes de leer una palabra. */
+.perm-future {
+  margin-top: 40px;
+  padding-top: 28px;
+  border-top: 1px dashed var(--line-l2);
+  max-width: 860px;
+}
+.perm-future-t {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 19px;
+  line-height: 1.15;
+  margin: 12px 0 0;
+  color: var(--text-soft);
+}
+.perm-future-b {
+  margin: 10px 0 0;
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--text-mute);
+}

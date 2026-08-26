@@ -499,8 +499,8 @@ export const es: Content = {
     lead: 'La pregunta que importa no es cómo entra el sistema en tu empresa, sino quién manda una vez está dentro. Mandas tú, y estos son los frenos.',
     steps: [
       {
-        title: 'Instálalo en tu equipo',
-        detail: 'El Business OS se descarga y corre en tu ordenador o en tu servidor. Tus datos no tienen que salir de casa para que el sistema funcione.',
+        title: 'Elige dónde vive',
+        detail: 'El Business OS corre en tu servidor o en el nuestro, y lo eliges tú. Si lo quieres en casa, tus datos no salen de casa para que el sistema funcione.',
       },
       {
         title: 'Decide qué permisos das',
@@ -715,22 +715,18 @@ export const es: Content = {
       {
         icon: 'layers',
         n: '01',
-        name: 'La máquina',
-        question: '«¿Qué le dejo ver de mi ordenador?»',
+        name: 'La casa',
+        question: '«¿Dónde acaban mis datos, y quién puede entrar?»',
         detail:
-          'Es la pregunta que da miedo, y la que se activa justo al descargarlo. Cuanto más pequeño es el permiso inicial, más fácil es el sí.',
+          'Es la primera pregunta de cualquier revisión de protección de datos, y la que decide si se firma. No tenemos una respuesta única porque no debería haberla: la eliges tú.',
         levels: [
           {
-            label: 'Aislado',
-            body: 'Sólo su propia carpeta de trabajo. Nada más del disco, ninguna otra aplicación, ni la pantalla. Así es como se instala.',
+            label: 'En nuestro servidor',
+            body: 'Infraestructura en la Unión Europea, aislada por cliente. Entras con tu correo corporativo, y quien no esté en la lista ni siquiera ve que exista.',
           },
           {
-            label: 'Carpetas señaladas',
-            body: 'Las que arrastras tú, y sólo ésas. Aparecen en una lista con su fecha y un botón de retirar.',
-          },
-          {
-            label: 'Navegador propio',
-            body: 'Un perfil separado del tuyo: el agente no hereda la sesión de tu banco, ni tu correo personal, ni tu gestor de contraseñas.',
+            label: 'En el tuyo',
+            body: 'El mismo sistema desplegado en tu casa. Tus datos no salen, y el único tercero que ve algo es el proveedor del modelo — con tus claves.',
             open: true,
           },
         ],
@@ -796,12 +792,16 @@ export const es: Content = {
     dayOneKicker: 'El día uno',
     dayOneTitle: 'Lo importante es lo que no aparece',
     dayOneBody:
-      'Instalar, elegir una carpeta de trabajo, conectar la primera cuenta en modo lectura, poner tus claves de modelo y empezar. En ningún paso hay un interrogatorio de permisos: no salta un solo diálogo del sistema operativo hasta que una función concreta lo necesita, y entonces te explicamos para qué antes de que lo pida tu ordenador.',
+      'Conectamos tus sistemas, cargamos el conocimiento de tu empresa y dejamos los agentes trabajando. En ningún paso se te pide que decidas de golpe qué puede hacer cada uno: todos empiezan proponiendo, y cada cuenta se conecta en modo lectura el día que la primera tarea la necesita. La conversación sobre permisos llega cuando ya sabes para qué, no antes.',
 
     upKicker: 'Cómo se suelta cuerda',
     upQuote: '«Tu agente de Marketing lleva 12 entregas aprobadas sin que cambiaras nada. ¿Le dejas ejecutar con permiso?»',
     upBody:
       'El sistema propone; nunca sube solo, y siempre con el dato delante. Bajar de nivel es inmediato y sin preguntas: un solo trabajo mal hecho basta para devolverlo a proponer.',
+    futureKicker: 'Y lo que viene',
+    futureTitle: 'El escritorio',
+    futureBody:
+      'Un STRATA que se instala en el ordenador del dueño: aislado en su propia carpeta, con su propio perfil de navegador —para que no herede la sesión de tu banco ni tus contraseñas— y sin pedir un solo permiso del sistema al arrancar. Está diseñado y no está construido. Hoy STRATA OS se despliega como servicio, en tu servidor o en el nuestro; el día que el escritorio exista, lo dirá esta misma página.',
   },
 
   method: {

@@ -349,6 +349,22 @@ export interface Content {
     upKicker: string;
     upQuote: string;
     upBody: string;
+    /**
+     * La fase que AÚN NO ESTÁ, dicha como tal (decisión de Gonzalo, 26 ago 2026).
+     *
+     * El modelo de permisos original estaba escrito para una app de escritorio —carpetas del disco,
+     * perfil de navegador, diálogos de macOS— y el producto de hoy se despliega como servicio, en el
+     * servidor del cliente o en el nuestro. Las dos cosas estuvieron en esta misma página a la vez
+     * durante unas horas, contradiciéndose: «se descarga y corre en tu ordenador» junto a «VPC
+     * dedicado · aislamiento por cliente».
+     *
+     * La salida no fue elegir una y borrar la otra, fue SECUENCIARLAS y decirlo. Este bloque es la
+     * mitad que hace que eso sea honesto en vez de ambiguo: si desaparece, la página vuelve a
+     * prometer un escritorio que no existe.
+     */
+    futureKicker: string;
+    futureTitle: string;
+    futureBody: string;
   };
   method: {
     kicker: string;
