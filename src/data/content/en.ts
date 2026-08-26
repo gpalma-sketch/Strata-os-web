@@ -787,10 +787,6 @@ export const en: Content = {
     upQuote: '"Your Marketing agent has had 12 deliveries approved without you changing a word. Let it act with approval?"',
     upBody:
       'The system proposes; it never promotes on its own, and always with the number in front of you. Demoting is immediate and asks nothing: one badly done job is enough to send it back to proposing.',
-    futureKicker: 'And what comes next',
-    futureTitle: 'The desktop',
-    futureBody:
-      "A STRATA that installs on the owner's own computer: sandboxed in its own folder, with its own browser profile — so it inherits neither your bank session nor your passwords — and asking for not one system permission at startup. It is designed and it is not built. Today STRATA OS ships as a service, on your server or on ours; the day the desktop exists, this same page will say so.",
   },
 
   method: {

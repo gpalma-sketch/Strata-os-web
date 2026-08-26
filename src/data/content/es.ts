@@ -798,10 +798,6 @@ export const es: Content = {
     upQuote: '«Tu agente de Marketing lleva 12 entregas aprobadas sin que cambiaras nada. ¿Le dejas ejecutar con permiso?»',
     upBody:
       'El sistema propone; nunca sube solo, y siempre con el dato delante. Bajar de nivel es inmediato y sin preguntas: un solo trabajo mal hecho basta para devolverlo a proponer.',
-    futureKicker: 'Y lo que viene',
-    futureTitle: 'El escritorio',
-    futureBody:
-      'Un STRATA que se instala en el ordenador del dueño: aislado en su propia carpeta, con su propio perfil de navegador —para que no herede la sesión de tu banco ni tus contraseñas— y sin pedir un solo permiso del sistema al arrancar. Está diseñado y no está construido. Hoy STRATA OS se despliega como servicio, en tu servidor o en el nuestro; el día que el escritorio exista, lo dirá esta misma página.',
   },
 
   method: {
