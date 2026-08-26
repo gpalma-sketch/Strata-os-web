@@ -404,6 +404,27 @@ export const es: Content = {
         summary: 'El sistema revisa cómo lo está haciendo y propone sus propias mejoras, para que apruebes o descartes.',
       },
     ],
+    shotsLabel: 'Capturas reales del sistema, no maquetas',
+    shots: [
+      {
+        image: 'os-equipo.png',
+        alt: 'Pantalla «Contrata tu equipo» del Business OS, con las fichas de los agentes de Marketing y el contador de 132 en plantilla',
+        title: 'Contrata tu equipo',
+        caption: 'Cada agente es un fichaje: qué entrega, qué cuentas necesita y para qué no debes pedirle ayuda.',
+      },
+      {
+        image: 'os-cuentas.png',
+        alt: 'Pantalla «Conecta tus cuentas» del Business OS, con las integraciones de ventas y marketing conectadas',
+        title: 'Conecta tus cuentas',
+        caption: 'Cada cuenta que enchufas le da a tus agentes el contexto real del negocio.',
+      },
+      {
+        image: 'os-inicio.png',
+        alt: 'Pantalla de puesta en marcha del Business OS, con los cuatro pasos de arranque al 75 %',
+        title: 'Puesta en marcha',
+        caption: 'Cuatro pasos. En unos minutos el sistema sabe quién eres, qué vendes y a quién.',
+      },
+    ],
   },
   how: {
     kicker: 'Cómo funciona',
@@ -652,45 +673,24 @@ export const es: Content = {
 
   gallery: [
     {
-      image: 'os-equipo.png',
-      alt: 'Pantalla «Contrata tu equipo» del Business OS, con las fichas de los agentes de Marketing y el contador de 132 en plantilla',
-      label: 'Tu equipo',
-      caption: '132 agentes, contratados como fichajes',
+      image: 'gal-estudio.jpg',
+      alt: 'Set de grabación de Young Wild Hunters, con dos personas conversando bajo el rótulo de la marca',
+      label: 'El origen',
+      caption: 'nuestra productora, donde empezó todo',
     },
     {
-      image: 'os-cuentas.png',
-      alt: 'Pantalla «Conecta tus cuentas» del Business OS, con las integraciones de ventas y marketing conectadas',
-      label: 'Tus cuentas',
-      caption: 'enchufadas al negocio real',
+      image: 'gal-feria.jpg',
+      alt: 'Dos personas conversando en el stand de una feria del sector',
+      label: 'La calle',
+      caption: 'vendiendo en persona, como todo el mundo',
     },
     {
-      image: 'os-inicio.png',
-      alt: 'Pantalla de puesta en marcha del Business OS, con los cuatro pasos de arranque al 75 %',
-      label: 'El arranque',
-      caption: 'cuatro pasos y a operar',
+      image: 'gal-panel.jpg',
+      alt: 'Mesa redonda en un congreso del sector, con el público sentado frente a los ponentes',
+      label: 'El oficio',
+      caption: 'aprendiendo de quien ya lo hizo antes',
     },
   ],
-  photos: {
-    kicker: 'Detrás del panel',
-    title: ['Somos tres personas ', 'y esto es lo que hacemos.'],
-    items: [
-      {
-        image: 'foto-rodaje.jpg',
-        alt: 'Dos miembros del equipo sentados frente a una cámara durante una grabación',
-        caption: 'Grabando. El contenido lo seguimos haciendo nosotros.',
-      },
-      {
-        image: 'foto-estudio.jpg',
-        alt: 'Set de grabación de Young Wild Hunters con dos personas conversando bajo el rótulo de la marca',
-        caption: 'El set de Young Wild Hunters, una de las empresas del grupo.',
-      },
-      {
-        image: 'foto-evento.jpg',
-        alt: 'Entrada del congreso Money20/20 con una integrante del equipo a la llegada',
-        caption: 'Money20/20. Buscando de dónde viene lo próximo.',
-      },
-    ],
-  },
   team: {
     kicker: 'Las personas',
     title: ['Tres socios. Cero empleados. ', 'Por diseño.'],

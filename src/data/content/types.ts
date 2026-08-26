@@ -242,6 +242,10 @@ export interface Content {
     title: [string, string];
     lead: string;
     vistas: Vista[];
+    /** Encabeza la tira de capturas reales. */
+    shotsLabel: string;
+    /** Capturas del OS. Van aquí, junto a lo que describen, no sueltas. */
+    shots: Array<{ image: string; alt: string; title: string; caption: string }>;
   };
   how: {
     kicker: string;
@@ -294,16 +298,8 @@ export interface Content {
     kicker: string;
     title: [string, string];
   };
+  /** Tira fotográfica a sangre. Fotos reales, no capturas de producto. */
   gallery: Array<{ image: string; alt: string; label: string; caption: string }>;
-  /**
-   * Fotografías reales del equipo. Contrapeso a una página cuya imaginería
-   * era, por lo demás, íntegramente generada.
-   */
-  photos: {
-    kicker: string;
-    title: [string, string];
-    items: Array<{ image: string; alt: string; caption: string }>;
-  };
   team: {
     kicker: string;
     title: [string, string];

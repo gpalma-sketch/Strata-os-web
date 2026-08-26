@@ -1,4 +1,12 @@
 ---
+/**
+ * El producto: las nueve vistas del Business OS, con capturas reales.
+ *
+ * Las capturas viven aquí y no en una galería suelta a mitad de página. Ahí no
+ * aportaban nada —eran tres imágenes sin contexto—; aquí son la prueba de lo
+ * que el texto de al lado está describiendo.
+ */
+import { Image } from 'astro:assets';
 import type { Locale } from '../data/site';
 import { content } from '../data/content';
 
@@ -7,6 +15,11 @@ interface Props {
 }
 const { locale } = Astro.props;
 const t = content[locale];
+
+const shots = import.meta.glob<{ default: ImageMetadata }>('../assets/os-*.png', { eager: true });
+const capturas = t.product.shots
+  .map((s) => ({ ...s, img: shots[`../assets/${s.image}`]?.default }))
+  .filter((s) => s.img);
 ---
 
 <section class="deep grid-bg sec" id="producto">
@@ -31,5 +44,29 @@ const t = content[locale];
         ))
       }
     </div>
+
+    {
+      capturas.length > 0 && (
+        <div class="shots reveal">
+          <p class="shots-k">{t.product.shotsLabel}</p>
+          <div class="shots-grid" data-stagger>
+            {capturas.map((s) => (
+              <figure class="shot">
+                <Image
+                  src={s.img!}
+                  alt={s.alt}
+                  widths={[760, 1100, 1600, 2200]}
+                  sizes="(max-width: 1180px) 92vw, 1100px"
+                />
+                <figcaption>
+                  <b>{s.title}</b>
+                  {s.caption}
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </div>
+      )
+    }
   </div>
 </section>

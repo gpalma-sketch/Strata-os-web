@@ -1933,7 +1933,7 @@
 
 .fc {
   flex: 0 0 300px;
-  height: 340px;
+  height: 316px;
   scroll-snap-align: start;
   perspective: 1200px;
   cursor: pointer;
@@ -1973,12 +1973,21 @@
   overflow: hidden;
 }
 .fc-front {
-  justify-content: center;
+  justify-content: flex-start;
   align-items: flex-start;
-  gap: 10px;
+  gap: 12px;
+}
+/* El nombre y el sector van juntos, arriba: repartir tres elementos a lo largo
+   de 340 px dejaba un agujero en blanco enorme bajo el nombre. */
+.fc-front .fc-name {
+  margin-top: 4px;
+}
+.fc-front .fc-sector {
+  max-width: 22ch;
 }
 .fc-back {
   transform: rotateY(180deg);
+  justify-content: center;
   gap: 14px;
   background: var(--ink);
   border-color: var(--line-d);
@@ -2030,6 +2039,9 @@
 }
 .fc-hint {
   margin-top: auto;
+  padding-top: 12px;
+  border-top: 1px solid var(--line-l);
+  width: 100%;
   font-family: var(--font-mono);
   font-size: 11px;
   color: var(--text-mute);
@@ -2041,14 +2053,17 @@
   line-height: 1.6;
   color: var(--on-dark-soft);
 }
+/* Ahora viven en la cara frontal, que es clara. */
+.fc-depts {
+  margin-top: 6px;
+}
 .fc-depts-k {
   display: block;
   font-family: var(--font-mono);
   font-size: 10px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--on-dark-soft);
-  opacity: 0.7;
+  color: var(--text-mute);
   margin-bottom: 8px;
 }
 .fc-depts ul {
@@ -2062,14 +2077,14 @@
 .fc-depts li {
   font-family: var(--font-mono);
   font-size: 11px;
-  color: var(--on-dark-soft);
-  border: 1px solid var(--line-d);
+  color: var(--text-soft);
+  border: 1px solid var(--line-l);
   border-radius: 999px;
   padding: 4px 10px;
 }
 .fc-dept-all {
-  border-color: var(--mint) !important;
-  color: var(--mint) !important;
+  border-color: var(--teal) !important;
+  color: var(--teal-deep) !important;
   font-weight: 700;
 }
 .fc-metrics {
@@ -2251,5 +2266,94 @@
   }
   .photoband-alta img {
     height: 280px;
+  }
+}
+
+/* ---------- fondo fotográfico de sección ---------- */
+.has-bg {
+  position: relative;
+  isolation: isolate;
+}
+.secbg {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  line-height: 0;
+}
+.secbg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Apagada y desaturada a propósito: es fondo, no contenido. A plena
+     saturación robaría la atención al formulario, que es lo único que esta
+     sección tiene que conseguir. */
+  filter: grayscale(0.35) brightness(0.5);
+}
+/* Doble capa: un tinte plano que garantiza el contraste mínimo en toda la
+   superficie, y un degradado que funde la foto con las secciones vecinas para
+   que no parezca un recorte pegado. */
+.secbg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to bottom, var(--ink) 0%, rgba(10, 22, 32, 0.72) 22%, rgba(10, 22, 32, 0.78) 78%, var(--ink) 100%),
+    rgba(10, 22, 32, 0.35);
+}
+
+/* ---------- capturas reales dentro de "el producto" ---------- */
+.shots {
+  margin-top: 56px;
+}
+.shots-k {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--mint);
+  margin: 0 0 18px;
+}
+/* Una columna, no tres. A un tercio de ancho la captura queda en 370 px y no
+   se lee nada: deja de ser una prueba y pasa a ser un adorno. A ancho completo
+   se leen los nombres de los agentes y el contador de plantilla, que es
+   justamente lo que tiene que verse. */
+.shots-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 52px;
+}
+.shot {
+  margin: 0;
+  max-width: 1100px;
+}
+.shot img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+  border: 1px solid var(--line-d);
+  /* Sin recorte: una captura recortada deja de demostrar nada. Se muestra
+     entera aunque las proporciones no cuadren con la rejilla. */
+  background: var(--ink-soft);
+}
+.shot figcaption {
+  margin-top: 14px;
+  max-width: 70ch;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--on-dark-soft);
+}
+.shot figcaption b {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 19px;
+  color: var(--on-dark);
+  margin-bottom: 4px;
+}
+@media (max-width: 860px) {
+  .shots-grid {
+    gap: 36px;
   }
 }

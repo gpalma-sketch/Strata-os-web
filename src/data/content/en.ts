@@ -393,6 +393,27 @@ export const en: Content = {
         summary: 'The system reviews how it is doing and proposes its own improvements, for you to approve or drop.',
       },
     ],
+    shotsLabel: 'Real screenshots of the system, not mockups',
+    shots: [
+      {
+        image: 'os-equipo.png',
+        alt: 'The Business OS "hire your team" screen, showing the Marketing agent cards and a headcount of 132',
+        title: 'Hire your team',
+        caption: 'Every agent is a hire: what it delivers, which accounts it needs, and what not to ask it for.',
+      },
+      {
+        image: 'os-cuentas.png',
+        alt: 'The Business OS "connect your accounts" screen, with sales and marketing integrations connected',
+        title: 'Connect your accounts',
+        caption: 'Every account you plug in gives your agents the real context of the business.',
+      },
+      {
+        image: 'os-inicio.png',
+        alt: 'The Business OS setup screen, showing the four onboarding steps at 75 per cent',
+        title: 'Getting started',
+        caption: 'Four steps. Within minutes the system knows who you are, what you sell and to whom.',
+      },
+    ],
   },
   how: {
     kicker: 'How it works',
@@ -641,45 +662,24 @@ export const en: Content = {
 
   gallery: [
     {
-      image: 'os-equipo.png',
-      alt: 'The Business OS "hire your team" screen, showing the Marketing agent cards and a headcount of 132',
-      label: 'Your team',
-      caption: '132 agents, hired like staff',
+      image: 'gal-estudio.jpg',
+      alt: 'The Young Wild Hunters set, with two people talking under the brand sign',
+      label: 'The origin',
+      caption: 'our production company, where it all started',
     },
     {
-      image: 'os-cuentas.png',
-      alt: 'The Business OS "connect your accounts" screen, with sales and marketing integrations connected',
-      label: 'Your accounts',
-      caption: 'plugged into the real business',
+      image: 'gal-feria.jpg',
+      alt: 'Two people talking at a trade fair stand',
+      label: 'The street',
+      caption: 'selling in person, like everyone else',
     },
     {
-      image: 'os-inicio.png',
-      alt: 'The Business OS setup screen, showing the four onboarding steps at 75 per cent',
-      label: 'The setup',
-      caption: 'four steps and it runs',
+      image: 'gal-panel.jpg',
+      alt: 'A panel discussion at an industry conference, with the audience facing the speakers',
+      label: 'The craft',
+      caption: 'learning from the people who did it first',
     },
   ],
-  photos: {
-    kicker: 'Behind the panel',
-    title: ['There are three of us ', 'and this is what we do.'],
-    items: [
-      {
-        image: 'foto-rodaje.jpg',
-        alt: 'Two team members sitting in front of a camera during a shoot',
-        caption: 'On a shoot. We still make the content ourselves.',
-      },
-      {
-        image: 'foto-estudio.jpg',
-        alt: 'The Young Wild Hunters set, with two people talking under the brand sign',
-        caption: 'The Young Wild Hunters set, one of the group companies.',
-      },
-      {
-        image: 'foto-evento.jpg',
-        alt: 'The entrance to the Money20/20 conference with a team member on arrival',
-        caption: 'Money20/20. Looking for where the next thing comes from.',
-      },
-    ],
-  },
   team: {
     kicker: 'The people',
     title: ['Three partners. Zero employees. ', 'By design.'],
