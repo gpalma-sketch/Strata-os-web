@@ -26,11 +26,11 @@ export const POST: APIRoute = async ({ request }) => {
   if (!validEmail(email)) return json({ ok: false, error: 'email' }, 400);
 
   try {
-    await callRpc('submit_waitlist', {
-      p_email: email,
-      p_locale: localeOf(request),
-      p_source: fields._source || 'waitlist-strata-os',
-      p_user_agent: uaOf(request),
+    await callRpc('waitlist', {
+      email,
+      locale: localeOf(request),
+      _source: fields._source || 'waitlist-strata-os',
+      _user_agent: uaOf(request),
     });
   } catch (err) {
     console.error('waitlist:', err);

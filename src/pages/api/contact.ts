@@ -27,13 +27,13 @@ export const POST: APIRoute = async ({ request }) => {
   }
 
   try {
-    await callRpc('submit_contact', {
-      p_name: name,
-      p_email: email,
-      p_message: message,
-      p_company: (fields.company ?? '').trim() || null,
-      p_locale: localeOf(request),
-      p_user_agent: uaOf(request),
+    await callRpc('contacto', {
+      name,
+      email,
+      message,
+      company: (fields.company ?? '').trim(),
+      locale: localeOf(request),
+      _user_agent: uaOf(request),
     });
   } catch (err) {
     console.error('contact:', err);

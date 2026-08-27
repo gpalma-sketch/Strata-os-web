@@ -19,8 +19,47 @@
 const env = (key: string): string =>
   process.env[key] ?? ((import.meta.env as Record<string, string | undefined>)[key] || '');
 
-/** Sin configurar, las rutas responden 503 en vez de fingir que guardan. */
-export const supabaseReady = (): boolean => Boolean(env('SUPABASE_URL') && env('SUPABASE_SERVICE_ROLE_KEY'));
+/**
+ * A dónde se manda un envío (27 ago 2026).
+ *
+ * ── POR QUÉ YA NO SE HABLA CON LA BASE DESDE AQUÍ ────────────────────────
+ * Estas rutas llamaban a las RPC `submit_*` directamente, y esas funciones
+ * sólo las puede ejecutar el `service_role`. O sea que para funcionar
+ * necesitaban **la clave de servicio dentro de Vercel** — y esa clave no
+ * puede vivir en un front público: es la regla de la casa, «una fuga ahí es
+ * la base entera».
+ *
+ * Como nadie la puso (con razón), `supabaseReady()` daba false y los DOS
+ * formularios llevaban meses devolviendo **503 en producción**. Medido, no
+ * supuesto:
+ *     POST https://stratalabai.com/api/waitlist → 503
+ *     POST https://stratalabai.com/api/contact  → 503
+ * La página degradaba a un `mailto:`, así que sobre el papel nadie se quedaba
+ * sin vía. En la práctica, quien llega desde un evento no abre su cliente de
+ * correo para apuntarse a una lista: la web pedía direcciones y no las recogía.
+ *
+ * Ahora la escritura la hace una Edge Function del proyecto de la web
+ * (`supabase/functions/formularios`), que es donde la clave de servicio vive
+ * legítimamente porque la inyecta Supabase. Aquí no queda ningún secreto.
+ *
+ * La URL va por defecto EN EL CÓDIGO y no en una variable de entorno, igual
+ * que `precios.ts`: es pública, no es un secreto, y así el sitio funciona
+ * recién clonado sin que nadie tenga que acordarse de configurar nada. La
+ * variable sigue existiendo por si algún día hay que apuntar a otro sitio.
+ */
+const FORMULARIOS =
+  env('FORMULARIOS_URL') || 'https://vikyzqpayddubhrtxiyw.supabase.co/functions/v1/formularios';
+
+/**
+ * Ya no hay nada que configurar, así que ya no hay motivo para un 503.
+ *
+ * Se conserva el nombre para no tocar las dos rutas que lo llaman, y devuelve
+ * true a secas: si la Edge Function no responde, el fallo se ve en `enviar()`
+ * y se convierte en el 502 de siempre — que es un error REAL, no un «no está
+ * configurado». Confundir esas dos cosas fue justo lo que dejó los formularios
+ * rotos en silencio durante meses.
+ */
+export const supabaseReady = (): boolean => true;
 
 export const json = (body: unknown, status: number) =>
   new Response(JSON.stringify(body), {
@@ -29,31 +68,26 @@ export const json = (body: unknown, status: number) =>
   });
 
 /**
- * Llama a una de las funciones `submit_*` del proyecto.
+ * Manda un envío ya validado a la Edge Function.
  *
- * Son la única superficie de escritura expuesta: las tablas viven en el
- * esquema `marketing`, que no está publicado en la API, así que ni siquiera
- * con esta clave se puede leer la lista entera desde aquí.
+ * `formulario` es 'waitlist' o 'contacto', y viaja en la ruta. Los campos van
+ * tal cual: la función vuelve a validarlos por su cuenta, porque una validación
+ * que sólo vive de un lado la salta cualquiera que llame al otro directamente.
  */
-export async function callRpc(fn: string, args: Record<string, unknown>): Promise<void> {
-  const key = env('SUPABASE_SERVICE_ROLE_KEY');
-  const res = await fetch(`${env('SUPABASE_URL')}/rest/v1/rpc/${fn}`, {
+export async function callRpc(formulario: string, campos: Record<string, unknown>): Promise<void> {
+  const res = await fetch(`${FORMULARIOS}/${formulario}`, {
     method: 'POST',
-    headers: {
-      apikey: key,
-      authorization: `Bearer ${key}`,
-      'content-type': 'application/json',
-    },
-    // 10 s: si Supabase no responde, es mejor devolver el error del formulario
-    // —que enseña la dirección de correo— que dejar el botón girando.
+    headers: { 'content-type': 'application/json' },
+    // 10 s: si no responde, es mejor devolver el error del formulario —que
+    // enseña la dirección de correo— que dejar el botón girando.
     signal: AbortSignal.timeout(10_000),
-    body: JSON.stringify(args),
+    body: JSON.stringify(campos),
   });
 
   if (!res.ok) {
     // El cuerpo puede traer datos del propio envío; se registra para poder
     // depurar, pero nunca se devuelve al cliente.
-    throw new Error(`supabase ${fn} ${res.status}: ${await res.text()}`);
+    throw new Error(`formularios/${formulario} ${res.status}: ${await res.text()}`);
   }
 }
 

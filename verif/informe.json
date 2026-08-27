@@ -1,0 +1,5656 @@
+{
+  "generado": "2026-08-27T08:48:44.244Z",
+  "pases": [
+    {
+      "etiqueta": "escritorio/es",
+      "viewport": "escritorio",
+      "idioma": "es",
+      "elementosDOM": 1928,
+      "altoDoc": 26967,
+      "imagenes": {
+        "examinadas": 7,
+        "lista": [
+          {
+            "src": "http://localhost:4399/_astro/os-dia.3LFDQGbj_X3FNS.webp",
+            "attrSrc": "/_astro/os-dia.3LFDQGbj_WDWhL.webp",
+            "srcset": "/_astro/os-dia.3LFDQGbj_CDzpk.webp 760w, /_astro/os-dia.3LFDQGbj_X3FNS.webp 1100w, /_astro/os-dia.3LFDQGbj_14Ta4x.webp 1600w, /_astro/os-dia.3LFDQGbj_WDWhL.webp 2000w",
+            "alt": "Sección «Empieza aquí» del Business OS, con seis acciones propuestas: cerrar el mes contable, reclamar cobros, encontrar leads, publicar en redes, comparar presupuestos y vigilar a la competencia",
+            "natural": [
+              1100,
+              217
+            ],
+            "render": [
+              1100,
+              219
+            ],
+            "visible": true,
+            "seccion": "producto"
+          },
+          {
+            "src": "http://localhost:4399/_astro/os-equipo.Lh623l_K_UvNyj.webp",
+            "attrSrc": "/_astro/os-equipo.Lh623l_K_Z1W69bL.webp",
+            "srcset": "/_astro/os-equipo.Lh623l_K_ZORDb7.webp 760w, /_astro/os-equipo.Lh623l_K_UvNyj.webp 1100w, /_astro/os-equipo.Lh623l_K_Z1DfTAd.webp 1600w, /_astro/os-equipo.Lh623l_K_Z1W69bL.webp 2200w",
+            "alt": "Pantalla «Contrata tu equipo» del Business OS, con las fichas de los agentes de Marketing y el contador de 132 en plantilla",
+            "natural": [
+              1100,
+              565
+            ],
+            "render": [
+              1100,
+              566
+            ],
+            "visible": true,
+            "seccion": "producto"
+          },
+          {
+            "src": "http://localhost:4399/_astro/os-depto.CFA-Vxm6_2s0Hsb.webp",
+            "attrSrc": "/_astro/os-depto.CFA-Vxm6_wgNt4.webp",
+            "srcset": "/_astro/os-depto.CFA-Vxm6_Z1ri0OO.webp 760w, /_astro/os-depto.CFA-Vxm6_2s0Hsb.webp 1100w, /_astro/os-depto.CFA-Vxm6_ZesfwF.webp 1600w, /_astro/os-depto.CFA-Vxm6_wgNt4.webp 2000w",
+            "alt": "Mapa del departamento de Marketing & Growth en el Business OS, con quince funciones —calendario, mensajes, fábrica de contenido, redes, marca, web, SEO, email, paid, conversión, lanzamientos, creadores, PR, retail y analítica— y el trabajo pendiente en cada una",
+            "natural": [
+              1100,
+              172
+            ],
+            "render": [
+              1100,
+              174
+            ],
+            "visible": true,
+            "seccion": "producto"
+          },
+          {
+            "src": "http://localhost:4399/_astro/os-aprobar.Bt7fylt7_Z22mKH6.webp",
+            "attrSrc": "/_astro/os-aprobar.Bt7fylt7_2j430y.webp",
+            "srcset": "/_astro/os-aprobar.Bt7fylt7_BppXP.webp 760w, /_astro/os-aprobar.Bt7fylt7_Z22mKH6.webp 1100w, /_astro/os-aprobar.Bt7fylt7_1h3lrl.webp 1600w, /_astro/os-aprobar.Bt7fylt7_2j430y.webp 2000w",
+            "alt": "Cola de aprobaciones por departamento en el Business OS, con Marketing, Ventas y Finanzas esperando revisión",
+            "natural": [
+              1100,
+              157
+            ],
+            "render": [
+              1100,
+              159
+            ],
+            "visible": true,
+            "seccion": "producto"
+          },
+          {
+            "src": "http://localhost:4399/_astro/founder-gonzalo.DvFUyYrE_ONlQJ.webp",
+            "attrSrc": "/_astro/founder-gonzalo.DvFUyYrE_ZvDFLl.webp",
+            "srcset": "/_astro/founder-gonzalo.DvFUyYrE_ONlQJ.webp 360w, /_astro/founder-gonzalo.DvFUyYrE_ZvDFLl.webp 400w",
+            "alt": "Gonzalo",
+            "natural": [
+              360,
+              360
+            ],
+            "render": [
+              314,
+              300
+            ],
+            "visible": true,
+            "seccion": "equipo"
+          },
+          {
+            "src": "http://localhost:4399/_astro/founder-borja.C2WdPRGy_Z17AOm3.webp",
+            "attrSrc": "/_astro/founder-borja.C2WdPRGy_Z2sm4SR.webp",
+            "srcset": "/_astro/founder-borja.C2WdPRGy_Z17AOm3.webp 360w, /_astro/founder-borja.C2WdPRGy_Z2sm4SR.webp 400w",
+            "alt": "Borja",
+            "natural": [
+              360,
+              360
+            ],
+            "render": [
+              314,
+              300
+            ],
+            "visible": true,
+            "seccion": "equipo"
+          },
+          {
+            "src": "http://localhost:4399/_astro/founder-lucia.Cux8JbKV_mmsMC.webp",
+            "attrSrc": "/_astro/founder-lucia.Cux8JbKV_ZXnLJc.webp",
+            "srcset": "/_astro/founder-lucia.Cux8JbKV_mmsMC.webp 360w, /_astro/founder-lucia.Cux8JbKV_ZXnLJc.webp 400w",
+            "alt": "Lucía",
+            "natural": [
+              360,
+              360
+            ],
+            "render": [
+              314,
+              300
+            ],
+            "visible": true,
+            "seccion": "equipo"
+          }
+        ],
+        "prohibidas": []
+      },
+      "sources": {
+        "examinados": 0,
+        "prohibidos": []
+      },
+      "preloads": {
+        "examinados": 2,
+        "prohibidos": []
+      },
+      "fondosCSS": {
+        "examinados": 0,
+        "lista": [],
+        "prohibidos": []
+      },
+      "red": {
+        "examinadas": 15,
+        "imagenes": 7,
+        "prohibidas": []
+      },
+      "desborde": {
+        "scrollWidth": 1440,
+        "innerWidth": 1440,
+        "bodyScrollWidth": 1440,
+        "clientWidth": 1440
+      },
+      "culpablesDesborde": [],
+      "secciones": [
+        {
+          "id": "agentes",
+          "existe": true,
+          "clases": "deep grid-bg sec",
+          "alto": 1941,
+          "ancho": 1440,
+          "capturaWH": [
+            1440,
+            1942
+          ],
+          "textosExaminados": 34,
+          "textosEnDOM": 34,
+          "fallos": [
+            {
+              "tag": "a",
+              "cls": "btn btn-primary",
+              "texto": "Ver planes de lanzamiento →",
+              "color": "rgb(15, 30, 46)",
+              "fontSize": 14.5,
+              "fontWeight": 700,
+              "grande": false,
+              "opacidad": 1,
+              "rect": {
+                "x": 136,
+                "y": 7821.984375,
+                "w": 318.953125,
+                "h": 51
+              },
+              "zonaFondo": "abajo",
+              "nFondo": 2871,
+              "desvFondo": 0,
+              "bg": [
+                10,
+                22,
+                32
+              ],
+              "bgPeor": [
+                10,
+                22,
+                32
+              ],
+              "rMedio": 1.08,
+              "rPeor": 1.08,
+              "umbral": 4.5
+            }
+          ],
+          "peor": [
+            {
+              "tag": "a",
+              "cls": "btn btn-primary",
+              "texto": "Ver planes de lanzamiento →",
+              "fs": 14.5,
+              "grande": false,
+              "color": "rgb(15, 30, 46)",
+              "bg": [
+                10,
+                22,
+                32
+              ],
+              "rMedio": 1.08,
+              "rPeor": 1.08,
+              "umbral": 4.5,
+              "zona": "abajo",
+              "n": 2871
+            },
+            {
+              "tag": "span",
+              "cls": "atag",
+              "texto": "RRSS",
+              "fs": 10,
+              "grande": false,
+              "color": "rgba(237, 243, 244, 0.66)",
+              "bg": [
+                22,
+                41,
+                58
+              ],
+              "rMedio": 6.6,
+              "rPeor": 6.6,
+              "umbral": 4.5,
+              "zona": "arriba",
+              "n": 414
+            },
+            {
+              "tag": "span",
+              "cls": "atag",
+              "texto": "Email",
+              "fs": 10,
+              "grande": false,
+              "color": "rgba(237, 243, 244, 0.66)",
+              "bg": [
+                22,
+                41,
+                58
+              ],
+              "rMedio": 6.6,
+              "rPeor": 6.6,
+              "umbral": 4.5,
+              "zona": "arriba",
+              "n": 477
+            },
+            {
+              "tag": "span",
+              "cls": "atag",
+              "texto": "CMS",
+              "fs": 10,
+              "grande": false,
+              "color": "rgba(237, 243, 244, 0.66)",
+              "bg": [
+                22,
+                41,
+                58
+              ],
+              "rMedio": 6.6,
+              "rPeor": 6.6,
+              "umbral": 4.5,
+              "zona": "arriba",
+              "n": 351
+            }
+          ],
+          "titulares": 2,
+          "cuerpo": 32,
+          "minTitular": 8.29,
+          "minCuerpo": 1.08,
+          "huecoPixMayor": 132,
+          "huecoPixInicio": 1810,
+          "huecoCabecera": 1,
+          "huecoPie": 132,
+          "huecoDOMMayor": 130,
+          "textura": {
+            "n": 50052,
+            "media": [
+              10,
+              22,
+              32
+            ],
+            "desv": 0.0005
+          }
+        },
+        {
+          "id": "lanzamiento",
+          "existe": true,
+          "clases": "deep grid-bg sec",
+          "alto": 896,
+          "ancho": 1440,
+          "capturaWH": [
+            1440,
+            897
+          ],
+          "textosExaminados": 28,
+          "textosEnDOM": 29,
+          "fallos": [
+            {
+              "tag": "span",
+              "cls": "lt",
+              "texto": "· redacta contratos y controla vencimientos",
+              "color": "rgba(237, 243, 244, 0.66)",
+              "fontSize": 13,
+              "fontWeight": 400,
+              "grande": false,
+              "opacidad": 1,
+              "rect": {
+                "x": 1421.96875,
+                "y": 19759.359375,
+                "w": 433.859375,
+                "h": 20
+              },
+              "zonaFondo": "izq",
+              "nFondo": 28320,
+              "desvFondo": 0.07,
+              "bg": [
+                18,
+                33,
+                42
+              ],
+              "bgPeor": [
+                149,
+                158,
+                162
+              ],
+              "rMedio": 7.08,
+              "rPeor": 1.86,
+              "umbral": 4.5
+            },
+            {
+              "tag": "span",
+              "cls": "lt",
+              "texto": "· concilia cobros y proyecta tesorería",
+              "color": "rgba(237, 243, 244, 0.66)",
+              "fontSize": 13,
+              "fontWeight": 400,
+              "grande": false,
+              "opacidad": 1,
+              "rect": {
+                "x": 1895.828125,
+                "y": 19759.359375,
+                "w": 416.90625,
+                "h": 20
+              },
+              "zonaFondo": "izq",
+              "nFondo": 28800,
+              "desvFondo": 0.07,
+              "bg": [
+                18,
+                33,
+                42
+              ],
+              "bgPeor": [
+                149,
+                157,
+                161
+              ],
+              "rMedio": 7.08,
+              "rPeor": 1.87,
+              "umbral": 4.5
+            },
+            {
+              "tag": "span",
+              "cls": "lt",
+              "texto": "· prioriza el roadmap y cierra incidencias",
+              "color": "rgba(237, 243, 244, 0.66)",
+              "fontSize": 13,
+              "fontWeight": 400,
+              "grande": false,
+              "opacidad": 1,
+              "rect": {
+                "x": 2352.734375,
+                "y": 19759.359375,
+                "w": 501.671875,
+                "h": 20
+              },
+              "zonaFondo": "izq",
+              "nFondo": 28800,
+              "desvFondo": 0.07,
+              "bg": [
+                18,
+                33,
+                42
+              ],
+              "bgPeor": [
+                149,
+                157,
+                161
+              ],
+              "rMedio": 7.08,
+              "rPeor": 1.87,
+              "umbral": 4.5
+            },
+            {
+              "tag": "span",
+              "cls": "lt",
+              "texto": "· ordena incorporaciones, ausencias y turnos",
+              "color": "rgba(237, 243, 244, 0.66)",
+              "fontSize": 13,
+              "fontWeight": 400,
+              "grande": false,
+              "opacidad": 1,
+              "rect": {
+                "x": 2894.40625,
+                "y": 19759.359375,
+                "w": 450.8125,
+                "h": 20
+              },
+              "zonaFondo": "izq",
+              "nFondo": 28800,
+              "desvFondo": 0.07,
+              "bg": [
+                18,
+                33,
+                42
+              ],
+              "bgPeor": [
+                149,
+                157,
+                161
+              ],
+              "rMedio": 7.08,
+              "rPeor": 1.87,
+              "umbral": 4.5
+            },
+            {
+              "tag": "span",
+              "cls": "lt",
+              "texto": "· coordina rutas, pedidos y partes de obra",
+              "color": "rgba(237, 243, 244, 0.66)",
+              "fontSize": 13,
+              "fontWeight": 400,
+              "grande": false,
+              "opacidad": 1,
+              "rect": {
+                "x": 3385.21875,
+                "y": 19759.359375,
+                "w": 408.4375,
+                "h": 20
+              },
+              "zonaFondo": "izq",
+              "nFondo": 28800,
+              "desvFondo": 0.07,
+              "bg": [
+                18,
+                33,
+                42
+              ],
+              "bgPeor": [
+                149,
+                157,
+                161
+              ],
+              "rMedio": 7.08,
+              "rPeor": 1.87,
+              "umbral": 4.5
+            },
+            {
+              "tag": "span",
+              "cls": "lt",
+              "texto": "· consolida el cuadro de mando del negocio",
+              "color": "rgba(237, 243, 244, 0.66)",
+              "fontSize": 13,
+              "fontWeight": 400,
+              "grande": false,
+              "opacidad": 1,
+              "rect": {
+                "x": 3833.65625,
+                "y": 19759.359375,
+                "w": 459.296875,
+                "h": 20
+              },
+              "zonaFondo": "izq",
+              "nFondo": 28800,
+              "desvFondo": 0.07,
+              "bg": [
+                18,
+                33,
+                42
+              ],
+              "bgPeor": [
+                149,
+                157,
+                161
+              ],
+              "rMedio": 7.08,
+              "rPeor": 1.87,
+              "umbral": 4.5
+            },
+            {
+              "tag": "span",
+              "cls": "lt",
+              "texto": "· un solo panel para gobernarlo todo",
+              "color": "rgba(237, 243, 244, 0.66)",
+              "fontSize": 13,
+              "fontWeight": 400,
+              "grande": false,
+              "opacidad": 1,
+              "rect": {
+                "x": 4332.953125,
+                "y": 19759.359375,
+                "w": 425.390625,
+                "h": 20
+              },
+              "zonaFondo": "izq",
+              "nFondo": 28800,
+              "desvFondo": 0.07,
+              "bg": [
+                18,
+                33,
+                42
+              ],
+              "bgPeor": [
+                149,
+                157,
+                161
+              ],
+              "rMedio": 7.08,
+              "rPeor": 1.87,
+              "umbral": 4.5
+            },
+            {
+              "tag": "span",
+              "cls": "lt",
+              "texto": "· tú apruebas cada acción crítica",
+              "color": "rgba(237, 243, 244, 0.66)",
+              "fontSize": 13,
+              "fontWeight": 400,
+              "grande": false,
+              "opacidad": 1,
+              "rect": {
+                "x": 4798.34375,
+                "y": 19759.359375,
+                "w": 459.296875,
+                "h": 20
+              },
+              "zonaFondo": "izq",
+              "nFondo": 28800,
+              "desvFondo": 0.07,
+              "bg": [
+                18,
+                33,
+                42
+              ],
+              "bgPeor": [
+                149,
+                157,
+                161
+              ],
+              "rMedio": 7.08,
+              "rPeor": 1.87,
+              "umbral": 4.5
+            },
+            {
+              "tag": "span",
+              "cls": "lt",
+              "texto": "· crea contenido y nutre leads",
+              "color": "rgba(237, 243, 244, 0.66)",
+              "fontSize": 13,
+              "fontWeight": 400,
+              "grande": false,
+              "opacidad": 1,
+              "rect": {
+                "x": 5297.640625,
+                "y": 19759.359375,
+                "w": 357.578125,
+                "h": 20
+              },
+              "zonaFondo": "izq",
+              "nFondo": 28800,
+              "desvFondo": 0.07,
+              "bg": [
+                18,
+                33,
+                42
+              ],
+              "bgPeor": [
+                149,
+                157,
+                161
+              ],
+              "rMedio": 7.08,
+              "rPeor": 1.87,
+              "umbral": 4.5
+            },
+            {
+              "tag": "span",
+              "cls": "lt",
+              "texto": "· cualifica leads y prepara presupuestos",
+              "color": "rgba(237, 243, 244, 0.66)",
+              "fontSize": 13,
+              "fontWeight": 400,
+              "grande": false,
+              "opacidad": 1,
+              "rect": {
+                "x": 5695.21875,
+                "y": 19759.359375,
+                "w": 416.90625,
+                "h": 20
+              },
+              "zonaFondo": "izq",
+              "nFondo": 28800,
+              "desvFondo": 0.07,
+              "bg": [
+                18,
+                33,
+                42
+              ],
+              "bgPeor": [
+                149,
+                157,
+                161
+              ],
+              "rMedio": 7.08,
+              "rPeor": 1.87,
+              "umbral": 4.5
+            },
+            {
+              "tag": "span",
+              "cls": "lt",
+              "texto": "· resuelve consultas y pedidos 24/7",
+              "color": "rgba(237, 243, 244, 0.66)",
+              "fontSize": 13,
+              "fontWeight": 400,
+              "grande": false,
+              "opacidad": 1,
+              "rect": {
+                "x": 6152.125,
+                "y": 19759.359375,
+                "w": 391.484375,
+                "h": 20
+              },
+              "zonaFondo": "izq",
+              "nFondo": 28800,
+              "desvFondo": 0.07,
+              "bg": [
+                18,
+                33,
+                42
+              ],
+              "bgPeor": [
+                149,
+                157,
+                161
+              ],
+              "rMedio": 7.08,
+              "rPeor": 1.87,
+              "umbral": 4.5
+            },
+            {
+              "tag": "span",
+              "cls": "lt",
+              "texto": "· redacta contratos y controla vencimientos",
+              "color": "rgba(237, 243, 244, 0.66)",
+              "fontSize": 13,
+              "fontWeight": 400,
+              "grande": false,
+              "opacidad": 1,
+              "rect": {
+                "x": 6583.609375,
+                "y": 19759.359375,
+                "w": 433.859375,
+                "h": 20
+              },
+              "zonaFondo": "izq",
+              "nFondo": 28800,
+              "desvFondo": 0.07,
+              "bg": [
+                18,
+                33,
+                42
+              ],
+              "bgPeor": [
+                149,
+                157,
+                161
+              ],
+              "rMedio": 7.08,
+              "rPeor": 1.87,
+              "umbral": 4.5
+            },
+            {
+              "tag": "span",
+              "cls": "lt",
+              "texto": "· concilia cobros y proyecta tesorería",
+              "color": "rgba(237, 243, 244, 0.66)",
+              "fontSize": 13,
+              "fontWeight": 400,
+              "grande": false,
+              "opacidad": 1,
+              "rect": {
+                "x": 7057.46875,
+                "y": 19759.359375,
+                "w": 416.90625,
+                "h": 20
+              },
+              "zonaFondo": "izq",
+              "nFondo": 28800,
+              "desvFondo": 0.07,
+              "bg": [
+                18,
+                33,
+                42
+              ],
+              "bgPeor": [
+                149,
+                157,
+                161
+              ],
+              "rMedio": 7.08,
+              "rPeor": 1.87,
+              "umbral": 4.5
+            },
+            {
+              "tag": "span",
+              "cls": "lt",
+              "texto": "· prioriza el roadmap y cierra incidencias",
+              "color": "rgba(237, 243, 244, 0.66)",
+              "fontSize": 13,
+              "fontWeight": 400,
+              "grande": false,
+              "opacidad": 1,
+              "rect": {
+                "x": 7514.375,
+                "y": 19759.359375,
+                "w": 501.671875,
+                "h": 20
+              },
+              "zonaFondo": "izq",
+              "nFondo": 28800,
+              "desvFondo": 0.07,
+              "bg": [
+                18,
+                33,
+                42
+              ],
+              "bgPeor": [
+                149,
+                157,
+                161
+              ],
+              "rMedio": 7.08,
+              "rPeor": 1.87,
+              "umbral": 4.5
+            },
+            {
+              "tag": "span",
+              "cls": "lt",
+              "texto": "· ordena incorporaciones, ausencias y turnos",
+              "color": "rgba(237, 243, 244, 0.66)",
+              "fontSize": 13,
+              "fontWeight": 400,
+              "grande": false,
+              "opacidad": 1,
+              "rect": {
+                "x": 8056.046875,
+                "y": 19759.359375,
+                "w": 450.8125,
+                "h": 20
+              },
+              "zonaFondo": "izq",
+              "nFondo": 28800,
+              "desvFondo": 0.07,
+              "bg": [
+                18,
+                33,
+                42
+              ],
+              "bgPeor": [
+                149,
+                157,
+                161
+              ],
+              "rMedio": 7.08,
+              "rPeor": 1.87,
+              "umbral": 4.5
+            },
+            {
+              "tag": "span",
+              "cls": "lt",
+              "texto": "· coordina rutas, pedidos y partes de obra",
+              "color": "rgba(237, 243, 244, 0.66)",
+              "fontSize": 13,
+              "fontWeight": 400,
+              "grande": false,
+              "opacidad": 1,
+              "rect": {
+                "x": 8546.859375,
+                "y": 19759.359375,
+                "w": 408.4375,
+                "h": 20
+              },
+              "zonaFondo": "izq",
+              "nFondo": 28800,
+              "desvFondo": 0.07,
+              "bg": [
+                18,
+                33,
+                42
+              ],
+              "bgPeor": [
+                149,
+                157,
+                161
+              ],
+              "rMedio": 7.08,
+              "rPeor": 1.87,
+              "umbral": 4.5
+            },
+            {
+              "tag": "span",
+              "cls": "lt",
+              "texto": "· consolida el cuadro de mando del negocio",
+              "color": "rgba(237, 243, 244, 0.66)",
+              "fontSize": 13,
+              "fontWeight": 400,
+              "grande": false,
+              "opacidad": 1,
+              "rect": {
+                "x": 8995.296875,
+                "y": 19759.359375,
+                "w": 459.296875,
+                "h": 20
+              },
+              "zonaFondo": "izq",
+              "nFondo": 28800,
+              "desvFondo": 0.07,
+              "bg": [
+                18,
+                33,
+                42
+              ],
+              "bgPeor": [
+                149,
+                157,
+                161
+              ],
+              "rMedio": 7.08,
+              "rPeor": 1.87,
+              "umbral": 4.5
+            },
+            {
+              "tag": "span",
+              "cls": "lt",
+              "texto": "· un solo panel para gobernarlo todo",
+              "color": "rgba(237, 243, 244, 0.66)",
+              "fontSize": 13,
+              "fontWeight": 400,
+              "grande": false,
+              "opacidad": 1,
+              "rect": {
+                "x": 9494.59375,
+                "y": 19759.359375,
+                "w": 425.390625,
+                "h": 20
+              },
+              "zonaFondo": "izq",
+              "nFondo": 28800,
+              "desvFondo": 0.07,
+              "bg": [
+                18,
+                33,
+                42
+              ],
+              "bgPeor": [
+                149,
+                157,
+                161
+              ],
+              "rMedio": 7.08,
+              "rPeor": 1.87,
+              "umbral": 4.5
+            },
+            {
+              "tag": "span",
+              "cls": "lt",
+              "texto": "· tú apruebas cada acción crítica",
+              "color": "rgba(237, 243, 244, 0.66)",
+              "fontSize": 13,
+              "fontWeight": 400,
+              "grande": false,
+              "opacidad": 1,
+              "rect": {
+                "x": 9959.984375,
+                "y": 19759.359375,
+                "w": 459.296875,
+                "h": 20
+              },
+              "zonaFondo": "izq",
+              "nFondo": 28800,
+              "desvFondo": 0.07,
+              "bg": [
+                18,
+                33,
+                42
+              ],
+              "bgPeor": [
+                149,
+                157,
+                161
+              ],
+              "rMedio": 7.08,
+              "rPeor": 1.87,
+              "umbral": 4.5
+            }
+          ],
+          "peor": [
+            {
+              "tag": "span",
+              "cls": "lt",
+              "texto": "· redacta contratos y controla vencimientos",
+              "fs": 13,
+              "grande": false,
+              "color": "rgba(237, 243, 244, 0.66)",
+              "bg": [
+                18,
+                33,
+                42
+              ],
+              "rMedio": 7.08,
+              "rPeor": 1.86,
+              "umbral": 4.5,
+              "zona": "izq",
+              "n": 28320
+            },
+            {
+              "tag": "span",
+              "cls": "lt",
+              "texto": "· concilia cobros y proyecta tesorería",
+              "fs": 13,
+              "grande": false,
+              "color": "rgba(237, 243, 244, 0.66)",
+              "bg": [
+                18,
+                33,
+                42
+              ],
+              "rMedio": 7.08,
+              "rPeor": 1.87,
+              "umbral": 4.5,
+              "zona": "izq",
+              "n": 28800
+            },
+            {
+              "tag": "span",
+              "cls": "lt",
+              "texto": "· prioriza el roadmap y cierra incidencias",
+              "fs": 13,
+              "grande": false,
+              "color": "rgba(237, 243, 244, 0.66)",
+              "bg": [
+                18,
+                33,
+                42
+              ],
+              "rMedio": 7.08,
+              "rPeor": 1.87,
+              "umbral": 4.5,
+              "zona": "izq",
+              "n": 28800
+            },
+            {
+              "tag": "span",
+              "cls": "lt",
+              "texto": "· ordena incorporaciones, ausencias y turnos",
+              "fs": 13,
+              "grande": false,
+              "color": "rgba(237, 243, 244, 0.66)",
+              "bg": [
+                18,
+                33,
+                42
+              ],
+              "rMedio": 7.08,
+              "rPeor": 1.87,
+              "umbral": 4.5,
+              "zona": "izq",
+              "n": 28800
+            }
+          ],
+          "titulares": 2,
+          "cuerpo": 26,
+          "minTitular": 8.39,
+          "minCuerpo": 1.86,
+          "huecoPixMayor": 65,
+          "huecoPixInicio": 832,
+          "huecoCabecera": 0,
+          "huecoPie": 65,
+          "huecoDOMMayor": 127,
+          "textura": {
+            "n": 23134,
+            "media": [
+              10,
+              22,
+              32
+            ],
+            "desv": 0.0005
+          }
+        },
+        {
+          "id": "lab",
+          "existe": true,
+          "clases": "deep grid-bg sec",
+          "alto": 1075,
+          "ancho": 1440,
+          "capturaWH": [
+            1440,
+            1077
+          ],
+          "textosExaminados": 13,
+          "textosEnDOM": 13,
+          "fallos": [],
+          "peor": [
+            {
+              "tag": "p",
+              "cls": "lead",
+              "texto": "Cuando el OS estándar no basta, STRATA Lab diseña, construye",
+              "fs": 20,
+              "grande": false,
+              "color": "rgba(237, 243, 244, 0.66)",
+              "bg": [
+                10,
+                22,
+                32
+              ],
+              "rMedio": 7.55,
+              "rPeor": 7.16,
+              "umbral": 4.5,
+              "zona": "izq",
+              "n": 8320
+            },
+            {
+              "tag": "p",
+              "cls": "body",
+              "texto": "En 3 semanas mapeamos tu operación y te decimos dónde la IA ",
+              "fs": 17,
+              "grande": false,
+              "color": "rgba(237, 243, 244, 0.66)",
+              "bg": [
+                15,
+                30,
+                46
+              ],
+              "rMedio": 7.19,
+              "rPeor": 7.19,
+              "umbral": 4.5,
+              "zona": "arriba",
+              "n": 2727
+            },
+            {
+              "tag": "p",
+              "cls": "body",
+              "texto": "Construimos e integramos tu sistema y formamos a tu equipo. ",
+              "fs": 17,
+              "grande": false,
+              "color": "rgba(237, 243, 244, 0.66)",
+              "bg": [
+                15,
+                30,
+                46
+              ],
+              "rMedio": 7.19,
+              "rPeor": 7.19,
+              "umbral": 4.5,
+              "zona": "abajo",
+              "n": 2736
+            },
+            {
+              "tag": "p",
+              "cls": "body",
+              "texto": "Cuota fija mensual: mantenemos el sistema vivo, lo operamos ",
+              "fs": 17,
+              "grande": false,
+              "color": "rgba(237, 243, 244, 0.66)",
+              "bg": [
+                15,
+                30,
+                46
+              ],
+              "rMedio": 7.19,
+              "rPeor": 7.19,
+              "umbral": 4.5,
+              "zona": "arriba",
+              "n": 2727
+            }
+          ],
+          "titulares": 2,
+          "cuerpo": 11,
+          "minTitular": 8.39,
+          "minCuerpo": 7.16,
+          "huecoPixMayor": 136,
+          "huecoPixInicio": 941,
+          "huecoCabecera": 1,
+          "huecoPie": 136,
+          "huecoDOMMayor": 130,
+          "textura": {
+            "n": 27778,
+            "media": [
+              10,
+              22,
+              32
+            ],
+            "desv": 0.0005
+          }
+        },
+        {
+          "id": "casos",
+          "existe": true,
+          "clases": "deep grid-bg sec",
+          "alto": 880,
+          "ancho": 1440,
+          "capturaWH": [
+            1440,
+            881
+          ],
+          "textosExaminados": 12,
+          "textosEnDOM": 12,
+          "fallos": [],
+          "peor": [
+            {
+              "tag": "span",
+              "cls": "",
+              "texto": "Agente de Ventas · demo",
+              "fs": 11,
+              "grande": false,
+              "color": "rgba(237, 243, 244, 0.5)",
+              "bg": [
+                11,
+                23,
+                34
+              ],
+              "rMedio": 4.81,
+              "rPeor": 4.81,
+              "umbral": 4.5,
+              "zona": "arriba",
+              "n": 1575
+            },
+            {
+              "tag": "button",
+              "cls": "uc-tab",
+              "texto": "Atender 24/7",
+              "fs": 13,
+              "grande": false,
+              "color": "rgba(237, 243, 244, 0.66)",
+              "bg": [
+                10,
+                23,
+                33
+              ],
+              "rMedio": 7.52,
+              "rPeor": 7.45,
+              "umbral": 4.5,
+              "zona": "abajo",
+              "n": 1287
+            },
+            {
+              "tag": "button",
+              "cls": "uc-tab",
+              "texto": "Operar sin fricción",
+              "fs": 13,
+              "grande": false,
+              "color": "rgba(237, 243, 244, 0.66)",
+              "bg": [
+                10,
+                22,
+                32
+              ],
+              "rMedio": 7.55,
+              "rPeor": 7.55,
+              "umbral": 4.5,
+              "zona": "abajo",
+              "n": 1800
+            },
+            {
+              "tag": "button",
+              "cls": "uc-tab",
+              "texto": "Controlar las finanzas",
+              "fs": 13,
+              "grande": false,
+              "color": "rgba(237, 243, 244, 0.66)",
+              "bg": [
+                10,
+                22,
+                32
+              ],
+              "rMedio": 7.55,
+              "rPeor": 7.55,
+              "umbral": 4.5,
+              "zona": "abajo",
+              "n": 2034
+            }
+          ],
+          "titulares": 2,
+          "cuerpo": 10,
+          "minTitular": 9.48,
+          "minCuerpo": 4.81,
+          "huecoPixMayor": 58,
+          "huecoPixInicio": 823,
+          "huecoCabecera": 0,
+          "huecoPie": 58,
+          "huecoDOMMayor": 213,
+          "textura": {
+            "n": 22790,
+            "media": [
+              11,
+              30,
+              38
+            ],
+            "desv": 0.0018
+          }
+        },
+        {
+          "id": "contacto",
+          "existe": true,
+          "clases": "deep grid-bg footcta",
+          "alto": 1379,
+          "ancho": 1440,
+          "capturaWH": [
+            1440,
+            1380
+          ],
+          "textosExaminados": 12,
+          "textosEnDOM": 12,
+          "fallos": [],
+          "peor": [
+            {
+              "tag": "p",
+              "cls": "lead reveal",
+              "texto": "Sin esperar al lanzamiento del OS: en 3 semanas te decimos d",
+              "fs": 20,
+              "grande": false,
+              "color": "rgba(237, 243, 244, 0.66)",
+              "bg": [
+                10,
+                22,
+                32
+              ],
+              "rMedio": 7.55,
+              "rPeor": 7.36,
+              "umbral": 4.5,
+              "zona": "izq",
+              "n": 39744
+            },
+            {
+              "tag": "label",
+              "cls": "",
+              "texto": "Nombre",
+              "fs": 11,
+              "grande": false,
+              "color": "rgba(237, 243, 244, 0.66)",
+              "bg": [
+                10,
+                22,
+                32
+              ],
+              "rMedio": 7.55,
+              "rPeor": 7.55,
+              "umbral": 4.5,
+              "zona": "arriba",
+              "n": 2799
+            },
+            {
+              "tag": "label",
+              "cls": "",
+              "texto": "Email",
+              "fs": 11,
+              "grande": false,
+              "color": "rgba(237, 243, 244, 0.66)",
+              "bg": [
+                10,
+                22,
+                32
+              ],
+              "rMedio": 7.55,
+              "rPeor": 7.55,
+              "umbral": 4.5,
+              "zona": "arriba",
+              "n": 2799
+            },
+            {
+              "tag": "label",
+              "cls": "",
+              "texto": "Empresa",
+              "fs": 11,
+              "grande": false,
+              "color": "rgba(237, 243, 244, 0.66)",
+              "bg": [
+                10,
+                22,
+                32
+              ],
+              "rMedio": 7.55,
+              "rPeor": 7.55,
+              "umbral": 4.5,
+              "zona": "izq",
+              "n": 6304
+            }
+          ],
+          "titulares": 1,
+          "cuerpo": 11,
+          "minTitular": 13.38,
+          "minCuerpo": 7.36,
+          "huecoPixMayor": 151,
+          "huecoPixInicio": 1229,
+          "huecoCabecera": 1,
+          "huecoPie": 151,
+          "huecoDOMMayor": 170,
+          "textura": {
+            "n": 35604,
+            "media": [
+              10,
+              22,
+              32
+            ],
+            "desv": 0.0005
+          }
+        }
+      ]
+    },
+    {
+      "etiqueta": "escritorio/en",
+      "viewport": "escritorio",
+      "idioma": "en",
+      "elementosDOM": 1928,
+      "altoDoc": 26588,
+      "imagenes": {
+        "examinadas": 7,
+        "lista": [
+          {
+            "src": "http://localhost:4399/_astro/os-dia.3LFDQGbj_X3FNS.webp",
+            "attrSrc": "/_astro/os-dia.3LFDQGbj_WDWhL.webp",
+            "srcset": "/_astro/os-dia.3LFDQGbj_CDzpk.webp 760w, /_astro/os-dia.3LFDQGbj_X3FNS.webp 1100w, /_astro/os-dia.3LFDQGbj_14Ta4x.webp 1600w, /_astro/os-dia.3LFDQGbj_WDWhL.webp 2000w",
+            "alt": "The Business OS \"start here\" panel, with six proposed actions: close the books, chase payments, find leads, publish to social, compare quotes and watch competitors",
+            "natural": [
+              1100,
+              217
+            ],
+            "render": [
+              1100,
+              219
+            ],
+            "visible": true,
+            "seccion": "producto"
+          },
+          {
+            "src": "http://localhost:4399/_astro/os-equipo.Lh623l_K_UvNyj.webp",
+            "attrSrc": "/_astro/os-equipo.Lh623l_K_Z1W69bL.webp",
+            "srcset": "/_astro/os-equipo.Lh623l_K_ZORDb7.webp 760w, /_astro/os-equipo.Lh623l_K_UvNyj.webp 1100w, /_astro/os-equipo.Lh623l_K_Z1DfTAd.webp 1600w, /_astro/os-equipo.Lh623l_K_Z1W69bL.webp 2200w",
+            "alt": "The Business OS \"hire your team\" screen, showing the Marketing agent cards and a headcount of 132",
+            "natural": [
+              1100,
+              565
+            ],
+            "render": [
+              1100,
+              566
+            ],
+            "visible": true,
+            "seccion": "producto"
+          },
+          {
+            "src": "http://localhost:4399/_astro/os-depto.CFA-Vxm6_2s0Hsb.webp",
+            "attrSrc": "/_astro/os-depto.CFA-Vxm6_wgNt4.webp",
+            "srcset": "/_astro/os-depto.CFA-Vxm6_Z1ri0OO.webp 760w, /_astro/os-depto.CFA-Vxm6_2s0Hsb.webp 1100w, /_astro/os-depto.CFA-Vxm6_ZesfwF.webp 1600w, /_astro/os-depto.CFA-Vxm6_wgNt4.webp 2000w",
+            "alt": "The Marketing & Growth department map in the Business OS, showing fifteen functions — calendar, messages, content factory, social, brand, web, SEO, email, paid, conversion, launches, creators, PR, retail and analytics — with the work pending in each",
+            "natural": [
+              1100,
+              172
+            ],
+            "render": [
+              1100,
+              174
+            ],
+            "visible": true,
+            "seccion": "producto"
+          },
+          {
+            "src": "http://localhost:4399/_astro/os-aprobar.Bt7fylt7_Z22mKH6.webp",
+            "attrSrc": "/_astro/os-aprobar.Bt7fylt7_2j430y.webp",
+            "srcset": "/_astro/os-aprobar.Bt7fylt7_BppXP.webp 760w, /_astro/os-aprobar.Bt7fylt7_Z22mKH6.webp 1100w, /_astro/os-aprobar.Bt7fylt7_1h3lrl.webp 1600w, /_astro/os-aprobar.Bt7fylt7_2j430y.webp 2000w",
+            "alt": "The approval queue by department in the Business OS, with Marketing, Sales and Finance awaiting review",
+            "natural": [
+              1100,
+              157
+            ],
+            "render": [
+              1100,
+              159
+            ],
+            "visible": true,
+            "seccion": "producto"
+          },
+          {
+            "src": "http://localhost:4399/_astro/founder-gonzalo.DvFUyYrE_ONlQJ.webp",
+            "attrSrc": "/_astro/founder-gonzalo.DvFUyYrE_ZvDFLl.webp",
+            "srcset": "/_astro/founder-gonzalo.DvFUyYrE_ONlQJ.webp 360w, /_astro/founder-gonzalo.DvFUyYrE_ZvDFLl.webp 400w",
+            "alt": "Gonzalo",
+            "natural": [
+              360,
+              360
+            ],
+            "render": [
+              314,
+              300
+            ],
+            "visible": true,
+            "seccion": "equipo"
+          },
+          {
+            "src": "http://localhost:4399/_astro/founder-borja.C2WdPRGy_Z17AOm3.webp",
+            "attrSrc": "/_astro/founder-borja.C2WdPRGy_Z2sm4SR.webp",
+            "srcset": "/_astro/founder-borja.C2WdPRGy_Z17AOm3.webp 360w, /_astro/founder-borja.C2WdPRGy_Z2sm4SR.webp 400w",
+            "alt": "Borja",
+            "natural": [
+              360,
+              360
+            ],
+            "render": [
+              314,
+              300
+            ],
+            "visible": true,
+            "seccion": "equipo"
+          },
+          {
+            "src": "http://localhost:4399/_astro/founder-lucia.Cux8JbKV_mmsMC.webp",
+            "attrSrc": "/_astro/founder-lucia.Cux8JbKV_ZXnLJc.webp",
+            "srcset": "/_astro/founder-lucia.Cux8JbKV_mmsMC.webp 360w, /_astro/founder-lucia.Cux8JbKV_ZXnLJc.webp 400w",
+            "alt": "Lucía",
+            "natural": [
+              360,
+              360
+            ],
+            "render": [
+              314,
+              300
+            ],
+            "visible": true,
+            "seccion": "equipo"
+          }
+        ],
+        "prohibidas": []
+      },
+      "sources": {
+        "examinados": 0,
+        "prohibidos": []
+      },
+      "preloads": {
+        "examinados": 2,
+        "prohibidos": []
+      },
+      "fondosCSS": {
+        "examinados": 0,
+        "lista": [],
+        "prohibidos": []
+      },
+      "red": {
+        "examinadas": 15,
+        "imagenes": 7,
+        "prohibidas": []
+      },
+      "desborde": {
+        "scrollWidth": 1440,
+        "innerWidth": 1440,
+        "bodyScrollWidth": 1440,
+        "clientWidth": 1440
+      },
+      "culpablesDesborde": [],
+      "secciones": [
+        {
+          "id": "agentes",
+          "existe": true,
+          "clases": "deep grid-bg sec",
+          "alto": 1869,
+          "ancho": 1440,
+          "capturaWH": [
+            1440,
+            1871
+          ],
+          "textosExaminados": 34,
+          "textosEnDOM": 34,
+          "fallos": [
+            {
+              "tag": "a",
+              "cls": "btn btn-primary",
+              "texto": "See launch pricing →",
+              "color": "rgb(15, 30, 46)",
+              "fontSize": 14.5,
+              "fontWeight": 700,
+              "grande": false,
+              "opacidad": 1,
+              "rect": {
+                "x": 136,
+                "y": 7760.15625,
+                "w": 250.75,
+                "h": 51
+              },
+              "zonaFondo": "abajo",
+              "nFondo": 2259,
+              "desvFondo": 0,
+              "bg": [
+                10,
+                22,
+                32
+              ],
+              "bgPeor": [
+                10,
+                22,
+                32
+              ],
+              "rMedio": 1.08,
+              "rPeor": 1.08,
+              "umbral": 4.5
+            }
+          ],
+          "peor": [
+            {
+              "tag": "a",
+              "cls": "btn btn-primary",
+              "texto": "See launch pricing →",
+              "fs": 14.5,
+              "grande": false,
+              "color": "rgb(15, 30, 46)",
+              "bg": [
+                10,
+                22,
+                32
+              ],
+              "rMedio": 1.08,
+              "rPeor": 1.08,
+              "umbral": 4.5,
+              "zona": "abajo",
+              "n": 2259
+            },
+            {
+              "tag": "span",
+              "cls": "atag",
+              "texto": "Social",
+              "fs": 10,
+              "grande": false,
+              "color": "rgba(237, 243, 244, 0.66)",
+              "bg": [
+                22,
+                41,
+                58
+              ],
+              "rMedio": 6.6,
+              "rPeor": 6.6,
+              "umbral": 4.5,
+              "zona": "arriba",
+              "n": 531
+            },
+            {
+              "tag": "span",
+              "cls": "atag",
+              "texto": "Email",
+              "fs": 10,
+              "grande": false,
+              "color": "rgba(237, 243, 244, 0.66)",
+              "bg": [
+                22,
+                41,
+                58
+              ],
+              "rMedio": 6.6,
+              "rPeor": 6.6,
+              "umbral": 4.5,
+              "zona": "arriba",
+              "n": 477
+            },
+            {
+              "tag": "span",
+              "cls": "atag",
+              "texto": "CMS",
+              "fs": 10,
+              "grande": false,
+              "color": "rgba(237, 243, 244, 0.66)",
+              "bg": [
+                22,
+                41,
+                58
+              ],
+              "rMedio": 6.6,
+              "rPeor": 6.6,
+              "umbral": 4.5,
+              "zona": "arriba",
+              "n": 351
+            }
+          ],
+          "titulares": 2,
+          "cuerpo": 32,
+          "minTitular": 8.2,
+          "minCuerpo": 1.08,
+          "huecoPixMayor": 130,
+          "huecoPixInicio": 1740,
+          "huecoCabecera": 1,
+          "huecoPie": 0,
+          "huecoDOMMayor": 130,
+          "textura": {
+            "n": 48246,
+            "media": [
+              10,
+              22,
+              32
+            ],
+            "desv": 0.0005
+          }
+        },
+        {
+          "id": "lanzamiento",
+          "existe": true,
+          "clases": "deep grid-bg sec",
+          "alto": 896,
+          "ancho": 1440,
+          "capturaWH": [
+            1440,
+            897
+          ],
+          "textosExaminados": 28,
+          "textosEnDOM": 29,
+          "fallos": [
+            {
+              "tag": "span",
+              "cls": "lt",
+              "texto": "· drafts contracts and tracks renewals",
+              "color": "rgba(237, 243, 244, 0.66)",
+              "fontSize": 13,
+              "fontWeight": 400,
+              "grande": false,
+              "opacidad": 1,
+              "rect": {
+                "x": 1421.984375,
+                "y": 19544.125,
+                "w": 391.484375,
+                "h": 20
+              },
+              "zonaFondo": "izq",
+              "nFondo": 28320,
+              "desvFondo": 0.07,
+              "bg": [
+                18,
+                33,
+                42
+              ],
+              "bgPeor": [
+                149,
+                158,
+                162
+              ],
+              "rMedio": 7.08,
+              "rPeor": 1.86,
+              "umbral": 4.5
+            },
+            {
+              "tag": "span",
+              "cls": "lt",
+              "texto": "· reconciles payments and projects cash flow",
+              "color": "rgba(237, 243, 244, 0.66)",
+              "fontSize": 13,
+              "fontWeight": 400,
+              "grande": false,
+              "opacidad": 1,
+              "rect": {
+                "x": 1853.46875,
+                "y": 19544.125,
+                "w": 459.296875,
+                "h": 20
+              },
+              "zonaFondo": "izq",
+              "nFondo": 28800,
+              "desvFondo": 0.07,
+              "bg": [
+                18,
+                33,
+                42
+              ],
+              "bgPeor": [
+                149,
+                158,
+                162
+              ],
+              "rMedio": 7.08,
+              "rPeor": 1.86,
+              "umbral": 4.5
+            },
+            {
+              "tag": "span",
+              "cls": "lt",
+              "texto": "· prioritises the roadmap and closes issues",
+              "color": "rgba(237, 243, 244, 0.66)",
+              "fontSize": 13,
+              "fontWeight": 400,
+              "grande": false,
+              "opacidad": 1,
+              "rect": {
+                "x": 2352.765625,
+                "y": 19544.125,
+                "w": 501.671875,
+                "h": 20
+              },
+              "zonaFondo": "izq",
+              "nFondo": 28800,
+              "desvFondo": 0.07,
+              "bg": [
+                18,
+                33,
+                42
+              ],
+              "bgPeor": [
+                149,
+                158,
+                162
+              ],
+              "rMedio": 7.08,
+              "rPeor": 1.86,
+              "umbral": 4.5
+            },
+            {
+              "tag": "span",
+              "cls": "lt",
+              "texto": "· runs onboarding, absence and shifts",
+              "color": "rgba(237, 243, 244, 0.66)",
+              "fontSize": 13,
+              "fontWeight": 400,
+              "grande": false,
+              "opacidad": 1,
+              "rect": {
+                "x": 2894.4375,
+                "y": 19544.125,
+                "w": 391.484375,
+                "h": 20
+              },
+              "zonaFondo": "izq",
+              "nFondo": 28800,
+              "desvFondo": 0.07,
+              "bg": [
+                18,
+                33,
+                42
+              ],
+              "bgPeor": [
+                149,
+                158,
+                162
+              ],
+              "rMedio": 7.08,
+              "rPeor": 1.86,
+              "umbral": 4.5
+            },
+            {
+              "tag": "span",
+              "cls": "lt",
+              "texto": "· coordinates routes, orders and job reports",
+              "color": "rgba(237, 243, 244, 0.66)",
+              "fontSize": 13,
+              "fontWeight": 400,
+              "grande": false,
+              "opacidad": 1,
+              "rect": {
+                "x": 3325.921875,
+                "y": 19544.125,
+                "w": 425.390625,
+                "h": 20
+              },
+              "zonaFondo": "izq",
+              "nFondo": 28800,
+              "desvFondo": 0.07,
+              "bg": [
+                18,
+                33,
+                42
+              ],
+              "bgPeor": [
+                149,
+                158,
+                162
+              ],
+              "rMedio": 7.08,
+              "rPeor": 1.86,
+              "umbral": 4.5
+            },
+            {
+              "tag": "span",
+              "cls": "lt",
+              "texto": "· consolidates the cockpit for the business",
+              "color": "rgba(237, 243, 244, 0.66)",
+              "fontSize": 13,
+              "fontWeight": 400,
+              "grande": false,
+              "opacidad": 1,
+              "rect": {
+                "x": 3791.3125,
+                "y": 19544.125,
+                "w": 476.234375,
+                "h": 20
+              },
+              "zonaFondo": "izq",
+              "nFondo": 28800,
+              "desvFondo": 0.07,
+              "bg": [
+                18,
+                33,
+                42
+              ],
+              "bgPeor": [
+                149,
+                158,
+                162
+              ],
+              "rMedio": 7.08,
+              "rPeor": 1.86,
+              "umbral": 4.5
+            },
+            {
+              "tag": "span",
+              "cls": "lt",
+              "texto": "· one panel to govern it all",
+              "color": "rgba(237, 243, 244, 0.66)",
+              "fontSize": 13,
+              "fontWeight": 400,
+              "grande": false,
+              "opacidad": 1,
+              "rect": {
+                "x": 4307.546875,
+                "y": 19544.125,
+                "w": 357.578125,
+                "h": 20
+              },
+              "zonaFondo": "izq",
+              "nFondo": 28800,
+              "desvFondo": 0.07,
+              "bg": [
+                18,
+                33,
+                42
+              ],
+              "bgPeor": [
+                149,
+                158,
+                162
+              ],
+              "rMedio": 7.08,
+              "rPeor": 1.86,
+              "umbral": 4.5
+            },
+            {
+              "tag": "span",
+              "cls": "lt",
+              "texto": "· you approve every critical action",
+              "color": "rgba(237, 243, 244, 0.66)",
+              "fontSize": 13,
+              "fontWeight": 400,
+              "grande": false,
+              "opacidad": 1,
+              "rect": {
+                "x": 4705.125,
+                "y": 19544.125,
+                "w": 450.8125,
+                "h": 20
+              },
+              "zonaFondo": "izq",
+              "nFondo": 28800,
+              "desvFondo": 0.07,
+              "bg": [
+                18,
+                33,
+                42
+              ],
+              "bgPeor": [
+                149,
+                158,
+                162
+              ],
+              "rMedio": 7.08,
+              "rPeor": 1.86,
+              "umbral": 4.5
+            },
+            {
+              "tag": "span",
+              "cls": "lt",
+              "texto": "· creates content and nurtures leads",
+              "color": "rgba(237, 243, 244, 0.66)",
+              "fontSize": 13,
+              "fontWeight": 400,
+              "grande": false,
+              "opacidad": 1,
+              "rect": {
+                "x": 5195.9375,
+                "y": 19544.125,
+                "w": 408.4375,
+                "h": 20
+              },
+              "zonaFondo": "izq",
+              "nFondo": 28800,
+              "desvFondo": 0.07,
+              "bg": [
+                18,
+                33,
+                42
+              ],
+              "bgPeor": [
+                149,
+                158,
+                162
+              ],
+              "rMedio": 7.08,
+              "rPeor": 1.86,
+              "umbral": 4.5
+            },
+            {
+              "tag": "span",
+              "cls": "lt",
+              "texto": "· qualifies leads and prepares quotes",
+              "color": "rgba(237, 243, 244, 0.66)",
+              "fontSize": 13,
+              "fontWeight": 400,
+              "grande": false,
+              "opacidad": 1,
+              "rect": {
+                "x": 5644.375,
+                "y": 19544.125,
+                "w": 383.015625,
+                "h": 20
+              },
+              "zonaFondo": "izq",
+              "nFondo": 28800,
+              "desvFondo": 0.07,
+              "bg": [
+                18,
+                33,
+                42
+              ],
+              "bgPeor": [
+                149,
+                158,
+                162
+              ],
+              "rMedio": 7.08,
+              "rPeor": 1.86,
+              "umbral": 4.5
+            },
+            {
+              "tag": "span",
+              "cls": "lt",
+              "texto": "· resolves queries and orders 24/7",
+              "color": "rgba(237, 243, 244, 0.66)",
+              "fontSize": 13,
+              "fontWeight": 400,
+              "grande": false,
+              "opacidad": 1,
+              "rect": {
+                "x": 6067.390625,
+                "y": 19544.125,
+                "w": 374.53125,
+                "h": 20
+              },
+              "zonaFondo": "izq",
+              "nFondo": 28800,
+              "desvFondo": 0.07,
+              "bg": [
+                18,
+                33,
+                42
+              ],
+              "bgPeor": [
+                149,
+                158,
+                162
+              ],
+              "rMedio": 7.08,
+              "rPeor": 1.86,
+              "umbral": 4.5
+            },
+            {
+              "tag": "span",
+              "cls": "lt",
+              "texto": "· drafts contracts and tracks renewals",
+              "color": "rgba(237, 243, 244, 0.66)",
+              "fontSize": 13,
+              "fontWeight": 400,
+              "grande": false,
+              "opacidad": 1,
+              "rect": {
+                "x": 6481.921875,
+                "y": 19544.125,
+                "w": 391.484375,
+                "h": 20
+              },
+              "zonaFondo": "izq",
+              "nFondo": 28800,
+              "desvFondo": 0.07,
+              "bg": [
+                18,
+                33,
+                42
+              ],
+              "bgPeor": [
+                149,
+                158,
+                162
+              ],
+              "rMedio": 7.08,
+              "rPeor": 1.86,
+              "umbral": 4.5
+            },
+            {
+              "tag": "span",
+              "cls": "lt",
+              "texto": "· reconciles payments and projects cash flow",
+              "color": "rgba(237, 243, 244, 0.66)",
+              "fontSize": 13,
+              "fontWeight": 400,
+              "grande": false,
+              "opacidad": 1,
+              "rect": {
+                "x": 6913.40625,
+                "y": 19544.125,
+                "w": 459.296875,
+                "h": 20
+              },
+              "zonaFondo": "izq",
+              "nFondo": 28800,
+              "desvFondo": 0.07,
+              "bg": [
+                18,
+                33,
+                42
+              ],
+              "bgPeor": [
+                149,
+                158,
+                162
+              ],
+              "rMedio": 7.08,
+              "rPeor": 1.86,
+              "umbral": 4.5
+            },
+            {
+              "tag": "span",
+              "cls": "lt",
+              "texto": "· prioritises the roadmap and closes issues",
+              "color": "rgba(237, 243, 244, 0.66)",
+              "fontSize": 13,
+              "fontWeight": 400,
+              "grande": false,
+              "opacidad": 1,
+              "rect": {
+                "x": 7412.703125,
+                "y": 19544.125,
+                "w": 501.671875,
+                "h": 20
+              },
+              "zonaFondo": "izq",
+              "nFondo": 28800,
+              "desvFondo": 0.07,
+              "bg": [
+                18,
+                33,
+                42
+              ],
+              "bgPeor": [
+                149,
+                158,
+                162
+              ],
+              "rMedio": 7.08,
+              "rPeor": 1.86,
+              "umbral": 4.5
+            },
+            {
+              "tag": "span",
+              "cls": "lt",
+              "texto": "· runs onboarding, absence and shifts",
+              "color": "rgba(237, 243, 244, 0.66)",
+              "fontSize": 13,
+              "fontWeight": 400,
+              "grande": false,
+              "opacidad": 1,
+              "rect": {
+                "x": 7954.375,
+                "y": 19544.125,
+                "w": 391.484375,
+                "h": 20
+              },
+              "zonaFondo": "izq",
+              "nFondo": 28800,
+              "desvFondo": 0.07,
+              "bg": [
+                18,
+                33,
+                42
+              ],
+              "bgPeor": [
+                149,
+                158,
+                162
+              ],
+              "rMedio": 7.08,
+              "rPeor": 1.86,
+              "umbral": 4.5
+            },
+            {
+              "tag": "span",
+              "cls": "lt",
+              "texto": "· coordinates routes, orders and job reports",
+              "color": "rgba(237, 243, 244, 0.66)",
+              "fontSize": 13,
+              "fontWeight": 400,
+              "grande": false,
+              "opacidad": 1,
+              "rect": {
+                "x": 8385.859375,
+                "y": 19544.125,
+                "w": 425.390625,
+                "h": 20
+              },
+              "zonaFondo": "izq",
+              "nFondo": 28800,
+              "desvFondo": 0.07,
+              "bg": [
+                18,
+                33,
+                42
+              ],
+              "bgPeor": [
+                149,
+                158,
+                162
+              ],
+              "rMedio": 7.08,
+              "rPeor": 1.86,
+              "umbral": 4.5
+            },
+            {
+              "tag": "span",
+              "cls": "lt",
+              "texto": "· consolidates the cockpit for the business",
+              "color": "rgba(237, 243, 244, 0.66)",
+              "fontSize": 13,
+              "fontWeight": 400,
+              "grande": false,
+              "opacidad": 1,
+              "rect": {
+                "x": 8851.25,
+                "y": 19544.125,
+                "w": 476.234375,
+                "h": 20
+              },
+              "zonaFondo": "izq",
+              "nFondo": 28800,
+              "desvFondo": 0.07,
+              "bg": [
+                18,
+                33,
+                42
+              ],
+              "bgPeor": [
+                149,
+                158,
+                162
+              ],
+              "rMedio": 7.08,
+              "rPeor": 1.86,
+              "umbral": 4.5
+            },
+            {
+              "tag": "span",
+              "cls": "lt",
+              "texto": "· one panel to govern it all",
+              "color": "rgba(237, 243, 244, 0.66)",
+              "fontSize": 13,
+              "fontWeight": 400,
+              "grande": false,
+              "opacidad": 1,
+              "rect": {
+                "x": 9367.484375,
+                "y": 19544.125,
+                "w": 357.578125,
+                "h": 20
+              },
+              "zonaFondo": "izq",
+              "nFondo": 28800,
+              "desvFondo": 0.07,
+              "bg": [
+                18,
+                33,
+                42
+              ],
+              "bgPeor": [
+                149,
+                158,
+                162
+              ],
+              "rMedio": 7.08,
+              "rPeor": 1.86,
+              "umbral": 4.5
+            },
+            {
+              "tag": "span",
+              "cls": "lt",
+              "texto": "· you approve every critical action",
+              "color": "rgba(237, 243, 244, 0.66)",
+              "fontSize": 13,
+              "fontWeight": 400,
+              "grande": false,
+              "opacidad": 1,
+              "rect": {
+                "x": 9765.0625,
+                "y": 19544.125,
+                "w": 450.8125,
+                "h": 20
+              },
+              "zonaFondo": "izq",
+              "nFondo": 28800,
+              "desvFondo": 0.07,
+              "bg": [
+                18,
+                33,
+                42
+              ],
+              "bgPeor": [
+                149,
+                158,
+                162
+              ],
+              "rMedio": 7.08,
+              "rPeor": 1.86,
+              "umbral": 4.5
+            }
+          ],
+          "peor": [
+            {
+              "tag": "span",
+              "cls": "lt",
+              "texto": "· drafts contracts and tracks renewals",
+              "fs": 13,
+              "grande": false,
+              "color": "rgba(237, 243, 244, 0.66)",
+              "bg": [
+                18,
+                33,
+                42
+              ],
+              "rMedio": 7.08,
+              "rPeor": 1.86,
+              "umbral": 4.5,
+              "zona": "izq",
+              "n": 28320
+            },
+            {
+              "tag": "span",
+              "cls": "lt",
+              "texto": "· reconciles payments and projects cash flow",
+              "fs": 13,
+              "grande": false,
+              "color": "rgba(237, 243, 244, 0.66)",
+              "bg": [
+                18,
+                33,
+                42
+              ],
+              "rMedio": 7.08,
+              "rPeor": 1.86,
+              "umbral": 4.5,
+              "zona": "izq",
+              "n": 28800
+            },
+            {
+              "tag": "span",
+              "cls": "lt",
+              "texto": "· prioritises the roadmap and closes issues",
+              "fs": 13,
+              "grande": false,
+              "color": "rgba(237, 243, 244, 0.66)",
+              "bg": [
+                18,
+                33,
+                42
+              ],
+              "rMedio": 7.08,
+              "rPeor": 1.86,
+              "umbral": 4.5,
+              "zona": "izq",
+              "n": 28800
+            },
+            {
+              "tag": "span",
+              "cls": "lt",
+              "texto": "· runs onboarding, absence and shifts",
+              "fs": 13,
+              "grande": false,
+              "color": "rgba(237, 243, 244, 0.66)",
+              "bg": [
+                18,
+                33,
+                42
+              ],
+              "rMedio": 7.08,
+              "rPeor": 1.86,
+              "umbral": 4.5,
+              "zona": "izq",
+              "n": 28800
+            }
+          ],
+          "titulares": 2,
+          "cuerpo": 26,
+          "minTitular": 9.33,
+          "minCuerpo": 1.86,
+          "huecoPixMayor": 66,
+          "huecoPixInicio": 831,
+          "huecoCabecera": 0,
+          "huecoPie": 66,
+          "huecoDOMMayor": 127,
+          "textura": {
+            "n": 23134,
+            "media": [
+              10,
+              22,
+              32
+            ],
+            "desv": 0.0005
+          }
+        },
+        {
+          "id": "lab",
+          "existe": true,
+          "clases": "deep grid-bg sec",
+          "alto": 1075,
+          "ancho": 1440,
+          "capturaWH": [
+            1440,
+            1076
+          ],
+          "textosExaminados": 13,
+          "textosEnDOM": 13,
+          "fallos": [],
+          "peor": [
+            {
+              "tag": "p",
+              "cls": "lead",
+              "texto": "When the standard OS isn't enough, STRATA Lab designs, build",
+              "fs": 20,
+              "grande": false,
+              "color": "rgba(237, 243, 244, 0.66)",
+              "bg": [
+                10,
+                22,
+                32
+              ],
+              "rMedio": 7.55,
+              "rPeor": 7.16,
+              "umbral": 4.5,
+              "zona": "izq",
+              "n": 8320
+            },
+            {
+              "tag": "p",
+              "cls": "body",
+              "texto": "In 3 weeks we map your operation and tell you where AI creat",
+              "fs": 17,
+              "grande": false,
+              "color": "rgba(237, 243, 244, 0.66)",
+              "bg": [
+                15,
+                30,
+                46
+              ],
+              "rMedio": 7.19,
+              "rPeor": 7.19,
+              "umbral": 4.5,
+              "zona": "abajo",
+              "n": 2727
+            },
+            {
+              "tag": "p",
+              "cls": "body",
+              "texto": "We build and integrate your system and train your team. You ",
+              "fs": 17,
+              "grande": false,
+              "color": "rgba(237, 243, 244, 0.66)",
+              "bg": [
+                15,
+                30,
+                46
+              ],
+              "rMedio": 7.19,
+              "rPeor": 7.19,
+              "umbral": 4.5,
+              "zona": "abajo",
+              "n": 2736
+            },
+            {
+              "tag": "p",
+              "cls": "body",
+              "texto": "Fixed monthly fee: we keep the system alive, operate it and ",
+              "fs": 17,
+              "grande": false,
+              "color": "rgba(237, 243, 244, 0.66)",
+              "bg": [
+                15,
+                30,
+                46
+              ],
+              "rMedio": 7.19,
+              "rPeor": 7.19,
+              "umbral": 4.5,
+              "zona": "arriba",
+              "n": 2727
+            }
+          ],
+          "titulares": 2,
+          "cuerpo": 11,
+          "minTitular": 8.39,
+          "minCuerpo": 7.16,
+          "huecoPixMayor": 135,
+          "huecoPixInicio": 941,
+          "huecoCabecera": 0,
+          "huecoPie": 135,
+          "huecoDOMMayor": 130,
+          "textura": {
+            "n": 27692,
+            "media": [
+              10,
+              22,
+              32
+            ],
+            "desv": 0.0005
+          }
+        },
+        {
+          "id": "casos",
+          "existe": true,
+          "clases": "deep grid-bg sec",
+          "alto": 880,
+          "ancho": 1440,
+          "capturaWH": [
+            1440,
+            882
+          ],
+          "textosExaminados": 12,
+          "textosEnDOM": 12,
+          "fallos": [],
+          "peor": [
+            {
+              "tag": "span",
+              "cls": "",
+              "texto": "Sales Agent · demo",
+              "fs": 11,
+              "grande": false,
+              "color": "rgba(237, 243, 244, 0.5)",
+              "bg": [
+                11,
+                23,
+                34
+              ],
+              "rMedio": 4.81,
+              "rPeor": 4.81,
+              "umbral": 4.5,
+              "zona": "abajo",
+              "n": 1233
+            },
+            {
+              "tag": "button",
+              "cls": "uc-tab",
+              "texto": "Support 24/7",
+              "fs": 13,
+              "grande": false,
+              "color": "rgba(237, 243, 244, 0.66)",
+              "bg": [
+                10,
+                23,
+                33
+              ],
+              "rMedio": 7.52,
+              "rPeor": 7.42,
+              "umbral": 4.5,
+              "zona": "abajo",
+              "n": 1278
+            },
+            {
+              "tag": "button",
+              "cls": "uc-tab",
+              "texto": "Run operations",
+              "fs": 13,
+              "grande": false,
+              "color": "rgba(237, 243, 244, 0.66)",
+              "bg": [
+                10,
+                22,
+                32
+              ],
+              "rMedio": 7.55,
+              "rPeor": 7.55,
+              "umbral": 4.5,
+              "zona": "abajo",
+              "n": 1431
+            },
+            {
+              "tag": "button",
+              "cls": "uc-tab",
+              "texto": "Control finances",
+              "fs": 13,
+              "grande": false,
+              "color": "rgba(237, 243, 244, 0.66)",
+              "bg": [
+                10,
+                22,
+                32
+              ],
+              "rMedio": 7.55,
+              "rPeor": 7.55,
+              "umbral": 4.5,
+              "zona": "abajo",
+              "n": 1584
+            }
+          ],
+          "titulares": 2,
+          "cuerpo": 10,
+          "minTitular": 9.48,
+          "minCuerpo": 4.81,
+          "huecoPixMayor": 58,
+          "huecoPixInicio": 824,
+          "huecoCabecera": 0,
+          "huecoPie": 58,
+          "huecoDOMMayor": 213,
+          "textura": {
+            "n": 22704,
+            "media": [
+              11,
+              30,
+              38
+            ],
+            "desv": 0.0018
+          }
+        },
+        {
+          "id": "contacto",
+          "existe": true,
+          "clases": "deep grid-bg footcta",
+          "alto": 1195,
+          "ancho": 1440,
+          "capturaWH": [
+            1440,
+            1195
+          ],
+          "textosExaminados": 12,
+          "textosEnDOM": 12,
+          "fallos": [],
+          "peor": [
+            {
+              "tag": "p",
+              "cls": "lead reveal",
+              "texto": "No need to wait for the OS launch: in 3 weeks we tell you wh",
+              "fs": 20,
+              "grande": false,
+              "color": "rgba(237, 243, 244, 0.66)",
+              "bg": [
+                10,
+                22,
+                32
+              ],
+              "rMedio": 7.55,
+              "rPeor": 7.3,
+              "umbral": 4.5,
+              "zona": "izq",
+              "n": 39744
+            },
+            {
+              "tag": "label",
+              "cls": "",
+              "texto": "Company",
+              "fs": 11,
+              "grande": false,
+              "color": "rgba(237, 243, 244, 0.66)",
+              "bg": [
+                10,
+                22,
+                32
+              ],
+              "rMedio": 7.55,
+              "rPeor": 7.35,
+              "umbral": 4.5,
+              "zona": "izq",
+              "n": 6304
+            },
+            {
+              "tag": "label",
+              "cls": "",
+              "texto": "Tell us about your case",
+              "fs": 11,
+              "grande": false,
+              "color": "rgba(237, 243, 244, 0.66)",
+              "bg": [
+                10,
+                22,
+                32
+              ],
+              "rMedio": 7.55,
+              "rPeor": 7.44,
+              "umbral": 4.5,
+              "zona": "izq",
+              "n": 6304
+            },
+            {
+              "tag": "label",
+              "cls": "",
+              "texto": "Name",
+              "fs": 11,
+              "grande": false,
+              "color": "rgba(237, 243, 244, 0.66)",
+              "bg": [
+                10,
+                22,
+                32
+              ],
+              "rMedio": 7.55,
+              "rPeor": 7.55,
+              "umbral": 4.5,
+              "zona": "izq",
+              "n": 6304
+            }
+          ],
+          "titulares": 1,
+          "cuerpo": 11,
+          "minTitular": 14.6,
+          "minCuerpo": 7.3,
+          "huecoPixMayor": 150,
+          "huecoPixInicio": 1045,
+          "huecoCabecera": 0,
+          "huecoPie": 150,
+          "huecoDOMMayor": 170,
+          "textura": {
+            "n": 30874,
+            "media": [
+              10,
+              22,
+              32
+            ],
+            "desv": 0.0005
+          }
+        }
+      ]
+    },
+    {
+      "etiqueta": "movil/es",
+      "viewport": "movil",
+      "idioma": "es",
+      "elementosDOM": 1928,
+      "altoDoc": 48476,
+      "imagenes": {
+        "examinadas": 7,
+        "lista": [
+          {
+            "src": "http://localhost:4399/_astro/os-dia.3LFDQGbj_CDzpk.webp",
+            "attrSrc": "/_astro/os-dia.3LFDQGbj_WDWhL.webp",
+            "srcset": "/_astro/os-dia.3LFDQGbj_CDzpk.webp 760w, /_astro/os-dia.3LFDQGbj_X3FNS.webp 1100w, /_astro/os-dia.3LFDQGbj_14Ta4x.webp 1600w, /_astro/os-dia.3LFDQGbj_WDWhL.webp 2000w",
+            "alt": "Sección «Empieza aquí» del Business OS, con seis acciones propuestas: cerrar el mes contable, reclamar cobros, encontrar leads, publicar en redes, comparar presupuestos y vigilar a la competencia",
+            "natural": [
+              358,
+              70
+            ],
+            "render": [
+              318,
+              64
+            ],
+            "visible": true,
+            "seccion": "producto"
+          },
+          {
+            "src": "http://localhost:4399/_astro/os-equipo.Lh623l_K_ZORDb7.webp",
+            "attrSrc": "/_astro/os-equipo.Lh623l_K_Z1W69bL.webp",
+            "srcset": "/_astro/os-equipo.Lh623l_K_ZORDb7.webp 760w, /_astro/os-equipo.Lh623l_K_UvNyj.webp 1100w, /_astro/os-equipo.Lh623l_K_Z1DfTAd.webp 1600w, /_astro/os-equipo.Lh623l_K_Z1W69bL.webp 2200w",
+            "alt": "Pantalla «Contrata tu equipo» del Business OS, con las fichas de los agentes de Marketing y el contador de 132 en plantilla",
+            "natural": [
+              358,
+              184
+            ],
+            "render": [
+              318,
+              164
+            ],
+            "visible": true,
+            "seccion": "producto"
+          },
+          {
+            "src": "http://localhost:4399/_astro/os-depto.CFA-Vxm6_Z1ri0OO.webp",
+            "attrSrc": "/_astro/os-depto.CFA-Vxm6_wgNt4.webp",
+            "srcset": "/_astro/os-depto.CFA-Vxm6_Z1ri0OO.webp 760w, /_astro/os-depto.CFA-Vxm6_2s0Hsb.webp 1100w, /_astro/os-depto.CFA-Vxm6_ZesfwF.webp 1600w, /_astro/os-depto.CFA-Vxm6_wgNt4.webp 2000w",
+            "alt": "Mapa del departamento de Marketing & Growth en el Business OS, con quince funciones —calendario, mensajes, fábrica de contenido, redes, marca, web, SEO, email, paid, conversión, lanzamientos, creadores, PR, retail y analítica— y el trabajo pendiente en cada una",
+            "natural": [
+              358,
+              56
+            ],
+            "render": [
+              318,
+              51
+            ],
+            "visible": true,
+            "seccion": "producto"
+          },
+          {
+            "src": "http://localhost:4399/_astro/os-aprobar.Bt7fylt7_BppXP.webp",
+            "attrSrc": "/_astro/os-aprobar.Bt7fylt7_2j430y.webp",
+            "srcset": "/_astro/os-aprobar.Bt7fylt7_BppXP.webp 760w, /_astro/os-aprobar.Bt7fylt7_Z22mKH6.webp 1100w, /_astro/os-aprobar.Bt7fylt7_1h3lrl.webp 1600w, /_astro/os-aprobar.Bt7fylt7_2j430y.webp 2000w",
+            "alt": "Cola de aprobaciones por departamento en el Business OS, con Marketing, Ventas y Finanzas esperando revisión",
+            "natural": [
+              358,
+              51
+            ],
+            "render": [
+              318,
+              47
+            ],
+            "visible": true,
+            "seccion": "producto"
+          },
+          {
+            "src": "http://localhost:4399/_astro/founder-gonzalo.DvFUyYrE_ZvDFLl.webp",
+            "attrSrc": "/_astro/founder-gonzalo.DvFUyYrE_ZvDFLl.webp",
+            "srcset": "/_astro/founder-gonzalo.DvFUyYrE_ONlQJ.webp 360w, /_astro/founder-gonzalo.DvFUyYrE_ZvDFLl.webp 400w",
+            "alt": "Gonzalo",
+            "natural": [
+              390,
+              390
+            ],
+            "render": [
+              260,
+              300
+            ],
+            "visible": true,
+            "seccion": "equipo"
+          },
+          {
+            "src": "http://localhost:4399/_astro/founder-borja.C2WdPRGy_Z2sm4SR.webp",
+            "attrSrc": "/_astro/founder-borja.C2WdPRGy_Z2sm4SR.webp",
+            "srcset": "/_astro/founder-borja.C2WdPRGy_Z17AOm3.webp 360w, /_astro/founder-borja.C2WdPRGy_Z2sm4SR.webp 400w",
+            "alt": "Borja",
+            "natural": [
+              390,
+              390
+            ],
+            "render": [
+              260,
+              300
+            ],
+            "visible": true,
+            "seccion": "equipo"
+          },
+          {
+            "src": "http://localhost:4399/_astro/founder-lucia.Cux8JbKV_ZXnLJc.webp",
+            "attrSrc": "/_astro/founder-lucia.Cux8JbKV_ZXnLJc.webp",
+            "srcset": "/_astro/founder-lucia.Cux8JbKV_mmsMC.webp 360w, /_astro/founder-lucia.Cux8JbKV_ZXnLJc.webp 400w",
+            "alt": "Lucía",
+            "natural": [
+              390,
+              390
+            ],
+            "render": [
+              260,
+              300
+            ],
+            "visible": true,
+            "seccion": "equipo"
+          }
+        ],
+        "prohibidas": []
+      },
+      "sources": {
+        "examinados": 0,
+        "prohibidos": []
+      },
+      "preloads": {
+        "examinados": 2,
+        "prohibidos": []
+      },
+      "fondosCSS": {
+        "examinados": 0,
+        "lista": [],
+        "prohibidos": []
+      },
+      "red": {
+        "examinadas": 15,
+        "imagenes": 7,
+        "prohibidas": []
+      },
+      "desborde": {
+        "scrollWidth": 390,
+        "innerWidth": 390,
+        "bodyScrollWidth": 390,
+        "clientWidth": 390
+      },
+      "culpablesDesborde": [],
+      "secciones": [
+        {
+          "id": "agentes",
+          "existe": true,
+          "clases": "deep grid-bg sec",
+          "alto": 4020,
+          "ancho": 390,
+          "capturaWH": [
+            390,
+            4021
+          ],
+          "textosExaminados": 34,
+          "textosEnDOM": 34,
+          "fallos": [
+            {
+              "tag": "a",
+              "cls": "btn btn-primary",
+              "texto": "Ver planes de lanzamiento →",
+              "color": "rgb(15, 30, 46)",
+              "fontSize": 14.5,
+              "fontWeight": 700,
+              "grande": false,
+              "opacidad": 1,
+              "rect": {
+                "x": 36,
+                "y": 15274.65625,
+                "w": 318,
+                "h": 72
+              },
+              "zonaFondo": "abajo",
+              "nFondo": 2862,
+              "desvFondo": 0,
+              "bg": [
+                10,
+                22,
+                32
+              ],
+              "bgPeor": [
+                10,
+                22,
+                32
+              ],
+              "rMedio": 1.08,
+              "rPeor": 1.08,
+              "umbral": 4.5
+            }
+          ],
+          "peor": [
+            {
+              "tag": "a",
+              "cls": "btn btn-primary",
+              "texto": "Ver planes de lanzamiento →",
+              "fs": 14.5,
+              "grande": false,
+              "color": "rgb(15, 30, 46)",
+              "bg": [
+                10,
+                22,
+                32
+              ],
+              "rMedio": 1.08,
+              "rPeor": 1.08,
+              "umbral": 4.5,
+              "zona": "abajo",
+              "n": 2862
+            },
+            {
+              "tag": "span",
+              "cls": "atag",
+              "texto": "RRSS",
+              "fs": 10,
+              "grande": false,
+              "color": "rgba(237, 243, 244, 0.66)",
+              "bg": [
+                22,
+                41,
+                58
+              ],
+              "rMedio": 6.6,
+              "rPeor": 6.6,
+              "umbral": 4.5,
+              "zona": "arriba",
+              "n": 414
+            },
+            {
+              "tag": "span",
+              "cls": "atag",
+              "texto": "Email",
+              "fs": 10,
+              "grande": false,
+              "color": "rgba(237, 243, 244, 0.66)",
+              "bg": [
+                22,
+                41,
+                58
+              ],
+              "rMedio": 6.6,
+              "rPeor": 6.6,
+              "umbral": 4.5,
+              "zona": "arriba",
+              "n": 477
+            },
+            {
+              "tag": "span",
+              "cls": "atag",
+              "texto": "CMS",
+              "fs": 10,
+              "grande": false,
+              "color": "rgba(237, 243, 244, 0.66)",
+              "bg": [
+                22,
+                41,
+                58
+              ],
+              "rMedio": 6.6,
+              "rPeor": 6.6,
+              "umbral": 4.5,
+              "zona": "arriba",
+              "n": 351
+            }
+          ],
+          "titulares": 2,
+          "cuerpo": 32,
+          "minTitular": 8.29,
+          "minCuerpo": 1.08,
+          "huecoPixMayor": 132,
+          "huecoPixInicio": 3889,
+          "huecoCabecera": 1,
+          "huecoPie": 132,
+          "huecoDOMMayor": 130,
+          "textura": {
+            "n": 27761,
+            "media": [
+              10,
+              22,
+              32
+            ],
+            "desv": 0.0003
+          }
+        },
+        {
+          "id": "lanzamiento",
+          "existe": true,
+          "clases": "deep grid-bg sec",
+          "alto": 1103,
+          "ancho": 390,
+          "capturaWH": [
+            390,
+            1104
+          ],
+          "textosExaminados": 28,
+          "textosEnDOM": 29,
+          "fallos": [
+            {
+              "tag": "span",
+              "cls": "lt",
+              "texto": "· cualifica leads y prepara presupuestos",
+              "color": "rgba(237, 243, 244, 0.66)",
+              "fontSize": 13,
+              "fontWeight": 400,
+              "grande": false,
+              "opacidad": 1,
+              "rect": {
+                "x": 433.578125,
+                "y": 35096.53125,
+                "w": 416.90625,
+                "h": 20
+              },
+              "zonaFondo": "izq",
+              "nFondo": 7800,
+              "desvFondo": 0.08,
+              "bg": [
+                18,
+                34,
+                43
+              ],
+              "bgPeor": [
+                152,
+                160,
+                165
+              ],
+              "rMedio": 7.03,
+              "rPeor": 1.82,
+              "umbral": 4.5
+            },
+            {
+              "tag": "span",
+              "cls": "lt",
+              "texto": "· resuelve consultas y pedidos 24/7",
+              "color": "rgba(237, 243, 244, 0.66)",
+              "fontSize": 13,
+              "fontWeight": 400,
+              "grande": false,
+              "opacidad": 1,
+              "rect": {
+                "x": 890.484375,
+                "y": 35096.53125,
+                "w": 391.484375,
+                "h": 20
+              },
+              "zonaFondo": "izq",
+              "nFondo": 7800,
+              "desvFondo": 0.08,
+              "bg": [
+                18,
+                34,
+                43
+              ],
+              "bgPeor": [
+                152,
+                160,
+                165
+              ],
+              "rMedio": 7.03,
+              "rPeor": 1.82,
+              "umbral": 4.5
+            },
+            {
+              "tag": "span",
+              "cls": "lt",
+              "texto": "· redacta contratos y controla vencimientos",
+              "color": "rgba(237, 243, 244, 0.66)",
+              "fontSize": 13,
+              "fontWeight": 400,
+              "grande": false,
+              "opacidad": 1,
+              "rect": {
+                "x": 1321.96875,
+                "y": 35096.53125,
+                "w": 433.859375,
+                "h": 20
+              },
+              "zonaFondo": "izq",
+              "nFondo": 7800,
+              "desvFondo": 0.08,
+              "bg": [
+                18,
+                34,
+                43
+              ],
+              "bgPeor": [
+                152,
+                160,
+                165
+              ],
+              "rMedio": 7.03,
+              "rPeor": 1.82,
+              "umbral": 4.5
+            },
+            {
+              "tag": "span",
+              "cls": "lt",
+              "texto": "· concilia cobros y proyecta tesorería",
+              "color": "rgba(237, 243, 244, 0.66)",
+              "fontSize": 13,
+              "fontWeight": 400,
+              "grande": false,
+              "opacidad": 1,
+              "rect": {
+                "x": 1795.828125,
+                "y": 35096.53125,
+                "w": 416.90625,
+                "h": 20
+              },
+              "zonaFondo": "izq",
+              "nFondo": 7800,
+              "desvFondo": 0.08,
+              "bg": [
+                18,
+                34,
+                43
+              ],
+              "bgPeor": [
+                152,
+                160,
+                165
+              ],
+              "rMedio": 7.03,
+              "rPeor": 1.82,
+              "umbral": 4.5
+            },
+            {
+              "tag": "span",
+              "cls": "lt",
+              "texto": "· prioriza el roadmap y cierra incidencias",
+              "color": "rgba(237, 243, 244, 0.66)",
+              "fontSize": 13,
+              "fontWeight": 400,
+              "grande": false,
+              "opacidad": 1,
+              "rect": {
+                "x": 2252.734375,
+                "y": 35096.53125,
+                "w": 501.671875,
+                "h": 20
+              },
+              "zonaFondo": "izq",
+              "nFondo": 7800,
+              "desvFondo": 0.08,
+              "bg": [
+                18,
+                34,
+                43
+              ],
+              "bgPeor": [
+                152,
+                160,
+                165
+              ],
+              "rMedio": 7.03,
+              "rPeor": 1.82,
+              "umbral": 4.5
+            },
+            {
+              "tag": "span",
+              "cls": "lt",
+              "texto": "· ordena incorporaciones, ausencias y turnos",
+              "color": "rgba(237, 243, 244, 0.66)",
+              "fontSize": 13,
+              "fontWeight": 400,
+              "grande": false,
+              "opacidad": 1,
+              "rect": {
+                "x": 2794.40625,
+                "y": 35096.53125,
+                "w": 450.8125,
+                "h": 20
+              },
+              "zonaFondo": "izq",
+              "nFondo": 7800,
+              "desvFondo": 0.08,
+              "bg": [
+                18,
+                34,
+                43
+              ],
+              "bgPeor": [
+                152,
+                160,
+                165
+              ],
+              "rMedio": 7.03,
+              "rPeor": 1.82,
+              "umbral": 4.5
+            },
+            {
+              "tag": "span",
+              "cls": "lt",
+              "texto": "· coordina rutas, pedidos y partes de obra",
+              "color": "rgba(237, 243, 244, 0.66)",
+              "fontSize": 13,
+              "fontWeight": 400,
+              "grande": false,
+              "opacidad": 1,
+              "rect": {
+                "x": 3285.21875,
+                "y": 35096.53125,
+                "w": 408.4375,
+                "h": 20
+              },
+              "zonaFondo": "izq",
+              "nFondo": 7800,
+              "desvFondo": 0.08,
+              "bg": [
+                18,
+                34,
+                43
+              ],
+              "bgPeor": [
+                152,
+                160,
+                165
+              ],
+              "rMedio": 7.03,
+              "rPeor": 1.82,
+              "umbral": 4.5
+            },
+            {
+              "tag": "span",
+              "cls": "lt",
+              "texto": "· consolida el cuadro de mando del negocio",
+              "color": "rgba(237, 243, 244, 0.66)",
+              "fontSize": 13,
+              "fontWeight": 400,
+              "grande": false,
+              "opacidad": 1,
+              "rect": {
+                "x": 3733.65625,
+                "y": 35096.53125,
+                "w": 459.296875,
+                "h": 20
+              },
+              "zonaFondo": "izq",
+              "nFondo": 7800,
+              "desvFondo": 0.08,
+              "bg": [
+                18,
+                34,
+                43
+              ],
+              "bgPeor": [
+                152,
+                160,
+                165
+              ],
+              "rMedio": 7.03,
+              "rPeor": 1.82,
+              "umbral": 4.5
+            },
+            {
+              "tag": "span",
+              "cls": "lt",
+              "texto": "· un solo panel para gobernarlo todo",
+              "color": "rgba(237, 243, 244, 0.66)",
+              "fontSize": 13,
+              "fontWeight": 400,
+              "grande": false,
+              "opacidad": 1,
+              "rect": {
+                "x": 4232.953125,
+                "y": 35096.53125,
+                "w": 425.390625,
+                "h": 20
+              },
+              "zonaFondo": "izq",
+              "nFondo": 7800,
+              "desvFondo": 0.08,
+              "bg": [
+                18,
+                34,
+                43
+              ],
+              "bgPeor": [
+                152,
+                160,
+                165
+              ],
+              "rMedio": 7.03,
+              "rPeor": 1.82,
+              "umbral": 4.5
+            },
+            {
+              "tag": "span",
+              "cls": "lt",
+              "texto": "· tú apruebas cada acción crítica",
+              "color": "rgba(237, 243, 244, 0.66)",
+              "fontSize": 13,
+              "fontWeight": 400,
+              "grande": false,
+              "opacidad": 1,
+              "rect": {
+                "x": 4698.34375,
+                "y": 35096.53125,
+                "w": 459.296875,
+                "h": 20
+              },
+              "zonaFondo": "izq",
+              "nFondo": 7800,
+              "desvFondo": 0.08,
+              "bg": [
+                18,
+                34,
+                43
+              ],
+              "bgPeor": [
+                152,
+                160,
+                165
+              ],
+              "rMedio": 7.03,
+              "rPeor": 1.82,
+              "umbral": 4.5
+            },
+            {
+              "tag": "span",
+              "cls": "lt",
+              "texto": "· crea contenido y nutre leads",
+              "color": "rgba(237, 243, 244, 0.66)",
+              "fontSize": 13,
+              "fontWeight": 400,
+              "grande": false,
+              "opacidad": 1,
+              "rect": {
+                "x": 5197.640625,
+                "y": 35096.53125,
+                "w": 357.578125,
+                "h": 20
+              },
+              "zonaFondo": "izq",
+              "nFondo": 7800,
+              "desvFondo": 0.08,
+              "bg": [
+                18,
+                34,
+                43
+              ],
+              "bgPeor": [
+                152,
+                160,
+                165
+              ],
+              "rMedio": 7.03,
+              "rPeor": 1.82,
+              "umbral": 4.5
+            },
+            {
+              "tag": "span",
+              "cls": "lt",
+              "texto": "· cualifica leads y prepara presupuestos",
+              "color": "rgba(237, 243, 244, 0.66)",
+              "fontSize": 13,
+              "fontWeight": 400,
+              "grande": false,
+              "opacidad": 1,
+              "rect": {
+                "x": 5595.21875,
+                "y": 35096.53125,
+                "w": 416.90625,
+                "h": 20
+              },
+              "zonaFondo": "izq",
+              "nFondo": 7800,
+              "desvFondo": 0.08,
+              "bg": [
+                18,
+                34,
+                43
+              ],
+              "bgPeor": [
+                152,
+                160,
+                165
+              ],
+              "rMedio": 7.03,
+              "rPeor": 1.82,
+              "umbral": 4.5
+            },
+            {
+              "tag": "span",
+              "cls": "lt",
+              "texto": "· resuelve consultas y pedidos 24/7",
+              "color": "rgba(237, 243, 244, 0.66)",
+              "fontSize": 13,
+              "fontWeight": 400,
+              "grande": false,
+              "opacidad": 1,
+              "rect": {
+                "x": 6052.125,
+                "y": 35096.53125,
+                "w": 391.484375,
+                "h": 20
+              },
+              "zonaFondo": "izq",
+              "nFondo": 7800,
+              "desvFondo": 0.08,
+              "bg": [
+                18,
+                34,
+                43
+              ],
+              "bgPeor": [
+                152,
+                160,
+                165
+              ],
+              "rMedio": 7.03,
+              "rPeor": 1.82,
+              "umbral": 4.5
+            },
+            {
+              "tag": "span",
+              "cls": "lt",
+              "texto": "· redacta contratos y controla vencimientos",
+              "color": "rgba(237, 243, 244, 0.66)",
+              "fontSize": 13,
+              "fontWeight": 400,
+              "grande": false,
+              "opacidad": 1,
+              "rect": {
+                "x": 6483.609375,
+                "y": 35096.53125,
+                "w": 433.859375,
+                "h": 20
+              },
+              "zonaFondo": "izq",
+              "nFondo": 7800,
+              "desvFondo": 0.08,
+              "bg": [
+                18,
+                34,
+                43
+              ],
+              "bgPeor": [
+                152,
+                160,
+                165
+              ],
+              "rMedio": 7.03,
+              "rPeor": 1.82,
+              "umbral": 4.5
+            },
+            {
+              "tag": "span",
+              "cls": "lt",
+              "texto": "· concilia cobros y proyecta tesorería",
+              "color": "rgba(237, 243, 244, 0.66)",
+              "fontSize": 13,
+              "fontWeight": 400,
+              "grande": false,
+              "opacidad": 1,
+              "rect": {
+                "x": 6957.46875,
+                "y": 35096.53125,
+                "w": 416.90625,
+                "h": 20
+              },
+              "zonaFondo": "izq",
+              "nFondo": 7800,
+              "desvFondo": 0.08,
+              "bg": [
+                18,
+                34,
+                43
+              ],
+              "bgPeor": [
+                152,
+                160,
+                165
+              ],
+              "rMedio": 7.03,
+              "rPeor": 1.82,
+              "umbral": 4.5
+            },
+            {
+              "tag": "span",
+              "cls": "lt",
+              "texto": "· prioriza el roadmap y cierra incidencias",
+              "color": "rgba(237, 243, 244, 0.66)",
+              "fontSize": 13,
+              "fontWeight": 400,
+              "grande": false,
+              "opacidad": 1,
+              "rect": {
+                "x": 7414.375,
+                "y": 35096.53125,
+                "w": 501.671875,
+                "h": 20
+              },
+              "zonaFondo": "izq",
+              "nFondo": 7800,
+              "desvFondo": 0.08,
+              "bg": [
+                18,
+                34,
+                43
+              ],
+              "bgPeor": [
+                152,
+                160,
+                165
+              ],
+              "rMedio": 7.03,
+              "rPeor": 1.82,
+              "umbral": 4.5
+            },
+            {
+              "tag": "span",
+              "cls": "lt",
+              "texto": "· ordena incorporaciones, ausencias y turnos",
+              "color": "rgba(237, 243, 244, 0.66)",
+              "fontSize": 13,
+              "fontWeight": 400,
+              "grande": false,
+              "opacidad": 1,
+              "rect": {
+                "x": 7956.046875,
+                "y": 35096.53125,
+                "w": 450.8125,
+                "h": 20
+              },
+              "zonaFondo": "izq",
+              "nFondo": 7800,
+              "desvFondo": 0.08,
+              "bg": [
+                18,
+                34,
+                43
+              ],
+              "bgPeor": [
+                152,
+                160,
+                165
+              ],
+              "rMedio": 7.03,
+              "rPeor": 1.82,
+              "umbral": 4.5
+            },
+            {
+              "tag": "span",
+              "cls": "lt",
+              "texto": "· coordina rutas, pedidos y partes de obra",
+              "color": "rgba(237, 243, 244, 0.66)",
+              "fontSize": 13,
+              "fontWeight": 400,
+              "grande": false,
+              "opacidad": 1,
+              "rect": {
+                "x": 8446.859375,
+                "y": 35096.53125,
+                "w": 408.4375,
+                "h": 20
+              },
+              "zonaFondo": "izq",
+              "nFondo": 7800,
+              "desvFondo": 0.08,
+              "bg": [
+                18,
+                34,
+                43
+              ],
+              "bgPeor": [
+                152,
+                160,
+                165
+              ],
+              "rMedio": 7.03,
+              "rPeor": 1.82,
+              "umbral": 4.5
+            },
+            {
+              "tag": "span",
+              "cls": "lt",
+              "texto": "· consolida el cuadro de mando del negocio",
+              "color": "rgba(237, 243, 244, 0.66)",
+              "fontSize": 13,
+              "fontWeight": 400,
+              "grande": false,
+              "opacidad": 1,
+              "rect": {
+                "x": 8895.296875,
+                "y": 35096.53125,
+                "w": 459.296875,
+                "h": 20
+              },
+              "zonaFondo": "izq",
+              "nFondo": 7800,
+              "desvFondo": 0.08,
+              "bg": [
+                18,
+                34,
+                43
+              ],
+              "bgPeor": [
+                152,
+                160,
+                165
+              ],
+              "rMedio": 7.03,
+              "rPeor": 1.82,
+              "umbral": 4.5
+            },
+            {
+              "tag": "span",
+              "cls": "lt",
+              "texto": "· un solo panel para gobernarlo todo",
+              "color": "rgba(237, 243, 244, 0.66)",
+              "fontSize": 13,
+              "fontWeight": 400,
+              "grande": false,
+              "opacidad": 1,
+              "rect": {
+                "x": 9394.59375,
+                "y": 35096.53125,
+                "w": 425.390625,
+                "h": 20
+              },
+              "zonaFondo": "izq",
+              "nFondo": 7800,
+              "desvFondo": 0.08,
+              "bg": [
+                18,
+                34,
+                43
+              ],
+              "bgPeor": [
+                152,
+                160,
+                165
+              ],
+              "rMedio": 7.03,
+              "rPeor": 1.82,
+              "umbral": 4.5
+            },
+            {
+              "tag": "span",
+              "cls": "lt",
+              "texto": "· tú apruebas cada acción crítica",
+              "color": "rgba(237, 243, 244, 0.66)",
+              "fontSize": 13,
+              "fontWeight": 400,
+              "grande": false,
+              "opacidad": 1,
+              "rect": {
+                "x": 9859.984375,
+                "y": 35096.53125,
+                "w": 459.296875,
+                "h": 20
+              },
+              "zonaFondo": "izq",
+              "nFondo": 7800,
+              "desvFondo": 0.08,
+              "bg": [
+                18,
+                34,
+                43
+              ],
+              "bgPeor": [
+                152,
+                160,
+                165
+              ],
+              "rMedio": 7.03,
+              "rPeor": 1.82,
+              "umbral": 4.5
+            }
+          ],
+          "peor": [
+            {
+              "tag": "span",
+              "cls": "lt",
+              "texto": "· cualifica leads y prepara presupuestos",
+              "fs": 13,
+              "grande": false,
+              "color": "rgba(237, 243, 244, 0.66)",
+              "bg": [
+                18,
+                34,
+                43
+              ],
+              "rMedio": 7.03,
+              "rPeor": 1.82,
+              "umbral": 4.5,
+              "zona": "izq",
+              "n": 7800
+            },
+            {
+              "tag": "span",
+              "cls": "lt",
+              "texto": "· resuelve consultas y pedidos 24/7",
+              "fs": 13,
+              "grande": false,
+              "color": "rgba(237, 243, 244, 0.66)",
+              "bg": [
+                18,
+                34,
+                43
+              ],
+              "rMedio": 7.03,
+              "rPeor": 1.82,
+              "umbral": 4.5,
+              "zona": "izq",
+              "n": 7800
+            },
+            {
+              "tag": "span",
+              "cls": "lt",
+              "texto": "· redacta contratos y controla vencimientos",
+              "fs": 13,
+              "grande": false,
+              "color": "rgba(237, 243, 244, 0.66)",
+              "bg": [
+                18,
+                34,
+                43
+              ],
+              "rMedio": 7.03,
+              "rPeor": 1.82,
+              "umbral": 4.5,
+              "zona": "izq",
+              "n": 7800
+            },
+            {
+              "tag": "span",
+              "cls": "lt",
+              "texto": "· concilia cobros y proyecta tesorería",
+              "fs": 13,
+              "grande": false,
+              "color": "rgba(237, 243, 244, 0.66)",
+              "bg": [
+                18,
+                34,
+                43
+              ],
+              "rMedio": 7.03,
+              "rPeor": 1.82,
+              "umbral": 4.5,
+              "zona": "izq",
+              "n": 7800
+            }
+          ],
+          "titulares": 2,
+          "cuerpo": 26,
+          "minTitular": 8.94,
+          "minCuerpo": 1.82,
+          "huecoPixMayor": 110,
+          "huecoPixInicio": 994,
+          "huecoCabecera": 0,
+          "huecoPie": 110,
+          "huecoDOMMayor": 127,
+          "textura": {
+            "n": 7636,
+            "media": [
+              10,
+              22,
+              32
+            ],
+            "desv": 0.0003
+          }
+        },
+        {
+          "id": "lab",
+          "existe": true,
+          "clases": "deep grid-bg sec",
+          "alto": 2260,
+          "ancho": 390,
+          "capturaWH": [
+            390,
+            2261
+          ],
+          "textosExaminados": 13,
+          "textosEnDOM": 13,
+          "fallos": [],
+          "peor": [
+            {
+              "tag": "p",
+              "cls": "lead",
+              "texto": "Cuando el OS estándar no basta, STRATA Lab diseña, construye",
+              "fs": 20,
+              "grande": false,
+              "color": "rgba(237, 243, 244, 0.66)",
+              "bg": [
+                11,
+                23,
+                32
+              ],
+              "rMedio": 7.52,
+              "rPeor": 7.02,
+              "umbral": 4.5,
+              "zona": "izq",
+              "n": 5760
+            },
+            {
+              "tag": "p",
+              "cls": "body",
+              "texto": "En 3 semanas mapeamos tu operación y te decimos dónde la IA ",
+              "fs": 17,
+              "grande": false,
+              "color": "rgba(237, 243, 244, 0.66)",
+              "bg": [
+                15,
+                30,
+                46
+              ],
+              "rMedio": 7.19,
+              "rPeor": 7.19,
+              "umbral": 4.5,
+              "zona": "arriba",
+              "n": 2232
+            },
+            {
+              "tag": "p",
+              "cls": "body",
+              "texto": "Construimos e integramos tu sistema y formamos a tu equipo. ",
+              "fs": 17,
+              "grande": false,
+              "color": "rgba(237, 243, 244, 0.66)",
+              "bg": [
+                15,
+                30,
+                46
+              ],
+              "rMedio": 7.19,
+              "rPeor": 7.19,
+              "umbral": 4.5,
+              "zona": "abajo",
+              "n": 2232
+            },
+            {
+              "tag": "p",
+              "cls": "body",
+              "texto": "Cuota fija mensual: mantenemos el sistema vivo, lo operamos ",
+              "fs": 17,
+              "grande": false,
+              "color": "rgba(237, 243, 244, 0.66)",
+              "bg": [
+                15,
+                30,
+                46
+              ],
+              "rMedio": 7.19,
+              "rPeor": 7.19,
+              "umbral": 4.5,
+              "zona": "arriba",
+              "n": 2232
+            }
+          ],
+          "titulares": 2,
+          "cuerpo": 11,
+          "minTitular": 8.3,
+          "minCuerpo": 7.02,
+          "huecoPixMayor": 139,
+          "huecoPixInicio": 2122,
+          "huecoCabecera": 0,
+          "huecoPie": 139,
+          "huecoDOMMayor": 130,
+          "textura": {
+            "n": 15617,
+            "media": [
+              10,
+              22,
+              32
+            ],
+            "desv": 0.0003
+          }
+        },
+        {
+          "id": "casos",
+          "existe": true,
+          "clases": "deep grid-bg sec",
+          "alto": 1273,
+          "ancho": 390,
+          "capturaWH": [
+            390,
+            1273
+          ],
+          "textosExaminados": 12,
+          "textosEnDOM": 12,
+          "fallos": [
+            {
+              "tag": "span",
+              "cls": "",
+              "texto": "Agente de Ventas · demo",
+              "color": "rgba(237, 243, 244, 0.5)",
+              "fontSize": 11,
+              "fontWeight": 400,
+              "grande": false,
+              "opacidad": 1,
+              "rect": {
+                "x": 381.75,
+                "y": 32048.953125,
+                "w": 45.6875,
+                "h": 64
+              },
+              "zonaFondo": "izq",
+              "nFondo": 24064,
+              "desvFondo": 0.2,
+              "bg": [
+                34,
+                52,
+                66
+              ],
+              "bgPeor": [
+                237,
+                243,
+                244
+              ],
+              "rMedio": 4.1,
+              "rPeor": 1,
+              "umbral": 4.5
+            },
+            {
+              "tag": "span",
+              "cls": "um-ok",
+              "texto": "hecho",
+              "color": "rgb(53, 208, 186)",
+              "fontSize": 10,
+              "fontWeight": 400,
+              "grande": false,
+              "opacidad": 1,
+              "rect": {
+                "x": 508.109375,
+                "y": 32205.953125,
+                "w": 33.609375,
+                "h": 15
+              },
+              "zonaFondo": "izq",
+              "nFondo": 5850,
+              "desvFondo": 0.06,
+              "bg": [
+                25,
+                43,
+                58
+              ],
+              "bgPeor": [
+                145,
+                157,
+                164
+              ],
+              "rMedio": 7.52,
+              "rPeor": 1.44,
+              "umbral": 4.5
+            },
+            {
+              "tag": "span",
+              "cls": "um-ok",
+              "texto": "activo",
+              "color": "rgb(53, 208, 186)",
+              "fontSize": 10,
+              "fontWeight": 400,
+              "grande": false,
+              "opacidad": 1,
+              "rect": {
+                "x": 517.515625,
+                "y": 32482.953125,
+                "w": 40.328125,
+                "h": 15
+              },
+              "zonaFondo": "izq",
+              "nFondo": 5850,
+              "desvFondo": 0.13,
+              "bg": [
+                30,
+                50,
+                64
+              ],
+              "bgPeor": [
+                192,
+                203,
+                207
+              ],
+              "rMedio": 6.86,
+              "rPeor": 1.17,
+              "umbral": 4.5
+            }
+          ],
+          "peor": [
+            {
+              "tag": "span",
+              "cls": "",
+              "texto": "Agente de Ventas · demo",
+              "fs": 11,
+              "grande": false,
+              "color": "rgba(237, 243, 244, 0.5)",
+              "bg": [
+                34,
+                52,
+                66
+              ],
+              "rMedio": 4.1,
+              "rPeor": 1,
+              "umbral": 4.5,
+              "zona": "izq",
+              "n": 24064
+            },
+            {
+              "tag": "span",
+              "cls": "um-ok",
+              "texto": "activo",
+              "fs": 10,
+              "grande": false,
+              "color": "rgb(53, 208, 186)",
+              "bg": [
+                30,
+                50,
+                64
+              ],
+              "rMedio": 6.86,
+              "rPeor": 1.17,
+              "umbral": 4.5,
+              "zona": "izq",
+              "n": 5850
+            },
+            {
+              "tag": "span",
+              "cls": "um-ok",
+              "texto": "hecho",
+              "fs": 10,
+              "grande": false,
+              "color": "rgb(53, 208, 186)",
+              "bg": [
+                25,
+                43,
+                58
+              ],
+              "rMedio": 7.52,
+              "rPeor": 1.44,
+              "umbral": 4.5,
+              "zona": "izq",
+              "n": 5850
+            },
+            {
+              "tag": "button",
+              "cls": "uc-tab",
+              "texto": "Operar sin fricción",
+              "fs": 13,
+              "grande": false,
+              "color": "rgba(237, 243, 244, 0.66)",
+              "bg": [
+                11,
+                33,
+                40
+              ],
+              "rMedio": 7.12,
+              "rPeor": 6.71,
+              "umbral": 4.5,
+              "zona": "izq",
+              "n": 1320
+            }
+          ],
+          "titulares": 2,
+          "cuerpo": 10,
+          "minTitular": 9.02,
+          "minCuerpo": 1,
+          "huecoPixMayor": 130,
+          "huecoPixInicio": 1143,
+          "huecoCabecera": 0,
+          "huecoPie": 130,
+          "huecoDOMMayor": 213,
+          "textura": {
+            "n": 8763,
+            "media": [
+              10,
+              25,
+              34
+            ],
+            "desv": 0.0017
+          }
+        },
+        {
+          "id": "contacto",
+          "existe": true,
+          "clases": "deep grid-bg footcta",
+          "alto": 1484,
+          "ancho": 390,
+          "capturaWH": [
+            390,
+            1485
+          ],
+          "textosExaminados": 12,
+          "textosEnDOM": 12,
+          "fallos": [
+            {
+              "tag": "span",
+              "cls": "req",
+              "texto": "*",
+              "color": "rgb(53, 208, 186)",
+              "fontSize": 11,
+              "fontWeight": 400,
+              "grande": false,
+              "opacidad": 1,
+              "rect": {
+                "x": 184.90625,
+                "y": 47826.859375,
+                "w": 8.28125,
+                "h": 16
+              },
+              "zonaFondo": "izq",
+              "nFondo": 2864,
+              "desvFondo": 0.07,
+              "bg": [
+                23,
+                35,
+                45
+              ],
+              "bgPeor": [
+                139,
+                148,
+                154
+              ],
+              "rMedio": 8.28,
+              "rPeor": 1.6,
+              "umbral": 4.5
+            }
+          ],
+          "peor": [
+            {
+              "tag": "span",
+              "cls": "req",
+              "texto": "*",
+              "fs": 11,
+              "grande": false,
+              "color": "rgb(53, 208, 186)",
+              "bg": [
+                23,
+                35,
+                45
+              ],
+              "rMedio": 8.28,
+              "rPeor": 1.6,
+              "umbral": 4.5,
+              "zona": "izq",
+              "n": 2864
+            },
+            {
+              "tag": "p",
+              "cls": "lead reveal",
+              "texto": "Sin esperar al lanzamiento del OS: en 3 semanas te decimos d",
+              "fs": 20,
+              "grande": false,
+              "color": "rgba(237, 243, 244, 0.66)",
+              "bg": [
+                10,
+                22,
+                32
+              ],
+              "rMedio": 7.55,
+              "rPeor": 7.3,
+              "umbral": 4.5,
+              "zona": "izq",
+              "n": 4800
+            },
+            {
+              "tag": "label",
+              "cls": "",
+              "texto": "Nombre",
+              "fs": 11,
+              "grande": false,
+              "color": "rgba(237, 243, 244, 0.66)",
+              "bg": [
+                10,
+                22,
+                32
+              ],
+              "rMedio": 7.55,
+              "rPeor": 7.36,
+              "umbral": 4.5,
+              "zona": "izq",
+              "n": 480
+            },
+            {
+              "tag": "label",
+              "cls": "",
+              "texto": "Email",
+              "fs": 11,
+              "grande": false,
+              "color": "rgba(237, 243, 244, 0.66)",
+              "bg": [
+                10,
+                22,
+                32
+              ],
+              "rMedio": 7.55,
+              "rPeor": 7.48,
+              "umbral": 4.5,
+              "zona": "izq",
+              "n": 480
+            }
+          ],
+          "titulares": 1,
+          "cuerpo": 11,
+          "minTitular": 16.18,
+          "minCuerpo": 1.6,
+          "huecoPixMayor": 151,
+          "huecoPixInicio": 1334,
+          "huecoCabecera": 0,
+          "huecoPie": 151,
+          "huecoDOMMayor": 170,
+          "textura": {
+            "n": 10235,
+            "media": [
+              10,
+              22,
+              32
+            ],
+            "desv": 0.0003
+          }
+        }
+      ]
+    },
+    {
+      "etiqueta": "movil/en",
+      "viewport": "movil",
+      "idioma": "en",
+      "elementosDOM": 1928,
+      "altoDoc": 47809,
+      "imagenes": {
+        "examinadas": 7,
+        "lista": [
+          {
+            "src": "http://localhost:4399/_astro/os-dia.3LFDQGbj_CDzpk.webp",
+            "attrSrc": "/_astro/os-dia.3LFDQGbj_WDWhL.webp",
+            "srcset": "/_astro/os-dia.3LFDQGbj_CDzpk.webp 760w, /_astro/os-dia.3LFDQGbj_X3FNS.webp 1100w, /_astro/os-dia.3LFDQGbj_14Ta4x.webp 1600w, /_astro/os-dia.3LFDQGbj_WDWhL.webp 2000w",
+            "alt": "The Business OS \"start here\" panel, with six proposed actions: close the books, chase payments, find leads, publish to social, compare quotes and watch competitors",
+            "natural": [
+              358,
+              70
+            ],
+            "render": [
+              318,
+              64
+            ],
+            "visible": true,
+            "seccion": "producto"
+          },
+          {
+            "src": "http://localhost:4399/_astro/os-equipo.Lh623l_K_ZORDb7.webp",
+            "attrSrc": "/_astro/os-equipo.Lh623l_K_Z1W69bL.webp",
+            "srcset": "/_astro/os-equipo.Lh623l_K_ZORDb7.webp 760w, /_astro/os-equipo.Lh623l_K_UvNyj.webp 1100w, /_astro/os-equipo.Lh623l_K_Z1DfTAd.webp 1600w, /_astro/os-equipo.Lh623l_K_Z1W69bL.webp 2200w",
+            "alt": "The Business OS \"hire your team\" screen, showing the Marketing agent cards and a headcount of 132",
+            "natural": [
+              358,
+              184
+            ],
+            "render": [
+              318,
+              164
+            ],
+            "visible": true,
+            "seccion": "producto"
+          },
+          {
+            "src": "http://localhost:4399/_astro/os-depto.CFA-Vxm6_Z1ri0OO.webp",
+            "attrSrc": "/_astro/os-depto.CFA-Vxm6_wgNt4.webp",
+            "srcset": "/_astro/os-depto.CFA-Vxm6_Z1ri0OO.webp 760w, /_astro/os-depto.CFA-Vxm6_2s0Hsb.webp 1100w, /_astro/os-depto.CFA-Vxm6_ZesfwF.webp 1600w, /_astro/os-depto.CFA-Vxm6_wgNt4.webp 2000w",
+            "alt": "The Marketing & Growth department map in the Business OS, showing fifteen functions — calendar, messages, content factory, social, brand, web, SEO, email, paid, conversion, launches, creators, PR, retail and analytics — with the work pending in each",
+            "natural": [
+              358,
+              56
+            ],
+            "render": [
+              318,
+              51
+            ],
+            "visible": true,
+            "seccion": "producto"
+          },
+          {
+            "src": "http://localhost:4399/_astro/os-aprobar.Bt7fylt7_BppXP.webp",
+            "attrSrc": "/_astro/os-aprobar.Bt7fylt7_2j430y.webp",
+            "srcset": "/_astro/os-aprobar.Bt7fylt7_BppXP.webp 760w, /_astro/os-aprobar.Bt7fylt7_Z22mKH6.webp 1100w, /_astro/os-aprobar.Bt7fylt7_1h3lrl.webp 1600w, /_astro/os-aprobar.Bt7fylt7_2j430y.webp 2000w",
+            "alt": "The approval queue by department in the Business OS, with Marketing, Sales and Finance awaiting review",
+            "natural": [
+              358,
+              51
+            ],
+            "render": [
+              318,
+              47
+            ],
+            "visible": true,
+            "seccion": "producto"
+          },
+          {
+            "src": "http://localhost:4399/_astro/founder-gonzalo.DvFUyYrE_ZvDFLl.webp",
+            "attrSrc": "/_astro/founder-gonzalo.DvFUyYrE_ZvDFLl.webp",
+            "srcset": "/_astro/founder-gonzalo.DvFUyYrE_ONlQJ.webp 360w, /_astro/founder-gonzalo.DvFUyYrE_ZvDFLl.webp 400w",
+            "alt": "Gonzalo",
+            "natural": [
+              390,
+              390
+            ],
+            "render": [
+              260,
+              300
+            ],
+            "visible": true,
+            "seccion": "equipo"
+          },
+          {
+            "src": "http://localhost:4399/_astro/founder-borja.C2WdPRGy_Z2sm4SR.webp",
+            "attrSrc": "/_astro/founder-borja.C2WdPRGy_Z2sm4SR.webp",
+            "srcset": "/_astro/founder-borja.C2WdPRGy_Z17AOm3.webp 360w, /_astro/founder-borja.C2WdPRGy_Z2sm4SR.webp 400w",
+            "alt": "Borja",
+            "natural": [
+              390,
+              390
+            ],
+            "render": [
+              260,
+              300
+            ],
+            "visible": true,
+            "seccion": "equipo"
+          },
+          {
+            "src": "http://localhost:4399/_astro/founder-lucia.Cux8JbKV_ZXnLJc.webp",
+            "attrSrc": "/_astro/founder-lucia.Cux8JbKV_ZXnLJc.webp",
+            "srcset": "/_astro/founder-lucia.Cux8JbKV_mmsMC.webp 360w, /_astro/founder-lucia.Cux8JbKV_ZXnLJc.webp 400w",
+            "alt": "Lucía",
+            "natural": [
+              390,
+              390
+            ],
+            "render": [
+              260,
+              300
+            ],
+            "visible": true,
+            "seccion": "equipo"
+          }
+        ],
+        "prohibidas": []
+      },
+      "sources": {
+        "examinados": 0,
+        "prohibidos": []
+      },
+      "preloads": {
+        "examinados": 2,
+        "prohibidos": []
+      },
+      "fondosCSS": {
+        "examinados": 0,
+        "lista": [],
+        "prohibidos": []
+      },
+      "red": {
+        "examinadas": 15,
+        "imagenes": 7,
+        "prohibidas": []
+      },
+      "desborde": {
+        "scrollWidth": 390,
+        "innerWidth": 390,
+        "bodyScrollWidth": 390,
+        "clientWidth": 390
+      },
+      "culpablesDesborde": [],
+      "secciones": [
+        {
+          "id": "agentes",
+          "existe": true,
+          "clases": "deep grid-bg sec",
+          "alto": 3875,
+          "ancho": 390,
+          "capturaWH": [
+            390,
+            3876
+          ],
+          "textosExaminados": 34,
+          "textosEnDOM": 34,
+          "fallos": [
+            {
+              "tag": "a",
+              "cls": "btn btn-primary",
+              "texto": "See launch pricing →",
+              "color": "rgb(15, 30, 46)",
+              "fontSize": 14.5,
+              "fontWeight": 700,
+              "grande": false,
+              "opacidad": 1,
+              "rect": {
+                "x": 36,
+                "y": 14886.640625,
+                "w": 250.75,
+                "h": 51
+              },
+              "zonaFondo": "abajo",
+              "nFondo": 2259,
+              "desvFondo": 0,
+              "bg": [
+                10,
+                22,
+                32
+              ],
+              "bgPeor": [
+                10,
+                22,
+                32
+              ],
+              "rMedio": 1.08,
+              "rPeor": 1.08,
+              "umbral": 4.5
+            }
+          ],
+          "peor": [
+            {
+              "tag": "a",
+              "cls": "btn btn-primary",
+              "texto": "See launch pricing →",
+              "fs": 14.5,
+              "grande": false,
+              "color": "rgb(15, 30, 46)",
+              "bg": [
+                10,
+                22,
+                32
+              ],
+              "rMedio": 1.08,
+              "rPeor": 1.08,
+              "umbral": 4.5,
+              "zona": "abajo",
+              "n": 2259
+            },
+            {
+              "tag": "span",
+              "cls": "atag",
+              "texto": "Social",
+              "fs": 10,
+              "grande": false,
+              "color": "rgba(237, 243, 244, 0.66)",
+              "bg": [
+                22,
+                41,
+                58
+              ],
+              "rMedio": 6.6,
+              "rPeor": 6.6,
+              "umbral": 4.5,
+              "zona": "arriba",
+              "n": 531
+            },
+            {
+              "tag": "span",
+              "cls": "atag",
+              "texto": "Email",
+              "fs": 10,
+              "grande": false,
+              "color": "rgba(237, 243, 244, 0.66)",
+              "bg": [
+                22,
+                41,
+                58
+              ],
+              "rMedio": 6.6,
+              "rPeor": 6.6,
+              "umbral": 4.5,
+              "zona": "arriba",
+              "n": 477
+            },
+            {
+              "tag": "span",
+              "cls": "atag",
+              "texto": "CMS",
+              "fs": 10,
+              "grande": false,
+              "color": "rgba(237, 243, 244, 0.66)",
+              "bg": [
+                22,
+                41,
+                58
+              ],
+              "rMedio": 6.6,
+              "rPeor": 6.6,
+              "umbral": 4.5,
+              "zona": "arriba",
+              "n": 351
+            }
+          ],
+          "titulares": 2,
+          "cuerpo": 32,
+          "minTitular": 8.29,
+          "minCuerpo": 1.08,
+          "huecoPixMayor": 132,
+          "huecoPixInicio": 3744,
+          "huecoCabecera": 0,
+          "huecoPie": 132,
+          "huecoDOMMayor": 130,
+          "textura": {
+            "n": 26726,
+            "media": [
+              10,
+              22,
+              32
+            ],
+            "desv": 0.0003
+          }
+        },
+        {
+          "id": "lanzamiento",
+          "existe": true,
+          "clases": "deep grid-bg sec",
+          "alto": 1110,
+          "ancho": 390,
+          "capturaWH": [
+            390,
+            1110
+          ],
+          "textosExaminados": 28,
+          "textosEnDOM": 29,
+          "fallos": [
+            {
+              "tag": "span",
+              "cls": "lt",
+              "texto": "· qualifies leads and prepares quotes",
+              "color": "rgba(237, 243, 244, 0.66)",
+              "fontSize": 13,
+              "fontWeight": 400,
+              "grande": false,
+              "opacidad": 1,
+              "rect": {
+                "x": 484.4375,
+                "y": 34782.5625,
+                "w": 383.015625,
+                "h": 20
+              },
+              "zonaFondo": "izq",
+              "nFondo": 7800,
+              "desvFondo": 0.08,
+              "bg": [
+                18,
+                34,
+                43
+              ],
+              "bgPeor": [
+                152,
+                160,
+                165
+              ],
+              "rMedio": 7.03,
+              "rPeor": 1.82,
+              "umbral": 4.5
+            },
+            {
+              "tag": "span",
+              "cls": "lt",
+              "texto": "· resolves queries and orders 24/7",
+              "color": "rgba(237, 243, 244, 0.66)",
+              "fontSize": 13,
+              "fontWeight": 400,
+              "grande": false,
+              "opacidad": 1,
+              "rect": {
+                "x": 907.453125,
+                "y": 34782.5625,
+                "w": 374.53125,
+                "h": 20
+              },
+              "zonaFondo": "izq",
+              "nFondo": 7800,
+              "desvFondo": 0.08,
+              "bg": [
+                18,
+                34,
+                43
+              ],
+              "bgPeor": [
+                152,
+                160,
+                165
+              ],
+              "rMedio": 7.03,
+              "rPeor": 1.82,
+              "umbral": 4.5
+            },
+            {
+              "tag": "span",
+              "cls": "lt",
+              "texto": "· drafts contracts and tracks renewals",
+              "color": "rgba(237, 243, 244, 0.66)",
+              "fontSize": 13,
+              "fontWeight": 400,
+              "grande": false,
+              "opacidad": 1,
+              "rect": {
+                "x": 1321.984375,
+                "y": 34782.5625,
+                "w": 391.484375,
+                "h": 20
+              },
+              "zonaFondo": "izq",
+              "nFondo": 7800,
+              "desvFondo": 0.08,
+              "bg": [
+                18,
+                34,
+                43
+              ],
+              "bgPeor": [
+                152,
+                160,
+                165
+              ],
+              "rMedio": 7.03,
+              "rPeor": 1.82,
+              "umbral": 4.5
+            },
+            {
+              "tag": "span",
+              "cls": "lt",
+              "texto": "· reconciles payments and projects cash flow",
+              "color": "rgba(237, 243, 244, 0.66)",
+              "fontSize": 13,
+              "fontWeight": 400,
+              "grande": false,
+              "opacidad": 1,
+              "rect": {
+                "x": 1753.46875,
+                "y": 34782.5625,
+                "w": 459.296875,
+                "h": 20
+              },
+              "zonaFondo": "izq",
+              "nFondo": 7800,
+              "desvFondo": 0.08,
+              "bg": [
+                18,
+                34,
+                43
+              ],
+              "bgPeor": [
+                152,
+                160,
+                165
+              ],
+              "rMedio": 7.03,
+              "rPeor": 1.82,
+              "umbral": 4.5
+            },
+            {
+              "tag": "span",
+              "cls": "lt",
+              "texto": "· prioritises the roadmap and closes issues",
+              "color": "rgba(237, 243, 244, 0.66)",
+              "fontSize": 13,
+              "fontWeight": 400,
+              "grande": false,
+              "opacidad": 1,
+              "rect": {
+                "x": 2252.765625,
+                "y": 34782.5625,
+                "w": 501.671875,
+                "h": 20
+              },
+              "zonaFondo": "izq",
+              "nFondo": 7800,
+              "desvFondo": 0.08,
+              "bg": [
+                18,
+                34,
+                43
+              ],
+              "bgPeor": [
+                152,
+                160,
+                165
+              ],
+              "rMedio": 7.03,
+              "rPeor": 1.82,
+              "umbral": 4.5
+            },
+            {
+              "tag": "span",
+              "cls": "lt",
+              "texto": "· runs onboarding, absence and shifts",
+              "color": "rgba(237, 243, 244, 0.66)",
+              "fontSize": 13,
+              "fontWeight": 400,
+              "grande": false,
+              "opacidad": 1,
+              "rect": {
+                "x": 2794.4375,
+                "y": 34782.5625,
+                "w": 391.484375,
+                "h": 20
+              },
+              "zonaFondo": "izq",
+              "nFondo": 7800,
+              "desvFondo": 0.08,
+              "bg": [
+                18,
+                34,
+                43
+              ],
+              "bgPeor": [
+                152,
+                160,
+                165
+              ],
+              "rMedio": 7.03,
+              "rPeor": 1.82,
+              "umbral": 4.5
+            },
+            {
+              "tag": "span",
+              "cls": "lt",
+              "texto": "· coordinates routes, orders and job reports",
+              "color": "rgba(237, 243, 244, 0.66)",
+              "fontSize": 13,
+              "fontWeight": 400,
+              "grande": false,
+              "opacidad": 1,
+              "rect": {
+                "x": 3225.921875,
+                "y": 34782.5625,
+                "w": 425.390625,
+                "h": 20
+              },
+              "zonaFondo": "izq",
+              "nFondo": 7800,
+              "desvFondo": 0.08,
+              "bg": [
+                18,
+                34,
+                43
+              ],
+              "bgPeor": [
+                152,
+                160,
+                165
+              ],
+              "rMedio": 7.03,
+              "rPeor": 1.82,
+              "umbral": 4.5
+            },
+            {
+              "tag": "span",
+              "cls": "lt",
+              "texto": "· consolidates the cockpit for the business",
+              "color": "rgba(237, 243, 244, 0.66)",
+              "fontSize": 13,
+              "fontWeight": 400,
+              "grande": false,
+              "opacidad": 1,
+              "rect": {
+                "x": 3691.3125,
+                "y": 34782.5625,
+                "w": 476.234375,
+                "h": 20
+              },
+              "zonaFondo": "izq",
+              "nFondo": 7800,
+              "desvFondo": 0.08,
+              "bg": [
+                18,
+                34,
+                43
+              ],
+              "bgPeor": [
+                152,
+                160,
+                165
+              ],
+              "rMedio": 7.03,
+              "rPeor": 1.82,
+              "umbral": 4.5
+            },
+            {
+              "tag": "span",
+              "cls": "lt",
+              "texto": "· one panel to govern it all",
+              "color": "rgba(237, 243, 244, 0.66)",
+              "fontSize": 13,
+              "fontWeight": 400,
+              "grande": false,
+              "opacidad": 1,
+              "rect": {
+                "x": 4207.546875,
+                "y": 34782.5625,
+                "w": 357.578125,
+                "h": 20
+              },
+              "zonaFondo": "izq",
+              "nFondo": 7800,
+              "desvFondo": 0.08,
+              "bg": [
+                18,
+                34,
+                43
+              ],
+              "bgPeor": [
+                152,
+                160,
+                165
+              ],
+              "rMedio": 7.03,
+              "rPeor": 1.82,
+              "umbral": 4.5
+            },
+            {
+              "tag": "span",
+              "cls": "lt",
+              "texto": "· you approve every critical action",
+              "color": "rgba(237, 243, 244, 0.66)",
+              "fontSize": 13,
+              "fontWeight": 400,
+              "grande": false,
+              "opacidad": 1,
+              "rect": {
+                "x": 4605.125,
+                "y": 34782.5625,
+                "w": 450.8125,
+                "h": 20
+              },
+              "zonaFondo": "izq",
+              "nFondo": 7800,
+              "desvFondo": 0.08,
+              "bg": [
+                18,
+                34,
+                43
+              ],
+              "bgPeor": [
+                152,
+                160,
+                165
+              ],
+              "rMedio": 7.03,
+              "rPeor": 1.82,
+              "umbral": 4.5
+            },
+            {
+              "tag": "span",
+              "cls": "lt",
+              "texto": "· creates content and nurtures leads",
+              "color": "rgba(237, 243, 244, 0.66)",
+              "fontSize": 13,
+              "fontWeight": 400,
+              "grande": false,
+              "opacidad": 1,
+              "rect": {
+                "x": 5095.9375,
+                "y": 34782.5625,
+                "w": 408.4375,
+                "h": 20
+              },
+              "zonaFondo": "izq",
+              "nFondo": 7800,
+              "desvFondo": 0.08,
+              "bg": [
+                18,
+                34,
+                43
+              ],
+              "bgPeor": [
+                152,
+                160,
+                165
+              ],
+              "rMedio": 7.03,
+              "rPeor": 1.82,
+              "umbral": 4.5
+            },
+            {
+              "tag": "span",
+              "cls": "lt",
+              "texto": "· qualifies leads and prepares quotes",
+              "color": "rgba(237, 243, 244, 0.66)",
+              "fontSize": 13,
+              "fontWeight": 400,
+              "grande": false,
+              "opacidad": 1,
+              "rect": {
+                "x": 5544.375,
+                "y": 34782.5625,
+                "w": 383.015625,
+                "h": 20
+              },
+              "zonaFondo": "izq",
+              "nFondo": 7800,
+              "desvFondo": 0.08,
+              "bg": [
+                18,
+                34,
+                43
+              ],
+              "bgPeor": [
+                152,
+                160,
+                165
+              ],
+              "rMedio": 7.03,
+              "rPeor": 1.82,
+              "umbral": 4.5
+            },
+            {
+              "tag": "span",
+              "cls": "lt",
+              "texto": "· resolves queries and orders 24/7",
+              "color": "rgba(237, 243, 244, 0.66)",
+              "fontSize": 13,
+              "fontWeight": 400,
+              "grande": false,
+              "opacidad": 1,
+              "rect": {
+                "x": 5967.390625,
+                "y": 34782.5625,
+                "w": 374.53125,
+                "h": 20
+              },
+              "zonaFondo": "izq",
+              "nFondo": 7800,
+              "desvFondo": 0.08,
+              "bg": [
+                18,
+                34,
+                43
+              ],
+              "bgPeor": [
+                152,
+                160,
+                165
+              ],
+              "rMedio": 7.03,
+              "rPeor": 1.82,
+              "umbral": 4.5
+            },
+            {
+              "tag": "span",
+              "cls": "lt",
+              "texto": "· drafts contracts and tracks renewals",
+              "color": "rgba(237, 243, 244, 0.66)",
+              "fontSize": 13,
+              "fontWeight": 400,
+              "grande": false,
+              "opacidad": 1,
+              "rect": {
+                "x": 6381.921875,
+                "y": 34782.5625,
+                "w": 391.484375,
+                "h": 20
+              },
+              "zonaFondo": "izq",
+              "nFondo": 7800,
+              "desvFondo": 0.08,
+              "bg": [
+                18,
+                34,
+                43
+              ],
+              "bgPeor": [
+                152,
+                160,
+                165
+              ],
+              "rMedio": 7.03,
+              "rPeor": 1.82,
+              "umbral": 4.5
+            },
+            {
+              "tag": "span",
+              "cls": "lt",
+              "texto": "· reconciles payments and projects cash flow",
+              "color": "rgba(237, 243, 244, 0.66)",
+              "fontSize": 13,
+              "fontWeight": 400,
+              "grande": false,
+              "opacidad": 1,
+              "rect": {
+                "x": 6813.40625,
+                "y": 34782.5625,
+                "w": 459.296875,
+                "h": 20
+              },
+              "zonaFondo": "izq",
+              "nFondo": 7800,
+              "desvFondo": 0.08,
+              "bg": [
+                18,
+                34,
+                43
+              ],
+              "bgPeor": [
+                152,
+                160,
+                165
+              ],
+              "rMedio": 7.03,
+              "rPeor": 1.82,
+              "umbral": 4.5
+            },
+            {
+              "tag": "span",
+              "cls": "lt",
+              "texto": "· prioritises the roadmap and closes issues",
+              "color": "rgba(237, 243, 244, 0.66)",
+              "fontSize": 13,
+              "fontWeight": 400,
+              "grande": false,
+              "opacidad": 1,
+              "rect": {
+                "x": 7312.703125,
+                "y": 34782.5625,
+                "w": 501.671875,
+                "h": 20
+              },
+              "zonaFondo": "izq",
+              "nFondo": 7800,
+              "desvFondo": 0.08,
+              "bg": [
+                18,
+                34,
+                43
+              ],
+              "bgPeor": [
+                152,
+                160,
+                165
+              ],
+              "rMedio": 7.03,
+              "rPeor": 1.82,
+              "umbral": 4.5
+            },
+            {
+              "tag": "span",
+              "cls": "lt",
+              "texto": "· runs onboarding, absence and shifts",
+              "color": "rgba(237, 243, 244, 0.66)",
+              "fontSize": 13,
+              "fontWeight": 400,
+              "grande": false,
+              "opacidad": 1,
+              "rect": {
+                "x": 7854.375,
+                "y": 34782.5625,
+                "w": 391.484375,
+                "h": 20
+              },
+              "zonaFondo": "izq",
+              "nFondo": 7800,
+              "desvFondo": 0.08,
+              "bg": [
+                18,
+                34,
+                43
+              ],
+              "bgPeor": [
+                152,
+                160,
+                165
+              ],
+              "rMedio": 7.03,
+              "rPeor": 1.82,
+              "umbral": 4.5
+            },
+            {
+              "tag": "span",
+              "cls": "lt",
+              "texto": "· coordinates routes, orders and job reports",
+              "color": "rgba(237, 243, 244, 0.66)",
+              "fontSize": 13,
+              "fontWeight": 400,
+              "grande": false,
+              "opacidad": 1,
+              "rect": {
+                "x": 8285.859375,
+                "y": 34782.5625,
+                "w": 425.390625,
+                "h": 20
+              },
+              "zonaFondo": "izq",
+              "nFondo": 7800,
+              "desvFondo": 0.08,
+              "bg": [
+                18,
+                34,
+                43
+              ],
+              "bgPeor": [
+                152,
+                160,
+                165
+              ],
+              "rMedio": 7.03,
+              "rPeor": 1.82,
+              "umbral": 4.5
+            },
+            {
+              "tag": "span",
+              "cls": "lt",
+              "texto": "· consolidates the cockpit for the business",
+              "color": "rgba(237, 243, 244, 0.66)",
+              "fontSize": 13,
+              "fontWeight": 400,
+              "grande": false,
+              "opacidad": 1,
+              "rect": {
+                "x": 8751.25,
+                "y": 34782.5625,
+                "w": 476.234375,
+                "h": 20
+              },
+              "zonaFondo": "izq",
+              "nFondo": 7800,
+              "desvFondo": 0.08,
+              "bg": [
+                18,
+                34,
+                43
+              ],
+              "bgPeor": [
+                152,
+                160,
+                165
+              ],
+              "rMedio": 7.03,
+              "rPeor": 1.82,
+              "umbral": 4.5
+            },
+            {
+              "tag": "span",
+              "cls": "lt",
+              "texto": "· one panel to govern it all",
+              "color": "rgba(237, 243, 244, 0.66)",
+              "fontSize": 13,
+              "fontWeight": 400,
+              "grande": false,
+              "opacidad": 1,
+              "rect": {
+                "x": 9267.484375,
+                "y": 34782.5625,
+                "w": 357.578125,
+                "h": 20
+              },
+              "zonaFondo": "izq",
+              "nFondo": 7800,
+              "desvFondo": 0.08,
+              "bg": [
+                18,
+                34,
+                43
+              ],
+              "bgPeor": [
+                152,
+                160,
+                165
+              ],
+              "rMedio": 7.03,
+              "rPeor": 1.82,
+              "umbral": 4.5
+            },
+            {
+              "tag": "span",
+              "cls": "lt",
+              "texto": "· you approve every critical action",
+              "color": "rgba(237, 243, 244, 0.66)",
+              "fontSize": 13,
+              "fontWeight": 400,
+              "grande": false,
+              "opacidad": 1,
+              "rect": {
+                "x": 9665.0625,
+                "y": 34782.5625,
+                "w": 450.8125,
+                "h": 20
+              },
+              "zonaFondo": "izq",
+              "nFondo": 7800,
+              "desvFondo": 0.08,
+              "bg": [
+                18,
+                34,
+                43
+              ],
+              "bgPeor": [
+                152,
+                160,
+                165
+              ],
+              "rMedio": 7.03,
+              "rPeor": 1.82,
+              "umbral": 4.5
+            }
+          ],
+          "peor": [
+            {
+              "tag": "span",
+              "cls": "lt",
+              "texto": "· qualifies leads and prepares quotes",
+              "fs": 13,
+              "grande": false,
+              "color": "rgba(237, 243, 244, 0.66)",
+              "bg": [
+                18,
+                34,
+                43
+              ],
+              "rMedio": 7.03,
+              "rPeor": 1.82,
+              "umbral": 4.5,
+              "zona": "izq",
+              "n": 7800
+            },
+            {
+              "tag": "span",
+              "cls": "lt",
+              "texto": "· resolves queries and orders 24/7",
+              "fs": 13,
+              "grande": false,
+              "color": "rgba(237, 243, 244, 0.66)",
+              "bg": [
+                18,
+                34,
+                43
+              ],
+              "rMedio": 7.03,
+              "rPeor": 1.82,
+              "umbral": 4.5,
+              "zona": "izq",
+              "n": 7800
+            },
+            {
+              "tag": "span",
+              "cls": "lt",
+              "texto": "· drafts contracts and tracks renewals",
+              "fs": 13,
+              "grande": false,
+              "color": "rgba(237, 243, 244, 0.66)",
+              "bg": [
+                18,
+                34,
+                43
+              ],
+              "rMedio": 7.03,
+              "rPeor": 1.82,
+              "umbral": 4.5,
+              "zona": "izq",
+              "n": 7800
+            },
+            {
+              "tag": "span",
+              "cls": "lt",
+              "texto": "· reconciles payments and projects cash flow",
+              "fs": 13,
+              "grande": false,
+              "color": "rgba(237, 243, 244, 0.66)",
+              "bg": [
+                18,
+                34,
+                43
+              ],
+              "rMedio": 7.03,
+              "rPeor": 1.82,
+              "umbral": 4.5,
+              "zona": "izq",
+              "n": 7800
+            }
+          ],
+          "titulares": 2,
+          "cuerpo": 26,
+          "minTitular": 8.94,
+          "minCuerpo": 1.82,
+          "huecoPixMayor": 110,
+          "huecoPixInicio": 1000,
+          "huecoCabecera": 0,
+          "huecoPie": 110,
+          "huecoDOMMayor": 127,
+          "textura": {
+            "n": 7659,
+            "media": [
+              10,
+              22,
+              32
+            ],
+            "desv": 0.0004
+          }
+        },
+        {
+          "id": "lab",
+          "existe": true,
+          "clases": "deep grid-bg sec",
+          "alto": 2198,
+          "ancho": 390,
+          "capturaWH": [
+            390,
+            2199
+          ],
+          "textosExaminados": 13,
+          "textosEnDOM": 13,
+          "fallos": [],
+          "peor": [
+            {
+              "tag": "p",
+              "cls": "lead",
+              "texto": "When the standard OS isn't enough, STRATA Lab designs, build",
+              "fs": 20,
+              "grande": false,
+              "color": "rgba(237, 243, 244, 0.66)",
+              "bg": [
+                11,
+                23,
+                32
+              ],
+              "rMedio": 7.52,
+              "rPeor": 7.01,
+              "umbral": 4.5,
+              "zona": "izq",
+              "n": 5760
+            },
+            {
+              "tag": "p",
+              "cls": "body",
+              "texto": "In 3 weeks we map your operation and tell you where AI creat",
+              "fs": 17,
+              "grande": false,
+              "color": "rgba(237, 243, 244, 0.66)",
+              "bg": [
+                15,
+                30,
+                46
+              ],
+              "rMedio": 7.19,
+              "rPeor": 7.19,
+              "umbral": 4.5,
+              "zona": "abajo",
+              "n": 2232
+            },
+            {
+              "tag": "p",
+              "cls": "body",
+              "texto": "We build and integrate your system and train your team. You ",
+              "fs": 17,
+              "grande": false,
+              "color": "rgba(237, 243, 244, 0.66)",
+              "bg": [
+                15,
+                30,
+                46
+              ],
+              "rMedio": 7.19,
+              "rPeor": 7.19,
+              "umbral": 4.5,
+              "zona": "abajo",
+              "n": 2232
+            },
+            {
+              "tag": "p",
+              "cls": "body",
+              "texto": "Fixed monthly fee: we keep the system alive, operate it and ",
+              "fs": 17,
+              "grande": false,
+              "color": "rgba(237, 243, 244, 0.66)",
+              "bg": [
+                15,
+                30,
+                46
+              ],
+              "rMedio": 7.19,
+              "rPeor": 7.19,
+              "umbral": 4.5,
+              "zona": "arriba",
+              "n": 2232
+            }
+          ],
+          "titulares": 2,
+          "cuerpo": 11,
+          "minTitular": 8.29,
+          "minCuerpo": 7.01,
+          "huecoPixMayor": 139,
+          "huecoPixInicio": 2060,
+          "huecoCabecera": 0,
+          "huecoPie": 139,
+          "huecoDOMMayor": 130,
+          "textura": {
+            "n": 15157,
+            "media": [
+              10,
+              22,
+              32
+            ],
+            "desv": 0.0003
+          }
+        },
+        {
+          "id": "casos",
+          "existe": true,
+          "clases": "deep grid-bg sec",
+          "alto": 1324,
+          "ancho": 390,
+          "capturaWH": [
+            390,
+            1325
+          ],
+          "textosExaminados": 12,
+          "textosEnDOM": 12,
+          "fallos": [
+            {
+              "tag": "span",
+              "cls": "um-ok",
+              "texto": "done",
+              "color": "rgb(53, 208, 186)",
+              "fontSize": 10,
+              "fontWeight": 400,
+              "grande": false,
+              "opacidad": 1,
+              "rect": {
+                "x": 470.859375,
+                "y": 31888.96875,
+                "w": 26.890625,
+                "h": 15
+              },
+              "zonaFondo": "izq",
+              "nFondo": 5850,
+              "desvFondo": 0.09,
+              "bg": [
+                32,
+                49,
+                64
+              ],
+              "bgPeor": [
+                163,
+                174,
+                180
+              ],
+              "rMedio": 6.91,
+              "rPeor": 1.17,
+              "umbral": 4.5
+            },
+            {
+              "tag": "span",
+              "cls": "um-ok",
+              "texto": "done",
+              "color": "rgb(53, 208, 186)",
+              "fontSize": 10,
+              "fontWeight": 400,
+              "grande": false,
+              "opacidad": 1,
+              "rect": {
+                "x": 462.859375,
+                "y": 32043.96875,
+                "w": 26.890625,
+                "h": 15
+              },
+              "zonaFondo": "izq",
+              "nFondo": 5850,
+              "desvFondo": 0.01,
+              "bg": [
+                22,
+                41,
+                56
+              ],
+              "bgPeor": [
+                71,
+                86,
+                99
+              ],
+              "rMedio": 7.73,
+              "rPeor": 3.92,
+              "umbral": 4.5
+            },
+            {
+              "tag": "span",
+              "cls": "um-ok",
+              "texto": "active",
+              "color": "rgb(53, 208, 186)",
+              "fontSize": 10,
+              "fontWeight": 400,
+              "grande": false,
+              "opacidad": 1,
+              "rect": {
+                "x": 482.0625,
+                "y": 32173.96875,
+                "w": 40.328125,
+                "h": 15
+              },
+              "zonaFondo": "izq",
+              "nFondo": 5850,
+              "desvFondo": 0.02,
+              "bg": [
+                22,
+                42,
+                57
+              ],
+              "bgPeor": [
+                71,
+                86,
+                99
+              ],
+              "rMedio": 7.64,
+              "rPeor": 3.92,
+              "umbral": 4.5
+            }
+          ],
+          "peor": [
+            {
+              "tag": "span",
+              "cls": "um-ok",
+              "texto": "done",
+              "fs": 10,
+              "grande": false,
+              "color": "rgb(53, 208, 186)",
+              "bg": [
+                32,
+                49,
+                64
+              ],
+              "rMedio": 6.91,
+              "rPeor": 1.17,
+              "umbral": 4.5,
+              "zona": "izq",
+              "n": 5850
+            },
+            {
+              "tag": "span",
+              "cls": "um-ok",
+              "texto": "done",
+              "fs": 10,
+              "grande": false,
+              "color": "rgb(53, 208, 186)",
+              "bg": [
+                22,
+                41,
+                56
+              ],
+              "rMedio": 7.73,
+              "rPeor": 3.92,
+              "umbral": 4.5,
+              "zona": "izq",
+              "n": 5850
+            },
+            {
+              "tag": "span",
+              "cls": "um-ok",
+              "texto": "active",
+              "fs": 10,
+              "grande": false,
+              "color": "rgb(53, 208, 186)",
+              "bg": [
+                22,
+                42,
+                57
+              ],
+              "rMedio": 7.64,
+              "rPeor": 3.92,
+              "umbral": 4.5,
+              "zona": "izq",
+              "n": 5850
+            },
+            {
+              "tag": "span",
+              "cls": "",
+              "texto": "Sales Agent · demo",
+              "fs": 11,
+              "grande": false,
+              "color": "rgba(237, 243, 244, 0.5)",
+              "bg": [
+                10,
+                22,
+                32
+              ],
+              "rMedio": 4.83,
+              "rPeor": 4.83,
+              "umbral": 4.5,
+              "zona": "arriba",
+              "n": 270
+            }
+          ],
+          "titulares": 2,
+          "cuerpo": 10,
+          "minTitular": 8.84,
+          "minCuerpo": 1.17,
+          "huecoPixMayor": 130,
+          "huecoPixInicio": 1195,
+          "huecoCabecera": 1,
+          "huecoPie": 130,
+          "huecoDOMMayor": 213,
+          "textura": {
+            "n": 9131,
+            "media": [
+              10,
+              25,
+              34
+            ],
+            "desv": 0.0016
+          }
+        },
+        {
+          "id": "contacto",
+          "existe": true,
+          "clases": "deep grid-bg footcta",
+          "alto": 1392,
+          "ancho": 390,
+          "capturaWH": [
+            390,
+            1392
+          ],
+          "textosExaminados": 12,
+          "textosEnDOM": 12,
+          "fallos": [],
+          "peor": [
+            {
+              "tag": "p",
+              "cls": "lead reveal",
+              "texto": "No need to wait for the OS launch: in 3 weeks we tell you wh",
+              "fs": 20,
+              "grande": false,
+              "color": "rgba(237, 243, 244, 0.66)",
+              "bg": [
+                10,
+                23,
+                32
+              ],
+              "rMedio": 7.53,
+              "rPeor": 7.25,
+              "umbral": 4.5,
+              "zona": "izq",
+              "n": 4800
+            },
+            {
+              "tag": "label",
+              "cls": "",
+              "texto": "Email",
+              "fs": 11,
+              "grande": false,
+              "color": "rgba(237, 243, 244, 0.66)",
+              "bg": [
+                10,
+                22,
+                32
+              ],
+              "rMedio": 7.55,
+              "rPeor": 7.44,
+              "umbral": 4.5,
+              "zona": "izq",
+              "n": 480
+            },
+            {
+              "tag": "label",
+              "cls": "",
+              "texto": "Company",
+              "fs": 11,
+              "grande": false,
+              "color": "rgba(237, 243, 244, 0.66)",
+              "bg": [
+                10,
+                22,
+                32
+              ],
+              "rMedio": 7.55,
+              "rPeor": 7.52,
+              "umbral": 4.5,
+              "zona": "izq",
+              "n": 480
+            },
+            {
+              "tag": "label",
+              "cls": "",
+              "texto": "Name",
+              "fs": 11,
+              "grande": false,
+              "color": "rgba(237, 243, 244, 0.66)",
+              "bg": [
+                10,
+                22,
+                32
+              ],
+              "rMedio": 7.55,
+              "rPeor": 7.55,
+              "umbral": 4.5,
+              "zona": "der",
+              "n": 480
+            }
+          ],
+          "titulares": 1,
+          "cuerpo": 11,
+          "minTitular": 15.79,
+          "minCuerpo": 7.25,
+          "huecoPixMayor": 150,
+          "huecoPixInicio": 1242,
+          "huecoCabecera": 0,
+          "huecoPie": 150,
+          "huecoDOMMayor": 170,
+          "textura": {
+            "n": 9614,
+            "media": [
+              10,
+              22,
+              32
+            ],
+            "desv": 0.0004
+          }
+        }
+      ]
+    }
+  ]
+}
