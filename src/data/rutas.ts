@@ -105,16 +105,21 @@ export const rutas: Record<ClaveRuta, Ruta> = {
   },
   casos: {
     es: {
-      slug: '/casos',
-      menu: 'Casos',
-      titulo: 'Casos: probado en nuestros propios negocios — STRATA',
+      // La entrada del menú NO se llama «Casos» a propósito (27 ago 2026, decisión de Gonzalo):
+      // «casos» describe el CONTENIDO de la página, y quien llega al menú no busca contenido, busca
+      // saber si esto va con él. La palabra es suya y ya estaba en el menú anterior («Para quién»).
+      // El slug acompaña a la etiqueta: un menú que dice una cosa y una URL que dice otra es una
+      // incoherencia pequeña que luego se hereda en enlaces, campañas y correos.
+      slug: '/para-quien',
+      menu: 'Para quién es',
+      titulo: 'Para quién es: probado en nuestros propios negocios — STRATA',
       descripcion:
         'No lo estrenamos contigo: lo pusimos a operar nuestros propios negocios antes de vendérselo a nadie. Casos de uso por área y los perfiles de empresa para los que está pensado.',
     },
     en: {
-      slug: '/cases',
-      menu: 'Cases',
-      titulo: 'Cases: proven on our own businesses — STRATA',
+      slug: '/who-its-for',
+      menu: "Who it's for",
+      titulo: "Who it's for: proven on our own businesses — STRATA",
       descripcion:
         'We did not pilot it on you: we put it to work running our own businesses first. Use cases area by area, and the company profiles it is built for.',
     },

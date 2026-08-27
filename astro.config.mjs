@@ -8,6 +8,15 @@ import { CLAVES_RUTA, rutas } from './src/data/rutas';
 // It drives the canonical link, the hreflang alternates and the OG image URL,
 // so it must match whatever the DNS actually points at.
 export default defineConfig({
+  // Las URLs anteriores de la página «Para quién es». Vivieron unos veinte minutos el 27 ago 2026
+  // —entre partir la landing y renombrar la entrada del menú— pero se redirigen igual: basta con que
+  // una sola persona hubiera copiado el enlace en ese rato. Una URL que devuelve 404 cuesta más que
+  // dos líneas de configuración que sobran.
+  redirects: {
+    '/casos': '/para-quien',
+    '/en/cases': '/en/who-its-for',
+  },
+
   site: 'https://stratalabai.com',
   trailingSlash: 'ignore',
   // Todas las páginas se siguen pre-renderizando en el build; el adaptador
