@@ -2,6 +2,30 @@
 /**
  * Fondo fotográfico de sección.
  *
+ * ⚠️ SIN USAR DESDE EL 27 ago 2026 — NADIE IMPORTA ESTE COMPONENTE.
+ *
+ * Lo usaban cinco secciones (Agentes, Lanzamiento, Lab, Casos, Contacto) y se
+ * quitó de las cinco por decisión de Gonzalo: la fotografía decorativa de
+ * feria/evento no le convence. No es un fallo técnico ni una regresión; es
+ * una decisión de gusto, y por eso el componente se queda en el repo en vez
+ * de borrarse — volver a encenderlo es añadir dos líneas, no reescribirlo.
+ *
+ * Se conserva también porque el problema que resuelve sigue siendo real: si
+ * algún día entra fotografía BUENA (producto, equipo propio, cliente real),
+ * esto ya sabe atenuarla y garantizar el contraste. Lo que sobraba era el
+ * material, no el mecanismo.
+ *
+ * PARA REACTIVARLO hacen falta las dos cosas, no sólo el import:
+ *   1. `import SectionPhoto` + `<SectionPhoto image="bg-x.jpg" />` dentro de
+ *      la sección, como primer hijo.
+ *   2. la clase `has-bg` en el <section>. Sin ella no hay contexto de
+ *      apilado, y la foto (`z-index: -1`) se va DETRÁS del fondo de la
+ *      sección: desaparece del todo y parece que el componente no funciona.
+ * Su CSS (`.has-bg`, `.secbg`) sigue vivo en sections.css, marcado como
+ * dormido. Los .jpg siguen en src/assets.
+ *
+ * ---- documentación original, válida si se reactiva ----
+ *
  * A 2048 px la foto no da para una banda nítida a todo lo ancho, pero como
  * fondo bajo una capa oscura sobra: aporta textura y profundidad reales sin
  * competir con el texto. El degradado de `.secbg::after` no es adorno, es lo

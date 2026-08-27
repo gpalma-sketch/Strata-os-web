@@ -1,6 +1,5 @@
 ---
 import Icon from './Icon.astro';
-import SectionPhoto from './SectionPhoto.astro';
 import type { Locale } from '../data/site';
 import { content } from '../data/content';
 
@@ -15,10 +14,12 @@ const t = content[locale];
 const workWidths = ['86%', '72%', '64%', '78%', '58%', '69%', '81%', '61%', '74%'];
 ---
 
-<section class="deep has-bg grid-bg sec" id="agentes">
-{/* Un equipo real detrás de la plantilla de agentes: es la primera sección
-     oscura larga y sin foto quedaba plana. */}
-<SectionPhoto image="bg-estudio.jpg" anchor="top" />
+{/* Aquí había un fondo fotográfico (bg-estudio.jpg). Fuera el 27 ago 2026:
+    la fotografía de feria no convence a Gonzalo. La textura la ponen ahora
+    la rejilla (`grid-bg`) y el orbe, igual que en Producto y Despliegue, que
+    nunca tuvieron foto. Se cae también `has-bg`, que sólo existía para crear
+    el contexto de apilado del `z-index:-1` de la foto. */}
+<section class="deep grid-bg sec" id="agentes">
   <div class="orb" style="width:520px; height:520px; top:8%; right:-200px; opacity:.22;"></div>
   <div class="wrap">
     <div class="reveal">

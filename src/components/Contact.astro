@@ -12,7 +12,6 @@
  * behaves exactly as the design did, instead of showing a form that silently
  * drops every lead.
  */
-import SectionPhoto from './SectionPhoto.astro';
 import type { Locale } from '../data/site';
 import { site } from '../data/site';
 import { content } from '../data/content';
@@ -27,9 +26,13 @@ const endpoint = site.contactEndpoint;
 
 ---
 
-<section class="deep has-bg grid-bg footcta" id="contacto">
-<SectionPhoto image="bg-evento.jpg" />
-
+{/* Aquí había un fondo fotográfico (bg-evento.jpg). Fuera el 27 ago 2026 por
+    decisión de Gonzalo. Es el cierre de la página y el titular va a 96 px:
+    sobre fondo plano recorta más que sobre una foto, y el orbe centrado
+    (opacity .35, el más marcado de la página) ya da el foco detrás del
+    titular. `.footcta` trae su propio `position: relative`, así que quitar
+    `has-bg` no descoloca ni el orbe ni la rejilla. */}
+<section class="deep grid-bg footcta" id="contacto">
   <div class="orb" style="width:560px; height:560px; top:-120px; left:50%; transform:translateX(-50%); opacity:.35;"></div>
   <div class="wrap">
     <p class="kick reveal" style="justify-content:center;">{t.contact.kicker}</p>

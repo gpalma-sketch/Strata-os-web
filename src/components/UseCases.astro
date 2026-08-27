@@ -1,6 +1,5 @@
 ---
 import Icon from './Icon.astro';
-import SectionPhoto from './SectionPhoto.astro';
 import type { Locale } from '../data/site';
 import { content } from '../data/content';
 
@@ -18,10 +17,12 @@ const t = content[locale];
  */
 ---
 
-<section class="deep has-bg grid-bg sec" id="casos">
-{/* El bloque de casos cae en mitad de la página, donde más se nota el
-     cansancio visual de tanto panel. */}
-<SectionPhoto image="bg-feria.jpg" />
+{/* Aquí había un fondo fotográfico (bg-feria.jpg) contra el cansancio visual
+    de tanto panel seguido. Fuera el 27 ago 2026 por decisión de Gonzalo. El
+    respiro lo da ahora el cambio de tono, que ya estaba: esta sección `deep`
+    va entre Permisos (`light`) y Cases (`light`), así que corta por sí sola
+    sin necesidad de foto. */}
+<section class="deep grid-bg sec" id="casos">
   <div class="orb" style="width:480px; height:480px; top:12%; left:-180px; opacity:.2;"></div>
   <div class="wrap">
     <div class="reveal">

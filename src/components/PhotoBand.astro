@@ -2,6 +2,28 @@
 /**
  * Banda fotográfica a sangre, para intercalar entre secciones.
  *
+ * ⚠️ SIN USAR DESDE EL 27 ago 2026 — NADIE IMPORTA ESTE COMPONENTE.
+ *
+ * Había dos bandas en Page.astro (ban-stand.jpg entre Partners y Pillars,
+ * ban-sala.jpg entre Cases y Waitlist) y se quitaron las dos por decisión de
+ * Gonzalo: la fotografía decorativa de feria/evento no le convence. Con la
+ * foto se fue también el pie, que sin imagen debajo no significaba nada.
+ *
+ * Se queda en el repo, no se borra: el mecanismo (foto a sangre + pie legible
+ * gracias al degradado) sirve el día que haya material que merezca enseñarse
+ * —una instalación real en un cliente, el equipo trabajando—. Lo que falló
+ * fue la foto, no el componente.
+ *
+ * PARA REACTIVARLO: importarlo en Page.astro y colocar <PhotoBand image alt
+ * caption /> ENTRE dos <section>, nunca dentro de una. Su CSS (`.photoband`,
+ * `.photoband-cap`) sigue vivo en sections.css, marcado como dormido, y los
+ * .jpg siguen en src/assets.
+ *
+ * Ojo si vuelve la banda de arriba: era lo único que partía Partners →
+ * Pillars → Why, tres secciones claras seguidas. Ver la nota de Page.astro.
+ *
+ * ---- documentación original, válida si se reactiva ----
+ *
  * Dos funciones a la vez: meter gente y sitios reales en una página cuya
  * imaginería es, por lo demás, generada; y dar respiro entre bloques largos
  * de tarjetas y tipografía grande.

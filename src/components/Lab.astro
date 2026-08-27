@@ -1,5 +1,4 @@
 ---
-import SectionPhoto from './SectionPhoto.astro';
 import type { Locale } from '../data/site';
 import { content } from '../data/content';
 
@@ -10,10 +9,11 @@ const { locale } = Astro.props;
 const t = content[locale];
 ---
 
-<section class="deep has-bg grid-bg sec" id="lab">
-{/* El Lab es trabajo con gente delante, no producto: la foto dice eso
-     antes que el texto. */}
-<SectionPhoto image="bg-panel.jpg" />
+{/* Aquí había un fondo fotográfico (bg-panel.jpg) para decir "el Lab es
+    trabajo con gente delante". Fuera el 27 ago 2026: a Gonzalo no le
+    convence la fotografía de feria, y eso lo dicen mejor los tres pasos y el
+    precio que una foto de atrezzo. Textura: rejilla + orbe. */}
+<section class="deep grid-bg sec" id="lab">
   <div class="orb" style="width:440px; height:440px; bottom:-120px; left:-140px; opacity:.2;"></div>
   <div class="wrap">
     <div class="reveal">

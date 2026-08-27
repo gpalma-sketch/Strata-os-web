@@ -1,7 +1,22 @@
 ---
 /**
  * The whole landing page in section order, shared by both locale routes.
- * Section order matches the approved design exactly.
+ * Section order matches the approved design, con una excepción declarada:
+ *
+ * FOTOGRAFÍA DECORATIVA FUERA (27 ago 2026). Aquí iban dos <PhotoBand> a
+ * sangre — una entre Partners y Pillars, otra entre Cases y Waitlist. Se
+ * quitan por decisión de Gonzalo: la fotografía de feria/evento no le
+ * convence. Se van la foto Y el pie de foto, porque el pie ("Empresas como la
+ * tuya…", "Lo contamos donde nos dejan…") no dice nada sin la imagen debajo.
+ *
+ * Efecto colateral conocido y aceptado: la primera banda era lo único que
+ * partía Partners → Pillars → Why, tres secciones `light` seguidas. Sin ella
+ * son ~4.300 px claros de un tirón. Se deja así a propósito: cambiar el tono
+ * de una de las tres es una decisión de diseño, no una consecuencia de quitar
+ * una foto, y la página ya convive con una racha `deep` más larga todavía
+ * (Agentes + Producto, ~4.900 px). Si algún día molesta, se decide aparte.
+ *
+ * El componente PhotoBand.astro y los .jpg siguen en el repo, sin usar.
  */
 import Base from '../layouts/Base.astro';
 import Nav from './Nav.astro';
@@ -9,7 +24,6 @@ import Hero from './Hero.astro';
 import Stats from './Stats.astro';
 import Waitlist from './Waitlist.astro';
 import Pillars from './Pillars.astro';
-import PhotoBand from './PhotoBand.astro';
 import Why from './Why.astro';
 import Agents from './Agents.astro';
 import Product from './Product.astro';
@@ -44,13 +58,6 @@ const { locale } = Astro.props;
     <Hero locale={locale} />
     <Stats locale={locale} />
     <Partners locale={locale} />
-    <PhotoBand
-      image="ban-stand.jpg"
-      alt="Tres personas conversando en el stand de una feria del sector"
-      caption={locale === 'es'
-        ? 'Empresas como la tuya. Con las que hablamos todas las semanas.'
-        : 'Companies like yours. The ones we talk to every week.'}
-    />
     <Pillars locale={locale} />
     <Why locale={locale} />
     <Agents locale={locale} />
@@ -61,13 +68,6 @@ const { locale } = Astro.props;
     <Permisos locale={locale} />
     <UseCases locale={locale} />
     <Cases locale={locale} />
-    <PhotoBand
-      image="ban-sala.jpg"
-      alt="Sala llena de asistentes durante un evento del sector"
-      caption={locale === 'es'
-        ? 'Lo contamos donde nos dejan. Ahora te toca a ti decidir.'
-        : 'We tell this story wherever they let us. Now it is your call.'}
-    />
     <Waitlist locale={locale} />
     <Pricing locale={locale} />
     <Method locale={locale} />

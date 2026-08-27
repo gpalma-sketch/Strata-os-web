@@ -2176,47 +2176,27 @@
   }
 }
 
-/* ---------- banda fotográfica a sangre ---------- */
-.photoband {
-  position: relative;
-  line-height: 0;
-  background: var(--ink);
-}
-.photoband img {
-  width: 100%;
-  height: 260px;
-  object-fit: cover;
-  display: block;
-}
-.photoband-alta img {
-  height: 420px;
-}
-/* El degradado existe para que el pie sea legible sobre cualquier foto, no
-   como efecto: sin él, un texto claro sobre un cielo claro desaparece. */
-.photoband-cap {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  margin: 0;
-  padding: 60px 6vw 22px;
-  font-family: var(--font-mono);
-  font-size: 13px;
-  letter-spacing: 0.04em;
-  line-height: 1.5;
-  color: var(--on-dark);
-  background: linear-gradient(to top, rgba(10, 22, 32, 0.82), transparent);
-}
-@media (max-width: 720px) {
-  .photoband img {
-    height: 200px;
-  }
-  .photoband-alta img {
-    height: 280px;
-  }
-}
+/* Aquí había una PRIMERA copia de las reglas de `.photoband`, duplicada más
+   abajo en este mismo fichero (busca "banda fotográfica a sangre"). Era código
+   muerto entero: la copia de abajo gana por orden en cada propiedad que
+   compartían, y lo único exclusivo de esta —`.photoband-alta`— es una clase
+   que PhotoBand.astro no emite nunca, así que no la llevaba ningún elemento.
+   Se borra al retirar la fotografía (27 ago 2026); la copia buena se queda,
+   dormida y anotada. */
 
-/* ---------- fondo fotográfico de sección ---------- */
+/* ---------- fondo fotográfico de sección ----------
+   ⚠️ DORMIDO DESDE EL 27 ago 2026: hoy ningún elemento lleva `has-bg` ni
+   `secbg`. Es el CSS de SectionPhoto.astro, que se retiró de las cinco
+   secciones que lo usaban (Agentes, Lanzamiento, Lab, Casos, Contacto)
+   porque la fotografía decorativa de feria no convence a Gonzalo.
+
+   Se conserva a propósito, junto con el componente: es la única excepción a
+   "sin reglas huérfanas" en este fichero, y va anotada justamente para que
+   no se lea como olvido. Un bloque muerto sin nota es deuda invisible; con
+   nota es una decisión.
+
+   Aquellas secciones son ahora `deep grid-bg sec` + orbe, exactamente el
+   mismo tratamiento que Producto y Despliegue, que nunca tuvieron foto. */
 .has-bg {
   position: relative;
   isolation: isolate;
@@ -2551,7 +2531,14 @@
   color: var(--on-dark);
 }
 
-/* ---------- banda fotográfica a sangre ---------- */
+/* ---------- banda fotográfica a sangre ----------
+   ⚠️ DORMIDO DESDE EL 27 ago 2026: ningún elemento lleva ya `photoband`. Es
+   el CSS de PhotoBand.astro, retirado de Page.astro (las dos bandas) porque
+   la fotografía decorativa de feria no convence a Gonzalo.
+
+   Se conserva con el componente, y anotado, por lo mismo que `.secbg` de
+   arriba: dejar el bloque sin decir que está dormido lo convierte en deuda
+   invisible. */
 .photoband {
   position: relative;
   line-height: 0;

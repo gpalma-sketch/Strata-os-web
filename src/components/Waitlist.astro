@@ -12,7 +12,6 @@
  * The email form posts to `site.waitlistEndpoint`; with none configured it
  * degrades to a mailto: link so a signup is never silently dropped.
  */
-import SectionPhoto from './SectionPhoto.astro';
 import type { Locale } from '../data/site';
 import { site } from '../data/site';
 import { content } from '../data/content';
@@ -27,9 +26,11 @@ const endpoint = site.waitlistEndpoint;
 
 ---
 
-<section class="deep has-bg grid-bg sec" id="lanzamiento" style="padding:110px 0;">
-<SectionPhoto image="bg-stand.jpg" />
-
+{/* Aquí había un fondo fotográfico (bg-stand.jpg). Fuera el 27 ago 2026 por
+    decisión de Gonzalo. Además de gusto, aquí ayuda: el formulario es lo
+    único que esta sección tiene que conseguir, y sobre fondo plano el campo
+    de email y el botón recortan más que sobre una foto atenuada. */}
+<section class="deep grid-bg sec" id="lanzamiento" style="padding:110px 0;">
   <div class="orb" style="width:520px;height:520px;top:-140px;right:-160px;opacity:.22;"></div>
   <div class="wrap">
     <div class="reveal" style="display:flex;align-items:center;gap:12px;justify-content:center;">
