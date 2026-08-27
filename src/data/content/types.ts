@@ -9,11 +9,6 @@
  * than a silent fallback.
  */
 
-export interface NavLink {
-  href: string;
-  label: string;
-}
-
 export interface Stat {
   /** Big number. Kept as a string so ranges and units read exactly as designed. */
   value: string;
@@ -178,7 +173,13 @@ export interface Content {
     ogAlt: string;
   };
   nav: {
-    links: NavLink[];
+    /**
+     * Las ENTRADAS del menú ya no están aquí. Viven en `src/data/rutas.ts`
+     * junto al slug de cada idioma, porque la etiqueta y el destino son el
+     * mismo dato visto por dos lados: separarlos garantiza que un día el menú
+     * diga «Precios» y lleve a una ruta que se renombró. `Nav.astro` las lee
+     * con `enlacesMenu(locale)`.
+     */
     cta: string;
     skipToContent: string;
     menuLabel: string;

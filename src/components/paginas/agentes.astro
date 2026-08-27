@@ -1,0 +1,95 @@
+---
+/**
+ * AGENTES (/agentes · /en/agents) — «¿quién hace el trabajo?».
+ *
+ * Es una de las cinco páginas en que se parte la landing: pesaba 26.967 px en
+ * escritorio (30 pantallas) y ~49.000 px en móvil (58) con las 20 secciones
+ * apiladas, y para llegar a los precios había que recorrerla entera. Cada
+ * página responde UNA pregunta; ésta responde quién ejecuta y con qué.
+ *
+ * Las TRES secciones, en este orden y no en otro:
+ *   1. Agents (#agentes, tono `deep`) — los departamentos y lo que entregan.
+ *      Va primero porque es lo que se contrata: la unidad de venta es el
+ *      departamento, no el modelo.
+ *   2. Flow (#como, tono `light`) — «Jarvis decide. Los agentes ejecutan. Tú
+ *      apruebas»: el organigrama del trabajo, de la empresa al dueño pasando
+ *      por Jarvis, los jefes de departamento, el auditor y la aprobación. Va en
+ *      medio porque es el plano de cómo circula el trabajo ENTRE los
+ *      departamentos que se acaban de presentar.
+ *   3. Engine (#motor, tono `light`) — con qué modelos, y por qué no dependemos
+ *      de uno solo. Va después porque es la respuesta a la pregunta que se hace
+ *      quien acaba de leer lo anterior: «¿esto es un wrapper de ChatGPT?».
+ *
+ * ── POR QUÉ FLOW ACABÓ AQUÍ Y NO EN OTRA (27 ago 2026) ─────────────────────
+ * El reparto aprobado repartía 19 secciones y la landing tenía 20: `Flow` se
+ * quedó fuera de las cinco páginas y de la portada. Lo cazaron dos
+ * comprobaciones hechas por separado —una contra el código, otra comparando
+ * las 171 frases del sitio en vivo contra el resultado—, y las dos señalaron
+ * exactamente las mismas dos frases perdidas por idioma. Nadie la coló por su
+ * cuenta en una página «porque cabía»: se dejó huérfana y declarada, que es lo
+ * correcto cuando falta una decisión.
+ *
+ * Va en Agentes porque su contenido responde a la pregunta de ESTA página:
+ * quién hace el trabajo y cómo se reparte. Toca también el control («tu
+ * aprobación»), pero eso es un paso del flujo, no su tema. Y de paso equilibra:
+ * Agentes era la más ligera (5.505 px) y con Flow queda por debajo de El OS y
+ * de Control.
+ *
+ * Los dos ids se conservan tal cual (`#agentes`, `#motor`) aunque ya no vivan
+ * en la portada: `ANCLAS_MUDADAS` redirige los enlaces viejos aquí, y si el id
+ * cambiara la redirección llegaría a la página correcta pero al principio, sin
+ * saltar a la sección. El ancla es parte del contrato con los enlaces ya
+ * publicados, no un detalle interno.
+ *
+ * El cierre (`CierrePagina`: lista de lanzamiento + «Hablemos») es OBLIGATORIO
+ * y va como último hijo de <main>. No es sólo captación: `Contact.astro` trae
+ * el `id="contacto"` del que depende el CTA del menú para saltar dentro de esta
+ * misma página en vez de mandar de vuelta a la portada.
+ *
+ * `ruta="agentes"` es lo único que se le pasa a `Base`: de ahí salen solos el
+ * <title>, la descripción, el canonical y los hreflang con el slug de CADA
+ * idioma (/agentes ↔ /en/agents). Escribir el título a mano aquí duplicaría un
+ * dato que ya vive en `src/data/rutas.ts`.
+ *
+ * El envoltorio (Nav · main · Footer · Chat · CookieBanner · Reveal) es
+ * exactamente el de `Page.astro`, con dos diferencias deliberadas:
+ *   – NO monta `AnclasViejas`: ese script sólo tiene sentido en la portada, que
+ *     es donde aterrizan los enlaces con anclas mudadas.
+ *   – Sí pasa `ruta`, que la portada no pasa porque no está en el mapa.
+ */
+import Base from '../../layouts/Base.astro';
+import Nav from '../Nav.astro';
+import Agents from '../Agents.astro';
+import Flow from '../Flow.astro';
+import Engine from '../Engine.astro';
+import CierrePagina from '../CierrePagina.astro';
+import Footer from '../Footer.astro';
+import Chat from '../Chat.astro';
+import CookieBanner from '../CookieBanner.astro';
+import Reveal from '../Reveal.astro';
+import type { Locale } from '../../data/site';
+
+interface Props {
+  /** El idioma de la página. Los dos ficheros de `src/pages/` lo fijan. */
+  locale: Locale;
+}
+const { locale } = Astro.props;
+---
+
+<Base locale={locale} ruta="agentes">
+  <Nav locale={locale} />
+  <main>
+    {/* `titular="h1"` porque esta sección ABRE la página: es su encabezado
+        principal, no una sección más. Cuando todo era una landing el `h1`
+        lo ponía el Hero; aquí no hay Hero, y una página sin `h1` no dice de
+        qué va. No cambia nada visual (el tamaño lo pone `.h-lg`). */}
+    <Agents locale={locale} titular="h1" />
+    <Flow locale={locale} />
+    <Engine locale={locale} />
+    <CierrePagina locale={locale} />
+  </main>
+  <Footer locale={locale} />
+  <Chat locale={locale} />
+  <CookieBanner locale={locale} />
+  <Reveal />
+</Base>

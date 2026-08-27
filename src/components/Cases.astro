@@ -23,8 +23,12 @@ import { casosListos, hayCasos, operaTodo } from '../data/cases';
 
 interface Props {
   locale: Locale;
+  /** Nivel del titular. Ver el porqué en `Product.astro`: esta sección abre
+   *  `/casos`, y sin `h1` la página no declara de qué va. Sólo semántica —
+   *  el tamaño lo pone `.h-lg`. */
+  titular?: 'h1' | 'h2';
 }
-const { locale } = Astro.props;
+const { locale, titular: Titular = 'h2' } = Astro.props;
 const t = content[locale];
 const lista = casosListos();
 
@@ -39,10 +43,10 @@ const logos = import.meta.glob<{ default: ImageMetadata }>('../assets/*.{png,jpg
       <div class="wrap">
         <div class="reveal">
           <p class="kick">{t.cases.kicker}</p>
-          <h2 class="h-lg" style="margin-top:18px;">
+          <Titular class="h-lg" style="margin-top:18px;">
             {t.cases.title[0]}
             <span class="teal">{t.cases.title[1]}</span>
-          </h2>
+          </Titular>
           <p class="lead" style="margin-top:18px; max-width:820px;">
             {t.cases.lead}
           </p>

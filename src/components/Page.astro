@@ -1,44 +1,61 @@
 ---
 /**
- * The whole landing page in section order, shared by both locale routes.
- * Section order matches the approved design, con una excepción declarada:
+ * LA PORTADA (/ y /en). Sólo lo clave.
+ *
+ * LA LANDING SE PARTIÓ EN CINCO PÁGINAS EL 27 AGO 2026.
+ *
+ * ANTES: las 20 secciones seguidas — 26.967 px en escritorio (30 pantallas) y
+ * ~49.000 px en móvil (58 pantallas), medido con Playwright sobre el build, no
+ * estimado. Todo cabía, pero para llegar a los precios había que hacer scroll
+ * durante veinte pantallas, así que casi nadie llegaba. Decisión de Gonzalo: la
+ * portada se queda con lo clave y quien quiera saber más navega por el menú.
+ *
+ * DESPUÉS (medido igual, mismo día): 7.024 px en escritorio (7,8 pantallas) y
+ * 11.622 px en móvil (13,8). Una cuarta parte de lo que era.
+ *
+ * AHORA, en orden: Hero · Stats · Why · Waitlist · Team · Contact.
+ *   – Hero y Stats dicen qué es y de qué tamaño.
+ *   – Why («La IA que se paga sola») es el argumento, no el catálogo.
+ *   – Waitlist es lo único que se puede hacer hoy con STRATA OS.
+ *   – Team y Contact son quién está detrás y cómo hablar con ellos.
+ *
+ * LAS OTRAS CATORCE viven ahora en cinco páginas, una por pregunta (el mapa
+ * está en `src/data/rutas.ts`):
+ *   /el-os    → Product + Pillars + Lab
+ *   /agentes  → Agents + Engine
+ *   /control  → Rollout + Permisos + Method
+ *   /casos    → Cases + UseCases + Partners
+ *   /precios  → Pricing + Faq
+ *
+ * ⚠️ SON 19 DE 20. `Flow.astro` (id `#como`, «cómo funciona» — el diagrama de
+ * columnas que lee `content.how`) NO aparece en el reparto de Gonzalo: no está
+ * en la portada ni en ninguna de las cinco páginas, así que HOY NO SE PINTA EN
+ * NINGÚN SITIO. Tampoco está en `ANCLAS_MUDADAS`, luego `/#como` se queda
+ * arriba del todo sin redirigir a ninguna parte.
+ *
+ * No se cuela aquí de tapadillo (volvería a alargar la portada, que es lo que
+ * se venía a arreglar) ni se borra (el componente y su contenido en `es.ts` /
+ * `en.ts` siguen intactos y funcionando: basta importarlo y montarlo). Es una
+ * decisión de reparto pendiente, y se deja VISIBLE en vez de resuelta a
+ * espaldas de quien repartió. Cuando se decida su sitio —el candidato natural
+ * es /el-os, entre Product y Pillars— hay que añadir además `'#como'` al mapa
+ * de `ANCLAS_MUDADAS` para que el enlace viejo no muera.
  *
  * FOTOGRAFÍA DECORATIVA FUERA (27 ago 2026). Aquí iban dos <PhotoBand> a
  * sangre — una entre Partners y Pillars, otra entre Cases y Waitlist. Se
  * quitan por decisión de Gonzalo: la fotografía de feria/evento no le
  * convence. Se van la foto Y el pie de foto, porque el pie ("Empresas como la
  * tuya…", "Lo contamos donde nos dejan…") no dice nada sin la imagen debajo.
- *
- * Efecto colateral conocido y aceptado: la primera banda era lo único que
- * partía Partners → Pillars → Why, tres secciones `light` seguidas. Sin ella
- * son ~4.300 px claros de un tirón. Se deja así a propósito: cambiar el tono
- * de una de las tres es una decisión de diseño, no una consecuencia de quitar
- * una foto, y la página ya convive con una racha `deep` más larga todavía
- * (Agentes + Producto, ~4.900 px). Si algún día molesta, se decide aparte.
- *
  * El componente PhotoBand.astro y los .jpg siguen en el repo, sin usar.
  */
 import Base from '../layouts/Base.astro';
 import Nav from './Nav.astro';
+import AnclasViejas from './AnclasViejas.astro';
 import Hero from './Hero.astro';
 import Stats from './Stats.astro';
-import Waitlist from './Waitlist.astro';
-import Pillars from './Pillars.astro';
 import Why from './Why.astro';
-import Agents from './Agents.astro';
-import Product from './Product.astro';
-import Flow from './Flow.astro';
-import Engine from './Engine.astro';
-import Rollout from './Rollout.astro';
-import Permisos from './Permisos.astro';
-import UseCases from './UseCases.astro';
-import Cases from './Cases.astro';
-import Pricing from './Pricing.astro';
-import Method from './Method.astro';
-import Lab from './Lab.astro';
+import Waitlist from './Waitlist.astro';
 import Team from './Team.astro';
-import Partners from './Partners.astro';
-import Faq from './Faq.astro';
 import Contact from './Contact.astro';
 import Footer from './Footer.astro';
 import Chat from './Chat.astro';
@@ -53,27 +70,16 @@ const { locale } = Astro.props;
 ---
 
 <Base locale={locale}>
+  {/* Lo primero del body: si la URL trae un ancla mudada, se redirige antes de
+      que el visitante llegue a ver la portada equivocada. */}
+  <AnclasViejas locale={locale} />
   <Nav locale={locale} />
   <main>
     <Hero locale={locale} />
     <Stats locale={locale} />
-    <Partners locale={locale} />
-    <Pillars locale={locale} />
     <Why locale={locale} />
-    <Agents locale={locale} />
-    <Product locale={locale} />
-    <Flow locale={locale} />
-    <Engine locale={locale} />
-    <Rollout locale={locale} />
-    <Permisos locale={locale} />
-    <UseCases locale={locale} />
-    <Cases locale={locale} />
     <Waitlist locale={locale} />
-    <Pricing locale={locale} />
-    <Method locale={locale} />
-    <Lab locale={locale} />
     <Team locale={locale} />
-    <Faq locale={locale} />
     <Contact locale={locale} />
   </main>
   <Footer locale={locale} />

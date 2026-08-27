@@ -1,4 +1,5 @@
 import type { Content } from './types';
+import { rutaHref } from '../rutas';
 
 /**
  * Spanish is the source copy — it is the language the design was written in.
@@ -29,16 +30,8 @@ export const es: Content = {
   },
 
   nav: {
-    links: [
-      { href: '#producto', label: 'El OS' },
-      { href: '#agentes', label: 'Agentes' },
-      { href: '#motor', label: 'El motor' },
-      { href: '#despliegue', label: 'Control' },
-      { href: '#grupo', label: 'Casos reales' },
-      { href: '#precios', label: 'Precios' },
-      { href: '#lab', label: 'STRATA Lab' },
-      { href: '#partners', label: 'Para quién' },
-    ],
+    // Las entradas del menú están en `src/data/rutas.ts` (etiqueta + slug de
+    // cada idioma juntos). Aquí quedan sólo los textos que no son un destino.
     cta: 'Hablemos →',
     skipToContent: 'Saltar al contenido',
     menuLabel: 'Abrir menú',
@@ -690,7 +683,10 @@ export const es: Content = {
           'Disponible hoy: el precio se cierra tras el diagnóstico, no antes',
         ],
         ctaLabel: 'Ver STRATA Lab →',
-        ctaHref: '#lab',
+        // Los precios viven en /precios y STRATA Lab en /el-os: este enlace
+        // cruza de página, así que sale del mapa de rutas y no de un '#lab'
+        // que en esta página no existiría.
+        ctaHref: `${rutaHref('el-os', 'es')}#lab`,
       },
     ],
     billingKicker: 'Cómo se factura',

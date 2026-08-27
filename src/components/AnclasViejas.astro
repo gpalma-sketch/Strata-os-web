@@ -1,0 +1,62 @@
+---
+/**
+ * RESCATE DE LOS ENLACES VIEJOS.
+ *
+ * Cuando toda la web era una sola página, el menú enlazaba a #producto,
+ * #agentes, #motor, #despliegue, #grupo, #precios, #lab y #partners. Esos
+ * enlaces están fuera: en marcadores, en correos ya enviados y en algún deck.
+ * Al mudarse esas secciones a sus páginas, el ancla desaparece de la portada.
+ *
+ * Y un ancla que no existe no da error — hace algo peor: el navegador se queda
+ * arriba del todo, sin ningún aviso. Quien pulsó «Precios» en un correo de hace
+ * un mes cree que la web ya no lo dice. Seis líneas evitan eso.
+ *
+ * `location.replace` en vez de `location.href` a propósito: así el ancla muerta
+ * no se queda en el historial y el botón «atrás» devuelve a donde el visitante
+ * venía, en vez de rebotar contra la redirección.
+ *
+ * Escucha además `hashchange`, y eso cubre un segundo caso: un enlace INTERNO
+ * que todavía apunte a un ancla mudada. Al pulsarlo el navegador no encuentra
+ * destino pero sí cambia el hash, se dispara el evento y la redirección lo
+ * lleva a la página buena. Es la red por debajo de los enlaces arreglados a
+ * mano, no su sustituto.
+ *
+ * Va en la portada, que es de donde se fueron las secciones. Es seguro
+ * incluirlo en cualquier página: sólo reacciona a los hashes del mapa, y una
+ * página que contenga esa sección… no la tiene en su mapa de destinos igual,
+ * así que conviene NO ponerlo en la página que aloja el ancla (redirigiría a
+ * sí misma). Por eso hoy sólo lo monta `Page.astro`.
+ */
+import type { Locale } from '../data/site';
+import { ANCLAS_MUDADAS, rutaHref } from '../data/rutas';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+
+// El mapa se resuelve en el build al idioma de ESTA página: en /en la tabla ya
+// lleva /en/pricing, no /precios. Un visitante inglés no debe caer en español.
+const destinos: Record<string, string> = Object.fromEntries(
+  Object.entries(ANCLAS_MUDADAS).map(([hash, clave]) => [hash, rutaHref(clave, locale)])
+);
+---
+
+{/* `destinos` lo inyecta `define:vars` en el build; por eso no se declara aquí. */}
+<script is:inline define:vars={{ destinos }}>
+  (function () {
+    function redirigir() {
+      var hash = location.hash;
+      var nueva = destinos[hash];
+      // EL HASH VIAJA CON LA REDIRECCIÓN, y no es un detalle. Las secciones
+      // conservan su id al mudarse, así que /#metodo → /control#metodo aterriza
+      // EN el método. Sin arrastrarlo se llegaba a /control a secas, que es la
+      // página correcta pero 3.682 px por encima de lo que el enlace pedía
+      // (medido el 27 ago 2026 en las 13 anclas: 8 caían fuera de sitio). Quien
+      // pulsa un marcador de hace un mes no lee «ya no está», lee «no lo dicen».
+      if (nueva) location.replace(nueva + hash);
+    }
+    redirigir();
+    addEventListener('hashchange', redirigir);
+  })();
+</script>

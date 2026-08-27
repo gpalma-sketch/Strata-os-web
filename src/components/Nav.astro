@@ -1,8 +1,17 @@
 ---
+/**
+ * La barra de navegación, compartida por la portada y las cinco páginas.
+ *
+ * Las entradas ya no son anclas de una sola página larga: son cinco páginas de
+ * verdad, y salen del mapa (`src/data/rutas.ts`), no de una lista escrita aquí
+ * ni en `es.ts`. Así el menú, el selector de idioma y el sitemap no pueden
+ * decir cosas distintas de la misma página.
+ */
 import Icon from './Icon.astro';
 import type { Locale } from '../data/site';
 import { localePath } from '../data/site';
 import { content } from '../data/content';
+import { enlacesMenu, claveDeRuta, rutaEquivalente } from '../data/rutas';
 
 interface Props {
   locale: Locale;
@@ -10,6 +19,32 @@ interface Props {
 const { locale } = Astro.props;
 const t = content[locale];
 const home = localePath(locale);
+
+const enlaces = enlacesMenu(locale);
+// Para marcar la página en la que estás. `claveDeRuta` devuelve null en la
+// portada y en las legales, así que allí no se marca ninguna: correcto.
+const actual = claveDeRuta(Astro.url.pathname);
+
+// EL SELECTOR ES/EN. Antes mandaba siempre a la portada: quien leía precios y
+// pulsaba EN perdía la página. Ahora salta a la equivalente (/precios →
+// /en/pricing) y, fuera del mapa, a la misma ruta en el otro idioma.
+const hrefEs = rutaEquivalente(Astro.url.pathname, 'es');
+const hrefEn = rutaEquivalente(Astro.url.pathname, 'en');
+
+/**
+ * EL CTA «Hablemos» NO PUEDE QUEDARSE COLGADO.
+ *
+ * Antes era `href="#contacto"` a secas, que funcionaba porque sólo existía una
+ * página y esa sección estaba dentro. En /precios no hay ningún #contacto que
+ * valga salvo que la página lo incluya, así que el href de partida apunta a la
+ * portada — un enlace que SIEMPRE resuelve, incluso sin JavaScript.
+ *
+ * Encima, el script de abajo lo reescribe a '#contacto' cuando la sección sí
+ * está en la página actual (portada, y las cinco páginas que terminan en
+ * `CierrePagina`), para que el salto sea instantáneo y no recargue. Es mejora
+ * progresiva: si el script no corre, el enlace sigue llevando al mismo sitio.
+ */
+const hrefContacto = `${home}#contacto`;
 ---
 
 <nav class="nav">
@@ -27,10 +62,16 @@ const home = localePath(locale);
     </a>
 
     <div class="nav-links">
-      {t.nav.links.map((l) => <a href={l.href}>{l.label}</a>)}
+      {
+        enlaces.map((l) => (
+          <a href={l.href} aria-current={l.clave === actual ? 'page' : undefined}>
+            {l.label}
+          </a>
+        ))
+      }
     </div>
 
-    <a href="#contacto" class="btn btn-primary nav-cta">{t.nav.cta}</a>
+    <a href={hrefContacto} data-cta-contacto class="btn btn-primary nav-cta">{t.nav.cta}</a>
 
     <button
       class="nav-toggle"
@@ -45,8 +86,8 @@ const home = localePath(locale);
     </button>
 
     <div class="langsel">
-      <a href={localePath('es')} aria-current={locale === 'es' ? 'true' : undefined} hreflang="es">ES</a>
-      <a href={localePath('en')} aria-current={locale === 'en' ? 'true' : undefined} hreflang="en">EN</a>
+      <a href={hrefEs} aria-current={locale === 'es' ? 'true' : undefined} hreflang="es">ES</a>
+      <a href={hrefEn} aria-current={locale === 'en' ? 'true' : undefined} hreflang="en">EN</a>
     </div>
 
     <div id="progress"></div>
@@ -54,13 +95,27 @@ const home = localePath(locale);
 </nav>
 
 <div class="nav-drawer" id="navDrawer">
-  {t.nav.links.map((l) => <a class="dlink" href={l.href}>{l.label}</a>)}
+  {
+    enlaces.map((l) => (
+      <a class="dlink" href={l.href} aria-current={l.clave === actual ? 'page' : undefined}>
+        {l.label}
+      </a>
+    ))
+  }
   <div class="dfoot">
-    <a href="#contacto" class="btn btn-primary">{t.nav.cta}</a>
+    <a href={hrefContacto} data-cta-contacto class="btn btn-primary">{t.nav.cta}</a>
   </div>
 </div>
 
 <script>
+  // Si la sección de contacto está en ESTA página, el CTA salta dentro sin
+  // recargar. Si no está (una legal, o una página que se olvide de incluir
+  // `CierrePagina`), el href de partida sigue llevando a la portada — que es
+  // el motivo de hacerlo así y no al revés: el enlace nunca queda muerto.
+  if (document.getElementById('contacto')) {
+    document.querySelectorAll('[data-cta-contacto]').forEach((a) => a.setAttribute('href', '#contacto'));
+  }
+
   const toggle = document.getElementById('navToggle');
   const drawer = document.getElementById('navDrawer');
 

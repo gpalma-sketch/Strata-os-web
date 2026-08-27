@@ -3,27 +3,46 @@ import '../styles/global.css';
 import type { Locale } from '../data/site';
 import { site } from '../data/site';
 import { content } from '../data/content';
+import { rutas, type ClaveRuta } from '../data/rutas';
 
 interface Props {
   locale: Locale;
-  /** Sobrescribe el <title>. Por defecto, el de la portada. */
+  /** Sobrescribe el <title>. Por defecto: el del mapa si hay `ruta`, si no el de la portada. */
   title?: string;
-  /** Sobrescribe la meta description. */
+  /** Sobrescribe la meta description. Mismo defecto que el título. */
   description?: string;
-  /** Ruta sin prefijo de idioma, p. ej. '/privacidad'. Vacío = portada. */
+  /**
+   * Ruta sin prefijo de idioma para páginas cuyo slug es IGUAL en los dos
+   * idiomas, p. ej. '/privacidad' → '/privacidad' y '/en/privacidad'.
+   * Vacío = portada. Para las cinco páginas internas usa `ruta`, no esto:
+   * su slug cambia según el idioma y aquí saldría un hreflang inventado.
+   */
   path?: string;
+  /**
+   * Clave del mapa de rutas (`src/data/rutas.ts`) para las cinco páginas
+   * internas. Es lo único que necesitan pasar: de aquí salen solos el título,
+   * la descripción, el canonical y los hreflang con el slug de cada idioma.
+   */
+  ruta?: ClaveRuta;
   /** Excluye la página de los buscadores (documentos legales incompletos). */
   noindex?: boolean;
 }
-const { locale, title, description, path = '', noindex = false } = Astro.props;
+const { locale, title, description, path = '', ruta, noindex = false } = Astro.props;
 const t = content[locale];
 
-const pageTitle = title ?? t.meta.title;
-const pageDesc = description ?? t.meta.description;
+// Cuando la página está en el mapa, el mapa manda: título, descripción y las
+// DOS rutas (es/en). Es la única forma de que el hreflang de /precios apunte a
+// /en/pricing y no a un /en/precios que no existe.
+const enMapa = ruta ? rutas[ruta] : null;
+
+const pageTitle = title ?? enMapa?.[locale].titulo ?? t.meta.title;
+const pageDesc = description ?? enMapa?.[locale].descripcion ?? t.meta.description;
 
 // El prefijo /en aplica a todas las rutas, no solo a la portada.
-const esHref = new URL(path || '/', Astro.site).href;
-const enHref = new URL(`/en${path}`, Astro.site).href;
+const pathEs = enMapa ? enMapa.es.slug : path;
+const pathEn = enMapa ? enMapa.en.slug : path;
+const esHref = new URL(pathEs || '/', Astro.site).href;
+const enHref = new URL(`/en${pathEn}`, Astro.site).href;
 const canonical = locale === 'es' ? esHref : enHref;
 const alternates: Array<[string, string]> = [
   ['es', esHref],
@@ -82,10 +101,34 @@ const jsonLd = {
     <link rel="preload" as="font" type="font/woff2" href="/fonts/archivo-800-latin.woff2" crossorigin />
     <link rel="preload" as="font" type="font/woff2" href="/fonts/space-grotesk-400-latin.woff2" crossorigin />
 
-    {!path && <script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
+    {/* El marcado de Organization va UNA vez por idioma, en la portada. En una
+        página interna sería el mismo bloque repetido cinco veces, que no añade
+        nada y ensucia lo que lee el buscador. */}
+    {!path && !ruta && <script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
   </head>
   <body>
     <a class="skip-link" href="#top">{t.nav.skipToContent}</a>
     <slot />
+
+    {/* «Saltar al contenido» apunta a #top, que es el id de la sección hero.
+        Sólo la portada tiene hero: en las tres páginas legales ya estaba roto
+        —el enlace no llevaba a ninguna parte— y con la landing partida en cinco
+        páginas lo estaría también en ellas. Un enlace de accesibilidad que no
+        salta es peor que no tenerlo: quien navega con teclado lo pulsa y sigue
+        exactamente donde estaba, dentro del menú.
+
+        Aquí se le da destino real —el <main> de la página— sin obligar a cada
+        página a acordarse de poner un id. `tabindex="-1"` es lo que hace que el
+        foco viaje de verdad; sin él el navegador desplaza la vista pero deja el
+        foco en el menú, y el siguiente tabulador vuelve arriba. */}
+    <script>
+      const salto = document.querySelector('.skip-link');
+      const principal = document.querySelector('main');
+      if (salto && principal && !document.getElementById('top')) {
+        if (!principal.id) principal.id = 'contenido';
+        principal.setAttribute('tabindex', '-1');
+        salto.setAttribute('href', `#${principal.id}`);
+      }
+    </script>
   </body>
 </html>

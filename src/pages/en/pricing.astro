@@ -1,0 +1,10 @@
+---
+/**
+ * Ruta /en/pricing (inglés). El slug es distinto del español a propósito
+ * —lo bueno para buscadores— y lo declara `src/data/rutas.ts`, que es también
+ * quien hace que el selector ES/EN salte de /precios a aquí y no a la portada.
+ */
+import Precios from '../../components/paginas/precios.astro';
+---
+
+<Precios locale="en" />

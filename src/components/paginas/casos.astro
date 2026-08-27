@@ -1,0 +1,73 @@
+---
+/**
+ * CASOS (/casos · /en/cases) — responde «¿a quién le funciona?».
+ *
+ * Es la página de la prueba. Las otras cuatro explican qué es el sistema, quién
+ * lo opera, quién manda y cuánto cuesta; ésta enseña que ya está funcionando en
+ * sitios concretos y dice, sin rodeos, para quién está pensado y para quién no.
+ * Por eso las tres secciones van en este orden y no en otro:
+ *
+ *   1. Cases     (#grupo)    — las empresas del grupo y los clientes que ya
+ *                              operan con esto. Primero la evidencia: quien
+ *                              llega desde Google buscando «¿esto funciona de
+ *                              verdad?» tiene la respuesta sin hacer scroll.
+ *   2. UseCases  (#casos)    — los retos que resuelve, área por área. Del «a
+ *                              quién» al «para qué», que es la pregunta que
+ *                              aparece justo después de creerse lo anterior.
+ *   3. Partners  (#partners) — los perfiles de empresa para los que está hecho.
+ *                              Va al final a propósito: es donde el visitante se
+ *                              reconoce (o descarta), y descartarse tarde es
+ *                              mejor que descartarse en la primera pantalla.
+ *
+ * Antes las tres estaban enterradas en la landing de 26.967 px, a veinte
+ * pantallas de scroll. Aquí son la página entera.
+ *
+ * TONOS, encadenados a propósito (light → deep → light): las dos secciones
+ * `light` no se tocan porque UseCases va `deep` en medio. Ese corte ya lo daba
+ * la landing y aquí se conserva tal cual — no se ha cambiado el tono de ninguna
+ * sección, sólo se han elegido en el orden que Gonzalo repartió.
+ *
+ * CierrePagina cierra, como en las otras cuatro. No es adorno: `Partners`
+ * enlaza a `#contacto` y ese id lo trae `Contact`, que vive dentro de
+ * CierrePagina. Sin él, el botón «Hablar con nosotros» de Partners se quedaría
+ * sin destino en esta misma página.
+ */
+import Base from '../../layouts/Base.astro';
+import Nav from '../Nav.astro';
+import Cases from '../Cases.astro';
+import UseCases from '../UseCases.astro';
+import Partners from '../Partners.astro';
+import CierrePagina from '../CierrePagina.astro';
+import Footer from '../Footer.astro';
+import Chat from '../Chat.astro';
+import CookieBanner from '../CookieBanner.astro';
+import Reveal from '../Reveal.astro';
+import type { Locale } from '../../data/site';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+---
+
+{/* `ruta="casos"` es lo único que hace falta: de ahí salen el <title>, la
+    descripción, el canonical y los hreflang con el slug de CADA idioma
+    (/casos ↔ /en/cases). Nada de escribirlos a mano aquí. */}
+<Base locale={locale} ruta="casos">
+  <Nav locale={locale} />
+  <main>
+    {/* `titular="h1"` porque esta sección ABRE la página: es su encabezado
+        principal, no una sección más. Cuando todo era una landing el `h1`
+        lo ponía el Hero; aquí no hay Hero, y una página sin `h1` no dice de
+        qué va. No cambia nada visual (el tamaño lo pone `.h-lg`). */}
+    <Cases locale={locale} titular="h1" />
+    <UseCases locale={locale} />
+    <Partners locale={locale} />
+    {/* SIEMPRE el último hijo de <main>: lista de lanzamiento + «Hablemos». */}
+    <CierrePagina locale={locale} />
+  </main>
+  <Footer locale={locale} />
+  <Chat locale={locale} />
+  <CookieBanner locale={locale} />
+  <Reveal />
+</Base>

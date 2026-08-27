@@ -12,8 +12,21 @@ import { content } from '../data/content';
 
 interface Props {
   locale: Locale;
+  /**
+   * QUÉ NIVEL DE TITULAR PINTA ESTA SECCIÓN. Por defecto `h2`, que es lo
+   * correcto cuando la sección es una más dentro de una página que ya tiene su
+   * `h1`. Al partir la landing (27 ago 2026) esta sección pasó a ABRIR
+   * `/el-os`, y una página cuyo encabezado más alto es un `h2` no declara de
+   * qué va: se queda sin `h1`. Medido sobre el build de ese día, las cinco
+   * páginas nuevas tenían CERO `h1` — justo las páginas a las que se quiere
+   * llegar desde un buscador, que era el motivo de partir la landing.
+   *
+   * No cambia NADA visualmente: el tamaño lo pone la clase `.h-lg`, y en el CSS
+   * no hay ni una regla que mire la etiqueta `h1`/`h2`. Es sólo semántica.
+   */
+  titular?: 'h1' | 'h2';
 }
-const { locale } = Astro.props;
+const { locale, titular: Titular = 'h2' } = Astro.props;
 const t = content[locale];
 
 const shots = import.meta.glob<{ default: ImageMetadata }>('../assets/os-*.png', { eager: true });
@@ -27,9 +40,9 @@ const capturas = t.product.shots
   <div class="wrap">
     <div class="reveal">
       <p class="kick">{t.product.kicker}</p>
-      <h2 class="h-lg" style="margin-top:18px; max-width:880px;">
+      <Titular class="h-lg" style="margin-top:18px; max-width:880px;">
         {t.product.title[0]}<span class="mint">{t.product.title[1]}</span>
-      </h2>
+      </Titular>
       <p class="lead" style="margin-top:20px; max-width:720px;">{t.product.lead}</p>
     </div>
 

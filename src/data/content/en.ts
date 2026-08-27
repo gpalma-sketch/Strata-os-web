@@ -1,4 +1,5 @@
 import type { Content } from './types';
+import { rutaHref } from '../rutas';
 
 /**
  * English translation. Structurally identical to `es` — the `Content` type
@@ -18,16 +19,8 @@ export const en: Content = {
   },
 
   nav: {
-    links: [
-      { href: '#producto', label: 'The OS' },
-      { href: '#agentes', label: 'Agents' },
-      { href: '#motor', label: 'The engine' },
-      { href: '#despliegue', label: 'Control' },
-      { href: '#grupo', label: 'Real cases' },
-      { href: '#precios', label: 'Pricing' },
-      { href: '#lab', label: 'STRATA Lab' },
-      { href: '#partners', label: "Who it's for" },
-    ],
+    // Las entradas del menú están en `src/data/rutas.ts` (etiqueta + slug de
+    // cada idioma juntos). Aquí quedan sólo los textos que no son un destino.
     cta: "Let's talk →",
     skipToContent: 'Skip to content',
     menuLabel: 'Open menu',
@@ -679,7 +672,10 @@ export const en: Content = {
           'Available today: the price is set after the diagnosis, not before',
         ],
         ctaLabel: 'See STRATA Lab →',
-        ctaHref: '#lab',
+        // Pricing lives on /en/pricing and STRATA Lab on /en/the-os: this link
+        // crosses pages, so it comes from the route map rather than from a
+        // '#lab' that would not exist on this page.
+        ctaHref: `${rutaHref('el-os', 'en')}#lab`,
       },
     ],
     billingKicker: "How it's billed",
