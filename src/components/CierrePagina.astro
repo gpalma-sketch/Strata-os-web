@@ -1,0 +1,41 @@
+---
+/**
+ * EL CIERRE COMPARTIDO de las cinco páginas internas.
+ *
+ * Por qué existe: al partir la landing, quien llega desde Google a /precios se
+ * quedaba en un callejón. Leía la tarifa, decidía que le interesa… y no tenía
+ * dónde apuntarse ni a quién escribir sin volver al inicio a buscarlo. Ese
+ * viaje de vuelta no lo hace casi nadie, y es exactamente donde se pierde la
+ * gente que ya estaba convencida. Así que toda página interna termina igual:
+ * lista de lanzamiento primero, «Hablemos» después.
+ *
+ * REUTILIZA los dos componentes que ya existen, no copia su contenido: el
+ * formulario de la lista, su endpoint, su texto de consentimiento y el CTA de
+ * contacto se mantienen solos y no pueden divergir entre páginas. Es la regla
+ * de la fuente única aplicada a un trozo de página.
+ *
+ * Efecto colateral BUSCADO: como `Contact.astro` trae `id="contacto"`, el CTA
+ * «Hablemos» del menú encuentra su destino dentro de la propia página en vez de
+ * mandar de vuelta a la portada. Ver `Nav.astro`.
+ *
+ * Los dos traen sus propios <script> (envío por fetch). Astro los agrupa una
+ * sola vez por página, y como este componente se usa UNA vez por página no hay
+ * ids repetidos ni dos manejadores sobre el mismo formulario.
+ *
+ * Uso:
+ *   <CierrePagina locale={locale} />
+ * Va dentro de <main>, como último hijo, justo antes de cerrar.
+ */
+import Waitlist from './Waitlist.astro';
+import Contact from './Contact.astro';
+import type { Locale } from '../data/site';
+
+interface Props {
+  /** El idioma de la página. Único prop; no hay nada más que decidir aquí. */
+  locale: Locale;
+}
+const { locale } = Astro.props;
+---
+
+<Waitlist locale={locale} />
+<Contact locale={locale} />

@@ -1,0 +1,82 @@
+---
+/**
+ * EL OS (/el-os · /en/the-os) — la página que responde «¿qué es esto?».
+ *
+ * Sale de partir la portada: eran 20 secciones y 26.967 px en escritorio (30
+ * pantallas), así que quien quería entender el producto tenía que hacer scroll
+ * a ciegas hasta encontrarlo. Ahora es una página con su propia URL, su título
+ * y su sitio en el menú, y quien llegue desde Google a «qué es el Business OS»
+ * aterriza EN la respuesta, no veinte pantallas por encima de ella.
+ *
+ * EL ORDEN NO ES CAPRICHOSO — es la respuesta contada de dentro hacia fuera:
+ *   1. Product  — el panel y sus nueve vistas, CON capturas reales. Es la
+ *      sección más grande de la web y va primero a propósito: enseña la cosa
+ *      antes de explicarla. Sin esto, lo de abajo son dos maneras de comprar
+ *      algo que el visitante todavía no ha visto.
+ *   2. Pillars  — las dos formas de tenerlo: listo para usar, o a medida.
+ *      Va DESPUÉS del panel porque es la bifurcación, y una bifurcación sólo
+ *      se entiende cuando ya sabes hacia dónde llevan las dos ramas.
+ *   3. Lab      — la rama de «a medida», desarrollada. Cierra la página porque
+ *      es la salida natural del segundo pilar: el visitante que ha elegido esa
+ *      rama sigue leyendo hacia abajo y encuentra los pasos y el precio.
+ *
+ * DOS ANCLAS DE FUERA ATERRIZAN AQUÍ, y por eso las secciones conservan sus id:
+ *   · `#lab`  ← lo enlazan el segundo pilar (`pillars.items[1].ctaHref`), el
+ *     Hero de la portada y la tarjeta «A medida» de `pricing`, ya reescritos a
+ *     `/el-os#lab`. Si esta página perdiera la sección Lab, esos tres enlaces
+ *     se quedarían sin destino.
+ *   · `#producto` y `#modelo` ← las anclas de la web de una sola página, que
+ *     `AnclasViejas` redirige aquí desde la portada.
+ *
+ * ⚠️ `AnclasViejas` NO se monta aquí, y es deliberado: su tabla manda `#lab`,
+ * `#producto` y `#modelo` a esta misma página. Incluirlo haría que
+ * `/el-os#lab` se redirigiese a `/el-os` a secas — se comería justo el ancla
+ * que los otros enlaces vienen a buscar. Va sólo en la portada, que es de
+ * donde se fueron las secciones.
+ *
+ * El cierre (`CierrePagina` = lista de lanzamiento + «Hablemos») es obligatorio
+ * en las cinco páginas: sin él, quien entra directo aquí desde un buscador no
+ * tiene dónde apuntarse sin volver al inicio a buscarlo, y ese viaje de vuelta
+ * no lo hace casi nadie. Además da destino a dos anclas de esta misma página:
+ * `#lanzamiento` (lo enlaza el primer pilar) y `#contacto` (el CTA del menú).
+ */
+import Base from '../../layouts/Base.astro';
+import Nav from '../Nav.astro';
+import Product from '../Product.astro';
+import Pillars from '../Pillars.astro';
+import Lab from '../Lab.astro';
+import CierrePagina from '../CierrePagina.astro';
+import Footer from '../Footer.astro';
+import Chat from '../Chat.astro';
+import CookieBanner from '../CookieBanner.astro';
+import Reveal from '../Reveal.astro';
+import type { Locale } from '../../data/site';
+
+interface Props {
+  /** El idioma de la página. Lo pasan los dos ficheros de `src/pages/`. */
+  locale: Locale;
+}
+const { locale } = Astro.props;
+---
+
+{/* `ruta="el-os"` en vez de title/description a mano: de la clave del mapa
+    (`src/data/rutas.ts`) salen solos el <title>, la descripción, el canonical y
+    los hreflang con el slug de CADA idioma — /el-os ↔ /en/the-os. Escribirlos
+    aquí sería la cuarta copia de un dato que ya vive en un sitio. */}
+<Base locale={locale} ruta="el-os">
+  <Nav locale={locale} />
+  <main>
+    {/* `titular="h1"` porque esta sección ABRE la página: es su encabezado
+        principal, no una sección más. Cuando todo era una landing el `h1`
+        lo ponía el Hero; aquí no hay Hero, y una página sin `h1` no dice de
+        qué va. No cambia nada visual (el tamaño lo pone `.h-lg`). */}
+    <Product locale={locale} titular="h1" />
+    <Pillars locale={locale} />
+    <Lab locale={locale} />
+    <CierrePagina locale={locale} />
+  </main>
+  <Footer locale={locale} />
+  <Chat locale={locale} />
+  <CookieBanner locale={locale} />
+  <Reveal />
+</Base>

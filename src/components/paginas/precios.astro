@@ -1,0 +1,77 @@
+---
+/**
+ * PRECIOS (/precios · /en/pricing) — responde «¿cuánto cuesta?».
+ *
+ * Es la página del final del recorrido, y la que más tráfico directo va a
+ * recibir: «precio» es lo que la gente teclea en Google cuando ya sabe lo que
+ * eres. Antes vivía enterrada a veinte pantallas de scroll dentro de una
+ * landing de 26.967 px; quien buscaba la tarifa tenía que atravesar el sitio
+ * entero para encontrarla. Ahora tiene URL propia y se puede enlazar.
+ *
+ * Dos secciones, en este orden y no en otro:
+ *
+ *   1. Pricing (#precios) — la tarifa. Lo primero, sin preámbulo: quien entra
+ *                           aquí ya sabe qué es STRATA y viene a por el número.
+ *                           Hacerle leer antes de enseñárselo es la forma más
+ *                           rápida de que se vaya.
+ *   2. Faq     (#faq)     — lo que se pregunta JUSTO DESPUÉS de ver el precio
+ *                           («¿hay permanencia?», «¿y mis datos?»). Va detrás
+ *                           porque son objeciones, y una objeción sólo existe
+ *                           cuando ya hay una cifra sobre la mesa.
+ *
+ * LAS CIFRAS NO SE TOCAN AQUÍ. `Pricing.astro` las lee de la tabla `plans` de
+ * Supabase en el build (STR-224), que es la misma fuente que leen el panel del
+ * cliente y los agentes. Esta página sólo decide el ORDEN de las secciones; si
+ * alguien escribiera un precio a mano en este fichero, la web y el panel
+ * podrían decir cosas distintas del mismo plan.
+ *
+ * CierrePagina NO ES ADORNO EN ESTA PÁGINA, es el cierre de la venta. Dos de
+ * los tres tramos de la tarifa llevan `ctaHref: '#lanzamiento'`, y ese id lo
+ * trae `Waitlist`, que vive dentro de CierrePagina: sin él, los botones
+ * «Apúntate al lanzamiento» de las dos tarjetas se quedarían sin destino en la
+ * misma página donde se pulsan. El tercer tramo («Empresa completa») cruza a
+ * `/el-os#lab`, que sí es otra página y por eso sale del mapa de rutas.
+ *
+ * TONOS (light → dark → deep → deep): la tarifa en claro para que se lea como
+ * un documento, el FAQ en oscuro para separarlo, y el cierre en deep. Los dos
+ * últimos son el mismo tono porque `Waitlist` y `Contact` van seguidos dentro
+ * de CierrePagina — pasa igual en las cinco páginas y no es cosa de ésta. No se
+ * ha cambiado el tono de ninguna sección: es decisión de diseño, no mía.
+ */
+import Base from '../../layouts/Base.astro';
+import Nav from '../Nav.astro';
+import Pricing from '../Pricing.astro';
+import Faq from '../Faq.astro';
+import CierrePagina from '../CierrePagina.astro';
+import Footer from '../Footer.astro';
+import Chat from '../Chat.astro';
+import CookieBanner from '../CookieBanner.astro';
+import Reveal from '../Reveal.astro';
+import type { Locale } from '../../data/site';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+---
+
+{/* `ruta="precios"` es lo único que hace falta: de ahí salen el <title>, la
+    descripción, el canonical y los hreflang con el slug de CADA idioma
+    (/precios ↔ /en/pricing). Nada de escribirlos a mano aquí. */}
+<Base locale={locale} ruta="precios">
+  <Nav locale={locale} />
+  <main>
+    {/* `titular="h1"` porque esta sección ABRE la página: es su encabezado
+        principal, no una sección más. Cuando todo era una landing el `h1`
+        lo ponía el Hero; aquí no hay Hero, y una página sin `h1` no dice de
+        qué va. No cambia nada visual (el tamaño lo pone `.h-lg`). */}
+    <Pricing locale={locale} titular="h1" />
+    <Faq locale={locale} />
+    {/* SIEMPRE el último hijo de <main>: lista de lanzamiento + «Hablemos». */}
+    <CierrePagina locale={locale} />
+  </main>
+  <Footer locale={locale} />
+  <Chat locale={locale} />
+  <CookieBanner locale={locale} />
+  <Reveal />
+</Base>

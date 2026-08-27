@@ -1,0 +1,12 @@
+---
+/**
+ * Ruta española de «El OS». El nombre del fichero TIENE que coincidir con el
+ * slug del mapa (`rutas['el-os'].es.slug === '/el-os'`): el menú, el canonical
+ * y el sitemap ya apuntan ahí, y si este fichero se llamara de otra forma los
+ * tres llevarían a un 404 sin que el build se queje — Astro no valida enlaces.
+ * El idioma se fija aquí, no se adivina de la URL.
+ */
+import PaginaElOs from '../components/paginas/el-os.astro';
+---
+
+<PaginaElOs locale="es" />

@@ -2,12 +2,19 @@
 import DeviceMockup from './DeviceMockup.astro';
 import type { Locale } from '../data/site';
 import { content } from '../data/content';
+import { rutaHref } from '../data/rutas';
 
 interface Props {
   locale: Locale;
 }
 const { locale } = Astro.props;
 const t = content[locale];
+
+// El CTA secundario («Ver STRATA Lab») era un '#lab' que funcionaba cuando la
+// web era una sola página. STRATA Lab vive ahora en /el-os, así que el enlace
+// cruza de página y su destino sale del mapa de rutas. El primario sigue siendo
+// un ancla porque la lista de lanzamiento SÍ se queda en la portada.
+const hrefLab = `${rutaHref('el-os', locale)}#lab`;
 ---
 
 <section class="deep grid-bg hero" id="top">
@@ -27,7 +34,7 @@ const t = content[locale];
     </p>
     <div class="cta-row">
       <a href="#lanzamiento" class="btn btn-primary">{t.hero.ctaPrimary}</a>
-      <a href="#lab" class="btn btn-ghost">{t.hero.ctaSecondary}</a>
+      <a href={hrefLab} class="btn btn-ghost">{t.hero.ctaSecondary}</a>
     </div>
     <div class="hero-chip">
       <span class="statuschip"><span class="dot"></span>{t.hero.statusChip}</span>

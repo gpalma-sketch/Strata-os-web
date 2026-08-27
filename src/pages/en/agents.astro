@@ -1,0 +1,11 @@
+---
+/**
+ * Ruta /en/agents (inglés). El slug NO es la traducción automática de
+ * '/agentes': lo declara `src/data/rutas.ts` ('agentes' → en.slug '/agents'),
+ * y de ahí lo leen el menú, el selector ES/EN y el hreflang. Si este fichero
+ * se renombrase sin tocar el mapa, el selector de idioma mandaría a un 404.
+ */
+import PaginaAgentes from '../../components/paginas/agentes.astro';
+---
+
+<PaginaAgentes locale="en" />

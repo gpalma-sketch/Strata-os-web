@@ -1,0 +1,72 @@
+---
+/**
+ * CONTROL (/control y /en/control) — «¿y esto quién lo controla?».
+ *
+ * Es la página que decide la venta en este mercado. Vender agentes que operan
+ * un negocio sin decir dónde está el freno es lo que hace que un dueño diga que
+ * no, y hasta ahora la respuesta estaba enterrada en la pantalla 14 de una
+ * landing de 30. Aquí sube a una URL propia, con entrada directa desde el menú.
+ *
+ * LAS TRES SECCIONES CONTESTAN LA MISMA PREGUNTA EN TRES TIEMPOS, y ése es el
+ * orden (el que fijó Gonzalo, y además el único que se sostiene solo):
+ *   1. Rollout  — cómo entra: seis pasos, y el muro de logos de lo que se
+ *                 enchufa. Sin esto, «control» es una promesa abstracta.
+ *   2. Permisos — qué puede hacer una vez dentro: arranca CERRADO y lo abres
+ *                 tú, gesto a gesto. Profundiza en el segundo paso de Rollout,
+ *                 así que tiene que ir detrás y no delante.
+ *   3. Method   — cómo se construye lo que hay debajo: nivel a nivel, sin
+ *                 saltarse pasos. No instalamos una herramienta.
+ * Va de lo concreto (una instalación) a lo estructural (un método), que es el
+ * orden en que se convence a alguien que ya está preocupado.
+ *
+ * NOTA DE IDENTIDAD: `control` es la única de las cinco cuyo slug es IGUAL en
+ * los dos idiomas (`/control` ↔ `/en/control`). Aun así los metadatos salen del
+ * mapa vía `ruta="control"` y NO de `path`, porque el título y la descripción sí
+ * cambian de idioma y porque el día que alguien traduzca el slug a «/en/who-is-
+ * in-charge» esta página no se entera: lo hace el mapa. Usar `path` aquí
+ * funcionaría hoy y mentiría mañana.
+ *
+ * El cierre (`CierrePagina` = lista de lanzamiento + «Hablemos») es obligatorio,
+ * y aquí más que en ninguna: quien llega a esta página llega preocupado; si le
+ * convences, se apunta EN ESTA PÁGINA o no se apunta. Además el CTA «Hablemos»
+ * del menú depende de que el `id="contacto"` exista aquí para saltar dentro en
+ * vez de mandar de vuelta a la portada.
+ */
+import Base from '../../layouts/Base.astro';
+import Nav from '../Nav.astro';
+import Rollout from '../Rollout.astro';
+import Permisos from '../Permisos.astro';
+import Method from '../Method.astro';
+import CierrePagina from '../CierrePagina.astro';
+import Footer from '../Footer.astro';
+import Chat from '../Chat.astro';
+import CookieBanner from '../CookieBanner.astro';
+import Reveal from '../Reveal.astro';
+import type { Locale } from '../../data/site';
+
+interface Props {
+  /** Idioma de la página. Lo pasan `src/pages/control.astro` y `src/pages/en/control.astro`. */
+  locale: Locale;
+}
+const { locale } = Astro.props;
+---
+
+<Base locale={locale} ruta="control">
+  <Nav locale={locale} />
+  <main>
+    {/* `titular="h1"` porque esta sección ABRE la página: es su encabezado
+        principal, no una sección más. Cuando todo era una landing el `h1`
+        lo ponía el Hero; aquí no hay Hero, y una página sin `h1` no dice de
+        qué va. No cambia nada visual (el tamaño lo pone `.h-lg`). */}
+    <Rollout locale={locale} titular="h1" />
+    <Permisos locale={locale} />
+    <Method locale={locale} />
+    {/* SIEMPRE el último hijo de <main>: es donde se recoge a quien llegó por
+        buscador y no piensa volver a la portada. */}
+    <CierrePagina locale={locale} />
+  </main>
+  <Footer locale={locale} />
+  <Chat locale={locale} />
+  <CookieBanner locale={locale} />
+  <Reveal />
+</Base>

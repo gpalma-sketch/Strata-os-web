@@ -1,0 +1,13 @@
+---
+/**
+ * Ruta /agentes (español). El nombre del fichero TIENE que coincidir con el
+ * slug que declara `src/data/rutas.ts` para `agentes` en 'es' ('/agentes'):
+ * el menú, el canonical y el sitemap ya apuntan ahí.
+ *
+ * Aquí no va lógica ni metadatos: todo vive en el componente de página, para
+ * que las versiones ES y EN no puedan divergir.
+ */
+import PaginaAgentes from '../components/paginas/agentes.astro';
+---
+
+<PaginaAgentes locale="es" />

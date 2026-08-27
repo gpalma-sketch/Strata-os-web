@@ -1,0 +1,13 @@
+---
+/**
+ * Ruta inglesa de «El OS». El slug está LOCALIZADO —'/the-os', no '/el-os'—
+ * porque es lo que busca un lector inglés y lo que premia el buscador; por eso
+ * el mapa guarda las dos variantes y el hreflang de esta página apunta a
+ * /el-os, no a un /en/el-os que no existiría.
+ * Mismo componente que la versión española: la estructura de la página se
+ * mantiene en un sitio y los dos idiomas la comparten.
+ */
+import PaginaElOs from '../../components/paginas/el-os.astro';
+---
+
+<PaginaElOs locale="en" />
