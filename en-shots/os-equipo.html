@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Hire your team — OFF TV</title>
+<link rel="stylesheet" href="fonts/gf.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --ink:#11150F; --ink2:#3A423B; --gray:#6A756C; --gray2:#8A938B;
+  --line:rgba(17,21,15,.10); --line2:rgba(17,21,15,.07);
+  --teal:#0B8A74; --tealbg:rgba(46,211,183,.16);
+  --amber:#B07D1A; --amberbg:rgba(176,125,26,.14);
+  --canvas:#F4F6F3;
+}
+html,body{width:1100px;height:565px;overflow:hidden}
+body{
+  font-family:'Space Grotesk',-apple-system,Segoe UI,sans-serif;
+  background:#fff;color:var(--ink);
+  -webkit-font-smoothing:antialiased;
+  display:flex;
+}
+.mono{font-family:'Space Mono','SF Mono',monospace}
+svg{display:block;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+
+/* ============ SIDEBAR ============ */
+.side{width:154px;height:565px;flex:none;border-right:1px solid var(--line2);padding:0 8px;position:relative;background:#fff}
+.logo{display:flex;align-items:center;gap:7px;padding:13px 6px 0 6px}
+.sq{width:15px;height:15px;border-radius:4px;background:#F5E4D3;border:1px solid #E8C9A6;color:#C8721F;
+   display:flex;align-items:center;justify-content:center;font-size:6.2px;font-weight:700;letter-spacing:.02em;flex:none}
+.logo .nm{font-size:10px;font-weight:700;letter-spacing:-.01em;line-height:1.05}
+.logo .sub{font-size:5.4px;letter-spacing:.16em;color:var(--gray);margin-top:1.5px}
+
+.picker{margin:13px 0 0 0;display:flex;align-items:center;gap:7px;padding:6px 7px;border:1px solid rgba(17,21,15,.12);
+  border-radius:7px;background:#F3F6F1;height:30px}
+.picker .sq{width:17px;height:17px;border-radius:4.5px;background:#E97C24;border-color:#E97C24;color:#fff;font-size:6.6px}
+.picker .nm{font-size:9px;font-weight:700;line-height:1.1}
+.picker .sub{font-size:5px;letter-spacing:.13em;color:var(--gray);margin-top:1.5px}
+.picker .sw{margin-left:auto;color:var(--gray);width:9px;height:9px}
+
+.seclab{display:flex;align-items:center;font-size:5.8px;letter-spacing:.135em;color:var(--gray2);padding:0 6px;margin:15px 0 5px}
+.seclab.last{margin-top:7px}
+.seclab .cnt{margin-left:auto;background:var(--amberbg);color:var(--amber);border-radius:20px;
+  min-width:12px;height:9.5px;display:flex;align-items:center;justify-content:center;font-size:5.4px;padding:0 3px;letter-spacing:0}
+
+.nav{display:flex;flex-direction:column}
+.nav a{display:flex;align-items:center;gap:8px;height:23.4px;padding:0 7px;border-radius:6px;
+  color:var(--ink2);font-size:8.4px;text-decoration:none;letter-spacing:-.002em}
+.nav a svg{width:10.5px;height:10.5px;flex:none;color:#5E6960}
+.nav a .badge{margin-left:auto;background:var(--amberbg);color:var(--amber);border-radius:20px;
+  width:10.5px;height:10.5px;display:flex;align-items:center;justify-content:center;font-size:5.4px;font-family:'Space Mono',monospace}
+.nav a.on{background:#E4F2EA;color:#0d3f31;font-weight:500}
+.nav a.on svg{color:var(--teal)}
+
+/* ============ MAIN ============ */
+.main{flex:1;height:565px;position:relative;overflow:hidden;background:#fff}
+.hdr{height:27px;border-bottom:1px solid var(--line2);display:flex;align-items:center;padding:0 4px 0 34px;gap:15px}
+.back{display:flex;align-items:center;gap:5px;border:1px solid var(--line);border-radius:5px;padding:4px 8px;
+  font-size:5.9px;letter-spacing:.13em;color:var(--ink2);background:#fff}
+.back svg{width:7px;height:7px}
+.crumb{font-size:5.9px;letter-spacing:.13em;color:var(--gray2)}
+.crumb b{color:var(--gray);font-weight:400}
+.pend{margin-left:auto;display:flex;align-items:center;gap:5px;border:1px solid rgba(176,125,26,.35);background:rgba(176,125,26,.10);
+  color:var(--amber);border-radius:20px;padding:4px 9px;font-size:5.9px;letter-spacing:.12em}
+.pend i{width:3.5px;height:3.5px;border-radius:50%;background:var(--amber);display:block}
+
+.body{padding:20px 0 0 139px}
+.eyebrow{font-size:7.4px;letter-spacing:.155em;color:var(--teal)}
+h1{font-size:21.5px;font-weight:700;letter-spacing:-.017em;margin:5px 0 0;line-height:1}
+h1 span{color:var(--teal)}
+.lead{font-size:8.4px;line-height:14.4px;color:var(--ink2);max-width:434px;margin-top:10px;letter-spacing:-.001em}
+.lead b{font-weight:700;color:var(--ink);border-bottom:1px solid rgba(17,21,15,.35)}
+
+.toolrow{display:flex;align-items:center;gap:10px;width:672px;margin:8px 0 0 11px;white-space:nowrap}
+.search{width:428px;flex:none;height:22px;border:1px solid var(--line);border-radius:6px;display:flex;align-items:center;gap:7px;padding:0 9px;background:#fff}
+.search svg{width:9px;height:9px;color:var(--gray2)}
+.search span{font-size:8.2px;color:#98A199}
+.vac{flex:none;height:22px;border:1px solid var(--line);border-radius:6px;background:#F3F6F1;display:flex;align-items:center;padding:0 10px;font-size:8.2px;color:var(--ink2)}
+.counts{margin-left:auto;flex:none;font-size:6.05px;letter-spacing:.115em;color:var(--gray)}
+
+.grouphd{display:flex;align-items:center;gap:7px;margin:11px 0 0 11px}
+.grouphd i{width:2.5px;height:10px;background:var(--teal);border-radius:2px;display:block;margin-left:-3px}
+.grouphd span{font-size:6.7px;letter-spacing:.14em;color:var(--ink2)}
+
+.grid{margin:7px 0 0 11px;width:672px;display:grid;grid-template-columns:331px 331px;gap:10px}
+.card{border:1px solid var(--line);border-radius:8px;padding:9px 10px 0;background:#fff;height:230px;overflow:hidden}
+.card.r2{height:130px}
+.chead{display:flex;align-items:flex-start;gap:9px;height:28px}
+.av{width:27.5px;height:27.5px;border-radius:50%;flex:none;display:flex;align-items:center;justify-content:center;color:#fff}
+.av svg{width:13px;height:13px;stroke-width:1.6}
+.av.lola{background:linear-gradient(150deg,#96605e,#7d4643)}
+.av.benja{background:linear-gradient(150deg,#4aa06d,#2f7d51)}
+.av.gio{background:linear-gradient(150deg,#a7b6e0,#8b9ed4)}
+.av.marta{background:linear-gradient(150deg,#9b7fc4,#7f61ad)}
+.who .n{font-size:8.7px;font-weight:700;line-height:1.15;margin-top:1px}
+.who .r{font-size:5.7px;letter-spacing:.13em;color:var(--gray);margin-top:3px}
+.tag{margin-left:auto;border-radius:20px;padding:3.5px 7px;font-size:5.3px;letter-spacing:.09em;white-space:nowrap}
+.tag.any{border:1px solid rgba(11,138,116,.35);background:rgba(46,211,183,.10);color:#0B8A74}
+.tag.spec{border:1px solid rgba(176,125,26,.35);background:rgba(176,125,26,.09);color:var(--amber)}
+.quote{font-style:italic;font-size:7.8px;color:#4C554D;margin-top:8px;line-height:1.35}
+.desc{font-size:8.2px;line-height:13.5px;color:var(--ink2);margin-top:8px;letter-spacing:-.002em}
+.deliv{margin-top:7px;background:#F4F6F3;border-radius:5px;padding:4px 8px;display:flex;gap:6px;font-size:7.9px;line-height:12.2px;color:var(--ink2)}
+.deliv svg{width:9px;height:9px;flex:none;color:var(--teal);margin-top:1.5px}
+.deliv b{font-weight:500;color:var(--ink)}
+.pt{display:flex;gap:6px;font-size:7.9px;line-height:12.4px;color:var(--ink2);margin-top:6px}
+.pt svg{width:8px;height:8px;flex:none;margin-top:2px}
+.pt.y svg{color:var(--teal)}
+.pt.n svg{color:#C4553D}
+.chips{display:flex;align-items:center;gap:5px;margin-top:7px}
+.chips>svg{width:9px;height:9px;color:var(--gray2);flex:none}
+.chip{border:1px solid var(--line);border-radius:4px;padding:3px 6px;font-size:5.4px;letter-spacing:.1em;color:var(--gray)}
+.btn{margin-top:7px;height:23px;border-radius:6px;background:#E2F3EA;border:1px solid rgba(11,138,116,.16);
+  display:flex;align-items:center;justify-content:center;gap:6px;font-size:8.2px;color:#0d6a58}
+.btn svg{width:8.5px;height:8.5px;color:var(--teal)}
+
+.fab{position:absolute;right:-8px;bottom:-6px;width:26px;height:20px;border:1px solid var(--line);border-radius:7px;background:#fff}
+</style>
+</head>
+<body>
+
+<!-- ================= SIDEBAR ================= -->
+<aside class="side">
+  <div class="logo">
+    <div class="sq">OF</div>
+    <div><div class="nm">OFF TV</div><div class="sub mono">BUSINESS OS</div></div>
+  </div>
+
+  <div class="picker">
+    <div class="sq">OF</div>
+    <div><div class="nm">OFF TV</div><div class="sub mono">OWN BUSINESS</div></div>
+    <svg class="sw" viewBox="0 0 24 24"><path d="M8 9l4-4 4 4M8 15l4 4 4-4"/></svg>
+  </div>
+
+  <div class="seclab mono">YOUR DAY-TO-DAY</div>
+  <nav class="nav">
+    <a><svg viewBox="0 0 24 24"><path d="M5 13c-1.5 1.5-2 5-2 5s3.5-.5 5-2"/><path d="M14.5 4.5C17 2 21 3 21 3s1 4-1.5 6.5L14 15l-5-5 5.5-5.5z"/><circle cx="15" cy="9" r="1.4"/></svg>Start here</a>
+    <a><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.2 5.2l1.4 1.4M17.4 17.4l1.4 1.4M18.8 5.2l-1.4 1.4M6.6 17.4l-1.4 1.4"/></svg>Your day</a>
+    <a><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="2"/><path d="M7.8 7.8a6 6 0 000 8.4M16.2 7.8a6 6 0 010 8.4M4.9 4.9a10 10 0 000 14.2M19.1 4.9a10 10 0 010 14.2"/></svg>Live</a>
+    <a><svg viewBox="0 0 24 24"><path d="M3 6.5l2 2 3.2-3.4M3 14.5l2 2 3.2-3.4M11.5 7h9.5M11.5 15h9.5"/></svg>The work</a>
+    <a><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7.5" height="7.5" rx="1.4"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="1.4"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="1.4"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.4"/></svg>Overview</a>
+    <a><svg viewBox="0 0 24 24"><ellipse cx="12" cy="5.5" rx="8" ry="2.8"/><path d="M4 5.5v13c0 1.6 3.6 2.8 8 2.8s8-1.2 8-2.8v-13"/><path d="M4 12c0 1.6 3.6 2.8 8 2.8s8-1.2 8-2.8"/></svg>Data Center</a>
+    <a><svg viewBox="0 0 24 24"><path d="M8.5 15H6a3 3 0 01-3-3V6a3 3 0 013-3h9a3 3 0 013 3v.8"/><path d="M21 12.5v5.5a3 3 0 01-3 3h-5.5L9 23.5V21a3 3 0 01-3-3v-5.5a3 3 0 013-3h9a3 3 0 013 3z"/></svg>Agent chat</a>
+    <a><svg viewBox="0 0 24 24"><path d="M22 12.5h-5.5l-1.8 3h-5.4l-1.8-3H2"/><path d="M5.6 4.5h12.8L22 12.5V18a2 2 0 01-2 2H4a2 2 0 01-2-2v-5.5L5.6 4.5z"/></svg>Inbox</a>
+  </nav>
+
+  <div class="seclab mono">BUSINESS DEPARTMENTS<span class="cnt mono">6</span></div>
+  <nav class="nav">
+    <a><svg viewBox="0 0 24 24"><path d="M3 10.5v3a1 1 0 001 1h2l5.5 3.5v-13L6 9.5H4a1 1 0 00-1 1z"/><path d="M15.5 8.5a4 4 0 010 7"/><path d="M18.5 5.5a8 8 0 010 13"/></svg>Marketing<span class="badge">4</span></a>
+    <a><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.2"/><circle cx="12" cy="12" r="4.2"/><circle cx="12" cy="12" r=".9"/></svg>Sales<span class="badge">1</span></a>
+    <a><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.8"/><circle cx="12" cy="12" r="3.8"/><path d="M14.8 9.2l3.9-3.9M9.2 9.2L5.3 5.3M14.8 14.8l3.9 3.9M9.2 14.8l-3.9 3.9"/></svg>Support</a>
+    <a><svg viewBox="0 0 24 24"><path d="M12 4.2v16M7.5 20.2h9M5 8.4h14"/><path d="M5 8.4L2.2 14.2h5.6L5 8.4zM19 8.4l-2.8 5.8h5.6L19 8.4z"/></svg>Legal</a>
+    <a><svg viewBox="0 0 24 24"><rect x="2.2" y="6" width="19.6" height="12" rx="2"/><circle cx="12" cy="12" r="3"/><path d="M5.6 9.5v5M18.4 9.5v5"/></svg>Finance<span class="badge">1</span></a>
+    <a><svg viewBox="0 0 24 24"><rect x="3" y="3" width="8" height="8" rx="1.4"/><rect x="13.5" y="3" width="7.5" height="5" rx="1.4"/><rect x="3" y="13.5" width="8" height="7.5" rx="1.4"/><rect x="13.5" y="10.5" width="7.5" height="10.5" rx="1.4"/></svg>Product &amp; Dev</a>
+    <a><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.6"/><path d="M4.8 20.2a7.2 7.2 0 0114.4 0"/></svg>People</a>
+    <a><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2.4v3.2M12 18.4v3.2M2.4 12h3.2M18.4 12h3.2M5.2 5.2l2.2 2.2M16.6 16.6l2.2 2.2M18.8 5.2l-2.2 2.2M7.4 16.6l-2.2 2.2"/></svg>Ops</a>
+  </nav>
+
+  <div class="seclab last mono">YOUR AI TEAM</div>
+  <nav class="nav">
+    <a><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2"/><path d="M2.6 19a6.4 6.4 0 0112.8 0"/><path d="M16.2 5.4a3.2 3.2 0 010 5.6M17.6 13.6A6.4 6.4 0 0121.4 19"/></svg>Your AI team</a>
+    <a class="on"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2"/><path d="M2.6 19a6.4 6.4 0 0112.8 0"/><path d="M18.5 7.5v6M15.5 10.5h6"/></svg>Hire your team</a>
+  </nav>
+</aside>
+
+<!-- ================= MAIN ================= -->
+<main class="main">
+  <header class="hdr">
+    <div class="back mono"><svg viewBox="0 0 24 24"><path d="M14 5l-7 7 7 7"/></svg>BACK</div>
+    <div class="crumb mono"><b>OFF TV</b> &nbsp;/&nbsp; DEPARTMENT</div>
+    <div class="pend mono"><i></i>6 AWAITING YOUR DECISION</div>
+  </header>
+
+  <div class="body">
+    <div class="eyebrow mono">// HIRE YOUR TEAM &nbsp;·&nbsp; OFF TV</div>
+    <h1>HIRE YOUR TEAM<span>.</span></h1>
+    <p class="lead">Every agent is a hire: see what it delivers, which accounts it needs connected and what you
+      SHOULD ask it for (and what you shouldn't). Hire only the ones your business needs — then you brief them
+      from Agents or the chat. All of them are <b>system agents</b> (included); agents built for your own company
+      will appear here marked as custom.</p>
+
+    <div class="toolrow">
+      <div class="search">
+        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.8-3.8"/></svg>
+        <span>Search for a role: 'SEO', 'treasury', 'support'…</span>
+      </div>
+      <div class="vac">Vacancies only</div>
+      <div class="counts mono">130 HIRED &nbsp;·&nbsp; 132 ON THE ROSTER</div>
+    </div>
+
+    <div class="grouphd"><i></i><span class="mono">MARKETING &nbsp;·&nbsp; 30</span></div>
+
+    <div class="grid">
+      <!-- LOLA -->
+      <div class="card">
+        <div class="chead">
+          <div class="av lola"><svg viewBox="0 0 24 24"><path d="M3 10.5v3a1 1 0 001 1h2l5.5 3.5v-13L6 9.5H4a1 1 0 00-1 1z"/><path d="M15.5 8.5a4 4 0 010 7"/></svg></div>
+          <div class="who"><div class="n">Lola</div><div class="r mono">CMO</div></div>
+          <div class="tag any mono">WORKS FOR ANY COMPANY</div>
+        </div>
+        <div class="quote">Creative and direct. Lives off ideas that sell; brings you hooks, not filler.</div>
+        <div class="desc">Head of Marketing &amp; Growth: sets strategy, prioritises campaigns and reviews the work of
+          all her specialists before escalating it to the COO.</div>
+        <div class="deliv">
+          <svg viewBox="0 0 24 24"><path d="M21 8l-9-5-9 5v8l9 5 9-5V8z"/><path d="M3 8l9 5 9-5M12 13v10"/></svg>
+          <div><b>Delivers:</b> Content, social calendars, articles and creative — with image/video where it applies.</div>
+        </div>
+        <div class="pt y"><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></svg><div>«Put together this week's social calendar for OFF TV with copy and images.»</div></div>
+        <div class="pt n"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg><div>Don't let it publish in the open before you approve the post in Approvals.</div></div>
+        <div class="chips">
+          <svg viewBox="0 0 24 24"><path d="M9 3v6M15 3v6M6 9h12v3a6 6 0 01-12 0V9zM12 18v3"/></svg>
+          <span class="chip mono">METRICOOL (SOCIAL)</span>
+          <span class="chip mono">GAMMA (DECKS)</span>
+          <span class="chip mono">CMS / BLOG</span>
+        </div>
+        <div class="btn"><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></svg>Hired · on your team</div>
+      </div>
+
+      <!-- BENJA -->
+      <div class="card">
+        <div class="chead">
+          <div class="av benja"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.2"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r=".9"/></svg></div>
+          <div class="who"><div class="n">Benja</div><div class="r mono">CMO &nbsp;·&nbsp; ADS</div></div>
+          <div class="tag spec mono">SPECIALIST</div>
+        </div>
+        <div class="quote">Creative and direct. Lives off ideas that sell; brings you hooks, not filler.</div>
+        <div class="desc">Paid media buying: budget, bids and the call to scale or pause campaigns on Meta/Google,
+          grounded in real cash. Proposes to the gate.</div>
+        <div class="deliv">
+          <svg viewBox="0 0 24 24"><path d="M21 8l-9-5-9 5v8l9 5 9-5V8z"/><path d="M3 8l9 5 9-5M12 13v10"/></svg>
+          <div><b>Delivers:</b> Content, social calendars, articles and creative — with image/video where it applies.</div>
+        </div>
+        <div class="pt y"><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></svg><div>«Put together this week's social calendar for OFF TV with copy and images.»</div></div>
+        <div class="pt n"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg><div>Don't let it publish in the open before you approve the post in Approvals.</div></div>
+        <div class="chips">
+          <svg viewBox="0 0 24 24"><path d="M9 3v6M15 3v6M6 9h12v3a6 6 0 01-12 0V9zM12 18v3"/></svg>
+          <span class="chip mono">METRICOOL (SOCIAL)</span>
+          <span class="chip mono">GAMMA (DECKS)</span>
+          <span class="chip mono">CMS / BLOG</span>
+        </div>
+        <div class="btn"><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></svg>Hired · on your team</div>
+      </div>
+
+      <!-- GIO -->
+      <div class="card r2">
+        <div class="chead">
+          <div class="av gio"><svg viewBox="0 0 24 24"><path d="M12 3.2l1.9 5.1 5.1 1.9-5.1 1.9L12 17.2l-1.9-5.1L5 10.2l5.1-1.9L12 3.2z"/></svg></div>
+          <div class="who"><div class="n">Gio</div><div class="r mono">CMO &nbsp;·&nbsp; AEO/GEO</div></div>
+          <div class="tag spec mono">SPECIALIST</div>
+        </div>
+        <div class="quote">Creative and direct. Lives off ideas that sell; brings you hooks, not filler.</div>
+        <div class="desc">Optimises so that AI ANSWER ENGINES (ChatGPT, Perplexity, Claude, AI Overviews) cite and
+          recommend the company: infrastructure (llms.txt, AI-aware robots), citation measured against competitors,
+          and a website ready for agents. The discipline almost nobody audits yet.</div>
+      </div>
+
+      <!-- MARTA -->
+      <div class="card r2">
+        <div class="chead">
+          <div class="av marta"><svg viewBox="0 0 24 24"><path d="M6 20V10.5M12 20V4.5M18 20v-7"/></svg></div>
+          <div class="who"><div class="n">Marta</div><div class="r mono">CMO &nbsp;·&nbsp; ANALYTICS</div></div>
+          <div class="tag spec mono">SPECIALIST</div>
+        </div>
+        <div class="quote">Creative and direct. Lives off ideas that sell; brings you hooks, not filler.</div>
+        <div class="desc">Cross-channel marketing analytics: consolidates metrics (CAC, ROAS, engagement) and
+          produces the department's performance report.</div>
+        <div class="deliv">
+          <svg viewBox="0 0 24 24"><path d="M21 8l-9-5-9 5v8l9 5 9-5V8z"/><path d="M3 8l9 5 9-5M12 13v10"/></svg>
+          <div><b>Delivers:</b> Content, social calendars, articles and creative — with image/video where it applies.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="fab"></div>
+</main>
+</body>
+</html>

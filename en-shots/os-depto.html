@@ -1,0 +1,161 @@
+<title>Department map</title>
+<link rel="stylesheet" href="fonts/gf.css">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{width:1000px;height:156px;overflow:hidden;background:#F4F6F3}
+  .stage{width:2000px;height:312px;transform:scale(.5);transform-origin:0 0;position:relative;
+    background:#F4F6F3;font-family:'Space Grotesk',system-ui,sans-serif;color:#11150F;
+    -webkit-font-smoothing:antialiased}
+  svg{display:block;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+
+  /* ---------- sidebar ---------- */
+  .side{position:absolute;left:0;top:0;width:310px;height:312px;background:#fff;
+    border-right:1px solid rgba(17,21,15,.10)}
+  .nav{position:absolute;display:flex;align-items:center;gap:14px;font-size:16px;color:#48534A}
+  .nav svg{width:21px;height:21px;flex:none;color:#3B463D}
+  .mono{font-family:'Space Mono','Space Grotesk',monospace;font-size:11px;letter-spacing:.12em;
+    text-transform:uppercase;color:#6A756C}
+  .pill{position:absolute;display:flex;align-items:center;justify-content:center;
+    width:27px;height:22px;border-radius:999px;background:rgba(176,125,26,.14);color:#B07D1A;
+    font-family:'Space Grotesk',sans-serif;font-size:12.5px;font-weight:500;letter-spacing:0}
+  .active{position:absolute;left:14px;width:282px;height:46px;border-radius:10px;background:#EBF3EC}
+  .activebar{position:absolute;left:14px;width:3px;height:46px;border-radius:3px;background:#0B8A74}
+
+  /* ---------- card ---------- */
+  .card{position:absolute;left:376px;top:0;width:1700px;height:266px;background:#fff;
+    border:1px solid rgba(17,21,15,.09);border-radius:24px;overflow:hidden}
+  .card2{position:absolute;left:376px;top:296px;width:1700px;height:120px;background:#fff;
+    border:1px solid rgba(17,21,15,.09);border-radius:24px}
+  .ttl{position:absolute;left:396px;top:14px;display:flex;align-items:center;gap:14px;
+    font-size:20px;font-weight:500;letter-spacing:-.005em}
+  .ttl svg{width:23px;height:23px;color:#0B8A74;stroke-width:1.6}
+  .rlabel{position:absolute;left:1993px;top:20px;white-space:nowrap}
+
+  .cell{position:absolute;display:flex;align-items:center;width:427px;height:26px}
+  .cell svg{width:20px;height:20px;flex:none;color:#2B342D}
+  .cell b{font-weight:400;font-size:16px;color:#11150F;margin-left:11px;white-space:nowrap}
+  .cnt{margin-left:auto;display:flex;align-items:center;gap:3px;font-size:15px;color:#11150F}
+  .cnt svg{width:16px;height:16px;color:#0B7A66;stroke-width:1.8}
+</style>
+
+<div class="stage">
+
+  <!-- ===== sidebar ===== -->
+  <div class="side"></div>
+
+  <div class="nav" style="left:30px;top:17px">
+    <svg viewBox="0 0 24 24"><path d="M20.5 13.5a7 7 0 0 1-7 7H8l-4.5 3v-4.2A7 7 0 0 1 6.5 6.5h7a7 7 0 0 1 7 7Z"/><circle cx="10" cy="13.5" r=".9" fill="currentColor" stroke="none"/><circle cx="14" cy="13.5" r=".9" fill="currentColor" stroke="none"/></svg>
+    Agent chat
+  </div>
+
+  <div class="nav" style="left:30px;top:65px">
+    <svg viewBox="0 0 24 24"><path d="M3 13h5l1.5 2.5h5L16 13h5"/><path d="M4.6 5.4h14.8L21 13v4.5a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 17.5V13Z"/></svg>
+    Inbox
+  </div>
+
+  <div class="mono" style="position:absolute;left:23px;top:120px">Business departments</div>
+  <div class="pill" style="left:257px;top:116px">2</div>
+
+  <div class="active" style="top:146px"></div>
+  <div class="activebar" style="top:146px"></div>
+  <div class="nav" style="left:30px;top:158px;color:#11150F;font-weight:700">
+    <svg viewBox="0 0 24 24" style="color:#11150F"><path d="M3.5 10.2v3.6c0 .7.5 1.2 1.2 1.2h2.6l6.9 4.2c.6.4 1.3-.1 1.3-.8V5.6c0-.7-.7-1.2-1.3-.8L7.3 9H4.7c-.7 0-1.2.5-1.2 1.2Z"/><path d="M18.4 9.2a4 4 0 0 1 0 5.6"/></svg>
+    Marketing
+  </div>
+
+  <div class="nav" style="left:30px;top:205px">
+    <svg viewBox="0 0 24 24"><path d="M11.8 8.6 9.4 11a1.8 1.8 0 0 0 2.6 2.6l.8-.8 3.2 3.2a1.6 1.6 0 0 1-2.3 2.3l-.6-.6a1.6 1.6 0 0 1-2.3 2.3l-.7-.7a1.6 1.6 0 0 1-2.3-2.3l-2-2"/><path d="M2.6 8.2 6.2 5l3.4 1 3.4-1 4.4 3.2"/><path d="m17.4 8.2 3.9 4.6-2.6 2.4-4.6-4.6"/></svg>
+    Sales
+  </div>
+
+  <div class="pill" style="left:257px;top:205px">2</div>
+
+  <div class="nav" style="left:30px;top:253px">
+    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.6"/><circle cx="12" cy="12" r="3.4"/><path d="m6 6 3.6 3.6M18 6l-3.6 3.6M6 18l3.6-3.6M18 18l-3.6-3.6"/></svg>
+    Support
+  </div>
+
+  <div class="nav" style="left:30px;top:297px">
+    <svg viewBox="0 0 24 24"><path d="M12 3.5v17M5 7h14M5 7 2.6 13h4.8L5 7Zm14 0-2.4 6h4.8L19 7Z"/></svg>
+    Legal
+  </div>
+
+  <!-- ===== main card ===== -->
+  <div class="card"></div>
+  <div class="card2"></div>
+
+  <div class="ttl">
+    <svg viewBox="0 0 24 24"><path d="M9 4.5 3.5 6.8v12.7L9 17.2m0-12.7 6 2.4m-6-2.4v12.7m6-10.3 5.5-2.3v12.7L15 19.6m0-12.5v12.5m-6-2.4 6 2.4"/></svg>
+    Department map
+  </div>
+  <div class="mono rlabel">Pending approvals</div>
+
+  <!-- row 1 -->
+  <div class="cell" style="left:396px;top:70px">
+    <svg viewBox="0 0 24 24"><path d="M20.5 11V7.2a1.7 1.7 0 0 0-1.7-1.7H5.2A1.7 1.7 0 0 0 3.5 7.2v11.6a1.7 1.7 0 0 0 1.7 1.7H12"/><path d="M8 3v4.5M16 3v4.5M3.5 11h17"/><circle cx="17.3" cy="16.8" r="3.7"/><path d="M17.3 15.3v1.6l1.1.8"/></svg>
+    <b>Calendar</b><span class="cnt">3<svg viewBox="0 0 24 24"><path d="M16.5 20v-1.6a3.4 3.4 0 0 0-3.4-3.4H6.9a3.4 3.4 0 0 0-3.4 3.4V20"/><circle cx="10" cy="7.6" r="3.6"/><path d="M20.5 20v-1.6a3.4 3.4 0 0 0-2.6-3.3M15.6 4.2a3.4 3.4 0 0 1 0 6.6"/></svg></span>
+  </div>
+  <div class="cell" style="left:851px;top:70px">
+    <svg viewBox="0 0 24 24"><path d="M3 13h5l1.5 2.5h5L16 13h5"/><path d="M4.6 5.4h14.8L21 13v4.5a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 17.5V13Z"/></svg>
+    <b>Messages</b><span class="cnt">1<svg viewBox="0 0 24 24"><path d="M16.5 20v-1.6a3.4 3.4 0 0 0-3.4-3.4H6.9a3.4 3.4 0 0 0-3.4 3.4V20"/><circle cx="10" cy="7.6" r="3.6"/><path d="M20.5 20v-1.6a3.4 3.4 0 0 0-2.6-3.3M15.6 4.2a3.4 3.4 0 0 1 0 6.6"/></svg></span>
+  </div>
+  <div class="cell" style="left:1306px;top:70px">
+    <svg viewBox="0 0 24 24"><path d="M3.5 20.5h17V9.2l-5.4 3.4V9.2L9.7 12.6V4.6H6.2l-.9 8H3.5Z"/><path d="M7.5 16.5h2M13 16.5h2"/></svg>
+    <b>Factory</b><span class="cnt">0<svg viewBox="0 0 24 24"><path d="M16.5 20v-1.6a3.4 3.4 0 0 0-3.4-3.4H6.9a3.4 3.4 0 0 0-3.4 3.4V20"/><circle cx="10" cy="7.6" r="3.6"/><path d="M20.5 20v-1.6a3.4 3.4 0 0 0-2.6-3.3M15.6 4.2a3.4 3.4 0 0 1 0 6.6"/></svg></span>
+  </div>
+  <div class="cell" style="left:1766px;top:70px">
+    <svg viewBox="0 0 24 24"><path d="M16.5 20v-1.6a3.4 3.4 0 0 0-3.4-3.4H6.9a3.4 3.4 0 0 0-3.4 3.4V20"/><circle cx="10" cy="7.6" r="3.6"/><path d="M20.5 20v-1.6a3.4 3.4 0 0 0-2.6-3.3M15.6 4.2a3.4 3.4 0 0 1 0 6.6"/></svg>
+    <b>Social &amp; Community</b>
+  </div>
+
+  <!-- row 2 -->
+  <div class="cell" style="left:396px;top:122px">
+    <svg viewBox="0 0 24 24"><path d="M12 3.4a8.6 8.6 0 0 0 0 17.2c1.2 0 1.9-.8 1.9-1.7 0-.5-.2-.9-.5-1.2-.3-.3-.5-.7-.5-1.2 0-.9.8-1.7 1.7-1.7h1.5a4.5 4.5 0 0 0 4.5-4.5c0-3.9-3.9-6.9-8.6-6.9Z"/><circle cx="7.7" cy="11.2" r="1.1" fill="currentColor" stroke="none"/><circle cx="11" cy="7.4" r="1.1" fill="currentColor" stroke="none"/><circle cx="15.6" cy="8.6" r="1.1" fill="currentColor" stroke="none"/></svg>
+    <b>Brand &amp; design</b><span class="cnt">2<svg viewBox="0 0 24 24"><path d="M16.5 20v-1.6a3.4 3.4 0 0 0-3.4-3.4H6.9a3.4 3.4 0 0 0-3.4 3.4V20"/><circle cx="10" cy="7.6" r="3.6"/><path d="M20.5 20v-1.6a3.4 3.4 0 0 0-2.6-3.3M15.6 4.2a3.4 3.4 0 0 1 0 6.6"/></svg></span>
+  </div>
+  <div class="cell" style="left:851px;top:122px">
+    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.6"/><path d="M3.4 12h17.2M12 3.4c2.2 2.4 3.4 5.4 3.4 8.6s-1.2 6.2-3.4 8.6c-2.2-2.4-3.4-5.4-3.4-8.6S9.8 5.8 12 3.4Z"/></svg>
+    <b>Web</b><span class="cnt">2<svg viewBox="0 0 24 24"><path d="M16.5 20v-1.6a3.4 3.4 0 0 0-3.4-3.4H6.9a3.4 3.4 0 0 0-3.4 3.4V20"/><circle cx="10" cy="7.6" r="3.6"/><path d="M20.5 20v-1.6a3.4 3.4 0 0 0-2.6-3.3M15.6 4.2a3.4 3.4 0 0 1 0 6.6"/></svg></span>
+  </div>
+  <div class="cell" style="left:1306px;top:122px">
+    <svg viewBox="0 0 24 24"><circle cx="10.8" cy="10.8" r="7.1"/><path d="m20.5 20.5-4.7-4.7"/></svg>
+    <b>SEO &amp; ASO</b><span class="cnt">3<svg viewBox="0 0 24 24"><path d="M16.5 20v-1.6a3.4 3.4 0 0 0-3.4-3.4H6.9a3.4 3.4 0 0 0-3.4 3.4V20"/><circle cx="10" cy="7.6" r="3.6"/><path d="M20.5 20v-1.6a3.4 3.4 0 0 0-2.6-3.3M15.6 4.2a3.4 3.4 0 0 1 0 6.6"/></svg></span>
+  </div>
+  <div class="cell" style="left:1766px;top:122px">
+    <svg viewBox="0 0 24 24"><rect x="2.9" y="5" width="18.2" height="14" rx="2"/><path d="m3.6 6.4 8.4 6.2 8.4-6.2"/></svg>
+    <b>Email</b>
+  </div>
+
+  <!-- row 3 -->
+  <div class="cell" style="left:396px;top:175px">
+    <svg viewBox="0 0 24 24"><path d="M3.5 10.2v3.6c0 .7.5 1.2 1.2 1.2h2.6l6.9 4.2c.6.4 1.3-.1 1.3-.8V5.6c0-.7-.7-1.2-1.3-.8L7.3 9H4.7c-.7 0-1.2.5-1.2 1.2Z"/><path d="M18.4 9.2a4 4 0 0 1 0 5.6"/></svg>
+    <b>Paid &amp; Ads</b><span class="cnt">1<svg viewBox="0 0 24 24"><path d="M16.5 20v-1.6a3.4 3.4 0 0 0-3.4-3.4H6.9a3.4 3.4 0 0 0-3.4 3.4V20"/><circle cx="10" cy="7.6" r="3.6"/><path d="M20.5 20v-1.6a3.4 3.4 0 0 0-2.6-3.3M15.6 4.2a3.4 3.4 0 0 1 0 6.6"/></svg></span>
+  </div>
+  <div class="cell" style="left:851px;top:175px">
+    <svg viewBox="0 0 24 24"><path d="M9.4 3.5h5.2M10 3.5v6.2L5.6 17.9c-.8 1.3.2 3 1.7 3h9.4c1.5 0 2.5-1.7 1.7-3L14 9.7V3.5"/><path d="M7.4 15.2h9.2"/></svg>
+    <b>Conversion &amp; CRO</b><span class="cnt">3<svg viewBox="0 0 24 24"><path d="M16.5 20v-1.6a3.4 3.4 0 0 0-3.4-3.4H6.9a3.4 3.4 0 0 0-3.4 3.4V20"/><circle cx="10" cy="7.6" r="3.6"/><path d="M20.5 20v-1.6a3.4 3.4 0 0 0-2.6-3.3M15.6 4.2a3.4 3.4 0 0 1 0 6.6"/></svg></span>
+  </div>
+  <div class="cell" style="left:1306px;top:175px">
+    <svg viewBox="0 0 24 24"><path d="M13.2 14.2c4-1.2 7.4-5 7.4-10-5 0-8.8 3.4-10 7.4"/><path d="M10.6 11.6 8 9c-1.7 0-3.3.7-4.5 1.9l3.1 1.6M12.4 13.4l2.6 2.6c0 1.7-.7 3.3-1.9 4.5l-1.6-3.1"/><path d="M6.2 17.8c-1 1-1.4 3.3-1.4 3.3s2.3-.4 3.3-1.4c.6-.6.6-1.5 0-2s-1.4-.5-1.9.1Z"/></svg>
+    <b>Launches</b><span class="cnt">1<svg viewBox="0 0 24 24"><path d="M16.5 20v-1.6a3.4 3.4 0 0 0-3.4-3.4H6.9a3.4 3.4 0 0 0-3.4 3.4V20"/><circle cx="10" cy="7.6" r="3.6"/><path d="M20.5 20v-1.6a3.4 3.4 0 0 0-2.6-3.3M15.6 4.2a3.4 3.4 0 0 1 0 6.6"/></svg></span>
+  </div>
+  <div class="cell" style="left:1766px;top:175px">
+    <svg viewBox="0 0 24 24"><path d="M16.5 20v-1.6a3.4 3.4 0 0 0-3.4-3.4H6.9a3.4 3.4 0 0 0-3.4 3.4V20"/><circle cx="10" cy="7.6" r="3.6"/><path d="M20.5 20v-1.6a3.4 3.4 0 0 0-2.6-3.3M15.6 4.2a3.4 3.4 0 0 1 0 6.6"/></svg>
+    <b>Creators &amp; Influencers</b>
+  </div>
+
+  <!-- row 4 -->
+  <div class="cell" style="left:396px;top:228px">
+    <svg viewBox="0 0 24 24"><path d="M17.5 20.5H5.2a1.7 1.7 0 0 1-1.7-1.7V5.2a1.7 1.7 0 0 1 1.7-1.7h9.6a1.7 1.7 0 0 1 1.7 1.7v13.6a1.7 1.7 0 0 0 1.7 1.7 1.7 1.7 0 0 0 1.7-1.7V8.5h-3.4"/><path d="M6.8 7.2h6.6M6.8 11h6.6M6.8 14.8h4"/></svg>
+    <b>PR &amp; Media</b><span class="cnt">1<svg viewBox="0 0 24 24"><path d="M16.5 20v-1.6a3.4 3.4 0 0 0-3.4-3.4H6.9a3.4 3.4 0 0 0-3.4 3.4V20"/><circle cx="10" cy="7.6" r="3.6"/><path d="M20.5 20v-1.6a3.4 3.4 0 0 0-2.6-3.3M15.6 4.2a3.4 3.4 0 0 1 0 6.6"/></svg></span>
+  </div>
+  <div class="cell" style="left:851px;top:228px">
+    <svg viewBox="0 0 24 24"><path d="M4.4 8.5h15.2a1.4 1.4 0 0 1 1.4 1.5l-.7 8.2a2 2 0 0 1-2 1.8H5.7a2 2 0 0 1-2-1.8L3 10a1.4 1.4 0 0 1 1.4-1.5Z"/><path d="M8.4 11V7.2a3.6 3.6 0 0 1 7.2 0V11"/></svg>
+    <b>Own-brand retail</b><span class="cnt">2<svg viewBox="0 0 24 24"><path d="M16.5 20v-1.6a3.4 3.4 0 0 0-3.4-3.4H6.9a3.4 3.4 0 0 0-3.4 3.4V20"/><circle cx="10" cy="7.6" r="3.6"/><path d="M20.5 20v-1.6a3.4 3.4 0 0 0-2.6-3.3M15.6 4.2a3.4 3.4 0 0 1 0 6.6"/></svg></span>
+  </div>
+  <div class="cell" style="left:1306px;top:228px">
+    <svg viewBox="0 0 24 24"><path d="M4.6 20.4V13M9.5 20.4V4.6M14.5 20.4v-9M19.4 20.4V8.2"/></svg>
+    <b>Analytics</b><span class="cnt">1<svg viewBox="0 0 24 24"><path d="M16.5 20v-1.6a3.4 3.4 0 0 0-3.4-3.4H6.9a3.4 3.4 0 0 0-3.4 3.4V20"/><circle cx="10" cy="7.6" r="3.6"/><path d="M20.5 20v-1.6a3.4 3.4 0 0 0-2.6-3.3M15.6 4.2a3.4 3.4 0 0 1 0 6.6"/></svg></span>
+  </div>
+
+</div>

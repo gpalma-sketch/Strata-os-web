@@ -393,28 +393,28 @@ export const en: Content = {
         summary: 'The system reviews how it is doing and proposes its own improvements, for you to approve or drop.',
       },
     ],
-    shotsLabel: 'Real screenshots of the system, not mockups',
+    shotsLabel: 'The Business OS, screen by screen',
     shots: [
       {
-        image: 'os-dia.png',
+        image: 'os-dia-en.png',
         alt: 'The Business OS "start here" panel, with six proposed actions: close the books, chase payments, find leads, publish to social, compare quotes and watch competitors',
         title: 'What it offers the moment you open it',
         caption: 'Close the month, chase the outstanding invoices, find 50 leads that match your ideal customer. One click and your team gets on it.',
       },
       {
-        image: 'os-equipo.png',
+        image: 'os-equipo-en.png',
         alt: 'The Business OS "hire your team" screen, showing the Marketing agent cards and a headcount of 132',
         title: 'You hire agents the way you hire people',
         caption: 'Each with a role, what it delivers, the accounts it needs and what not to ask it for. Hire the ones you need, let the rest go.',
       },
       {
-        image: 'os-depto.png',
+        image: 'os-depto-en.png',
         alt: 'The Marketing & Growth department map in the Business OS, showing fifteen functions — calendar, messages, content factory, social, brand, web, SEO, email, paid, conversion, launches, creators, PR, retail and analytics — with the work pending in each',
         title: 'And inside, a whole department',
         caption: 'Marketing & Growth is not "a marketing agent": it is fifteen functions with their own work in progress, from the content factory to SEO and conversion.',
       },
       {
-        image: 'os-aprobar.png',
+        image: 'os-aprobar-en.png',
         alt: 'The approval queue by department in the Business OS, with Marketing, Sales and Finance awaiting review',
         title: 'And nothing ships without your approval',
         caption: 'The agents work and leave what is finished in their department queue. You review, approve or discard — and only then does it go out.',
