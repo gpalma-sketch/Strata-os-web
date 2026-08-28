@@ -31,9 +31,25 @@
  *
  * ── AFINADO CONTRA EL REPO ANTES DE INSTALARLO ─────────────────────────────────────────────────
  * Regla de la casa: un detector ruidoso enseña a ignorar el aviso, que es peor que no tenerlo. Se
- * corrió contra el sitio ANTES de los arreglos (encontró los 20 y ni uno falso) y DESPUÉS (0).
+ * corrió contra el sitio ANTES de los arreglos (49 defectos únicos, ni uno falso) y DESPUÉS (0).
  * Y comprueba que ha examinado algo: si mira menos de `MINIMO_EXAMINADOS` elementos, se pone rojo
  * él mismo — un verificador que examina cero informa de que todo está bien.
+ *
+ * ── LO QUE ESTE GUARD NO VE, ESCRITO PARA QUE NO SE LEA COMO INFALIBLE ─────────────────────────
+ * Su primera versión ya tuvo dos puntos ciegos, y los dos los destapó OTRO detector corriendo en
+ * paralelo — no la revisión del código. Por eso conviene no jubilar al segundo:
+ *   1. Texto con relleno transparente y contorno (`-webkit-text-stroke`). Se saltaba por alfa≈0, y
+ *      era seguro por casualidad. Arreglado: se juzga el contorno.
+ *   2. Fondos con degradado. Se declaraban «no puntuables» y en ese montón de 152 había un fallo
+ *      real. Arreglado: se evalúan las paradas del degradado.
+ * Y queda uno abierto, a propósito:
+ *   3. Con un degradado detrás se juzga por la PEOR parada, así que un texto colocado en el extremo
+ *      CLARO de un degradado fuerte puede salir denunciado sin merecerlo. Hoy no pasa —el único
+ *      degradado con texto encima es el tinte oro de `.ptier.soon`, al 7 % de alfa, y el texto está
+ *      en su extremo teñido—, pero si algún día aparece un falso positivo por esto, la salida NO es
+ *      relajar el mínimo: es declararlo en `EXCEPCIONES` con su motivo.
+ * Nada de esto cubre imágenes de verdad (`url(...)`): ahí no hay número honesto que dar, se cuentan
+ * y se dicen.
  */
 import { chromium } from 'playwright';
 import { createServer } from 'node:http';
@@ -120,28 +136,64 @@ function medirEnPagina() {
   const apilar = (frente, fondo) => frente.slice(0, 3).map((v, i) => Math.round(frente[3] * v + (1 - frente[3]) * fondo[i]));
 
   /**
-   * El fondo EFECTIVO de un elemento: se recorren los ancestros apilando cada capa hasta llegar a
-   * una opaca. Devuelve null si en el camino hay una imagen o un degradado, porque entonces el
-   * fondo no es UN color y el número saldría inventado.
+   * Las paradas de color de un degradado, si el `background-image` es SÓLO degradados.
+   * Devuelve null cuando hay una imagen de verdad (`url(...)`), que ésa sí es incalculable.
+   *
+   * ⚠️ ESTE TROZO EXISTE PORQUE «NO JUZGO LO QUE NO PUEDO CALCULAR» SE CONVIRTIÓ EN UN AGUJERO.
+   * La primera versión devolvía `indeterminado` en cuanto veía cualquier `background-image`, y con
+   * eso 152 textos quedaban sin puntuar — declarados, pero sin puntuar. Escondido en ese montón
+   * había un fallo real: el chip «Próximamente» de la tarifa, `--gold-deep` a 3,1:1 sobre
+   * `.ptier.soon`, cuyo fondo es `linear-gradient(180deg, rgba(255,194,75,.07), var(--paper) 60%)`.
+   * Lo cazó OTRO detector, no éste. Un degradado entre colores conocidos SÍ se puede calcular: se
+   * evalúan todas sus paradas y se juzga por la PEOR, que es lo conservador y lo honesto.
    */
-  function fondoEfectivo(el) {
-    const capas = [];
+  function paradasDegradado(bgImage) {
+    if (/url\(/i.test(bgImage)) return null;
+    if (!/gradient\(/i.test(bgImage)) return null;
+    const paradas = [];
+    for (const m of bgImage.matchAll(/rgba?\(([^)]+)\)/g)) {
+      const v = m[1].split(',').map((x) => parseFloat(x));
+      if (v.length >= 3) paradas.push([v[0], v[1], v[2], v.length > 3 ? v[3] : 1]);
+    }
+    return paradas.length ? paradas : null;
+  }
+
+  /**
+   * Los fondos EFECTIVOS de un elemento (en plural): se recorren los ancestros apilando cada capa
+   * hasta llegar a una opaca. Normalmente devuelve un solo color; si en el camino hay un degradado,
+   * devuelve UNO POR PARADA, para poder juzgar por la peor.
+   * `indeterminado` sólo cuando hay una imagen real, que es el único caso en que el número saldría
+   * inventado.
+   */
+  function fondosEfectivos(el) {
+    let variantes = [[]]; // cada variante es una pila de capas a apilar
     for (let e = el; e; e = e.parentElement) {
       const cs = getComputedStyle(e);
-      if (cs.backgroundImage && cs.backgroundImage !== 'none') return { indeterminado: true };
+      const bgImg = cs.backgroundImage;
+      if (bgImg && bgImg !== 'none') {
+        const paradas = paradasDegradado(bgImg);
+        if (!paradas) return { indeterminado: true };
+        // Una variante por parada: el mismo texto sobre el punto más claro y el más oscuro.
+        variantes = variantes.flatMap((v) => paradas.map((p) => [...v, p]));
+        // Un degradado con alguna parada opaca ya tapa lo de debajo; si todas son translúcidas se
+        // sigue subiendo. Se comprueba por variante más abajo.
+      }
       const c = num(cs.backgroundColor);
       const alfa = c.length > 3 ? c[3] : 1;
-      if (alfa <= 0.001) continue;
-      capas.push([c[0], c[1], c[2], alfa]);
-      if (alfa > 0.999) {
-        let base = capas.pop().slice(0, 3);
-        while (capas.length) base = apilar(capas.pop(), base);
-        return { color: base };
+      if (alfa > 0.001) {
+        variantes = variantes.map((v) => [...v, [c[0], c[1], c[2], alfa]]);
+        if (alfa > 0.999) break;
       }
+      // ¿Alguna variante ya está tapada por una parada opaca? Si TODAS lo están, se para.
+      if (variantes.every((v) => v.some((capa) => capa[3] > 0.999))) break;
     }
-    let base = [255, 255, 255];
-    while (capas.length) base = apilar(capas.pop(), base);
-    return { color: base };
+    const colores = variantes.map((v) => {
+      // De abajo (última capa) hacia arriba; la base es blanco si nada era opaco.
+      let base = [255, 255, 255];
+      for (let i = v.length - 1; i >= 0; i--) base = v[i][3] > 0.999 ? v[i].slice(0, 3) : apilar(v[i], base);
+      return base;
+    });
+    return { colores };
   }
 
   /** El mínimo que exige la AA: 3:1 para texto grande, 4,5:1 para el resto. */
@@ -173,31 +225,53 @@ function medirEnPagina() {
     const conPseudo = antes && antes !== 'none' && antes !== 'normal' && antes !== '""';
     if (!propio && !conPseudo) continue;
 
-    const fg = num(cs.color);
-    const alfaTexto = fg.length > 3 ? fg[3] : 1;
-    if (alfaTexto <= 0.05) continue;
+    let fg = num(cs.color);
+    let alfaTexto = fg.length > 3 ? fg[3] : 1;
 
-    const f = fondoEfectivo(el);
+    /* ⚠️ TEXTO CON RELLENO TRANSPARENTE Y CONTORNO. `.rung .rl` (los números 01–04 del método) es
+       `color: transparent` + `-webkit-text-stroke: 2px var(--mint)`: se ve perfectamente, pero su
+       `color` calculado es `rgba(0,0,0,0)`.
+       Saltarlo por alfa≈0 —que es lo que hacía la primera versión— era seguro por casualidad: aquí
+       el contorno es mint sobre oscuro (9,5:1). Un contorno OSCURO sobre fondo oscuro sería texto
+       invisible y este guard habría callado.
+       (Otro detector hace lo contrario y es peor: lee el RGB, ignora el alfa y denuncia «negro sobre
+       oscuro» en un texto que se lee de sobra. Un falso positivo por no mirar el alfa.)
+       Así que cuando el relleno es transparente se juzga el CONTORNO, que es lo que se ve. */
+    if (alfaTexto <= 0.05) {
+      const trazo = num(cs.webkitTextStrokeColor || '');
+      const anchoTrazo = parseFloat(cs.webkitTextStrokeWidth) || 0;
+      const alfaTrazo = trazo.length > 3 ? trazo[3] : 1;
+      if (anchoTrazo <= 0 || trazo.length < 3 || alfaTrazo <= 0.05) continue; // de verdad invisible
+      fg = trazo;
+      alfaTexto = alfaTrazo;
+    }
+
+    const f = fondosEfectivos(el);
     if (f.indeterminado) { indeterminados++; continue; }
-
-    // Un texto semitransparente se mezcla con su propio fondo antes de compararse.
-    const color = alfaTexto > 0.999 ? fg.slice(0, 3) : apilar([fg[0], fg[1], fg[2], alfaTexto], f.color);
 
     examinados++;
     const px = parseFloat(cs.fontSize);
     const peso = parseInt(cs.fontWeight, 10) || 400;
-    const r = ratio(color, f.color);
     const min = minimo(px, peso);
-    if (r + 0.005 < min) {
-      const hex = (c) => '#' + c.map((v) => v.toString(16).padStart(2, '0')).join('');
+    const hex = (c) => '#' + c.map((v) => v.toString(16).padStart(2, '0')).join('');
+
+    // Con un degradado detrás hay varios fondos posibles: manda el PEOR.
+    let peor = null;
+    for (const fondo of f.colores) {
+      // Un texto semitransparente se mezcla con su propio fondo antes de compararse.
+      const color = alfaTexto > 0.999 ? fg.slice(0, 3) : apilar([fg[0], fg[1], fg[2], alfaTexto], fondo);
+      const r = ratio(color, fondo);
+      if (!peor || r < peor.r) peor = { r, color, fondo };
+    }
+    if (peor.r + 0.005 < min) {
       fallos.push({
         sel: camino(el),
-        ratio: +r.toFixed(2),
+        ratio: +peor.r.toFixed(2),
         min,
         px: +px.toFixed(1),
         peso,
-        texto: hex(color),
-        fondo: hex(f.color),
+        texto: hex(peor.color),
+        fondo: hex(peor.fondo),
         muestra: (el.textContent || '').trim().replace(/\s+/g, ' ').slice(0, 42),
       });
     }

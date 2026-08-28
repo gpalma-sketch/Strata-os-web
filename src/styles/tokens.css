@@ -18,8 +18,12 @@
      y lo llevaban nueve textos, entre ellos el descargo que mantiene honestas las cifras de la
      portada («*los resultados dependen de…»). Un descargo ilegible no es un descargo.
      #646e78 da 4,82:1 y 5,19:1. La escala se comprime un poco contra `--text-soft` (5,64:1), pero
-     el escalón sigue viéndose y la alternativa era un gris que no se lee. */
-  --text-mute: #646e78;
+     el escalón sigue viéndose y la alternativa era un gris que no se lee.
+     ⚠️ SEGUNDO PASO, MEDIDO Y NO ESTIMADO: #646e78 pasa sobre `--light` (4,82:1) pero se queda en
+     4,46:1 sobre el tinte oro de `.ptier.soon` — falla por CUATRO CENTÉSIMAS, y ahí vive la etiqueta
+     «Implantación · pago único». El valor tiene que pasar sobre el PEOR fondo donde se use, no sobre
+     el más común: #5f6870 da 4,88:1 sobre el oro y 5,27:1 sobre `--light`. */
+  --text-mute: #5f6870;
 
   /* ── DOS TEALES, DOS TRABAJOS. NO SON DOS TONOS A ELEGIR (28 ago 2026) ─────────────────────────
      Hasta hoy había dos tokens haciendo lo mismo, y uno era ilegible: `--teal` se usaba como color
@@ -45,7 +49,13 @@
   --teal-tint: rgba(14, 155, 142, 0.1);
 
   --gold: #ffc24b;
-  --gold-deep: #b5810f;
+  /* #b5810f daba 3,09:1 sobre el tinte oro de `.ptier.soon` — y sus dos únicos consumos son
+     justamente el chip «Próximamente» y el reloj `◷` del aviso de disponibilidad, o sea el texto
+     que dice que un plan NO se puede comprar. Una advertencia que no se lee no advierte.
+     #8f660c da 4,64:1 sobre ese mismo fondo. Mismo papel: `--gold` (#ffc24b) sigue siendo el oro
+     brillante para superficies y filetes; `--gold-deep` es el oro CUANDO ES TEXTO, igual reparto
+     que `--teal` / `--teal-deep`. */
+  --gold-deep: #8f660c;
   --gold-tint: rgba(255, 194, 75, 0.14);
   --blaze: #ff5a1f;
 
