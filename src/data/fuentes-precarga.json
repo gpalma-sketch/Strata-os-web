@@ -1,0 +1,7 @@
+{
+  "_por_que": "Ficheros de tipografía que Base.astro precarga. LO GENERA scripts/fetch-fonts.py — no editar a mano. Existe porque el nombre estaba escrito a mano en Base.astro y al cambiar la tipografía quedó apuntando a un fichero borrado: 404 en cada página.",
+  "ficheros": [
+    "/fonts/archivo-800-latin.woff2",
+    "/fonts/schibsted-grotesk-400-700-latin.woff2"
+  ]
+}

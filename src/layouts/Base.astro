@@ -1,4 +1,7 @@
 ---
+import precarga from "~/data/fuentes-precarga.json";
+const fuentesPrecarga: string[] = precarga.ficheros;
+
 import '../styles/global.css';
 import type { Locale } from '../data/site';
 import { site } from '../data/site';
@@ -98,8 +101,14 @@ const jsonLd = {
     {/* Tipografías auto-alojadas — ver src/styles/fonts.css. Sin conexión a
         Google, así que no se transfiere la IP del visitante a un tercero.
         Solo se precargan las dos caras visibles en el primer viewport. */}
-    <link rel="preload" as="font" type="font/woff2" href="/fonts/archivo-800-latin.woff2" crossorigin />
-    <link rel="preload" as="font" type="font/woff2" href="/fonts/space-grotesk-400-latin.woff2" crossorigin />
+    {/* Los nombres YA NO SE ESCRIBEN AQUÍ (28 ago 2026). Estaban a mano, y al cambiar la
+        tipografía de texto esta lista quedó apuntando a `space-grotesk-400-latin.woff2`, un
+        fichero ya borrado: 404 en cada carga de cada página, la precarga desperdiciada y la
+        fuente que sí se usa quedándose sin precargar. Nada fallaba — sólo llegaba tarde.
+        La lista la genera `scripts/fetch-fonts.py`, que es el único que sabe qué ficheros hay. */}
+    {fuentesPrecarga.map((f) => (
+      <link rel="preload" as="font" type="font/woff2" href={f} crossorigin />
+    ))}
 
     {/* El marcado de Organization va UNA vez por idioma, en la portada. En una
         página interna sería el mismo bloque repetido cinco veces, que no añade

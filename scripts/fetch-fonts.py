@@ -1,4 +1,4 @@
-import re, subprocess, pathlib, sys
+import json, re, subprocess, pathlib, sys
 
 UA = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0 Safari/537.36"
 OUT = pathlib.Path("public/fonts")
@@ -37,6 +37,23 @@ FAMILIES = {
 }
 # Solo latin y latin-ext: la web es ES/EN.
 KEEP = {"latin", "latin-ext"}
+
+# ── QUÉ CARAS SE PRECARGAN, Y POR QUÉ SE DECIDE AQUÍ (28 ago 2026) ──────────────────────────────
+# `Base.astro` precargaba los ficheros con el nombre ESCRITO A MANO. Al cambiar la tipografía de
+# texto esta misma mañana quedó apuntando a `space-grotesk-400-latin.woff2`, que ya no existe:
+# **404 en cada carga de cada página**, una precarga desperdiciada, y la fuente que sí se usa
+# quedándose SIN precargar — o sea, el efecto contrario al que buscaba la etiqueta.
+#
+# Lo cazó el detector de impeccable mirando la red del navegador; los tres motores de reglas no lo
+# vieron, y `tsc` tampoco tenía nada que decir. Nada fallaba: sólo llegaba tarde una fuente.
+#
+# El arreglo no es corregir el nombre —volvería a romperse al siguiente cambio— sino que el nombre
+# deje de escribirse dos veces. Este script, que es el único que sabe qué ficheros existen, emite
+# la lista; `Base.astro` la importa. Cambiar de tipografía actualiza la precarga sola.
+#
+# Sólo el subconjunto `latin`: `latin-ext` cubre acentos y se descarga cuando hace falta, y
+# precargar las dos duplicaría el peso de la ruta crítica sin ganar nada en el primer viewport.
+PRECARGA = {"Archivo", "Schibsted+Grotesk"}
 
 def curl(url, binary=False):
     r = subprocess.run(["curl", "-sS", "-m", "60", "-A", UA, url],
@@ -116,5 +133,20 @@ for f in sorted(OUT.iterdir()):
         f.unlink(); borrados += 1
         print(f"  · huérfano borrado: {f.name}")
 
+# La lista de precarga, para que nadie vuelva a escribir un nombre de fichero a mano.
+precarga = sorted({f"/fonts/{name}" for fam, _w, name, _r, subset in faces
+                   if subset == "latin" and fam.replace(" ", "+") in PRECARGA})
+if not precarga:
+    raise SystemExit("✖ PRECARGA no ha encajado con ninguna familia descargada: revisa los nombres "
+                     f"({sorted(PRECARGA)} vs {sorted({f[0] for f in faces})}).")
+datos = pathlib.Path("src/data"); datos.mkdir(parents=True, exist_ok=True)
+(datos / "fuentes-precarga.json").write_text(json.dumps({
+    "_por_que": "Ficheros de tipografía que Base.astro precarga. LO GENERA scripts/fetch-fonts.py "
+                "— no editar a mano. Existe porque el nombre estaba escrito a mano en Base.astro y "
+                "al cambiar la tipografía quedó apuntando a un fichero borrado: 404 en cada página.",
+    "ficheros": precarga,
+}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
 print(f"{len(faces)} font-face, {sum(f.stat().st_size for f in OUT.iterdir())/1024:.0f} kB en total"
       + (f" (borrados {borrados} huérfanos)" if borrados else ""))
+print(f"· precarga declarada: {', '.join(precarga)}")
