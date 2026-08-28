@@ -1,4 +1,6 @@
 ---
+import ValidacionForm from "./ValidacionForm.astro";
+
 /**
  * STRATA OS launch waitlist.
  *
@@ -40,6 +42,9 @@ const endpoint = site.waitlistEndpoint;
     <h2 class="h-lg reveal" style="text-align:center;margin:22px auto 0;max-width:900px;">
       {w.title[0]}<span class="mint">{w.title[1]}</span>
     </h2>
+    {/* Se rellena al llegar desde un plan concreto. Vacío por defecto: quien entra por la portada
+        no eligió nada y una etiqueta inventada sería peor que ninguna. */}
+    <p class="wl-plan" id="wl-plan-eco" hidden></p>
     <p class="lead reveal" style="text-align:center;margin:18px auto 0;max-width:660px;">{w.lead}</p>
 
     {
@@ -49,6 +54,11 @@ const endpoint = site.waitlistEndpoint;
             <label class="visually-hidden" for="wl-email">{w.form.label}</label>
             <input id="wl-email" name="email" type="email" required autocomplete="email" placeholder={w.form.placeholder} />
             <input type="hidden" name="_source" value="waitlist-strata-os" />
+            {/* EL PLAN ELEGIDO VIAJA HASTA AQUÍ (28 ago 2026). Antes los tres CTA de /precios
+                apuntaban al mismo ancla y el formulario no mencionaba nada: alguien elegía «tres
+                departamentos», pulsaba, y la elección se descartaba en silencio. Quien recibe el
+                aviso no sabía por qué plan había preguntado. */}
+            <input type="hidden" name="plan" id="wl-plan" value="" />
             <div class="hp" aria-hidden="true">
               <label for="wl-website">Website</label>
               <input id="wl-website" name="_gotcha" type="text" tabindex="-1" autocomplete="off" />
@@ -64,6 +74,7 @@ const endpoint = site.waitlistEndpoint;
             {w.form.error} <a href={`mailto:${site.email}`}>{site.email}</a>
           </p>
         </form>
+        <ValidacionForm form="waitlistForm" lang={locale} />
       ) : (
         <div class="reveal" style="text-align:center;margin-top:34px;">
           <a href={`mailto:${site.email}?subject=${encodeURIComponent('STRATA OS — lista de lanzamiento')}`} class="btn btn-primary">
@@ -129,3 +140,28 @@ const endpoint = site.waitlistEndpoint;
     </script>
   )
 }
+
+<script is:inline>
+  // Lleva el plan elegido en /precios hasta el formulario de espera, y lo DICE.
+  // Sin esto la elección se perdía: los tres CTA van al mismo ancla.
+  (() => {
+    const campo = document.getElementById('wl-plan');
+    const eco = document.getElementById('wl-plan-eco');
+    if (!campo) return;
+    const fijar = (plan) => {
+      if (!plan) return;
+      campo.value = plan;
+      if (eco) {
+        eco.textContent = plan;
+        eco.hidden = false;
+      }
+    };
+    // Al pulsar un CTA de plan en esta misma página.
+    document.querySelectorAll('a[data-plan][href*="#lanzamiento"]').forEach((a) => {
+      a.addEventListener('click', () => fijar(a.getAttribute('data-plan')));
+    });
+    // Y al llegar de otra página con ?plan= en la URL.
+    const url = new URL(window.location.href);
+    fijar(url.searchParams.get('plan'));
+  })();
+</script>

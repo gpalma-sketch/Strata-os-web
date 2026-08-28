@@ -11,6 +11,12 @@ import { rutaHref } from '../rutas';
  * carry the same launch status (STRATA OS on a waitlist, STRATA Lab live).
  */
 export const en: Content = {
+  /* Validation messages, in one place — see the Spanish file for the reasoning. */
+  validacion: {
+    requerido: 'We need your email so we can let you know.',
+    formato: "That email doesn't look complete: check it has an @ and a domain.",
+    requeridoTexto: 'We need this field to be able to reply.',
+  },
   meta: {
     title: 'STRATA — The autonomous operating system for your business',
     description:

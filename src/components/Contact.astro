@@ -1,4 +1,6 @@
 ---
+import ValidacionForm from "./ValidacionForm.astro";
+
 /**
  * Final CTA.
  *
@@ -81,6 +83,7 @@ const endpoint = site.contactEndpoint;
             {f.error} <a href={`mailto:${site.email}`}>{site.email}</a>
           </p>
         </form>
+        <ValidacionForm form="contactForm" lang={locale} />
       ) : (
         <div class="cta-row reveal" style="justify-content:center; margin-top:42px;">
           <a href={`mailto:${site.email}`} class="btn btn-primary">{t.contact.ctaPrimary}</a>

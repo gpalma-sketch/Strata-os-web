@@ -139,4 +139,23 @@ const t = content[locale];
       input.value = '';
     });
   })();
+
+  // EL BOTÓN SE APARTA CUANDO EL PIE O UN FORMULARIO ESTÁN EN PANTALLA (28 ago 2026).
+  // A 390 px tapaba el enlace «COOKIES» del pie, que es obligatorio, y el texto a media página.
+  // Cuando el visitante ya tiene delante el formulario o el pie, el chat no aporta y estorba.
+  // Sólo en móvil: en escritorio hay sitio de sobra y el botón no solapa nada.
+  {
+    const fab = document.getElementById('chatFab');
+    const zonas = document.querySelectorAll('footer, #lanzamiento, form');
+    if (fab && zonas.length && matchMedia('(max-width: 640px)').matches) {
+      const dentro = new Set();
+      const obs = new IntersectionObserver((entradas) => {
+        entradas.forEach((e) => (e.isIntersecting ? dentro.add(e.target) : dentro.delete(e.target)));
+        // Si el panel está abierto no se aparta: sería quitarle al visitante lo que acaba de abrir.
+        const abierto = fab.getAttribute('aria-expanded') === 'true';
+        fab.classList.toggle('apartado', dentro.size > 0 && !abierto);
+      }, { threshold: 0.15 });
+      zonas.forEach((z) => obs.observe(z));
+    }
+  }
 </script>

@@ -167,6 +167,13 @@ export interface Faq {
 }
 
 export interface Content {
+  /** Mensajes de validación de formulario, compartidos por todos ellos. En un solo sitio a
+   *  propósito: el navegador los da en su propio idioma y hay que sustituirlos. */
+  validacion: {
+    requerido: string;
+    formato: string;
+    requeridoTexto: string;
+  };
   meta: {
     title: string;
     description: string;

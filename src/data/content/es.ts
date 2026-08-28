@@ -22,6 +22,18 @@ import { rutaHref } from '../rutas';
  * keeps a live price and a real enquiry form.
  */
 export const es: Content = {
+  /* LOS MENSAJES DE VALIDACIÓN, EN UN SOLO SITIO (28 ago 2026).
+     La web dejaba la validación al navegador, y el navegador contesta en SU idioma: un visitante
+     español que se equivocaba al teclear su email recibía «Please include an '@' in the email
+     address.» — en inglés, justo en el instante en que decide entregar su dirección. Es el momento
+     de máximo compromiso de toda la web y el sistema respondía en otro idioma.
+     Van aquí y no dentro de cada formulario: son los mismos dos mensajes para los dos, y dos
+     copias divergen en cuanto alguien retoca una. */
+  validacion: {
+    requerido: 'Nos falta tu email para poder avisarte.',
+    formato: 'Ese email no parece completo: revisa que tenga @ y el dominio.',
+    requeridoTexto: 'Este campo hace falta para poder responderte.',
+  },
   meta: {
     title: 'STRATA — El sistema operativo autónomo de tu empresa',
     description:

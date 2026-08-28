@@ -63,9 +63,16 @@ const tramos = aplicarTarifa(t.pricing.tiers, tarifa, locale);
             <div class="ppr2">{tier.price}{tier.period && <span>{tier.period}</span>}</div>
             <div class="pmeta">{tier.meta}</div>
             <ul>{tier.features.map((f) => <li>{f}</li>)}</ul>
+            {/* EL PESO SALE DE `highlight`, NO DE `comingSoon` (28 ago 2026).
+                Aquí ponía `comingSoon ? ghost : highlight ? teal : ghost`. Y el plan recomendado
+                lleva LAS DOS banderas, así que el ternario cortocircuitaba y la rama `btn-teal`
+                era INALCANZABLE: los tres CTA salían fantasma y esta página —la última antes de
+                decidir— se quedaba sin un solo botón que dijera «haz esto».
+                Que un plan no esté a la venta cambia la ETIQUETA, no la jerarquía. */}
             <a
               href={tier.ctaHref}
-              class={`btn ${tier.comingSoon ? 'btn-ghost' : tier.highlight ? 'btn-teal' : 'btn-ghost'}`}
+              data-plan={tier.name}
+              class={`btn ${tier.highlight ? 'btn-teal' : 'btn-ghost'}`}
             >
               {tier.ctaLabel}
             </a>

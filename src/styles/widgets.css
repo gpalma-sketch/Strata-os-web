@@ -96,7 +96,7 @@
 }
 .chathead .cs {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 11.5px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--mint);
@@ -252,8 +252,8 @@
 .cform input,
 .cform textarea {
   width: 100%;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid var(--line-d2);
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid var(--line-control);
   border-radius: 12px;
   padding: 14px 16px;
   color: var(--on-dark);
@@ -267,13 +267,14 @@
 }
 .cform input::placeholder,
 .cform textarea::placeholder {
-  color: rgba(237, 243, 244, 0.35);
+  color: rgba(237, 243, 244, 0.58);
 }
 .cform input:focus,
 .cform textarea:focus {
   outline: none;
   border-color: var(--mint);
-  background: rgba(255, 255, 255, 0.06);
+  box-shadow: 0 0 0 1px var(--mint);   /* 2px efectivos sin mover el layout */
+  background: rgba(255, 255, 255, 0.09);
 }
 .cform input:user-invalid,
 .cform textarea:user-invalid {
@@ -354,8 +355,8 @@
 .wlform input[type='email'] {
   flex: 1;
   min-width: 0;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid var(--line-d2);
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid var(--line-control);
   border-radius: 12px;
   padding: 15px 18px;
   color: var(--on-dark);
@@ -364,12 +365,13 @@
   transition: border-color 0.2s var(--ease), background 0.2s var(--ease);
 }
 .wlform input[type='email']::placeholder {
-  color: rgba(237, 243, 244, 0.35);
+  color: rgba(237, 243, 244, 0.58);
 }
 .wlform input[type='email']:focus {
   outline: none;
   border-color: var(--mint);
-  background: rgba(255, 255, 255, 0.07);
+  box-shadow: 0 0 0 1px var(--mint);
+  background: rgba(255, 255, 255, 0.1);
 }
 .wlform input[type='email']:user-invalid {
   border-color: var(--blaze);
@@ -529,7 +531,7 @@
 }
 .ckb-lock {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 11.5px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--on-dark-soft);
@@ -753,5 +755,50 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 16px;
+  }
+}
+
+
+/* Mensaje de validación bajo el campo (28 ago 2026, ver ValidacionForm.astro).
+   Sustituye la burbuja nativa del navegador, que salía en inglés sobre la web en español justo en
+   el momento de entregar el email. Va en rojo de marca, no en el rojo del sistema, y con el mismo
+   ancho que el campo: un error que aparece fuera de la caja se lee como un aviso de la página, no
+   como algo que corregir ahí mismo. */
+.campo-error {
+  margin: 7px 0 0;
+  font-family: var(--font-sans);
+  font-size: 13.5px;
+  line-height: 1.45;
+  color: var(--blaze);
+}
+.campo-error[hidden] { display: none; }
+
+
+/* ── EL BOTÓN DE CHAT DEJA DE TAPAR EL PIE EN MÓVIL (28 ago 2026) ──────────────────────────────
+   A 390 px el botón de 60 px se quedaba sobre el texto a media página y, al final, encima del
+   enlace «COOKIES» del pie — un enlace obligatorio por ley tapado por un botón flotante. No se lee
+   como una función: se lee como un fallo de maquetación.
+   Tres cambios y ninguno toca el escritorio:
+   · 48 px en lugar de 60 — sigue muy por encima del mínimo de 44 px de área táctil.
+   · el margen inferior respeta `safe-area-inset`, para el gesto de inicio del iPhone.
+   · y se aparta cuando el pie o un formulario están en pantalla (clase que pone el observador de
+     Chat.astro): ahí el visitante ya tiene delante lo que el chat venía a ofrecer. */
+@media (max-width: 640px) {
+  .chatfab {
+    width: 48px;
+    height: 48px;
+    right: 16px;
+    bottom: max(16px, env(safe-area-inset-bottom, 0px));
+    transition: transform 0.3s var(--ease), opacity 0.3s var(--ease);
+  }
+  .chatfab.apartado {
+    transform: translateY(120%);
+    opacity: 0;
+    pointer-events: none;
+  }
+  .chatpanel {
+    right: 12px;
+    bottom: 76px;
+    max-height: calc(100dvh - 110px);
   }
 }

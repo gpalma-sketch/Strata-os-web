@@ -144,14 +144,22 @@ const hrefContacto = `${home}#contacto`;
     });
   }
 
+  // La barra de progreso y la opacidad de la nav comparten el MISMO listener de scroll.
+  // Dos listeners de scroll para dos efectos sobre el mismo elemento es trabajo duplicado en cada
+  // fotograma, y acaban desincronizándose cuando alguien toca uno.
   const progress = document.getElementById('progress');
-  if (progress) {
-    const onScroll = () => {
-      const h = document.documentElement;
+  const barra = document.querySelector('.nav');
+  const onScroll = () => {
+    const h = document.documentElement;
+    if (progress) {
       const max = h.scrollHeight - h.clientHeight;
       progress.style.width = `${max > 0 ? (h.scrollTop / max) * 100 : 0}%`;
-    };
-    addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
-  }
+    }
+    // Opaca en cuanto la página se mueve: sobre las secciones claras el titular de la propia
+    // página se transparentaba encima de los enlaces. Umbral de 8 px y no 0 para que un rebote
+    // del scroll no la haga parpadear.
+    barra?.classList.toggle('bajada', h.scrollTop > 8);
+  };
+  addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
 </script>

@@ -86,12 +86,24 @@ const workWidths = ['86%', '72%', '64%', '78%', '58%', '69%', '81%', '61%', '74%
     const BOLT = '<svg viewBox="0 0 24 24"><path d="M13 2 3 14h7l-1 8 10-12h-7z"/></svg>';
     const CHECK = '<svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>';
 
-    const clock = () => {
-      const d = new Date();
+    // ── CINCO SUCESOS DE UNA JORNADA NO OCURREN EN EL MISMO MINUTO (28 ago 2026) ────────────────
+    // `clock()` devolvía la hora actual y las cinco filas se pintan en el mismo tick, así que las
+    // cinco salían con el MISMO minuto: «10:19» cinco veces bajo una cabecera que dice «EJEMPLO DE
+    // ACTIVIDAD DE UNA JORNADA». Una jornada entera ocurrida en sesenta segundos.
+    //
+    // No es un detalle estético: es el tipo de incoherencia que un prospecto atento encuentra y
+    // que, en una web cuya voz se construye sobre declarar en su propia contra, cuesta más que a
+    // otra. Lo cazó la persona «probador metódico» de la revisión, no ninguna regla automática.
+    //
+    // Los huecos son FIJOS y no aleatorios: `Math.random()` daría un orden distinto en cada carga
+    // y, si algún día esto se renderiza en el servidor, un desajuste de hidratación.
+    const HUECOS = [0, 34, 71, 128, 196];   // minutos hacia atrás, de más reciente a más antiguo
+    const clock = (minutosAtras = 0) => {
+      const d = new Date(Date.now() - minutosAtras * 60000);
       return `${String(d.getHours()).padStart(2, '0')}:${String(d.getMinutes()).padStart(2, '0')}`;
     };
 
-    const row = (item, animate) => {
+    const row = (item, animate, minutosAtras = 0) => {
       const el = document.createElement('div');
       el.className = `frow${animate ? ' enter' : ''}`;
       const text = document.createElement('div');
@@ -99,7 +111,7 @@ const workWidths = ['86%', '72%', '64%', '78%', '58%', '69%', '81%', '61%', '74%
       text.textContent = item.text;
       const tag = document.createElement('div');
       tag.className = 'ftag';
-      tag.textContent = `${item.agent} · ${clock()}`;
+      tag.textContent = `${item.agent} · ${clock(minutosAtras)}`;
 
       const body = document.createElement('div');
       body.className = 'fbody';
@@ -118,7 +130,10 @@ const workWidths = ['86%', '72%', '64%', '78%', '58%', '69%', '81%', '61%', '74%
       return el;
     };
 
-    for (let i = 0; i < 5; i++) log.appendChild(row(lines[i], false));
+    // La primera fila es «ahora» y las demás van hacia atrás: se lee como una jornada, no como un
+    // instante. Las que entran luego por el temporizador sí son «ahora», que es lo correcto — están
+    // ocurriendo mientras se mira.
+    for (let i = 0; i < 5; i++) log.appendChild(row(lines[i], false, HUECOS[i]));
 
     if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 

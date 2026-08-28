@@ -1,0 +1,106 @@
+---
+/**
+ * ValidacionForm — sustituye las burbujas de validación del navegador por texto en el idioma
+ * de la página, dentro del formulario.
+ *
+ * ── POR QUÉ EXISTE ─────────────────────────────────────────────────────────────────────────────
+ * La web dejaba la validación al navegador. Y el navegador contesta en SU idioma, no en el de la
+ * página: un visitante español que se equivocaba al teclear su email recibía
+ *
+ *     «Please include an '@' in the email address. 'esto-no-es-un-email' is missing an '@'.»
+ *
+ * en inglés, en el instante exacto en que decide entregar su dirección. Es el momento de máximo
+ * compromiso de toda la web —donde el resto del diseño se esfuerza en tranquilizar: «sin
+ * compromiso y sin tarjeta», «ni spam, ni cesión a terceros»— y el sistema respondía en otro
+ * idioma. Se lee como algo a medio hacer, y se nota en una demo en directo.
+ *
+ * ── POR QUÉ UN COMPONENTE Y NO UN GUION EN CADA FORMULARIO ─────────────────────────────────────
+ * Hay dos formularios (lista de espera y diagnóstico) y el mismo problema en los dos. Dos copias
+ * del mismo guion divergen en cuanto alguien retoca una: es la regla de la casa aplicada a un
+ * puñado de líneas de JavaScript. Los textos vienen de `content[idioma].validacion`, que también
+ * está en un solo sitio.
+ *
+ * ── LO QUE HACE, Y LO QUE NO ───────────────────────────────────────────────────────────────────
+ * · Intercepta `invalid` y pinta el mensaje BAJO el campo, con `role="alert"`, en vez de dejar
+ *   salir la burbuja nativa.
+ * · Limpia el mensaje en cuanto el campo vuelve a ser válido: un error que se queda después de
+ *   corregirlo enseña a ignorar los errores.
+ * · NO valida nada por su cuenta. La regla sigue siendo la del navegador (`required`,
+ *   `type=email`): sustituir el motor de validación por uno propio es cambiar un problema de
+ *   idioma por un problema de correción, y el nativo acierta más.
+ * · Si el JavaScript no carga, el navegador sigue validando como hasta ahora — en inglés, pero
+ *   validando. Falla del lado seguro: nunca deja pasar un email inválido.
+ */
+import { content } from '../data/content';
+
+interface Props {
+  /** El formulario al que se engancha, por id. */
+  form: string;
+  lang?: 'es' | 'en';
+}
+const { form, lang = 'es' } = Astro.props;
+const v = content[lang].validacion;
+---
+
+<script is:inline define:vars={{ formId: form, textos: v }}>
+  (() => {
+    const form = document.getElementById(formId);
+    if (!form) return;
+
+    const mensaje = (campo) => {
+      // `validity` dice QUÉ falla, y de ahí sale el texto. `valueMissing` y `typeMismatch` son los
+      // dos únicos casos que producen estos formularios; el resto cae al mensaje nativo, que es
+      // mejor que una frase genérica inventada por nosotros.
+      if (campo.validity.valueMissing) {
+        return campo.type === 'email' ? textos.requerido : textos.requeridoTexto;
+      }
+      if (campo.validity.typeMismatch) return textos.formato;
+      return campo.validationMessage;
+    };
+
+    const hueco = (campo) => {
+      let p = campo.parentElement?.querySelector('.campo-error');
+      if (!p) {
+        p = document.createElement('p');
+        p.className = 'campo-error';
+        p.setAttribute('role', 'alert');
+        campo.insertAdjacentElement('afterend', p);
+      }
+      return p;
+    };
+
+    const pintar = (campo) => {
+      const p = hueco(campo);
+      p.textContent = mensaje(campo);
+      p.hidden = false;
+      campo.setAttribute('aria-invalid', 'true');
+      campo.setAttribute('aria-describedby', (p.id ||= `err-${campo.id || campo.name}`));
+    };
+
+    const limpiar = (campo) => {
+      const p = campo.parentElement?.querySelector('.campo-error');
+      if (p) { p.textContent = ''; p.hidden = true; }
+      campo.removeAttribute('aria-invalid');
+    };
+
+    form.querySelectorAll('input, textarea, select').forEach((campo) => {
+      campo.addEventListener('invalid', (e) => {
+        e.preventDefault();   // esto es lo que impide la burbuja nativa
+        pintar(campo);
+      });
+      campo.addEventListener('input', () => { if (campo.checkValidity()) limpiar(campo); });
+    });
+
+    // NO HAY MANEJADOR DE `submit` AQUÍ, Y ESO ES DELIBERADO.
+    // La primera versión tenía uno que repintaba todos los errores y enfocaba el primero. Era
+    // CÓDIGO MUERTO: `preventDefault()` sobre `invalid` sólo suprime la burbuja nativa, el
+    // formulario sigue siendo inválido para el navegador, y por tanto el evento `submit` no llega
+    // a dispararse. La validación de restricciones ya emite `invalid` en CADA campo que falla, no
+    // sólo en el primero, así que los listeners de arriba los pintan todos y el navegador enfoca
+    // el primero por su cuenta.
+    //
+    // Importa dejarlo escrito porque el manejador propio de cada formulario hace
+    // `e.preventDefault()` y sale a `fetch` SIN comprobar validez: parece que un formulario
+    // inválido podría enviarse. No puede — lo impide el navegador antes de llegar ahí.
+  })();
+</script>

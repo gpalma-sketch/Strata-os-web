@@ -28,6 +28,14 @@
 
   --line-d: rgba(244, 247, 248, 0.12);
   --line-d2: rgba(244, 247, 248, 0.22);
+  /* EL BORDE DE UN CONTROL NO ES UNA LÍNEA DECORATIVA (28 ago 2026).
+     Los campos de los dos formularios usaban `--line-d2` (0.22 alpha) sobre un relleno de 0.05:
+     unos 1,9:1 contra el fondo, por debajo del mínimo de 3:1 que exige un contorno de interfaz.
+     A 1440 px las cajas de NOMBRE / EMAIL / EMPRESA se leían como espacio vacío dentro del patrón
+     de rejilla del fondo — y por esos cuatro rectángulos pasa cada conversión de la web.
+     Token propio en vez de subir `--line-d2`: ese filete SÍ debe seguir siendo tenue donde separa
+     bloques; lo que no puede ser tenue es el contorno de algo en lo que hay que escribir. */
+  --line-control: rgba(244, 247, 248, 0.42);
   --line-l: rgba(27, 43, 58, 0.12);
   --line-l2: rgba(27, 43, 58, 0.22);
 

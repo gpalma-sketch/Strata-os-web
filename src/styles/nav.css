@@ -6,6 +6,16 @@
    is the drawer that fixes it.
 ============================================================================ */
 
+/* ── LA BARRA SE VUELVE OPACA AL BAJAR (28 ago 2026) ────────────────────────────────────────────
+   Estaba al 78 % con un desenfoque de 14 px, y sobre las secciones claras el titular de la propia
+   página se transparentaba ENCIMA de la fila de enlaces. En la portada, «Una plataforma. Ventas,
+   operacio…zas.» cruzaba por «Para quién es / Precios»; en /control la fila de logotipos de
+   terceros quedaba cortada a media altura por detrás. Era el defecto de acabado más persistente de
+   la web: en todas las páginas, en cualquier posición de scroll, y justo encima del CTA que
+   siempre está a la vista.
+   La translucidez se queda arriba, en reposo, donde tiene sentido y no choca con nada porque el
+   hero es oscuro. En cuanto la página se mueve, la barra se vuelve superficie: opaca y con un
+   filete. Es una decisión de una línea de más y arregla un choque en cinco páginas. */
 .nav {
   position: fixed;
   top: 0;
@@ -16,6 +26,13 @@
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--line-d);
+  transition: background 0.25s var(--ease), border-color 0.25s var(--ease);
+}
+.nav.bajada {
+  background: var(--ink-deep, #0a1620);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border-bottom-color: var(--line-d2);
 }
 .nav .wrap {
   max-width: 1240px;

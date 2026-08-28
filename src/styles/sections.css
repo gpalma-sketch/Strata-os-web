@@ -427,7 +427,7 @@
 }
 .pmock .pk {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 11.5px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--teal-deep);
@@ -614,7 +614,7 @@
 }
 .agent .astat {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 11.5px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--mint);
@@ -658,7 +658,7 @@
 }
 .agent .atag {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 11.5px;
   letter-spacing: 0.04em;
   color: var(--on-dark-soft);
   border: 1px solid var(--line-d2);
@@ -778,7 +778,7 @@
 }
 .frow .ftag {
   font-family: var(--font-mono);
-  font-size: 10.5px;
+  font-size: 11.5px;
   letter-spacing: 0.06em;
   color: rgba(237, 243, 244, 0.5);
   margin-top: 3px;
@@ -789,7 +789,7 @@
   align-items: center;
   gap: 6px;
   font-family: var(--font-mono);
-  font-size: 10.5px;
+  font-size: 11.5px;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--mint);
@@ -890,7 +890,7 @@
 }
 .fnode .fs {
   font-family: var(--font-mono);
-  font-size: 10.5px;
+  font-size: 11.5px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: rgba(237, 243, 244, 0.5);
@@ -999,7 +999,7 @@
 }
 .uc-io .ulab {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 11.5px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--mint);
@@ -1081,14 +1081,14 @@
 }
 .uc-mock .um-s {
   font-family: var(--font-mono);
-  font-size: 10.5px;
+  font-size: 11.5px;
   color: rgba(237, 243, 244, 0.5);
   margin-top: 3px;
 }
 .uc-mock .um-ok {
   margin-left: auto;
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 11.5px;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--mint);
@@ -1135,7 +1135,7 @@
   align-self: flex-start;
   font-family: var(--font-mono);
   font-weight: 700;
-  font-size: 10px;
+  font-size: 11.5px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--gold-deep);
@@ -1177,15 +1177,20 @@
   border-color: var(--gold);
   box-shadow: 0 0 0 1px rgba(255, 194, 75, 0.4), 0 26px 56px rgba(15, 30, 46, 0.14);
 }
+/* EL ORO SIGNIFICA UNA SOLA COSA (28 ago 2026): «esto todavía no está a la venta».
+   Antes significaba tres —el aviso de disponibilidad, esta recomendación y el énfasis del
+   precio— y un color que quiere decir tres cosas no dice ninguna. La recomendación pasa a teal,
+   que es el color de la acción, y con eso además concuerda con el botón principal del mismo plan.
+   Y sube de 10 px a 11,5 px: era texto funcional por debajo del suelo de legibilidad. */
 .ptier .pbadge {
   align-self: flex-start;
   font-family: var(--font-mono);
   font-weight: 700;
-  font-size: 10px;
-  letter-spacing: 0.1em;
+  font-size: 11.5px;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  background: var(--gold);
-  color: var(--ink);
+  background: var(--teal);
+  color: var(--paper);
   border-radius: 999px;
   padding: 4px 11px;
   margin-bottom: 14px;
@@ -1214,7 +1219,7 @@
 }
 .ptier .psetup-k {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 11.5px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--text-mute);
@@ -1345,7 +1350,7 @@
 }
 .rung .rwho {
   font-family: var(--font-mono);
-  font-size: 10.5px;
+  font-size: 11.5px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--mint);
@@ -1669,8 +1674,12 @@
   line-height: 1;
   transition: transform 0.3s var(--ease);
 }
+/* 90° Y NO 45° (28 ago 2026). Rotando 45° el `+` se convierte en una `×`, y una × significa
+   «descartar», no «plegar»: quien la ve espera que la pregunta desaparezca, no que se cierre.
+   A 90° se convierte en un `−`, que es la convención del acordeón y dice exactamente lo que hace.
+   Un carácter, el mismo movimiento, y deja de prometer otra cosa. */
 .qa .qq[aria-expanded='true'] .qi {
-  transform: rotate(45deg);
+  transform: rotate(90deg);
 }
 .qa .qc {
   display: grid;
@@ -1952,7 +1961,7 @@
 .fc-tag {
   font-family: var(--font-mono);
   font-weight: 700;
-  font-size: 10px;
+  font-size: 11.5px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--teal-deep);
@@ -2011,7 +2020,7 @@
 .fc-depts-k {
   display: block;
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 11.5px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--text-mute);
@@ -2071,7 +2080,7 @@
 .fc-metric-p {
   display: block;
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 11.5px;
   letter-spacing: 0.05em;
   color: var(--on-dark-soft);
   opacity: 0.65;
@@ -2897,3 +2906,17 @@
     margin-bottom: 0;
   }
 }
+
+
+/* El plan que traes de /precios, confirmado en el formulario de espera (28 ago 2026).
+   No es decoración: es el acuse de que la elección sobrevivió al clic. */
+.wl-plan {
+  margin: 14px auto 0;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--mint);
+}
+.wl-plan::before { content: '→ '; opacity: 0.7; }
