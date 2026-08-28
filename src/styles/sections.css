@@ -672,16 +672,29 @@
   overflow: hidden;
   margin-top: 16px;
 }
+/* La barra se dibuja YA a su ancho final y se REVELA con clip-path (28 ago 2026).
+   Antes animaba `width` de 0 a var(--w): el navegador recalcula el layout en cada fotograma de los
+   1,2 s, y son nueve barras a la vez. Lo cazó el detector de impeccable (`layout-transition`), que
+   es el único de sus 12 hallazgos que no es cuestión de gusto sino de rendimiento.
+   `clip-path` en vez de `transform: scaleX()`: escalar deformaría el degradado y los extremos
+   redondeados mientras dura la animación. Con el recorte, lo que se ve es exactamente lo de antes —
+   una barra que crece— pero sin tocar el layout. */
 .agent .awork i {
   display: block;
   height: 100%;
-  width: 0;
+  width: var(--w, 70%);
   border-radius: 99px;
   background: linear-gradient(90deg, var(--teal), var(--mint));
+  clip-path: inset(0 100% 0 0);
 }
 .agents.in .awork i {
-  width: var(--w, 70%);
-  transition: width 1.2s var(--ease) 0.3s;
+  clip-path: inset(0 0 0 0);
+  transition: clip-path 1.2s var(--ease) 0.3s;
+}
+/* Quien pide menos movimiento ve la barra ya puesta, no una que no llega nunca. */
+@media (prefers-reduced-motion: reduce) {
+  .agent .awork i { clip-path: inset(0 0 0 0); }
+  .agents.in .awork i { transition: none; }
 }
 
 /* ---------- feed de actividad ---------- */
