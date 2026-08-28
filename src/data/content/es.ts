@@ -1,5 +1,4 @@
 import type { Content } from './types';
-import { rutaHref } from '../rutas';
 
 /**
  * Spanish is the source copy — it is the language the design was written in.
@@ -694,11 +693,14 @@ export const es: Content = {
           'Un responsable de STRATA asignado a tu cuenta',
           'Disponible hoy: el precio se cierra tras el diagnóstico, no antes',
         ],
-        ctaLabel: 'Ver STRATA Lab →',
-        // Los precios viven en /precios y STRATA Lab en /el-os: este enlace
-        // cruza de página, así que sale del mapa de rutas y no de un '#lab'
-        // que en esta página no existiría.
-        ctaHref: `${rutaHref('el-os', 'es')}#lab`,
+        // ESTE ES EL ÚNICO BOTÓN DE LA PÁGINA QUE SE PUEDE PULSAR HOY (28 ago 2026).
+        // Decía «Ver STRATA Lab →» y cruzaba a /el-os#lab: en la página cuya única conversión real
+        // es el diagnóstico, el botón del único tramo disponible mandaba a OTRA página a seguir
+        // leyendo. Ahora ofrece la acción, y la ofrece aquí — `#contacto` es el formulario de
+        // diagnóstico, que está al final de esta misma página (lo trae `CierrePagina`).
+        // El Lab sigue a un clic desde el menú («El OS») y se nombra en la lista de arriba.
+        ctaLabel: 'Pide tu diagnóstico →',
+        ctaHref: '#contacto',
       },
     ],
     billingKicker: 'Cómo se factura',

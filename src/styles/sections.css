@@ -139,27 +139,14 @@
   box-shadow: 0 0 0 1px rgba(53, 208, 186, 0.18), 0 30px 70px rgba(0, 0, 0, 0.4);
   color: var(--on-dark);
 }
-.pillar.os::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -60%;
-  width: 38%;
-  height: 100%;
-  pointer-events: none;
-  background: linear-gradient(100deg, transparent, rgba(53, 208, 186, 0.12), transparent);
-  transform: skewX(-18deg);
-  animation: pillarsweep 5.5s ease-in-out infinite;
-}
-@keyframes pillarsweep {
-  0% {
-    left: -60%;
-  }
-  55%,
-  100% {
-    left: 130%;
-  }
-}
+/* AQUÍ HABÍA UN BRILLO TEAL QUE CRUZABA LA TARJETA CADA 5,5 s, EN BUCLE (`.pillar.os::after` +
+   `@keyframes pillarsweep`). Se va con la paleta «teal disciplinado» (28 ago 2026, ver `base.css`):
+   era ambiente, no un gesto — un destello que se repite solo, indefinidamente, sin que nadie lo
+   provoque ni signifique nada. El brillo que SÍ se queda es el de `.agent:hover`, que es el mismo
+   efecto pero disparado por el visitante y una sola vez: eso es una micro-interacción.
+
+   Lo que distingue esta tarjeta de la de al lado sigue estando —fondo propio, borde teal y filete
+   de 1 px—, así que no pierde jerarquía: pierde el parpadeo. */
 .pillar.lab {
   background: var(--ink-soft);
   border: 1px solid var(--line-d);
@@ -882,7 +869,12 @@
 }
 .fnode:hover {
   border-color: var(--mint);
-  box-shadow: 0 0 28px rgba(53, 208, 186, 0.18);
+  /* Aquí había `0 0 28px rgba(53,208,186,.18)`: un halo teal sin desplazamiento, que es decoración
+     y no profundidad. Lo que señala el hover ya es el borde mint de arriba; la sombra pasa a ser
+     una sombra de verdad —desplazada y difusa— igual que en `.agent:hover` y `.rung:hover`, que
+     son las otras dos tarjetas de la web con el mismo gesto. Parte de la paleta «teal
+     disciplinado» del 28 ago 2026 (ver `base.css`). */
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.38);
 }
 .fnode .ft {
   font-weight: 700;
@@ -899,7 +891,9 @@
 }
 .fnode.hot {
   border-color: var(--mint);
-  box-shadow: 0 0 0 1px rgba(53, 208, 186, 0.35), 0 0 28px rgba(53, 208, 186, 0.14);
+  /* Se queda el filete de 1 px, que es una LÍNEA y sí dice «este nodo es el importante» (Jarvis).
+     Se va el `0 0 28px` que lo envolvía: mismo motivo que en `:hover`, un halo sin desplazamiento. */
+  box-shadow: 0 0 0 1px rgba(53, 208, 186, 0.35);
 }
 .flink {
   flex: none;
@@ -1332,7 +1326,8 @@
 .ladder .rung:nth-child(4) {
   margin-bottom: 90px;
   border-color: rgba(53, 208, 186, 0.55);
-  box-shadow: 0 0 0 1px rgba(53, 208, 186, 0.28), 0 0 42px rgba(53, 208, 186, 0.14);
+  /* Igual que `.fnode.hot`: se queda el filete de 1 px (marca el último peldaño), se va el halo. */
+  box-shadow: 0 0 0 1px rgba(53, 208, 186, 0.28);
 }
 .rung .rl {
   font-family: var(--font-display);
@@ -1381,11 +1376,15 @@
   border: 1px solid rgba(53, 208, 186, 0.55);
   border-radius: 18px;
   padding: 26px 34px;
-  background: linear-gradient(90deg, rgba(53, 208, 186, 0.1), transparent);
+  /* Este bloque cierra la escalera y tiene que destacar. Lo hacía con TRES cosas a la vez: borde
+     teal, un lavado teal→transparente por detrás y un halo de 44 px alrededor. Se queda el borde
+     —una línea, la parte que se lee como intención— y se va el lavado con el halo: es el mismo
+     cian difuminado sobre oscuro que se retiró de los fondos el 28 ago 2026. El número a 46 px en
+     mint (`.capstone .cn`) sigue llevando el peso, ahora sin competencia detrás. */
+  background: rgba(53, 208, 186, 0.05);
   display: flex;
   align-items: center;
   gap: 24px;
-  box-shadow: 0 0 44px rgba(53, 208, 186, 0.12);
 }
 .capstone .cn {
   font-family: var(--font-display);
@@ -1666,20 +1665,53 @@
   font-size: 20px;
   line-height: 1.3;
 }
+/* ── EL ICONO DEL ACORDEÓN, DIBUJADO Y NO TECLEADO (28 ago 2026) ─────────────────────────────────
+   Dos barras de 2 px: la horizontal siempre, la vertical sólo cuando la pregunta está cerrada. Así
+   cerrado es «+» y abierto es «−», que es la convención y lo único que hace falta que diga.
+
+   ⚠️ AQUÍ HABÍA UN FALLO QUE SE ARREGLÓ RAZONANDO Y SIGUIÓ ROTO. La versión anterior era el
+   carácter «+» con `transform: rotate(90deg)` al abrir, y su comentario lo defendía así: «a 45° el
+   + se convierte en una ×, y × significa descartar; a 90° se convierte en un −, que es la
+   convención». La segunda mitad es falsa: **un signo + girado 90° sigue siendo un signo +** (tiene
+   simetría de cuatro cuartos). Así que la transición era un no-op visual y la pregunta ABIERTA
+   llevaba el mismo icono que las cerradas — el acordeón no indicaba su estado en ninguna de las
+   cinco páginas donde sale.
+   Se vio en una captura, no leyendo el CSS: el razonamiento era coherente y la conclusión, mentira.
+   Un giro sobre un glifo simétrico es la clase de cosa que sólo delata el píxel.
+
+   De paso deja de ser un carácter Unicode haciendo de icono. Con dos barras el grosor y el color
+   son los del diseño y no los que decida la tipografía. */
 .qa .qi {
   margin-left: auto;
-  color: var(--mint);
   flex: none;
-  font-size: 28px;
-  line-height: 1;
-  transition: transform 0.3s var(--ease);
+  position: relative;
+  width: 18px;
+  height: 18px;
 }
-/* 90° Y NO 45° (28 ago 2026). Rotando 45° el `+` se convierte en una `×`, y una × significa
-   «descartar», no «plegar»: quien la ve espera que la pregunta desaparezca, no que se cierre.
-   A 90° se convierte en un `−`, que es la convención del acordeón y dice exactamente lo que hace.
-   Un carácter, el mismo movimiento, y deja de prometer otra cosa. */
-.qa .qq[aria-expanded='true'] .qi {
-  transform: rotate(90deg);
+.qa .qi::before,
+.qa .qi::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  background: var(--mint);
+  border-radius: 1px;
+}
+.qa .qi::before {
+  width: 100%;
+  height: 2px;
+}
+.qa .qi::after {
+  width: 2px;
+  height: 100%;
+  transition: transform 0.3s var(--ease), opacity 0.3s var(--ease);
+}
+/* Abierto: la barra vertical se va. `scaleY(0)` además de `opacity` para que el gesto se lea como
+   un plegado y no como un apagado — y quien pide menos movimiento sigue viendo el cambio, porque
+   la opacidad hace el trabajo aunque el navegador ignore la transición. */
+.qa .qq[aria-expanded='true'] .qi::after {
+  transform: scaleY(0);
+  opacity: 0;
 }
 .qa .qc {
   display: grid;
@@ -2208,8 +2240,10 @@
    no se lea como olvido. Un bloque muerto sin nota es deuda invisible; con
    nota es una decisión.
 
-   Aquellas secciones son ahora `deep grid-bg sec` + orbe, exactamente el
-   mismo tratamiento que Producto y Despliegue, que nunca tuvieron foto. */
+   Aquellas secciones son hoy `deep sec` a secas — el mismo tratamiento que
+   Producto y Despliegue, que nunca tuvieron foto. (Hasta el 28 ago 2026 la
+   textura la ponían una rejilla y un orbe difuminado; se fueron con la paleta
+   «teal disciplinado», y el motivo está en `base.css`.) */
 .has-bg {
   position: relative;
   isolation: isolate;
@@ -2278,6 +2312,24 @@
 .shot {
   margin: 0;
   max-width: 1100px;
+  /* `min-width: 0` NO ES DECORATIVO: sin él, el marco desplazable de móvil rompe el PIE DE FOTO.
+     Un hijo de rejilla tiene `min-width: auto`, o sea «no me encojas por debajo de mi contenido», y
+     el contenido pasó a ser una imagen de 780 px. Así que la tarjeta entera se iba a 780 px en una
+     pantalla de 390 — y con ella el `figcaption`, que se quedaba cortado a media palabra porque
+     `.sec` lleva `overflow: hidden` y lo recorta en silencio.
+     Ese silencio es lo peligroso: la comprobación de desborde horizontal de la página seguía
+     diciendo CERO (no había barra, estaba recortado), así que el fallo sólo se veía mirando la
+     captura. Un recorte no es un ajuste. */
+  min-width: 0;
+}
+/* El marco es lo que scrollea en móvil (ver el bloque de 860 px). En escritorio no hace nada: no
+   hay desborde, así que `overflow-x: auto` no pinta barra ni cambia nada. */
+.shot-marco {
+  overflow-x: auto;
+  overflow-y: hidden;
+  border-radius: 12px;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain; /* que arrastrar la captura no arrastre la página */
 }
 .shot img {
   width: 100%;
@@ -2307,6 +2359,23 @@
 @media (max-width: 860px) {
   .shots-grid {
     gap: 36px;
+  }
+
+  /* ── EN MÓVIL LA CAPTURA SE DESPLAZA, NO SE ENCOGE (28 ago 2026) ──────────────────────────────
+     El pie de esta sección dice «capturas reales del sistema, no maquetas». En un móvil de 390 px
+     eso no se podía comprobar: una captura de 1.300 px metida en 350 px deja el texto del panel a
+     unos 3 px de alto — una manchita gris. Es decir, exactamente el adorno que el comentario de
+     `.shots-grid` dice que no quiere ser, sólo que en el eje que nadie mira.
+
+     La regla es la misma que para tablas y bloques de código anchos: el contenido ancho se
+     desplaza DENTRO de su propio contenedor, nunca encogiéndose hasta ser ilegible y nunca
+     empujando la página. Así que la imagen se queda a 780 px y el marco scrollea. Se ve el
+     principio de la pantalla a tamaño legible, y quien quiera el resto arrastra.
+
+     `min-width` y no `width` para que una captura MÁS ESTRECHA que 780 px (hoy no hay, pero
+     `os-dia` está a 1.305 y podría recortarse más) no se estire hacia arriba y pierda nitidez. */
+  .shot-marco img {
+    min-width: 780px;
   }
 }
 

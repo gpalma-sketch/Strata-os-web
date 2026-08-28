@@ -17,10 +17,8 @@ const t = content[locale];
 const hrefLab = `${rutaHref('el-os', locale)}#lab`;
 ---
 
-<section class="deep grid-bg hero" id="top">
+<section class="deep hero" id="top">
   <canvas id="net" class="hero-net" aria-hidden="true"></canvas>
-  <div class="orb" id="orb1" style="width:640px; height:640px; top:-160px; right:-120px;"></div>
-  <div class="orb" id="orb2" style="width:420px; height:420px; bottom:-80px; left:-140px; opacity:.3;"></div>
 
   <div class="wrap" style="text-align:center;">
     <p class="kick">{t.hero.kicker}</p>
@@ -191,22 +189,11 @@ const hrefLab = `${rutaHref('el-os', locale)}#lab`;
     });
   }
 
-  /* Hero orb parallax. */
-  const orb1 = document.getElementById('orb1');
-  const orb2 = document.getElementById('orb2');
-  if (!reduce && (orb1 || orb2)) {
-    addEventListener(
-      'pointermove',
-      (e) => {
-        if (e.pointerType !== 'mouse') return;
-        const x = e.clientX / innerWidth - 0.5;
-        const y = e.clientY / innerHeight - 0.5;
-        if (orb1) orb1.style.transform = `translate(${x * -36}px,${y * -24}px)`;
-        if (orb2) orb2.style.transform = `translate(${x * 22}px,${y * 16}px)`;
-      },
-      { passive: true },
-    );
-  }
+  /* Aquí iba el paralaje de los dos orbes del hero, que se movían con el ratón. Se fue con los
+     orbes el 28 ago 2026 (paleta «teal disciplinado»); el motivo está escrito en `base.css`, donde
+     vivían las dos reglas. Se BORRA el listener en vez de dejarlo guardado por `if (orb1 || orb2)`:
+     un `pointermove` global que ya no puede mover nada es coste sin efecto, y encima le dice a
+     quien lo lea que el elemento sigue existiendo. El paralaje del mockup, arriba, sí sigue. */
 
   /* Word rotor. */
   const rotor = document.getElementById('rotor');

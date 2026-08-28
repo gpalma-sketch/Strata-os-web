@@ -42,7 +42,16 @@ const faqLd = {
                 id={`faq-q-${i}`}
               >
                 {f.q}
-                <span class="qi" aria-hidden="true">+</span>
+                {/* VACÍO A PROPÓSITO: el icono se DIBUJA en CSS con dos barras (ver `.qi`).
+                    Antes aquí había un carácter «+» que se giraba 90° al abrir para convertirse en
+                    «−». No funcionaba: un signo «+» girado 90° sigue siendo un signo «+», así que
+                    la pregunta abierta llevaba EXACTAMENTE el mismo icono que las cerradas y el
+                    acordeón no decía en qué estado estaba. Con dos barras, abrir esconde la
+                    vertical y queda un «−» de verdad.
+                    `aria-hidden` porque el estado ya lo dice `aria-expanded` en el botón: para
+                    quien usa lector de pantalla este icono es ruido, y sin texto dentro no puede
+                    quedarse desincronizado con el estado real. */}
+                <span class="qi" aria-hidden="true"></span>
               </button>
             </h3>
             <div class="qc" id={`faq-a-${i}`} role="region" aria-labelledby={`faq-q-${i}`}>

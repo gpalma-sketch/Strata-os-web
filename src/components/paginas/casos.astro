@@ -1,6 +1,11 @@
 ---
 /**
- * CASOS (/casos · /en/cases) — responde «¿a quién le funciona?».
+ * PARA QUIÉN ES (/para-quien · /en/who-its-for) — responde «¿a quién le funciona?».
+ *
+ * La CLAVE de esta página en el mapa de rutas sigue siendo `casos`, y por eso el
+ * fichero se llama así; el slug se renombró el 27 ago 2026 porque «casos»
+ * describe el contenido y quien mira el menú no busca contenido, busca saber si
+ * esto va con él. El motivo largo está en `src/data/rutas.ts`.
  *
  * Es la página de la prueba. Las otras cuatro explican qué es el sistema, quién
  * lo opera, quién manda y cuánto cuesta; ésta enseña que ya está funcionando en
@@ -35,6 +40,7 @@
 import Base from '../../layouts/Base.astro';
 import Nav from '../Nav.astro';
 import Cases from '../Cases.astro';
+import Reviews from '../Reviews.astro';
 import UseCases from '../UseCases.astro';
 import Partners from '../Partners.astro';
 import CierrePagina from '../CierrePagina.astro';
@@ -52,7 +58,7 @@ const { locale } = Astro.props;
 
 {/* `ruta="casos"` es lo único que hace falta: de ahí salen el <title>, la
     descripción, el canonical y los hreflang con el slug de CADA idioma
-    (/casos ↔ /en/cases). Nada de escribirlos a mano aquí. */}
+    (/para-quien ↔ /en/who-its-for). Nada de escribirlos a mano aquí. */}
 <Base locale={locale} ruta="casos">
   <Nav locale={locale} />
   <main>
@@ -61,6 +67,24 @@ const { locale } = Astro.props;
         lo ponía el Hero; aquí no hay Hero, y una página sin `h1` no dice de
         qué va. No cambia nada visual (el tamaño lo pone `.h-lg`). */}
     <Cases locale={locale} titular="h1" />
+    {/* REVIEWS NO PINTA NADA HOY, y se monta igual (28 ago 2026).
+        `site.testimonials` está vacío a propósito —el prototipo traía tres citas que su propio
+        autor marcó como escritas «por arquetipo», y publicar avales inventados como reales es
+        práctica comercial desleal en la UE— así que el componente devuelve `false` y aquí no
+        aparece nada: cero píxeles, cero peso.
+
+        POR QUÉ MONTARLO ENTONCES. Su cabecera prometía «añade citas reales a `site.testimonials`
+        y esto se pinta como está diseñado», y era MENTIRA: no lo importaba ninguna página, así
+        que rellenar el array no habría producido nada y el fallo sería invisible — no hay error,
+        simplemente no sale. Es el mismo patrón que el `#como` huérfano de este mismo repo: algo
+        construido, con contenido, y sin nadie que lo pinte. Montándolo, la promesa es cierta y
+        el interruptor es el array.
+
+        AQUÍ Y NO EN OTRO SITIO porque ésta es la página de la prueba: primero qué empresas lo
+        operan (`Cases`), después lo que dicen. Y cuando se encienda hay UNA cosa que mirar: su
+        tono es `deep` y `UseCases`, justo debajo, también — dos tonos seguidos iguales en una
+        página cuyo ritmo es light → deep → light. Se acepta hoy porque no se ve. */}
+    <Reviews locale={locale} />
     <UseCases locale={locale} />
     <Partners locale={locale} />
     {/* SIEMPRE el último hijo de <main>: lista de lanzamiento + «Hablemos». */}

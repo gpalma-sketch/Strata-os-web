@@ -1,5 +1,4 @@
 import type { Content } from './types';
-import { rutaHref } from '../rutas';
 
 /**
  * English translation. Structurally identical to `es` — the `Content` type
@@ -677,11 +676,13 @@ export const en: Content = {
           'A named STRATA lead assigned to your account',
           'Available today: the price is set after the diagnosis, not before',
         ],
-        ctaLabel: 'See STRATA Lab →',
-        // Pricing lives on /en/pricing and STRATA Lab on /en/the-os: this link
-        // crosses pages, so it comes from the route map rather than from a
-        // '#lab' that would not exist on this page.
-        ctaHref: `${rutaHref('el-os', 'en')}#lab`,
+        // THE ONLY BUTTON ON THIS PAGE THAT CAN BE PRESSED TODAY (28 Aug 2026). See the Spanish
+        // file for the reasoning: it used to read «See STRATA Lab →» and cross to /en/the-os#lab,
+        // so on the page whose only real conversion is the diagnosis, the one available tier sent
+        // people off to keep reading. `#contacto` is the diagnosis form at the foot of this same
+        // page (rendered by `CierrePagina`); the id is the same in both languages.
+        ctaLabel: 'Book your diagnosis →',
+        ctaHref: '#contacto',
       },
     ],
     billingKicker: "How it's billed",

@@ -32,7 +32,9 @@
      Los campos de los dos formularios usaban `--line-d2` (0.22 alpha) sobre un relleno de 0.05:
      unos 1,9:1 contra el fondo, por debajo del mínimo de 3:1 que exige un contorno de interfaz.
      A 1440 px las cajas de NOMBRE / EMAIL / EMPRESA se leían como espacio vacío dentro del patrón
-     de rejilla del fondo — y por esos cuatro rectángulos pasa cada conversión de la web.
+     de rejilla del fondo (rejilla que se retiró ese mismo día, unas horas después, con la paleta
+     «teal disciplinado»; el contorno flojo era un problema por sí solo y sigue arreglado aquí)
+     — y por esos cuatro rectángulos pasa cada conversión de la web.
      Token propio en vez de subir `--line-d2`: ese filete SÍ debe seguir siendo tenue donde separa
      bloques; lo que no puede ser tenue es el contorno de algo en lo que hay que escribir. */
   --line-control: rgba(244, 247, 248, 0.42);

@@ -20,26 +20,33 @@
  *   – Team y Contact son quién está detrás y cómo hablar con ellos.
  *
  * LAS OTRAS CATORCE viven ahora en cinco páginas, una por pregunta (el mapa
- * está en `src/data/rutas.ts`):
- *   /el-os    → Product + Pillars + Lab
- *   /agentes  → Agents + Engine
- *   /control  → Rollout + Permisos + Method
- *   /casos    → Cases + UseCases + Partners
- *   /precios  → Pricing + Faq
+ * está en `src/data/rutas.ts`; abajo va la CLAVE del mapa, no el slug — «casos»
+ * se sirve en `/para-quien`, y en inglés cada una tiene el suyo):
+ *   el-os    → Product + Pillars + Lab
+ *   agentes  → Agents + Flow + Engine
+ *   control  → Rollout + Permisos + Method
+ *   casos    → Cases + UseCases + Partners
+ *   precios  → Pricing + Faq
  *
- * ⚠️ SON 19 DE 20. `Flow.astro` (id `#como`, «cómo funciona» — el diagrama de
- * columnas que lee `content.how`) NO aparece en el reparto de Gonzalo: no está
- * en la portada ni en ninguna de las cinco páginas, así que HOY NO SE PINTA EN
- * NINGÚN SITIO. Tampoco está en `ANCLAS_MUDADAS`, luego `/#como` se queda
- * arriba del todo sin redirigir a ninguna parte.
+ * LA VIGÉSIMA SECCIÓN (`Flow.astro`, id `#como`) VIVE EN /agentes, entre Agents
+ * y Engine. El reparto original cubría 19 de las 20 y ésta se quedó huérfana;
+ * se colocó el 27 ago 2026 y `ANCLAS_MUDADAS` manda `'#como' → agentes`, así
+ * que un enlace ya publicado a `/#como` aterriza en la sección. El porqué de
+ * ese sitio y no otro está en `paginas/agentes.astro`.
  *
- * No se cuela aquí de tapadillo (volvería a alargar la portada, que es lo que
- * se venía a arreglar) ni se borra (el componente y su contenido en `es.ts` /
- * `en.ts` siguen intactos y funcionando: basta importarlo y montarlo). Es una
- * decisión de reparto pendiente, y se deja VISIBLE en vez de resuelta a
- * espaldas de quien repartió. Cuando se decida su sitio —el candidato natural
- * es /el-os, entre Product y Pillars— hay que añadir además `'#como'` al mapa
- * de `ANCLAS_MUDADAS` para que el enlace viejo no muera.
+ * ⚠️ ESTE PÁRRAFO DECÍA QUE `Flow` NO SE PINTABA EN NINGÚN SITIO, Y LLEVABA UN
+ * DÍA SIENDO FALSO — Y SE PAGÓ. Se quedó sin actualizar cuando la sección se
+ * colocó, así que el 28 ago la pasada de diseño lo leyó, se lo creyó y llevó
+ * «/#como muere en lo alto de la portada» a un informe para Gonzalo como una de
+ * las cuatro cosas pendientes. No lo estaba: bastaba mirar `agentes.astro` o
+ * `rutas.ts`, que decían lo contrario. Un comentario equivocado no se lee, se
+ * ejecuta — es la misma lección que costó tres agentes concluyendo que los
+ * workers estaban muertos porque el CLAUDE.md aún apuntaba al Mini.
+ *
+ * De aquí sale una regla para este fichero: la lista de arriba y el reparto de
+ * las cinco páginas son un dato duplicado (vive aquí como prosa y en
+ * `src/pages/` como código). Antes de fiarse de este comentario, compruébalo
+ * contra los imports de `paginas/*.astro`, que son lo que de verdad se pinta.
  *
  * FOTOGRAFÍA DECORATIVA FUERA (27 ago 2026). Aquí iban dos <PhotoBand> a
  * sangre — una entre Partners y Pillars, otra entre Cases y Waitlist. Se

@@ -10,11 +10,13 @@
   justify-content: center;
   padding: 150px 0 0;
   /* `position` matters as much as `overflow` here: without it the absolutely
-     positioned orbs and the canvas resolve against the initial containing
-     block instead of the hero, so `overflow:hidden` never clips them and a
-     640px orb at `right:-120px` gives phones a sideways scroll. `.sec`
-     sections already carry both; the hero and the final CTA are the two
-     that aren't `.sec`. */
+     positioned canvas resolves against the initial containing block instead of
+     the hero, so `overflow:hidden` never clips it. `.sec` sections already
+     carry both; the hero and the final CTA are the two that aren't `.sec`.
+     (Hasta el 28 ago 2026 el caso peor eran los dos orbes difuminados, uno de
+     640 px a `right:-120px`, que sin esto daban scroll lateral en el móvil. Se
+     fueron con la paleta «teal disciplinado» — ver `base.css` —, pero la regla
+     sigue haciendo falta por el canvas de la constelación.) */
   position: relative;
   overflow: hidden;
 }

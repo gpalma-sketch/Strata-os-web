@@ -35,8 +35,7 @@ const capturas = t.product.shots
   .filter((s) => s.img);
 ---
 
-<section class="deep grid-bg sec" id="producto">
-  <div class="orb" style="width:500px; height:500px; top:10%; left:-200px; opacity:.25;"></div>
+<section class="deep sec" id="producto">
   <div class="wrap">
     <div class="reveal">
       <p class="kick">{t.product.kicker}</p>
@@ -65,12 +64,26 @@ const capturas = t.product.shots
           <div class="shots-grid" data-stagger>
             {capturas.map((s) => (
               <figure class="shot">
-                <Image
-                  src={s.img!}
-                  alt={s.alt}
-                  widths={[760, 1100, 1600, 2200]}
-                  sizes="(max-width: 1180px) 92vw, 1100px"
-                />
+                {/* El marco es lo que se desplaza en móvil, donde la imagen se queda a 780 px en
+                    vez de encogerse hasta ser ilegible (el porqué, en `.shot-marco` de
+                    sections.css). En escritorio no hay desborde y por tanto no hace nada. */}
+                <div class="shot-marco">
+                  <Image
+                    src={s.img!}
+                    alt={s.alt}
+                    /* Los anchos ya no llegan a 2200: las capturas se recortaron el 28 ago 2026
+                       —fuera la barra lateral amputada y el canal vacío— y la más ancha se quedó
+                       en 1.995 px. Astro no amplía, así que pedir 2200 sólo generaba un duplicado
+                       del tamaño original con otro nombre. */
+                    widths={[760, 1100, 1600]}
+                    /* El primer tramo es nuevo y va PRIMERO porque gana el que coincide antes: en
+                       móvil la imagen se pinta a 780 px CSS dentro del marco desplazable, no a
+                       92vw. Sin esta línea el navegador elegía el candidato de ~360 px y lo
+                       estiraba a 780 — la captura quedaba borrosa justo donde se acababa de
+                       arreglar que fuese legible. */
+                    sizes="(max-width: 860px) 780px, (max-width: 1180px) 92vw, 1100px"
+                  />
+                </div>
                 <figcaption>
                   <b>{s.title}</b>
                   {s.caption}

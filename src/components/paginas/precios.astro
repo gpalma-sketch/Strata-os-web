@@ -25,12 +25,32 @@
  * alguien escribiera un precio a mano en este fichero, la web y el panel
  * podrían decir cosas distintas del mismo plan.
  *
- * CierrePagina NO ES ADORNO EN ESTA PÁGINA, es el cierre de la venta. Dos de
- * los tres tramos de la tarifa llevan `ctaHref: '#lanzamiento'`, y ese id lo
- * trae `Waitlist`, que vive dentro de CierrePagina: sin él, los botones
- * «Apúntate al lanzamiento» de las dos tarjetas se quedarían sin destino en la
- * misma página donde se pulsan. El tercer tramo («Empresa completa») cruza a
- * `/el-os#lab`, que sí es otra página y por eso sale del mapa de rutas.
+ * ── EL TRABAJO DE ESTA PÁGINA ES UNO: QUE PIDAN EL DIAGNÓSTICO (28 ago 2026) ──
+ * Decisión de Gonzalo, después del informe de diseño. El razonamiento es
+ * incómodo pero corto: **aquí no se puede comprar nada**. Dos de los tres
+ * tramos están marcados «Próximamente» y el tercero se cotiza DESPUÉS de un
+ * diagnóstico. Así que la única conversión real de la página —la única cosa que
+ * un visitante puede terminar hoy— es pedir ese diagnóstico.
+ *
+ * La página no se ha vaciado: la tarifa se queda, porque es lo que la gente
+ * viene a buscar cuando teclea «precio» en Google y porque las cifras son
+ * reales. Lo que cambia es que ahora hay **una sola acción principal**, y es
+ * ésa:
+ *   · El botón sólido de la tarifa (el único `btn-teal` de la página) es el del
+ *     tramo contratable hoy, y lleva a `#contacto`. Antes llevaba a `/el-os#lab`
+ *     — es decir, el único botón pulsable mandaba a otra página a seguir
+ *     leyendo. Y antes de eso el sólido estaba en un tramo que no está a la
+ *     venta. Las tres versiones de esa regla están contadas en `Pricing.astro`,
+ *     con el guard de build que impide la cuarta.
+ *   · Los otros dos siguen ofreciendo la lista de lanzamiento, en botón
+ *     fantasma. Es lo correcto: es lo único que se puede hacer con un plan que
+ *     todavía no existe, y no compite con la acción de verdad.
+ *
+ * CierrePagina NO ES ADORNO EN ESTA PÁGINA, es el cierre de la venta, y ahora
+ * además es el DESTINO de la acción principal: trae `Waitlist` (`#lanzamiento`,
+ * donde aterrizan los dos botones fantasma) y `Contact` (`#contacto`, el
+ * formulario de diagnóstico al que apunta el botón sólido). Sin él los tres
+ * CTA de la tarifa se quedarían sin destino en la misma página donde se pulsan.
  *
  * TONOS (light → dark → deep → deep): la tarifa en claro para que se lea como
  * un documento, el FAQ en oscuro para separarlo, y el cierre en deep. Los dos

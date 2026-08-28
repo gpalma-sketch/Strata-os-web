@@ -29,13 +29,12 @@ const endpoint = site.contactEndpoint;
 ---
 
 {/* Aquí había un fondo fotográfico (bg-evento.jpg). Fuera el 27 ago 2026 por
-    decisión de Gonzalo. Es el cierre de la página y el titular va a 96 px:
-    sobre fondo plano recorta más que sobre una foto, y el orbe centrado
-    (opacity .35, el más marcado de la página) ya da el foco detrás del
-    titular. `.footcta` trae su propio `position: relative`, así que quitar
-    `has-bg` no descoloca ni el orbe ni la rejilla. */}
-<section class="deep grid-bg footcta" id="contacto">
-  <div class="orb" style="width:560px; height:560px; top:-120px; left:50%; transform:translateX(-50%); opacity:.35;"></div>
+    decisión de Gonzalo: es el cierre de la página y el titular va a 96 px, y
+    sobre fondo plano recorta más que sobre una foto. El 28 ago se fue también
+    el orbe centrado que quedaba detrás del titular (el más marcado de la web,
+    opacity .35) — ahora el titular está solo sobre el tono `deep`, que es
+    justamente lo que la paleta «teal disciplinado» venía a conseguir. */}
+<section class="deep footcta" id="contacto">
   <div class="wrap">
     <p class="kick reveal" style="justify-content:center;">{t.contact.kicker}</p>
     <h2 class="display reveal" style="margin:26px auto 0; max-width:1000px;">

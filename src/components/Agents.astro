@@ -26,12 +26,12 @@ const workWidths = ['86%', '72%', '64%', '78%', '58%', '69%', '81%', '61%', '74%
 ---
 
 {/* Aquí había un fondo fotográfico (bg-estudio.jpg). Fuera el 27 ago 2026:
-    la fotografía de feria no convence a Gonzalo. La textura la ponen ahora
-    la rejilla (`grid-bg`) y el orbe, igual que en Producto y Despliegue, que
-    nunca tuvieron foto. Se cae también `has-bg`, que sólo existía para crear
-    el contexto de apilado del `z-index:-1` de la foto. */}
-<section class="deep grid-bg sec" id="agentes">
-  <div class="orb" style="width:520px; height:520px; top:8%; right:-200px; opacity:.22;"></div>
+    la fotografía de feria no convence a Gonzalo. Se cae también `has-bg`, que
+    sólo existía para crear el contexto de apilado del `z-index:-1` de la foto.
+    Y el 28 ago se fueron también la rejilla y el orbe que habían quedado como
+    textura (ver `base.css`): el fondo de esta sección es hoy el tono `deep` a
+    secas, y el contraste lo pone el cambio de tono con la sección de al lado. */}
+<section class="deep sec" id="agentes">
   <div class="wrap">
     <div class="reveal">
       <p class="kick">{t.agents.kicker}</p>

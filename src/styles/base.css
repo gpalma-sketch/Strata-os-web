@@ -187,28 +187,35 @@ video {
   background: var(--light);
   color: var(--text);
 }
-.grid-bg::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background-image: linear-gradient(var(--line-d) 1px, transparent 1px),
-    linear-gradient(90deg, var(--line-d) 1px, transparent 1px);
-  background-size: 84px 84px;
-  -webkit-mask-image: radial-gradient(130% 100% at 70% 0%, #000 25%, transparent 80%);
-  mask-image: radial-gradient(130% 100% at 70% 0%, #000 25%, transparent 80%);
-}
+/* ── TEAL DISCIPLINADO: AQUÍ VIVÍAN LA REJILLA Y LOS ORBES (28 ago 2026) ─────────────────────────
+   Aquí había dos reglas —`.grid-bg::before`, una rejilla de 84 px enmascarada, y `.orb`, un
+   círculo teal con `filter: blur(90px)`— que se repartían por diez secciones y ponían el «clima»
+   de la web: un lavado de cian difuminado en cada fondo oscuro.
 
-/* glow orbs */
-.orb {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(90px);
-  opacity: 0.5;
-  pointer-events: none;
-  background: radial-gradient(circle, rgba(53, 208, 186, 0.55), rgba(14, 155, 142, 0.12) 60%, transparent 75%);
-  will-change: transform;
-}
+   Se van por decisión de Gonzalo el 28 ago 2026, después de ver las cuatro direcciones de paleta
+   sobre la portada real. Eligió la que NO cambia ni un color: los mismos teal, mint y tinta, pero
+   el teal deja de ser ambiente y pasa a ser señal.
+
+   POR QUÉ, con los dos motivos por separado:
+
+   · El orbe era un halo de color SIN DESPLAZAMIENTO. El suelo de calidad de la herramienta lo
+     llama por su nombre: «un halo de color sin desplazamiento es decoración», no profundidad. Y
+     el cian difuminado sobre oscuro es, textualmente, «el rasgo más reconocible de una interfaz
+     generada por IA» — 769 de los 1.219 hallazgos del informe eran esta decisión, contada una vez
+     por elemento.
+   · La rejilla se reserva para lienzos, mapas y planos: superficies donde la retícula MIDE algo.
+     Una web de marketing no es ninguna de las tres, así que la rejilla no informaba de nada y
+     competía con el titular.
+
+   LO QUE SE GANA es lo que se vio en la comparación: el titular tiene más presencia porque ya no
+   compite con un degradado detrás. No se ha tocado la alternancia claro / oscuro / profundo de
+   las secciones (`.dark` / `.deep` / `.light`), que la revisión señaló como una de las cosas
+   auténticas del sitio y que sigue siendo la estructura de navegación por tono.
+
+   ⚠️ SI ALGUIEN QUIERE VOLVER: es un solo commit, y hay que deshacer las dos mitades. No basta
+   restaurar estas reglas — la clase `grid-bg` y los `<div class="orb">` se quitaron también del
+   marcado de las diez secciones. Dejar el CSS sin el marcado (o al revés) no rompe nada, y por
+   eso es fácil que se quede a medias sin que nada avise. */
 
 /* ---------- buttons ---------- */
 .btn {
@@ -234,7 +241,12 @@ video {
   color: var(--ink);
 }
 .btn-primary:hover {
-  box-shadow: 0 0 0 1px var(--mint), 0 0 36px rgba(53, 208, 186, 0.45);
+  /* Antes: `0 0 0 1px var(--mint), 0 0 36px rgba(53,208,186,.45)` — un halo teal de 36 px sin
+     desplazamiento alrededor del botón principal. Es el mismo rasgo que se retiró de los fondos con
+     la paleta «teal disciplinado» (28 ago 2026), y en el botón se notaba más que en ninguna parte
+     porque es el elemento más brillante de la página. La sombra pasa a estar DESPLAZADA, igual que
+     en `.btn-teal:hover`, así que el botón se levanta en vez de encenderse. */
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.45);
   transform: translateY(-2px);
 }
 .btn-ghost {

@@ -33,6 +33,38 @@ const t = content[locale];
  */
 const tarifa = await tarifaPublica();
 const tramos = aplicarTarifa(t.pricing.tiers, tarifa, locale);
+
+/**
+ * UNA SOLA ACCIÓN PRINCIPAL, COMPROBADA EN EL BUILD.
+ *
+ * Abajo, el botón sólido va al tramo que no está marcado `comingSoon` — el único contratable hoy.
+ * Eso da una acción principal SÓLO si hay exactamente un tramo así, y en este fichero eso no se ve:
+ * depende de unas banderas que viven en `es.ts` / `en.ts`, a sesenta líneas de distancia y en otro
+ * fichero. Quitar un `comingSoon: true` el día que se abra la venta es un cambio de una palabra que
+ * deja la página con dos o tres botones sólidos, y por tanto sin acción principal — que es
+ * exactamente el fallo del que se viene.
+ *
+ * Ese fallo ya se cometió DOS VECES el mismo día (28 ago 2026, las dos versiones anteriores de la
+ * regla, contadas junto al botón), y la segunda pasó una revisión entera sin que nada avisara: la
+ * página se veía perfectamente bien, sólo llevaba el botón llamativo a un sitio donde no se puede
+ * comprar. Un fallo así no se ve; hay que medirlo.
+ *
+ * Así que aquí no hay una nota pidiendo que alguien se acuerde: hay un guard. Si la cuenta no da
+ * uno, el build se cae con el motivo escrito. Es la misma decisión que la tarifa unas líneas más
+ * arriba —mejor una web que no se despliega que una web que miente—, y por el mismo motivo: lo que
+ * sólo está escrito en un comentario no es un control.
+ */
+const contratablesHoy = tramos.filter((tier) => !tier.comingSoon);
+if (contratablesHoy.length !== 1) {
+  throw new Error(
+    `Pricing: ${contratablesHoy.length} tramos sin \`comingSoon\`, y tiene que haber exactamente 1.\n` +
+      `  El botón sólido (\`btn-teal\`) se le da al tramo contratable hoy, así que con ${contratablesHoy.length} ` +
+      `esta página se queda con ${contratablesHoy.length === 0 ? 'ninguna' : contratablesHoy.length} acción principal.\n` +
+      `  Tramos: ${tramos.map((x) => `${x.name}${x.comingSoon ? ' (próximamente)' : ' (HOY)'}`).join(' · ')}\n` +
+      `  Si el OS ya está a la venta y esto es intencionado, la regla del botón en Pricing.astro ` +
+      `tiene que volver a mirar \`highlight\` — no basta con relajar este guard.`
+  );
+}
 ---
 
 <section class="light sec" id="precios">
@@ -63,16 +95,38 @@ const tramos = aplicarTarifa(t.pricing.tiers, tarifa, locale);
             <div class="ppr2">{tier.price}{tier.period && <span>{tier.period}</span>}</div>
             <div class="pmeta">{tier.meta}</div>
             <ul>{tier.features.map((f) => <li>{f}</li>)}</ul>
-            {/* EL PESO SALE DE `highlight`, NO DE `comingSoon` (28 ago 2026).
-                Aquí ponía `comingSoon ? ghost : highlight ? teal : ghost`. Y el plan recomendado
-                lleva LAS DOS banderas, así que el ternario cortocircuitaba y la rama `btn-teal`
-                era INALCANZABLE: los tres CTA salían fantasma y esta página —la última antes de
-                decidir— se quedaba sin un solo botón que dijera «haz esto».
-                Que un plan no esté a la venta cambia la ETIQUETA, no la jerarquía. */}
+            {/* EL BOTÓN SÓLIDO VA AL TRAMO QUE SE PUEDE CONTRATAR HOY, y hay exactamente uno.
+                Esta regla ha cambiado dos veces el 28 ago 2026 y las dos por el mismo sitio, así
+                que conviene dejar las tres versiones escritas:
+
+                  1. `comingSoon ? ghost : highlight ? teal : ghost` — ROTA. El plan recomendado
+                     lleva LAS DOS banderas (`highlight` y `comingSoon`), así que el ternario
+                     cortocircuitaba y la rama `btn-teal` era INALCANZABLE: los tres CTA salían
+                     fantasma y esta página se quedaba sin un solo botón que dijera «haz esto».
+                  2. `highlight ? teal : ghost` — arreglaba lo anterior, pero ponía el peso en
+                     «Tres departamentos», que NO ESTÁ A LA VENTA. El botón más llamativo de la
+                     página llevaba a una lista de espera.
+                  3. `!comingSoon ? teal : ghost` — la de ahora.
+
+                POR QUÉ ÉSTA. La página tiene un solo trabajo —conseguir un diagnóstico, la única
+                conversión real mientras el OS no esté a la venta— y por tanto una sola acción
+                principal. `comingSoon` es justamente lo que distingue «esto se puede hacer hoy»
+                de «esto se podrá hacer»: con dos tramos marcados, el sólido cae en el tercero, que
+                es el que pide el diagnóstico.
+
+                Y las dos jerarquías NO son la misma, que es lo que confundía a las versiones
+                anteriores: `highlight` + `badge` dicen qué plan elige más gente (una afirmación de
+                negocio, y sigue destacando la tarjeta con `.ptier.hot`); el botón sólido dice qué
+                se puede pulsar. Que la tarjeta destacada tenga botón fantasma no es incoherencia:
+                es la web diciendo la verdad sobre las dos cosas a la vez.
+
+                ⚠️ INVARIANTE: si algún día ningún tramo lleva `comingSoon` (el OS a la venta),
+                salen TRES botones sólidos y la página vuelve a no tener una acción principal. Ese
+                día la regla tiene que volver a mirar `highlight`. */}
             <a
               href={tier.ctaHref}
               data-plan={tier.name}
-              class={`btn ${tier.highlight ? 'btn-teal' : 'btn-ghost'}`}
+              class={`btn ${tier.comingSoon ? 'btn-ghost' : 'btn-teal'}`}
             >
               {tier.ctaLabel}
             </a>
