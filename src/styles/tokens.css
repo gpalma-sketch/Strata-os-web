@@ -14,8 +14,31 @@
 
   --text: #1b2b3a;
   --text-soft: #566472;
-  --text-mute: #8a97a3;
+  /* #8a97a3 daba 2,77:1 sobre `--light` y 2,98:1 sobre blanco — muy por debajo del 4,5:1 de la AA,
+     y lo llevaban nueve textos, entre ellos el descargo que mantiene honestas las cifras de la
+     portada («*los resultados dependen de…»). Un descargo ilegible no es un descargo.
+     #646e78 da 4,82:1 y 5,19:1. La escala se comprime un poco contra `--text-soft` (5,64:1), pero
+     el escalón sigue viéndose y la alternativa era un gris que no se lee. */
+  --text-mute: #646e78;
 
+  /* ── DOS TEALES, DOS TRABAJOS. NO SON DOS TONOS A ELEGIR (28 ago 2026) ─────────────────────────
+     Hasta hoy había dos tokens haciendo lo mismo, y uno era ilegible: `--teal` se usaba como color
+     de TEXTO en 13 declaraciones y `--teal-deep` en otras 10. Medido en el navegador sobre las seis
+     páginas, los 20 elementos con texto `--teal` caían sobre fondo claro y los 20 fallaban la AA
+     (3,19–3,44:1). Ninguno estaba sobre oscuro, así que no había un caso legítimo: era duplicación,
+     no matiz.
+
+     Desde ahora el reparto es por TRABAJO, no por tono:
+       · `--teal`      → superficies, bordes, filetes y la marca. Un borde necesita 3:1, y lo pasa.
+       · `--teal-deep` → el teal cuando es TEXTO sobre fondo claro. 5,21:1 sobre blanco y 4,84:1
+                         sobre `--light`. Es también el fondo del botón sólido, porque blanco encima
+                         da 5,21:1 mientras que sobre `--teal` daba 3,44:1.
+
+     ⚠️ NO INTERCAMBIABLES, y en la dirección que sorprende: sobre fondo OSCURO `--teal-deep` es
+     PEOR (≈3,6:1 contra el 4,6:1 de `--teal`). Si algún día hace falta teal como texto sobre
+     oscuro, el token bueno es `--mint` (#35d0ba), que da 8,7–9,5:1 sobre los tres tonos oscuros —
+     y es justamente lo que ya hace `.kick` fuera de las secciones claras.
+     El guard que impide que esto vuelva a colarse: `scripts/contraste.mjs`. */
   --teal: #0e9b8e;
   --teal-deep: #0b7a70;
   --mint: #35d0ba;

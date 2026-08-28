@@ -104,7 +104,7 @@ video {
   opacity: 0.6;
 }
 .light .kick {
-  color: var(--teal);
+  color: var(--teal-deep);
 }
 
 .h-hero {
@@ -156,7 +156,7 @@ video {
   color: var(--mint);
 }
 .teal {
-  color: var(--teal);
+  color: var(--teal-deep);
 }
 .gold {
   color: var(--gold);
@@ -259,8 +259,16 @@ video {
   color: var(--mint);
   transform: translateY(-2px);
 }
+/* EL BOTÓN SÓLIDO. Su fondo era `--teal` y su etiqueta blanca: 3,44:1, por debajo del 4,5:1 que
+   exige la AA para texto normal (y estos 14,5 px en negrita no llegan a «texto grande», así que no
+   se le aplica el 3:1). Con `--teal-deep` el blanco sube a 5,21:1 — mismo tono, un paso más oscuro,
+   y sigue leyéndose como botón sobre las secciones claras.
+   Importaba arreglarlo YA porque el 28 ago este botón pasó a ser la ÚNICA acción principal de
+   /precios: la etiqueta del sitio por el que ahora pasa toda la conversión estaba ilegible por
+   norma. El filete del hover se queda en `--teal`, más claro, que ahí hace de borde (3:1 basta) y
+   dibuja el canto. */
 .btn-teal {
-  background: var(--teal);
+  background: var(--teal-deep);
   color: #fff;
 }
 .btn-teal:hover {

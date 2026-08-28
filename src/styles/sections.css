@@ -276,6 +276,14 @@
 .bx.d p {
   color: var(--text-soft);
 }
+/* `.bx.d` es la única de las cuatro con fondo AZUL (#cfe0f5 → #aecaee), y sobre ese azul
+   `--text-soft` se queda en 3,61:1. Las otras tres van sobre blanco o sobre el degradado mint, donde
+   el mismo token pasa de sobra. Aquí el párrafo sube a `--ink`: 10,02:1.
+   Es la excepción que confirma la regla de por qué `--text-soft` NO se toca globalmente — el token
+   está bien, lo que está mal es este fondo concreto, y se arregla en el fondo concreto. */
+.bx.d p {
+  color: var(--ink);
+}
 .bx.b p {
   color: var(--on-dark-soft);
 }
@@ -336,8 +344,15 @@
   width: 30px;
   height: 30px;
   border-radius: 8px;
+  /* `--teal-tint` es teal al 10 %: sobre el blanco de la tarjeta queda #ddeeed, y ahí `--teal-deep`
+     se queda en 4,35:1 — falla la AA por 0,15. Es la avatarcilla de una letra en el feed del panel
+     simulado, y el arreglo barato sería bajar el tinte; pero entonces el chip deja de leerse como
+     chip. Se baja el TEXTO un paso: #0a6f66 da 5,04:1 sobre el mismo fondo.
+     Es el único sitio de la web que necesita un teal más oscuro que `--teal-deep`, así que va como
+     literal y no como token: un token con un solo consumidor es un nombre que hay que mantener sin
+     que nadie lo use. Si aparece un segundo caso, entonces sí toca token. */
   background: var(--teal-tint);
-  color: var(--teal-deep);
+  color: #0a6f66;
   display: grid;
   place-items: center;
   flex: none;
@@ -406,7 +421,13 @@
   flex-wrap: wrap;
 }
 .pmock {
-  background: rgba(255, 255, 255, 0.6);
+  /* Era `rgba(255,255,255,.6)`, y ese 40 % de transparencia dejaba subir el azul de la tarjeta de
+     debajo: el fondo efectivo salía #dfeaf8 y su etiqueta en `--teal-deep` se quedaba en 4,28:1 —
+     fallando la AA por 0,22. A opacidad completa el fondo es blanco y la etiqueta da 5,21:1.
+     Merece la pena la nota: el color del texto era CORRECTO y el fallo lo ponía la transparencia
+     del contenedor. Un contraste no se calcula contra el color declarado del fondo, sino contra el
+     que resulta de apilarlo — y por eso `scripts/contraste.mjs` lo mide en el navegador. */
+  background: var(--paper);
   border: 1px solid rgba(15, 30, 46, 0.12);
   border-radius: 12px;
   padding: 14px 16px;
@@ -517,7 +538,7 @@
 .outcomes-note::before {
   content: '*';
   font-family: var(--font-mono);
-  color: var(--teal);
+  color: var(--teal-deep);
   font-size: 16px;
   line-height: 1.2;
   flex: none;
@@ -767,7 +788,7 @@
   font-family: var(--font-mono);
   font-size: 11.5px;
   letter-spacing: 0.06em;
-  color: rgba(237, 243, 244, 0.5);
+  color: rgba(237, 243, 244, 0.55);
   margin-top: 3px;
 }
 .frow .fok {
@@ -880,12 +901,21 @@
   font-weight: 700;
   font-size: 18px;
 }
+/* EL 0,5 DE ALFA FALLABA POR 0,06, Y ES EL PEOR SITIO DONDE FALLAR (28 ago 2026).
+   `rgba(237,243,244,0.5)` sobre `--ink-soft` da #828e97 → 4,44:1, cuando el mínimo es 4,5. Seis
+   centésimas: a ojo está perfecto, y sin medirlo nadie lo habría cambiado nunca. A 0,55 da 5,04:1,
+   que además deja margen — quedarse en 4,52 sería aprobar por los pelos y volver a fallar el día que
+   alguien retoque el fondo de la tarjeta.
+   Se cambió en las CUATRO declaraciones que usaban ese mismo valor (`.fs`, `.um-s` y dos más), no
+   sólo en las dos que el guard señaló: las otras dos están sobre fondos algo más oscuros y por eso
+   pasaban, pero es el mismo color literal repetido cuatro veces y dejar dos versiones distintas
+   garantiza que la próxima vez se arregle sólo la mitad. */
 .fnode .fs {
   font-family: var(--font-mono);
   font-size: 11.5px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: rgba(237, 243, 244, 0.5);
+  color: rgba(237, 243, 244, 0.55);
   margin-top: 6px;
   line-height: 1.5;
 }
@@ -1032,7 +1062,7 @@
   font-family: var(--font-mono);
   font-size: 11px;
   letter-spacing: 0.08em;
-  color: rgba(237, 243, 244, 0.5);
+  color: rgba(237, 243, 244, 0.55);
 }
 .uc-mock .um-body {
   padding: 20px;
@@ -1076,7 +1106,7 @@
 .uc-mock .um-s {
   font-family: var(--font-mono);
   font-size: 11.5px;
-  color: rgba(237, 243, 244, 0.5);
+  color: rgba(237, 243, 244, 0.55);
   margin-top: 3px;
 }
 .uc-mock .um-ok {
@@ -1183,7 +1213,10 @@
   font-size: 11.5px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  background: var(--teal);
+  /* `--teal-deep` y no `--teal`: blanco sobre `--teal` da 3,44:1 y sobre `--teal-deep` 5,21:1. Es
+     la misma corrección que el botón sólido, y por el mismo motivo — este chip lleva la única
+     afirmación de negocio de la tarifa («el más elegido») en 11,5 px. */
+  background: var(--teal-deep);
   color: var(--paper);
   border-radius: 999px;
   padding: 4px 11px;
@@ -1253,7 +1286,7 @@
   font-size: 11.5px;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--teal);
+  color: var(--teal-deep);
   margin-top: 10px;
 }
 .ptier ul {
@@ -1273,7 +1306,7 @@
 }
 .ptier li::before {
   content: '✓';
-  color: var(--teal);
+  color: var(--teal-deep);
   font-weight: 700;
   flex: none;
 }
@@ -1287,7 +1320,7 @@
 }
 .ptier .btn-ghost:hover {
   border-color: var(--teal);
-  color: var(--teal);
+  color: var(--teal-deep);
 }
 .billing {
   margin-top: 36px;
@@ -1305,8 +1338,22 @@
   align-items: end;
   margin-top: 60px;
 }
+/* ── UNA TARJETA OSCURA DENTRO DE UNA SECCIÓN CLARA DECLARA SU PROPIO TEXTO (28 ago 2026) ────────
+   `.rung` tiene fondo `--ink-soft` (oscuro) y vive en `#metodo`, que es `light`. Sus hijos ya usaban
+   colores de fondo oscuro —`.rl` mint, `.rwho` mint, `.rd` `--on-dark-soft`— TODOS menos uno:
+   `.rnm` no declaraba color, así que heredaba el `--text` (#1b2b3a) de la sección clara y quedaba
+   texto oscuro sobre tarjeta oscura: **1,03:1**.
+   Eso no es «poco contraste»: los cuatro nombres de los niveles del método —«Fundamentos»,
+   «Proyectos & Skills», «Integrar», «Agentes propios»— llevaban INVISIBLES en la página que un
+   socio enseña a prospectos. Se veían como una mancha algo más oscura, y sólo si la buscabas.
+
+   Se arregla en el CONTENEDOR y no en `.rnm`, a propósito: el problema no era el color de ese hijo,
+   era que la tarjeta no declaraba sobre qué se pinta. Con `color` aquí, cualquier hijo futuro que
+   herede acierta; parcheando `.rnm` el siguiente `<div>` que alguien añada vuelve a desaparecer.
+   El guard que lo habría cazado el primer día: `scripts/contraste.mjs`. */
 .rung {
   background: var(--ink-soft);
+  color: var(--on-dark);
   border: 1px solid var(--line-d);
   border-radius: 16px;
   padding: 26px 24px;
@@ -1386,16 +1433,23 @@
   align-items: center;
   gap: 24px;
 }
+/* ── Y EL CASO SIMÉTRICO: UNA TARJETA CLARA CON COLORES DE FONDO OSCURO DENTRO ───────────────────
+   `.capstone` es lo contrario de `.rung`: fondo claro (teal al 5 % sobre `--light`) en la misma
+   sección clara, pero sus dos hijos venían escritos para oscuro.
+     · `h3` forzaba `--on-dark` (#edf3f4) → 1,01:1. El titular del cierre del método —«El destino:
+       tu Business OS»— simplemente NO ESTABA en la página. Se quita la regla en vez de cambiarle el
+       color: sin ella hereda el `--text` de `.light`, que es exactamente lo que debe ser, y una
+       regla menos no puede volver a desincronizarse.
+     · `.cn`, la flecha a 46 px, iba en `--mint` → 1,73:1. Es texto grande (mínimo 3:1) y aun así
+       fallaba: se veía, pero lavada. Con `--teal-deep` sube a ~4,7:1.
+   Las dos mitades del mismo error de fondo: un bloque no sabe sobre qué se pinta hasta que se mide. */
 .capstone .cn {
   font-family: var(--font-display);
   font-weight: 800;
   font-size: 46px;
-  color: var(--mint);
+  color: var(--teal-deep);
   line-height: 1;
   flex: none;
-}
-.capstone h3 {
-  color: var(--on-dark);
 }
 
 /* ---------- pasos (STRATA Lab) ---------- */
@@ -1446,7 +1500,7 @@
   font-size: 12.5px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--teal);
+  color: var(--teal-deep);
   margin-top: 22px;
 }
 .step.c {
@@ -1571,7 +1625,7 @@
   font-size: 12px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--teal);
+  color: var(--teal-deep);
   margin-top: 6px;
 }
 .member .bio {
@@ -1605,7 +1659,7 @@
   display: grid;
   place-items: center;
   background: var(--teal-tint);
-  color: var(--teal);
+  color: var(--teal-deep);
   margin-bottom: 18px;
 }
 .ptype .pic svg {
@@ -1881,7 +1935,7 @@
 .partner-note a {
   font-family: var(--font-mono);
   font-size: 13px;
-  color: var(--teal);
+  color: var(--teal-deep);
   border-bottom: 1px solid currentColor;
   white-space: nowrap;
 }
@@ -2026,7 +2080,7 @@
   font-size: 11px;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--teal);
+  color: var(--teal-deep);
   line-height: 1.5;
 }
 .fc-hint {
@@ -2426,7 +2480,7 @@
   font-size: 11px;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--teal);
+  color: var(--teal-deep);
   margin-top: 7px;
 }
 .edetail {
@@ -2711,7 +2765,7 @@
   justify-content: space-between;
 }
 .perm-ic {
-  color: var(--teal);
+  color: var(--teal-deep);
   display: inline-flex;
 }
 /* El componente Icon devuelve un <svg> SIN tamaño ni trazo: cada consumidor los

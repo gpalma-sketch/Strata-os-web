@@ -248,14 +248,27 @@
 /* ---------- the dashboard itself ----------
    Everything sizes in `cqw` off the device frame, so the whole UI scales as
    one unit with the mockup instead of needing a breakpoint per element. */
+/* ── LA MAQUETA TIENE SU PROPIA PALETA, Y TAMBIÉN TENÍA EL PROBLEMA (28 ago 2026) ────────────────
+   `.osd` es el panel simulado dentro del mockup del hero, y declara sus colores aquí en vez de usar
+   los tokens: es un dibujo de OTRO producto, así que tiene sentido que no herede la paleta de la
+   web. El efecto secundario es que arreglar el contraste en `tokens.css` no lo alcanzaba.
+
+   Y es texto de verdad en el DOM, no una imagen: se lee, se selecciona y cuenta para la AA. Medido
+   en el navegador, nueve elementos de aquí dentro fallaban —`--a` como texto sobre `--bg` a 3,19:1
+   y blanco sobre `--a` a 3,44:1—, o sea las dos direcciones a la vez.
+
+   `--a` pasa de #0e9b8e a #0b7a70 (el mismo valor que `--teal-deep`) y eso arregla LAS DOS de una
+   línea: texto 4,83:1 y blanco encima 5,21:1. `--mu` fallaba por cinco centésimas (4,45:1) — el
+   caso más traicionero, porque a ojo parece bien; a #666f67 da 4,82:1.
+   `--a2` (el mint) no se toca: no se usa como texto sobre claro. */
 .osd {
-  --a: #0e9b8e;
+  --a: #0b7a70;
   --a2: #35d0ba;
   --bg: #f4f7f4;
   --card: #fff;
   --ln: #e4eae4;
   --tx: #0f1e2e;
-  --mu: #6a756c;
+  --mu: #666f67;
   background: var(--bg);
   color: var(--tx);
   font-size: 1.35cqw;

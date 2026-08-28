@@ -1,0 +1,59 @@
+# CI de la web de STRATA.
+#
+# ── POR QUÉ EXISTE, Y POR QUÉ SÓLO COMPRUEBA DOS COSAS ─────────────────────────────────────────
+# Este repo no tenía CI. El 28 ago 2026 la revisión de diseño encontró que el nombre de cada uno de
+# los cuatro niveles del método —«Fundamentos», «Proyectos & Skills», «Integrar», «Agentes
+# propios»— llevaba INVISIBLE en producción: texto oscuro sobre tarjeta oscura, 1,03:1. Y el
+# titular del cierre de esa misma sección, claro sobre claro, tampoco estaba. Cinco textos que no
+# se veían en la página que un socio enseña a prospectos, y nada falló nunca: la web se despliega,
+# el build pasa, Vercel dice verde.
+#
+# La lección es la de siempre en esta casa: una regla escrita no es un control. Así que el arreglo
+# no es un comentario en el CSS — es esto, que se pone rojo.
+#
+# Dos trabajos, y ninguno de gusto:
+#   · `build`  — que compile. Incluye el guard de la tarifa (`Pricing.astro` revienta el build si
+#                no hay exactamente un tramo contratable) y el de la tabla `plans`.
+#   · `contraste` — que el texto se lea. WCAG AA sobre las 12 páginas × 2 anchos, medido en un
+#                navegador de verdad porque el fondo efectivo de un texto no está escrito en
+#                ninguna parte.
+#
+# Lo que NO hace: juzgar diseño. Para eso está `/impeccable`, que es criterio humano asistido, no
+# una puerta automática. Aquí sólo entra lo que tiene un número y una norma detrás.
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build-y-contraste:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - run: npm ci
+
+      # Sólo Chromium: el guard mide colores calculados, y eso no cambia entre motores. Instalar
+      # los tres navegadores triplicaría el minuto de CI sin añadir un solo hallazgo.
+      - run: npx playwright install --with-deps chromium
+
+      # ⚠️ EL BUILD SALE A LA RED. Lee la tarifa de la Edge Function `precios` (STR-224) y, si no
+      # puede leerla, LANZA y el build se cae — decisión deliberada de `src/lib/precios.ts`: mejor
+      # una web que no compila que una web con el precio de hace tres meses.
+      # No hacen falta secretos: ese endpoint es público y sin token, porque una tarifa no es un
+      # secreto, y la URL trae valor por defecto en el código (`PRECIOS_URL` sólo se pasa para
+      # apuntar a otro entorno). Si este paso falla con un error de tarifa, el problema es red o la
+      # función caída, no una credencial que falte — no añadas secretos buscando arreglarlo.
+      - run: npm run build
+
+      - name: Contraste AA
+        run: npm run contraste
